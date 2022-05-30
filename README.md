@@ -8,7 +8,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Integrante 1** - [Martin Alejo Polese](https://github.com/MartinAlejo)
 * **Integrante 2** - [Jorge Sedek](https://github.com/JorgeSedek)
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
+* **Integrante 3** - [Cristian Martin Lin](https://github.com/CrisML)
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
 
 Corrector: **{Corrector}**
