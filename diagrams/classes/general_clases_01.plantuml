@@ -6,8 +6,10 @@ Calle ---> "0..1" Sorpresa
 Calle --> Vehiculo
 Calle -> Obstaculos
 
-Escenario ---> "1..*" Calle
 Escenario -> Vehiculo
+Escenario -> Manzana
+
+Manzana --> "1..*" Calle
 
 Sorpresa --> Favorable
 Sorpresa --> Desfavorable
@@ -16,6 +18,8 @@ Sorpresa --> CambioDeVehiculo
 Vehiculo <|-- Moto
 Vehiculo <|-- Camioneta
 Vehiculo <|-- Coche
+
+interface Obstaculos
 
 Obstaculos <... Pozo
 Obstaculos <... Policia
