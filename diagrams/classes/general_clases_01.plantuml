@@ -1,0 +1,24 @@
+@startuml
+
+GPS -> Escenario
+
+Calle ---> "0..1" Sorpresa
+Calle --> Vehiculo
+Calle -> Obstaculos
+
+Escenario ---> "1..*" Calle
+Escenario -> Vehiculo
+
+Sorpresa --> Favorable
+Sorpresa --> Desfavorable
+Sorpresa --> CambioDeVehiculo
+
+Vehiculo <|-- Moto
+Vehiculo <|-- Camioneta
+Vehiculo <|-- Coche
+
+Obstaculos <... Pozo
+Obstaculos <... Policia
+Obstaculos <... Piquete
+
+@enduml
