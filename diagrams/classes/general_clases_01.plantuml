@@ -21,8 +21,8 @@ Vehiculo <|-- Coche
 
 interface Obstaculos
 
-Obstaculos <... Pozo
-Obstaculos <... Policia
-Obstaculos <... Piquete
+Obstaculos <|... Pozo
+Obstaculos <|... Policia
+Obstaculos <|... Piquete
 
 @enduml
