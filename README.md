@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {8}
 
 * **Integrante 1** - [Martin Alejo Polese](https://github.com/MartinAlejo)
 * **Integrante 2** - [Jorge Sedek](https://github.com/JorgeSedek)
