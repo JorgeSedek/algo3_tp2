@@ -1,0 +1,35 @@
+@startuml
+
+interface Obstaculo
+interface Vehiculo
+GPS -> Ranking
+GPS --> Escenario
+
+Ranking --> "1..*" Puntaje
+
+Calle ---> "0..1" Sorpresa
+Calle -> "0..1" Obstaculo
+
+Escenario -> Jugador
+Escenario --> "1..*" Manzana
+
+Jugador --> Vehiculo
+Jugador -> Puntaje
+
+Manzana --> "1..*" Calle
+
+Sorpresa --> Favorable
+Sorpresa --> Desfavorable
+Sorpresa --> CambioDeVehiculo
+
+Vehiculo ---> Calle
+Vehiculo <|.. Moto
+Vehiculo <|.. Camioneta
+Vehiculo <|.. Coche
+
+Obstaculo <|... Pozo
+Obstaculo <|... Policia
+Obstaculo <|... Piquete
+Obstaculo --> Penalizacion
+
+@enduml
