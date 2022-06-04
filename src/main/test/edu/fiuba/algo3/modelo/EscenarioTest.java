@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import edu.fiuba.algo3.Escenario;
-import edu.fiuba.algo3.EntreCalle;
+import edu.fiuba.algo3.modelo.Escenario;
+import edu.fiuba.algo3.modelo.EntreCalle;
 
 public class EscenarioTest {
 	@Test
@@ -20,9 +19,9 @@ public class EscenarioTest {
 	@Test
 	public void seLlenaEscenarioYhayEntreCallesDentro() {
 		Escenario escenario = new Escenario();
-		assertEquals(escenario.entreCalle("11").getClass().getName(), "edu.fiuba.algo3.EntreCalle");
-		assertEquals(escenario.entreCalle("12").getClass().getName(), "edu.fiuba.algo3.EntreCalle");
-		assertEquals(escenario.entreCalle("21").getClass().getName(), "edu.fiuba.algo3.EntreCalle");
+		assertEquals(escenario.entreCalle("11").getClass().getName(), "edu.fiuba.algo3.modelo.EntreCalle");
+		assertEquals(escenario.entreCalle("12").getClass().getName(), "edu.fiuba.algo3.modelo.EntreCalle");
+		assertEquals(escenario.entreCalle("21").getClass().getName(), "edu.fiuba.algo3.modelo.EntreCalle");
 		
 	}
 }
