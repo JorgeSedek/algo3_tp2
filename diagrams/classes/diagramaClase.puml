@@ -1,0 +1,132 @@
+@startuml diagramaClaseGeneral
+
+GPS *-- Ciudad
+GPS *-- Jugador
+
+class GPS {
+    + iniciarJuego()
+}
+
+Ciudad *-- "*" EntreCalle
+EntreCalle *-- "4" Calle 
+
+class Ciudad {}
+
+class EntreCalle {
+    + sePuedeMover(Vehiculo, Direccion) : Bolean
+    + mover(Vehiculo, Direccion)
+}
+
+class Calle {
+    + sePuedeMover(Vehiculo) : Boolean
+    + mover(Vehiculo)
+}
+
+Calle *-- "0..1" Meta
+Calle *-- "0..1" Obstaculo
+Calle *-- "0..1" Sorpresa
+
+class Meta {}
+
+interface Obstaculo {
+    + pasarObstaculo(Auto, Jugador)
+    + pasarObstaculo(Moto, Jugador)
+    + pasarObstaculo(Camioneta, Jugador)
+}
+
+interface Sorpresa {
+    + recibirSorpresa(Vehiculo, Jugador)
+}
+
+Obstaculo <|.. Pozo
+Obstaculo <|.. Piquete
+Obstaculo <|.. Policia
+
+class Pozo {
+    + pasarObstaculo(Auto, Jugador)
+    + pasarObstaculo(Moto, Jugador)
+    + pasarObstaculo(Camioneta, Jugador)
+}
+
+class Piquete {
+    + pasarObstaculo(Auto, Jugador)
+    + pasarObstaculo(Moto, Jugador)
+    + pasarObstaculo(Camioneta, Jugador)
+}
+
+class Policia {
+    + pasarObstaculo(Auto, Jugador)
+    + pasarObstaculo(Moto, Jugador)
+    + pasarObstaculo(Camioneta, Jugador)
+}
+
+Sorpresa <|.. Favorable
+Sorpresa <|.. Desfavorable
+Sorpresa <|.. CambioVehiculo
+
+class Favorable {
+    + recibirSorpresa(Vehiculo, Jugador)
+}
+class Desfavorable {
+    + recibirSorpresa(Vehiculo, Jugador)
+}
+class CambioVehiculo {
+    + recibirSorpresa(Vehiculo, Jugador)
+    - cambiarVehiculo(Auto, Jugador)
+    - cambiarVehiculo(Moto, Jugador)
+    - cambiarVehiculo(Camioneta, Jugador)
+}
+
+Vehiculo *--left EntreCalle
+
+Vehiculo <|-- Moto
+Vehiculo <|-- Auto
+Vehiculo <|-- Camioneta
+
+abstract class Vehiculo {
+    {abstract} + mover(Direccion)
+    + cambiarUbicacion(EntreCalle)
+}
+
+class Moto {
+    + mover(Direccion)
+}
+
+class Auto {
+    + mover(Direccion)
+}
+
+class Camioneta {
+    + mover(Direccion)
+}
+
+class Jugador {
+    - puntaje : int
+    + tuTurno()
+    + puntaje() : int
+    + aumentarPuntaje() : int
+    + restarPuntaje() : int
+    + elegirNombreYVehiculo()
+}
+
+Jugador *-- Vehiculo
+
+class Direccion {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml
