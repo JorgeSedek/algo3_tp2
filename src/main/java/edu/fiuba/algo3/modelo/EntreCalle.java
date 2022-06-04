@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 public class EntreCalle {
     private Calle superior;
-
     private Calle inferior;
     private Calle izquierda;
     private Calle derecha;
@@ -13,17 +12,35 @@ public class EntreCalle {
         this.izquierda = null;
         this.derecha = null;
     }
-    public void AsignarCalleSuperior (Calle superior) {
+    public void asignarCalleSuperior(Calle superior) {
         this.superior = superior;
     }
-    public void AsignarCalleInferior (Calle inferior) {
+    public void asignarCalleInferior(Calle inferior) {
         this.inferior = inferior;
     }
-    public void AsignarCalleIzquierda (Calle izquierda) {
+    public void asignarCalleIzquierda(Calle izquierda) {
         this.izquierda = izquierda;
     }
-    public void AsignarCalleDerecha (Calle derecha) {
+    public void asignarCalleDerecha(Calle derecha) {
         this.derecha = derecha;
+    }
+    public void asignarCalles(Calle superior, Calle inferior, Calle izquierda, Calle derecha) {
+        this.asignarCalleSuperior(superior);
+        this.asignarCalleInferior(inferior);
+        this.asignarCalleIzquierda(izquierda);
+        this.asignarCalleDerecha(derecha);
+    }
+    public Calle obtenerCalleSuperior () {
+        return this.superior;
+    }
+    public Calle obtenerCalleInferior () {
+        return this.inferior;
+    }
+    public Calle obtenerCalleIzquierda () {
+        return this.izquierda;
+    }
+    public Calle obtenerCalleDerecha () {
+        return this.derecha;
     }
 
 }
