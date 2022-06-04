@@ -1,0 +1,54 @@
+@startuml juegoGeneral
+
+actor ":Usuario"
+":Usuario" -> ":GPS" : iniciarJuego()
+":GPS" -> ":Jugador" : <<create>>
+
+":GPS" -> ":Jugador" : elegirNombreYVehiculo()
+":Jugador" -> ":Usuario" : pedir nombre y vehiculo
+return nombreJugador y vehiculoElegido
+
+":Jugador" -> ":Vehiculo" : <<create>>
+
+":GPS" -> ":Ciudad" : <<create>>
+
+":Ciudad" -> ":EntreCalle" : <<create>>
+
+":EntreCalle" -> ":Calle" : <<create>>
+
+loop hasta llegar a meta
+":GPS" -> ":Jugador" : tuTurno()
+
+":Jugador" -> ":Vehiculo" : mover(Direccion)
+
+":Vehiculo" -> ":EntreCalle" : sePuedeMover(Vehiculo, Direccion)
+":EntreCalle" -> ":Calle" : sePudeMover(Vehiculo)
+":Calle" -->> ":EntreCalle" : True
+":EntreCalle" -->> ":Vehiculo" : True
+
+":Vehiculo" -> ":EntreCalle" : mover(Vehiculo, Direccion)
+":EntreCalle" -> ":Calle" : mover(Vehiculo)
+
+":Calle" -> ":Obstaculo" : pasarObstaculo(Vehiculo, Jugador)
+":Obstaculo" -> ":Jugador" : aumentarPuntaje(unPuntaje)
+
+":Calle" -> ":Sorpresa" : recibirSorpresa(Vehiculo, Jugador)
+":Sorpresa" -> ":Jugador" : restarPuntaje(unPuntaje)
+
+":Calle" -> ":Vehiculo" : cambiarUbicacion(EntreCalle)
+
+end
+
+":GPS" -> ":Jugador" : puntaje()
+":Jugador" -->> ":GPS" : puntaje
+
+":GPS" -->> ":Usuario" : puntajeFinal
+
+
+
+
+
+
+
+
+@enduml
