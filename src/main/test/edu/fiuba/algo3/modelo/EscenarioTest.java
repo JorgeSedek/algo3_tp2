@@ -91,7 +91,7 @@ public class EscenarioTest {
 	}
 	
 	@Test
-	public void seLlenaEscenario6x6YhayEntreCallesDentro() {
+	public void seLlenaEscenario6x6YEstaOcupadoConObjeto() {
 		int unasFilas = 6;
 		int unasColumnas = 6;
 		Escenario escenario = new Escenario(unasFilas, unasColumnas);
