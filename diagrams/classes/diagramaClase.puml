@@ -1,16 +1,33 @@
+
+@startuml
+
+interface Obstaculo
+interface Vehiculo
+GPS -> Ranking
+GPS --> Escenario
+
+Ranking --> "1..*" Puntaje
+
+Calle ---> "0..1" Sorpresa
 @startuml diagramaClaseGeneral
 
-GPS *-- Ciudad
+GPS *-- Escenario
 GPS *-- Jugador
 
 class GPS {
     + iniciarJuego()
 }
+Escenario *-- "*" EntreCalle
+Escenario *-- "*" Direccion
 
-Ciudad *-- "*" EntreCalle
 EntreCalle *-- "4" Calle 
 
-class Ciudad {}
+class Escenario {
+     -llenar()
+     +colocar(EntreCalle unaEntreCalle, String unaClave)
+     +estaOcupado(String clave)
+     +entreCalle(String clave)
+}
 
 class EntreCalle {
     + sePuedeMover(Vehiculo, Direccion) : Bolean
@@ -111,22 +128,18 @@ class Jugador {
 
 Jugador *-- Vehiculo
 
-class Direccion {}
+class Direccion {
+-fila:Int
+-columna:Int
++asString()
++asignarFila(unaFila)
++asignarColumna(unaColumna)
++fila(): Int
++columna(): Int
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 @enduml
+
+
