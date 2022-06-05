@@ -1,10 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
-public class Moto extends Vehiculos {
+public class Moto implements Vehiculo {
     private String modelo;
 
-    public void mover_vehiculo(Direccion direccion){
+    @Override
+    public void moverVehiculo(Direccion direccion) {
 
     }
 
+    @Override
+    public void cambiarDireccionCalle(EntreCalle nueva_direccion) {
+
+    }
 }
