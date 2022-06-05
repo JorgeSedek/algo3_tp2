@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Escenario {
 	private int filas;
 	private int columnas;
-	private HashMap<String, EntreCalle> entreCalles;
+	private final HashMap<String, EntreCalle> entreCalles;
 	
 	public Escenario() {
 		this.asignarFilas(4);

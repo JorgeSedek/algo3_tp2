@@ -1,6 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
-interface Vehiculo {
-    public void moverVehiculo (Direccion direccion);
-    public void cambiarDireccionCalle (EntreCalle nueva_direccion);
+abstract class Vehiculo {
+    private EntreCalle ubicacion;
+    /*
+    Comentado momentaneamente, hasta darle uso
+    void moverVehiculo (Direccion direccion) {
+
+    }
+    */
+    void nuevaUbicacion (EntreCalle nueva_ubicacion) {
+        this.ubicacion = nueva_ubicacion;
+    }
+
+    EntreCalle obtenerUbicacion () {
+        return this.ubicacion;
+    }
 }
