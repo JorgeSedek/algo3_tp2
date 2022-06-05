@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 public class Pozo {
-	public int pasarObstaculo(Auto unAuto) {
-		return 3;
+	public void pasarObstaculo(Auto unAuto, Jugador jugador) {
+		jugador.restarPuntaje(3);
 	}
 	
-	public int pasarObstaculo(Moto unaMoto) {
-		return 3;
+	public void pasarObstaculo(Moto unaMoto, Jugador jugador) {
+		jugador.restarPuntaje(3);
 	}
 	
-	public int pasarObstaculo(CuatroXCuatro unaCamioneta) {
-		return 2;
+	public void pasarObstaculo(CuatroXCuatro unaCamioneta, Jugador jugador) {
+		jugador.restarPuntaje(0);
 	}
 }

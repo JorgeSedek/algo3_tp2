@@ -14,29 +14,32 @@ import edu.fiuba.algo3.modelo.Vehiculo;
 
 public class PozoTest {
 	@Test
-	public void pasarObstaculoConAutoDevuelve3movimientos() {
+	public void pasarObstaculoConAutoJugadorSeLeRestan3movimientos() {
 		Pozo pozo = new Pozo();
 		Auto auto = new Auto();
+		Jugador jugador = new Jugador("pepe", auto);
 		
-		int movimientos = pozo.pasarObstaculo(auto);
-		assertEquals(3,movimientos);
+		pozo.pasarObstaculo(auto, jugador);
+		assertEquals(jugador.puntaje(), -3);
 	}
 	
 	@Test
-	public void pasarObstaculoConMotoDevuelve3movimientos() {
+	public void pasarObstaculoConMotoJugadorSeLeRestan3movimientos() {
 		Pozo pozo = new Pozo();
 		Moto moto = new Moto();
+		Jugador jugador = new Jugador("pepe", moto);
 		
-		int movimientos = pozo.pasarObstaculo(moto);
-		assertEquals(3,movimientos);
+		pozo.pasarObstaculo(moto, jugador);
+		assertEquals(jugador.puntaje(), -3);
 	}
 	
 	@Test
-	public void pasarObstaculoConCuatroXCuatroDevuelve2movimientos() {
+	public void pasarObstaculoConCuatroXCuatroJugadorSeLeRestan0movimientos() {
 		Pozo pozo = new Pozo();
 		CuatroXCuatro camioneta = new CuatroXCuatro();
+		Jugador jugador = new Jugador("pepe", camioneta);
 		
-		int movimientos = pozo.pasarObstaculo(camioneta);
-		assertEquals(2,movimientos);
+	    pozo.pasarObstaculo(camioneta, jugador);
+		assertEquals(jugador.puntaje(), 0);
 	}
 }
