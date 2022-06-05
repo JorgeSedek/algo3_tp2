@@ -1,13 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-public class Moto implements Vehiculos {
+public class Moto extends Vehiculos {
     private String modelo;
 
-    public void mover_vehiculo(int i, int j){
+    public void mover_vehiculo(Direccion direccion){
 
     }
 
-    public static interface Vehiculos {
-        void mover_vehiculo(int i, int j);
-    }
 }
