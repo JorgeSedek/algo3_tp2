@@ -8,14 +8,35 @@ public class Escenario {
 	private HashMap<String, EntreCalle> entreCalles;
 	
 	public Escenario() {
-		this.filas = 4;
-		this.columnas = 4;
+		this.asignarFilas(4);
+		this.asignarColumnas(4);
 		this.entreCalles = new HashMap<>();
 		this.llenar();
 
 	}
 	
+	public Escenario(int unasFilas, int unasColumnas) {
+		this.asignarFilas(unasFilas);
+		this.asignarColumnas(unasColumnas);
+		this.entreCalles = new HashMap<>();
+		this.llenar();
+	}
 	
+	public void asignarFilas(int unasFilas) {
+		this.filas = unasFilas;
+	}
+	
+	public void asignarColumnas(int unasColumnas) {
+		this.columnas = unasColumnas;
+	}
+	
+	public int filas() {
+		return this.filas;
+	}
+	
+	public int columnas() {
+		return this.columnas;
+	}
 	
 	private String claveEntreCalles(int unaFila, int unaColumna) {
 		String claveEntreCalles;
@@ -29,6 +50,10 @@ public class Escenario {
 	
 	public void colocar(EntreCalle unaEntreCalle, String unaClave) {
 		this.entreCalles.put(unaClave, unaEntreCalle);
+	}
+	
+	public boolean estaOcupado(String clave) {
+		return (this.entreCalles.get(clave) != null);
 	}
 	
 	private void llenar() {
