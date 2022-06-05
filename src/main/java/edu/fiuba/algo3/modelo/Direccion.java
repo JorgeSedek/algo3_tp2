@@ -22,13 +22,14 @@ public class Direccion {
 		this.columna = unaColumna;
 	}
 	
-	public int filas() {
+	public int fila() {
 		return this.fila;
 	}
 	
-	public int columnas() {
+	public int columna() {
 		return this.columna;
 	}
+	
 	
 	public String asString() {
 			

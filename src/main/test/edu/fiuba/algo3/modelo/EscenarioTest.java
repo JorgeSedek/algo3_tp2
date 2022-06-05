@@ -11,7 +11,39 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import edu.fiuba.algo3.modelo.Escenario;
 import edu.fiuba.algo3.modelo.EntreCalle;
 
+
 public class EscenarioTest {
+	@Test
+	public void seCreaUnaDireccionYnoEstaVacia() {
+		Direccion direccion = new Direccion();
+		assertTrue(direccion != null);
+		assertFalse(direccion == null);
+	}
+	
+	@Test
+	public void seCreaUnaDireccionConParametrosYnoEstaVacia() {
+		Direccion direccion = new Direccion(4,4);
+		assertTrue(direccion != null);
+		assertFalse(direccion == null);
+	}
+	
+	@Test 
+	public void unaDireccionDevuelveSusFilasYcolumnasComoString() {
+		Direccion direccion = new Direccion(4,4);
+		assertEquals(direccion.asString(),"44");
+		direccion = new Direccion(5,5);
+		assertEquals(direccion.asString(),"55");
+	}
+	
+	@Test
+	public void unaDireccionDevuelveCorrectamenteFilaYColumna() {
+		Direccion direccion = new Direccion(7,7);
+		assertEquals(direccion.fila(),7);
+		assertEquals(direccion.columna(),7);
+		direccion = new Direccion(8,8);
+		assertEquals(direccion.fila(),8);
+		assertEquals(direccion.columna(),8);
+	}
 	
 	@Test
 	public void creoEscenarioYnoEstaVacio() {
