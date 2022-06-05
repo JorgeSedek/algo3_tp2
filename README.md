@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Tomas Nahuel Olivera](https://github.com/Tomas-NO)
 * **Integrante 5** - [Sebastian Vera Benitez](https://github.com/SVeraB)
 
-Corrector: **{Corrector}**
+Corrector: **{Pablo Rodríguez Massuh}**
 
 ## Aplicación
 
