@@ -5,6 +5,10 @@ public class Pozo {
 		return 3;
 	}
 	
+	public int pasarObstaculo(Moto unaMoto) {
+		return 3;
+	}
+	
 	public int pasarObstaculo(CuatroXCuatro unaCamioneta) {
 		return 2;
 	}

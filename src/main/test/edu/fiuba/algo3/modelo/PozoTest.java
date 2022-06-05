@@ -23,6 +23,15 @@ public class PozoTest {
 	}
 	
 	@Test
+	public void pasarObstaculoConMotoDevuelve3movimientos() {
+		Pozo pozo = new Pozo();
+		Moto moto = new Moto();
+		
+		int movimientos = pozo.pasarObstaculo(moto);
+		assertEquals(3,movimientos);
+	}
+	
+	@Test
 	public void pasarObstaculoConCuatroXCuatroDevuelve2movimientos() {
 		Pozo pozo = new Pozo();
 		CuatroXCuatro camioneta = new CuatroXCuatro();
