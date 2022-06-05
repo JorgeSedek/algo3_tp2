@@ -38,12 +38,6 @@ public class Escenario {
 		return this.columnas;
 	}
 	
-	private String claveEntreCalles(int unaFila, int unaColumna) {
-		String claveEntreCalles;
-		claveEntreCalles = String.valueOf(unaFila) + String.valueOf(unaColumna);
-		return claveEntreCalles;
-	}
-	
 	public EntreCalle entreCalle(String clave) {
 		return this.entreCalles.get(clave);
 	}
@@ -60,7 +54,8 @@ public class Escenario {
 		for(int fila = 1; fila <= filas; fila++) {
 			for(int columna = 1; columna <= columnas; columna++) {
 				EntreCalle entreCalle = new EntreCalle();
-				this.colocar(entreCalle, this.claveEntreCalles(fila, columna));
+				Direccion direccion = new Direccion(fila,columna);
+				this.colocar(entreCalle, direccion.asString());
 			}
 		}
 	}
