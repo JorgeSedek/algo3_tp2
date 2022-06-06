@@ -5,6 +5,8 @@ public class Calle {
     private EntreCalle primerEntreCalle;
     private EntreCalle segundaEntreCalle;
 
+    private Obstaculo obstaculo;
+
     public Calle(){
         primerEntreCalle = null;
         segundaEntreCalle = null;
@@ -19,5 +21,4 @@ public class Calle {
         segundaEntreCalle = otraEntreCalle;
    }
 
-   
 }

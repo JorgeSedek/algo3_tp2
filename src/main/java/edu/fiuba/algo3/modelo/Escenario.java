@@ -80,6 +80,7 @@ public class Escenario {
 				EntreCalle entrecalleizq = this.entreCalle(direccionizq.asString());
 
 				Calle calle = entrecalleizq.obtenerCalleDerecha();
+
 				calle.asignarEntreCalles(entrecalleizq, entrecalleder);
 				entrecalleder.asignarCalleIzquierda(calle);
 
@@ -103,6 +104,7 @@ public class Escenario {
 				EntreCalle entrecallesup = this.entreCalle(direccionsup.asString());
 
 				Calle calle = entrecallesup.obtenerCalleInferior();
+
 				calle.asignarEntreCalles(entrecallesup, entrecalleinf);
 				entrecalleinf.asignarCalleSuperior(calle);
 
