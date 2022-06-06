@@ -13,10 +13,19 @@ public class UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoTest {
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
-        Direccion origen = new Direccion(1,1);
-        Direccion destino = new Direccion(2,4);
+        Direccion origen = new Direccion(2,1);
+        Direccion destino = new Direccion(3,4);
 
         juego.iniciarJuego(origen); // Posiciona al vehiculo en origen
+
+        for (int i = 0; i < 3; i++) {
+            juego.moverVehiculo("derecha");
+        }
+        juego.moverVehiculo("abajo");
+        
+        assertEquals(juego.obtenerUbicacionJugador(), "3-4");
+
+
 
 
         /*
