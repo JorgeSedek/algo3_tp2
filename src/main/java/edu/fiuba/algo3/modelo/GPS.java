@@ -4,15 +4,22 @@ public class GPS {
     private Escenario escenario;
     private Jugador jugador;
 
-    public GPS (String nombre, Vehiculo vehiculo) {
-        escenario = new Escenario();
+    public GPS (String nombre, Vehiculo vehiculo, int filas, int columnas) {
+        escenario = new Escenario(filas, columnas);
         jugador = new Jugador(nombre, vehiculo);
     }
-
-    /*
-    Comentado de momento hasta darle uso
-    public void iniciarJuego(Jugador jugador) {
-
+    public void moverVehiculo (String direccion) {
+        this.jugador.moverVehiculo(direccion);
     }
-    */
+
+    public Jugador obtenerJugador () {
+        return this.jugador;
+    }
+    /*
+        De momento no se usa
+     public void iniciarJuego (String direccion) {
+         this.jugador.moverVehiculo(direccion);
+     }
+     */
+
 }

@@ -1,17 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
 abstract class Vehiculo {
-    private EntreCalle ubicacion;
+    private String ubicacion;
 
-    void mover (Direccion direccion) {
-
+    void mover (String direccion) {
+        this.ubicacion = direccion;
     }
 
-    void nuevaUbicacion (EntreCalle nueva_ubicacion) {
+    void nuevaUbicacion (String nueva_ubicacion) {
         this.ubicacion = nueva_ubicacion;
     }
 
-    EntreCalle obtenerUbicacion () {
+    String obtenerUbicacion () {
         return this.ubicacion;
     }
 }

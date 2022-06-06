@@ -12,7 +12,7 @@ public class Jugador {
         this.nombre = nombreJugador;
     }
 
-    public void tuTurno(Direccion direccion){
+    public void tuTurno(String direccion){
         this.vehiculo.mover(direccion);
     }
 
@@ -23,5 +23,9 @@ public class Jugador {
     public void restarPuntaje(int disminuir){this.puntaje -= disminuir;}
 
     public String obtenerNombre(){return this.nombre;}
+
+    public void moverVehiculo(String direccion) {
+        this.vehiculo.nuevaUbicacion(direccion);
+    }
 }
 
