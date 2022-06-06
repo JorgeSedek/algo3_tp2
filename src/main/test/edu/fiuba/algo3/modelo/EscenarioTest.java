@@ -101,15 +101,28 @@ public class EscenarioTest {
 	}
 
 	@Test
-	public void seCompartenCallesEntreLasEntreCalles() {
+	public void seCompartenCallesEntreLasEntreCallesAdyacentesDeUnaMismaFila() {
 		Escenario escenario = new Escenario(15, 11);
 
-		EntreCalle entrecalle1 = escenario.entreCalle("5-3"); // Fila 5, columna 3
-		EntreCalle entrecalle2 = escenario.entreCalle("5-4"); // Fila 5, columna 4
+		EntreCalle entrecalle_izq = escenario.entreCalle("5-3"); // Fila 5, columna 3
+		EntreCalle entrecalle_der = escenario.entreCalle("5-4"); // Fila 5, columna 4
 
-		// La calle de la derecha de la entrecalle 1-1 debería ser la de la izquierda de la 1-2
-		assertEquals(entrecalle1.obtenerCalleDerecha(), entrecalle2.obtenerCalleIzquierda());
+		// La calle de la derecha de la entrecalle 5-3 debería ser la de la izquierda de la 5-4
+		assertEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleIzquierda());
 
-		assertNotEquals(entrecalle1.obtenerCalleDerecha(), entrecalle2.obtenerCalleInferior());
+		assertNotEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleInferior());
+	}
+
+	@Test
+	public void seCompartenCallesEntreLasEntreCallesAdyacentesDeUnaMismaColumna() {
+		Escenario escenario = new Escenario(15, 11);
+
+		EntreCalle entrecalle_sup = escenario.entreCalle("5-2"); // Fila 5, columna 3
+		EntreCalle entrecalle_inf = escenario.entreCalle("6-2"); // Fila 5, columna 4
+
+		// La calle inferior de la entrecalle 5-2 debería ser la superior de la de la 6-2
+		assertEquals(entrecalle_sup.obtenerCalleInferior(), entrecalle_inf.obtenerCalleSuperior());
+
+		assertNotEquals(entrecalle_sup.obtenerCalleDerecha(), entrecalle_inf.obtenerCalleIzquierda());
 	}
 }

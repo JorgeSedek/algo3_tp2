@@ -13,7 +13,7 @@ public class Escenario {
 		this.entreCalles = new HashMap<>();
 		this.llenar();
 		this.actualizarFilas();
-
+		this.actualizarColumnas();
 	}
 	
 	public Escenario(int unasFilas, int unasColumnas) {
@@ -22,6 +22,7 @@ public class Escenario {
 		this.entreCalles = new HashMap<>();
 		this.llenar();
 		this.actualizarFilas();
+		this.actualizarColumnas();
 	}
 	
 	public void asignarFilas(int unasFilas) {
@@ -72,14 +73,36 @@ public class Escenario {
 		 */
 		for(int fila = 1; fila <= filas; fila++) {
 			for (int columna = 2; columna <= columnas; columna++) {
-				Direccion direccionact = new Direccion(fila, columna);
-				Direccion direccionant = new Direccion(fila, columna - 1);
+				Direccion direccionder = new Direccion(fila, columna);
+				Direccion direccionizq = new Direccion(fila, columna - 1);
 
-				EntreCalle entrecalleact = this.entreCalle(direccionact.asString());
-				EntreCalle entrecalleant = this.entreCalle(direccionant.asString());
+				EntreCalle entrecalleder = this.entreCalle(direccionder.asString());
+				EntreCalle entrecalleizq = this.entreCalle(direccionizq.asString());
 
-				Calle calle = entrecalleant.obtenerCalleDerecha();
-				entrecalleact.asignarCalleIzquierda(calle);
+				Calle calle = entrecalleizq.obtenerCalleDerecha();
+				entrecalleder.asignarCalleIzquierda(calle);
+
+
+			}
+		}
+	}
+
+	private void actualizarColumnas () {
+		/*
+		Actualiza las columnas del escenario, de forma tal que se comparten las calles entre las entrecalles
+		correspondientes, dentro de una misma fila (ej: La calle inferior de la
+		entrecalle 1-1, es la calle superior de la entrecalle 2-1)
+		 */
+		for(int fila = 2; fila <= filas; fila++) {
+			for (int columna = 1; columna <= columnas; columna++) {
+				Direccion direccioninf = new Direccion(fila, columna);
+				Direccion direccionsup = new Direccion(fila - 1, columna);
+
+				EntreCalle entrecalleinf = this.entreCalle(direccioninf.asString());
+				EntreCalle entrecallesup = this.entreCalle(direccionsup.asString());
+
+				Calle calle = entrecallesup.obtenerCalleInferior();
+				entrecalleinf.asignarCalleSuperior(calle);
 
 
 			}

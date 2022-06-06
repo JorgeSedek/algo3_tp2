@@ -15,11 +15,9 @@ public class GPS {
     public Jugador obtenerJugador () {
         return this.jugador;
     }
-    /*
-        De momento no se usa
-     public void iniciarJuego (String direccion) {
+
+     public void iniciarJuego (Direccion direccion) {
          this.jugador.moverVehiculo(direccion);
      }
-     */
 
 }
