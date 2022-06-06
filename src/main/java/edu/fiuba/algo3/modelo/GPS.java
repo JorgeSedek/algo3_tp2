@@ -11,24 +11,24 @@ public class GPS {
         jugador = new Jugador(nombre, vehiculo);
     }
     public void moverVehiculo (String movimiento) {
-        if (movimiento == "derecha") {
-            this.ubicacion.incrementarColumna();
-            this.jugador.moverVehiculo(this.ubicacion);
-        }
 
-        if (movimiento == "izquierda") {
-            this.ubicacion.disminuirColumna();
-            this.jugador.moverVehiculo(this.ubicacion);
-        }
-
-        if (movimiento == "abajo") {
-            this.ubicacion.incrementarFila();
-            this.jugador.moverVehiculo(this.ubicacion);
-        }
-
-        if (movimiento == "arriba") {
-            this.ubicacion.disminuirFila();
-            this.jugador.moverVehiculo(this.ubicacion);
+        switch (movimiento){
+            case "derecha":
+                this.ubicacion.incrementarColumna();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
+            case "izquierda":
+                this.ubicacion.disminuirColumna();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
+            case "abajo":
+                this.ubicacion.incrementarFila();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
+            case "arriba":
+                this.ubicacion.disminuirFila();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
         }
 
     }
