@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class EscenarioTest {
-
 	@Test
 	public void seCreaUnaDireccionYnoEstaVacia() {
 		Direccion direccion = new Direccion();
@@ -28,9 +27,9 @@ public class EscenarioTest {
 	@Test 
 	public void unaDireccionDevuelveSusFilasYcolumnasComoString() {
 		Direccion direccion = new Direccion(4,4);
-		assertEquals(direccion.asString(),"44");
+		assertEquals(direccion.asString(),"4-4");
 		direccion = new Direccion(5,5);
-		assertEquals(direccion.asString(),"55");
+		assertEquals(direccion.asString(),"5-5");
 	}
 	
 	@Test
@@ -83,7 +82,7 @@ public class EscenarioTest {
 	public void agregoUnEntreCalleYseGuarda() {
 		Escenario escenario = new Escenario();
 		EntreCalle entreCalle = new EntreCalle();
-		String clave = "11";
+		String clave = "1-1";
 		escenario.colocar(entreCalle, clave);
 		assertEquals(escenario.entreCalle(clave), entreCalle);
 	}
@@ -93,24 +92,24 @@ public class EscenarioTest {
 		int unasFilas = 6;
 		int unasColumnas = 6;
 		Escenario escenario = new Escenario(unasFilas, unasColumnas);
-		assertTrue(escenario.estaOcupado("11"));
-		assertTrue(escenario.estaOcupado("16"));
-		assertTrue(escenario.estaOcupado("66"));
-		assertFalse(escenario.estaOcupado("99"));
-		assertFalse(escenario.estaOcupado("00"));
-		assertFalse(escenario.estaOcupado("77"));
+		assertTrue(escenario.estaOcupado("1-1"));
+		assertTrue(escenario.estaOcupado("1-6"));
+		assertTrue(escenario.estaOcupado("6-6"));
+		assertFalse(escenario.estaOcupado("9-9"));
+		assertFalse(escenario.estaOcupado("0-0"));
+		assertFalse(escenario.estaOcupado("7-7"));
 	}
 
 	@Test
 	public void seCompartenCallesEntreLasEntreCalles() {
 		Escenario escenario = new Escenario(15, 11);
 
-		EntreCalle entrecalle11 = escenario.entreCalle("53"); // Fila 5, columna 3
-		EntreCalle entrecalle12 = escenario.entreCalle("54"); // Fila 5, columna 4
+		EntreCalle entrecalle1 = escenario.entreCalle("5-3"); // Fila 5, columna 3
+		EntreCalle entrecalle2 = escenario.entreCalle("5-4"); // Fila 5, columna 4
 
 		// La calle de la derecha de la entrecalle 1-1 debería ser la de la izquierda de la 1-2
-		assertEquals(entrecalle11.obtenerCalleDerecha(), entrecalle12.obtenerCalleIzquierda());
+		assertEquals(entrecalle1.obtenerCalleDerecha(), entrecalle2.obtenerCalleIzquierda());
 
-		assertNotEquals(entrecalle11.obtenerCalleDerecha(), entrecalle12.obtenerCalleInferior());
+		assertNotEquals(entrecalle1.obtenerCalleDerecha(), entrecalle2.obtenerCalleInferior());
 	}
 }

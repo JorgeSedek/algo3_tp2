@@ -72,11 +72,16 @@ public class Escenario {
 		 */
 		for(int fila = 1; fila <= filas; fila++) {
 			for (int columna = 2; columna <= columnas; columna++) {
-				EntreCalle entrecalleact = this.entreCalle(String.valueOf(fila) + String.valueOf(columna));
-				EntreCalle entrecalleant = this.entreCalle(String.valueOf(fila) + String.valueOf(columna - 1));
-				Calle calle = entrecalleant.obtenerCalleDerecha();
+				Direccion direccionact = new Direccion(fila, columna);
+				Direccion direccionant = new Direccion(fila, columna - 1);
 
+				EntreCalle entrecalleact = this.entreCalle(direccionact.asString());
+				EntreCalle entrecalleant = this.entreCalle(direccionant.asString());
+
+				Calle calle = entrecalleant.obtenerCalleDerecha();
 				entrecalleact.asignarCalleIzquierda(calle);
+
+
 			}
 		}
 	}

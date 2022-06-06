@@ -33,7 +33,7 @@ public class Direccion {
 	
 	public String asString() {
 			
-		return (String.valueOf(this.fila) + String.valueOf(this.columna));
+		return (String.valueOf(this.fila) + "-" + String.valueOf(this.columna));
 			
 		}
 	}
