@@ -140,6 +140,7 @@ public class Entrega1Test {
         assertEquals(juego.obtenerJugador().puntaje(), -5);
     }
 /*
+    Test
     @Test
     public void Una4X4PasaPorPozoMultiplesVeces(){
         String nombre = "Cristian";

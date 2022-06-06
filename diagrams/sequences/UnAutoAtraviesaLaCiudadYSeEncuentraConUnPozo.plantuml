@@ -1,0 +1,38 @@
+@startuml UnAutoAtraviesaLaCiudadYSeEncuentraConUnPozo
+
+actor ":Usuario"
+":Usuario" -> ":GPS" : iniciarJuego(nombre, auto, filas, columnas)
+":GPS" -> ":Jugador" : <<create>>
+":GPS" -> ":Escenario" : <<create>>
+
+":Jugador" -> "auto:Auto" : <<create>>
+
+loop hasta completar el escenario
+":Escenario" -> ":EntreCalle" : <<create>>
+
+":EntreCalle" -> ":Calle" : <<create>>
+end
+
+loop hasta toparse con un pozo
+":Usuario" -> ":GPS" : mover(Direccion)
+":GPS" -> ":Jugador" : moverVehiculo(Direccion)
+
+
+":Jugador" -> "auto:Auto" : mover(Direccion)
+
+
+"auto:Auto" -> ":EntreCalle" : mover(auto, Direccion)
+":EntreCalle" -> ":Calle" : atravesarCalle(auto, Jugador)
+end
+
+":Calle" -> "pozo:Pozo" : pasarObstaculo(auto, Jugador)
+"pozo:Pozo" -> ":Jugador" : restarPuntaje(3)
+
+
+
+":GPS" -> ":Jugador" : puntaje()
+":Jugador" -->> ":GPS" : puntaje
+
+":GPS" -->> ":Usuario" : puntajeFinal
+
+@enduml
