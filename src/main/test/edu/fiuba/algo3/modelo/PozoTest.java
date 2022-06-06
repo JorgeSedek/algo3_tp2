@@ -40,6 +40,6 @@ public class PozoTest {
 		Jugador jugador = new Jugador("pepe", camioneta);
 		
 	    pozo.pasarObstaculo(camioneta, jugador);
-		assertEquals(jugador.puntaje(), -2);
+		assertEquals(jugador.puntaje(), 0);
 	}
 }
