@@ -29,6 +29,7 @@ public class Entrega1Test {
         assertEquals(juego.obtenerJugador().puntaje(), -3);
     }
 
+    /*
     @Test
     public void UnaMotoSeMueveIzquierdaSeEncuentraConUnPozo (){
         Escenario escenario = new Escenario(4,4);
@@ -41,7 +42,7 @@ public class Entrega1Test {
         moto.moverIzquierda(escenario).pasarObstaculo(moto,jugador);
         assertEquals(jugador.puntaje(),-3);
     }
-
+*/
     @Test
     public void UnAutoAtraviesaLaCiudadYSeEncuentraConUnPozo () {
         String nombre = "Martin";

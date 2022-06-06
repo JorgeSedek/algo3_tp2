@@ -6,12 +6,20 @@ public class Calle {
     private EntreCalle segundaEntreCalle;
 
     public Calle(){
-        primerEntreCalle = null;
-        segundaEntreCalle = null;
+        primerEntreCalle = new EntreCalle();
+        segundaEntreCalle = new EntreCalle();
     }
     public Calle(EntreCalle unaEntreCalle, EntreCalle otraEntreCalle){
         primerEntreCalle = unaEntreCalle;
         segundaEntreCalle = otraEntreCalle;
+    }
+
+    public EntreCalle entreCallePrimera(){
+        return this.primerEntreCalle;
+    }
+
+    public EntreCalle entreCalleSegunda(){
+        return this.segundaEntreCalle;
     }
 
     public void asignarEntreCalles(EntreCalle unaEntreCalle, EntreCalle otraEntreCalle){
@@ -23,15 +31,14 @@ public class Calle {
         obstaculo = unObstaculo;
    }
 
-   public EntreCalle EntreCalleEnFrente(EntreCalle unaEntreCalle){
+
+   public EntreCalle otraEntreCalle(EntreCalle unaEntreCalle){
         if (unaEntreCalle == primerEntreCalle){
             return segundaEntreCalle;
         }
-        if (unaEntreCalle == segundaEntreCalle){
-            return primerEntreCalle;
-        }
-        return null;
+      return primerEntreCalle;
    }
+
    public Obstaculo obstaculo(){
         return obstaculo;
    }
