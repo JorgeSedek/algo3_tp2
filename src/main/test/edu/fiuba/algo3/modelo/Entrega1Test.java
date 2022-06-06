@@ -30,6 +30,19 @@ public class Entrega1Test {
     }
 
     @Test
+    public void UnaMotoSeMueveIzquierdaSeEncuentraConUnPozo (){
+        Escenario escenario = new Escenario(4,4);
+        Calle calle = escenario.entreCalle("1-1").obtenerCalleIzquierda();
+        Obstaculo pozo = new Pozo();
+        calle.asignarObstaculo(pozo);
+        Moto moto = new Moto();
+        moto.mover(new Direccion());
+        Jugador jugador = new Jugador("jorge", moto);
+        moto.moverIzquierda(escenario).pasarObstaculo(moto,jugador);
+        assertEquals(jugador.puntaje(),-3);
+    }
+
+    @Test
     public void UnAutoAtraviesaLaCiudadYSeEncuentraConUnPozo () {
         String nombre = "Martin";
         Auto vehiculo = new Auto();

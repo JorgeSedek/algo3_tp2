@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.HashMap;
 
 public class Escenario {
+
 	private int filas;
 	private int columnas;
 	private final HashMap<String, EntreCalle> entreCalles;
@@ -59,6 +60,7 @@ public class Escenario {
 				EntreCalle entreCalle = new EntreCalle();
 				entreCalle.llenarCalles();
 				Direccion direccion = new Direccion(fila,columna);
+				entreCalle.asignaDireccion(direccion);
 				this.colocar(entreCalle, direccion.asString());
 			}
 		}

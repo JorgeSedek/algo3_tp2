@@ -7,6 +7,12 @@ abstract class Vehiculo {
         this.ubicacion = direccion;
     }
 
+   public Obstaculo moverIzquierda(Escenario escenario){
+        Calle calle = escenario.entreCalle(ubicacion.asString()).obtenerCalleIzquierda();
+        Obstaculo obstaculo = calle.obstaculo();
+        ubicacion = (escenario.entreCalle(ubicacion.asString())).direccion();
+        return obstaculo;
+   }
     Direccion obtenerUbicacion () {
         return this.ubicacion;
     }

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 public class EntreCalle {
+    private Direccion direccion;
     private Calle superior;
     private Calle inferior;
     private Calle izquierda;
@@ -39,6 +40,13 @@ public class EntreCalle {
         this.asignarCalleInferior(inferior);
         this.asignarCalleIzquierda(izquierda);
         this.asignarCalleDerecha(derecha);
+    }
+    public void asignaDireccion(Direccion unaDireccion){
+        direccion = unaDireccion;
+    }
+
+    public Direccion direccion(){
+        return direccion;
     }
     public Calle obtenerCalleSuperior () {
         return this.superior;
