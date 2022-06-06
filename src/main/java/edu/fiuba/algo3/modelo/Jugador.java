@@ -12,10 +12,11 @@ public class Jugador {
         this.nombre = nombreJugador;
     }
 
+    /*
     public void tuTurno(Direccion direccion){
         this.vehiculo.mover(direccion);
     }
-
+    */
     public int puntaje(){return this.puntaje;}
 
     public void aumentarPuntaje(int incremento){this.puntaje += incremento;}
