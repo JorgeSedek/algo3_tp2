@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.modelo.Escenario;
 import edu.fiuba.algo3.modelo.EntreCalle;
+import edu.fiuba.algo3.modelo.Calle;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -125,8 +126,9 @@ public class EscenarioTest {
 
 		assertNotEquals(entrecalle_sup.obtenerCalleDerecha(), entrecalle_inf.obtenerCalleIzquierda());
 	}
-    /*
-	@Test void seVerificaQueCiertasCallesTenganEntreCallesAdyacentes(){
+
+	@Test
+	public void seVerificaQueCiertasCallesTenganEntreCallesAdyacentes(){
 		Escenario escenario = new Escenario(15, 15);
 		Calle calle1 = escenario.entreCalle("1-1").obtenerCalleDerecha();
 		Calle calle2 = escenario.entreCalle("1-2").obtenerCalleIzquierda();
@@ -136,6 +138,6 @@ public class EscenarioTest {
 		Calle calle4 = escenario.entreCalle("2-1").obtenerCalleSuperior();
 		assertEquals(calle3, calle4);
 	}
-	*/
+
 
 }
