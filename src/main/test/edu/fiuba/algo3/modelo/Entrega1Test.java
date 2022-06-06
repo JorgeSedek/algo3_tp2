@@ -73,7 +73,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(juego.obtenerJugador().puntaje(), 0);
+        assertEquals(juego.obtenerJugador().puntaje(), -2);
 
     }
 
@@ -99,5 +99,56 @@ public class Entrega1Test {
         assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
         assertEquals(juego.obtenerJugador().puntaje(), -2);
 
+    }
+
+    @Test
+    public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPiqueteYPozo(){
+        String nombre = "Cristian";
+        Moto vehiculo = new Moto();
+        GPS juego = new GPS(nombre, vehiculo, 8, 8);
+        Piquete piquete = new Piquete();
+        Pozo pozo = new Pozo();
+
+        Direccion origen = new Direccion(2,1);
+        Direccion destino = new Direccion(3,4);
+
+        juego.iniciarJuego(origen); // Posiciona al vehiculo en origen
+
+        for (int i = 0; i < 3; i++) {
+            juego.moverVehiculo("derecha");
+        }
+        juego.moverVehiculo("abajo");
+        piquete.pasarObstaculo(vehiculo, juego.obtenerJugador());
+        pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
+
+        // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
+        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertEquals(juego.obtenerJugador().puntaje(), -5);
+    }
+
+    @Test
+    public void Una4X4PasaPorPozoMultiplesVeces(){
+        String nombre = "Cristian";
+        CuatroXCuatro vehiculo = new CuatroXCuatro();
+        GPS juego = new GPS(nombre, vehiculo, 8, 8);
+        Pozo pozo = new Pozo();
+
+        Direccion origen = new Direccion(2,1);
+        Direccion destino = new Direccion(3,4);
+
+        juego.iniciarJuego(origen); // Posiciona al vehiculo en origen
+
+        for (int i = 0; i < 3; i++) {
+            juego.moverVehiculo("derecha");
+        }
+        juego.moverVehiculo("abajo");
+
+        pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
+        pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
+        pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
+
+        // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
+        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertEquals(juego.obtenerJugador().puntaje(), -7);
     }
 }

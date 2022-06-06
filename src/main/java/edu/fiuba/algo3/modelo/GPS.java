@@ -30,27 +30,7 @@ public class GPS {
                 this.jugador.moverVehiculo(this.ubicacion);
             break;
         }
-/*
-        if (movimiento == "derecha") {
-            this.ubicacion.incrementarColumna();
-            this.jugador.moverVehiculo(this.ubicacion);
-        }
 
-        if (movimiento == "izquierda") {
-            this.ubicacion.disminuirColumna();
-            this.jugador.moverVehiculo(this.ubicacion);
-        }
-
-        if (movimiento == "abajo") {
-            this.ubicacion.incrementarFila();
-            this.jugador.moverVehiculo(this.ubicacion);
-        }
-
-        if (movimiento == "arriba") {
-            this.ubicacion.disminuirFila();
-            this.jugador.moverVehiculo(this.ubicacion);
-        }
-*/
     }
 
     public Jugador obtenerJugador () {
