@@ -7,10 +7,6 @@ abstract class Vehiculo {
         this.ubicacion = direccion;
     }
 
-    void nuevaUbicacion (String nueva_ubicacion) {
-        this.ubicacion = nueva_ubicacion;
-    }
-
     String obtenerUbicacion () {
         return this.ubicacion;
     }
