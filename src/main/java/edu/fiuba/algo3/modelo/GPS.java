@@ -8,7 +8,7 @@ public class GPS {
         escenario = new Escenario(filas, columnas);
         jugador = new Jugador(nombre, vehiculo);
     }
-    public void moverVehiculo (String direccion) {
+    public void moverVehiculo (Direccion direccion) {
         this.jugador.moverVehiculo(direccion);
     }
 

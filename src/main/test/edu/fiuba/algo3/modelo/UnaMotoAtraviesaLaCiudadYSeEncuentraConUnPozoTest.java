@@ -13,12 +13,14 @@ public class UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoTest {
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
-        juego.moverVehiculo("11"); /* Inicializamos vehiculo en la posicion 1-1 */
-        // 1-1 es la esquina superior izquierda
+        Direccion origen = new Direccion(1,1);
+        Direccion destino = new Direccion(1,2);
+
+        juego.moverVehiculo(origen); // Inicializamos vehiculo en la posicion 1-1
 
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
-        juego.moverVehiculo("12"); // Me muevo a la entrecalle de la derecha
+        juego.moverVehiculo(destino); // Me muevo a la entrecalle de la derecha (pasando por una calle)
 
         assertEquals(juego.obtenerJugador().puntaje(), -3);
     }

@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VehiculoTest {
 
     /*
+    ESTOS TESTS ESTAN DESACTUALIZADOS RESPECTO A LA IMPLEMENTACION ACTUAL
+
     @Test
     public void seActualizoLaUbicacionDeLaMoto () {
         EntreCalle una_entrecalle = new EntreCalle();
