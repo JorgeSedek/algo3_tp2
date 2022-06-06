@@ -20,6 +20,7 @@ public class Escenario {
 		this.asignarColumnas(unasColumnas);
 		this.entreCalles = new HashMap<>();
 		this.llenar();
+		//this.actualizarFilas();
 	}
 	
 	public void asignarFilas(int unasFilas) {
@@ -49,14 +50,29 @@ public class Escenario {
 	public boolean estaOcupado(String clave) {
 		return (this.entreCalles.get(clave) != null);
 	}
-	
+
 	private void llenar() {
 		for(int fila = 1; fila <= filas; fila++) {
 			for(int columna = 1; columna <= columnas; columna++) {
 				EntreCalle entreCalle = new EntreCalle();
+				entreCalle.llenarCalles();
 				Direccion direccion = new Direccion(fila,columna);
 				this.colocar(entreCalle, direccion.asString());
 			}
 		}
 	}
+
+	/*
+	private void actualizarFilas () {
+		for(int fila = 1; fila <= filas; fila++) {
+			for (int columna = 2; columna <= columnas; columna++) {
+				EntreCalle entrecalleact = this.entreCalle(String.valueOf(fila) + String.valueOf(columna));
+				EntreCalle entrecalleant = this.entreCalle(String.valueOf(fila - 1) + String.valueOf(columna));
+				Calle calle = entrecalleant.obtenerCalleDerecha();
+
+				entrecalleact.asignarCalleIzquierda(calle);
+			}
+		}
+	}
+	*/
 }

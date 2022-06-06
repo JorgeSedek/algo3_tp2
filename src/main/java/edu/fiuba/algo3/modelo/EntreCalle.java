@@ -12,6 +12,16 @@ public class EntreCalle {
         this.izquierda = null;
         this.derecha = null;
     }
+
+    public void llenarCalles(){
+        Calle calleSup =  new Calle();
+        Calle calleInf = new Calle();
+        Calle calleDer = new Calle();
+        Calle calleIzq = new Calle();
+
+        this.asignarCalles(calleSup, calleInf, calleIzq, calleDer);
+    }
+
     public void asignarCalleSuperior(Calle superior) {
         this.superior = superior;
     }

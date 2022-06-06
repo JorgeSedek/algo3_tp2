@@ -101,4 +101,15 @@ public class EscenarioTest {
 		assertFalse(escenario.estaOcupado("00"));
 		assertFalse(escenario.estaOcupado("77"));
 	}
+	/*
+	@Test
+	public void seCompartenCallesEntreLasEntreCalles() {
+		Escenario escenario = new Escenario(8, 11);
+
+		EntreCalle entrecalle11 = escenario.entreCalle("11");
+		EntreCalle entrecalle12 = escenario.entreCalle("12");
+
+		assertEquals(entrecalle11.obtenerCalleDerecha(), entrecalle12.obtenerCalleIzquierda());
+	}
+	*/
 }
