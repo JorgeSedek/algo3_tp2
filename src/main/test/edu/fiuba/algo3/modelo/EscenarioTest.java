@@ -2,16 +2,15 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
 
 import edu.fiuba.algo3.modelo.Escenario;
 import edu.fiuba.algo3.modelo.EntreCalle;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class EscenarioTest {
+
 	@Test
 	public void seCreaUnaDireccionYnoEstaVacia() {
 		Direccion direccion = new Direccion();
@@ -101,15 +100,17 @@ public class EscenarioTest {
 		assertFalse(escenario.estaOcupado("00"));
 		assertFalse(escenario.estaOcupado("77"));
 	}
-	/*
+
 	@Test
 	public void seCompartenCallesEntreLasEntreCalles() {
-		Escenario escenario = new Escenario(8, 11);
+		Escenario escenario = new Escenario(15, 11);
 
-		EntreCalle entrecalle11 = escenario.entreCalle("11");
-		EntreCalle entrecalle12 = escenario.entreCalle("12");
+		EntreCalle entrecalle11 = escenario.entreCalle("53"); // Fila 5, columna 3
+		EntreCalle entrecalle12 = escenario.entreCalle("54"); // Fila 5, columna 4
 
+		// La calle de la derecha de la entrecalle 1-1 debería ser la de la izquierda de la 1-2
 		assertEquals(entrecalle11.obtenerCalleDerecha(), entrecalle12.obtenerCalleIzquierda());
+
+		assertNotEquals(entrecalle11.obtenerCalleDerecha(), entrecalle12.obtenerCalleInferior());
 	}
-	*/
 }

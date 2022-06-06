@@ -12,6 +12,7 @@ public class Escenario {
 		this.asignarColumnas(4);
 		this.entreCalles = new HashMap<>();
 		this.llenar();
+		this.actualizarFilas();
 
 	}
 	
@@ -20,7 +21,7 @@ public class Escenario {
 		this.asignarColumnas(unasColumnas);
 		this.entreCalles = new HashMap<>();
 		this.llenar();
-		//this.actualizarFilas();
+		this.actualizarFilas();
 	}
 	
 	public void asignarFilas(int unasFilas) {
@@ -62,17 +63,22 @@ public class Escenario {
 		}
 	}
 
-	/*
+
 	private void actualizarFilas () {
+		/*
+		Actualiza las filas del escenario, de forma tal que se comparten las calles entre las entrecalles
+		correspondientes, dentro de una misma fila (ej: La calle de la derecha de la
+		entrecalle 1-1, es la calle de la izquierda de la entrecalle 1-2)
+		 */
 		for(int fila = 1; fila <= filas; fila++) {
 			for (int columna = 2; columna <= columnas; columna++) {
 				EntreCalle entrecalleact = this.entreCalle(String.valueOf(fila) + String.valueOf(columna));
-				EntreCalle entrecalleant = this.entreCalle(String.valueOf(fila - 1) + String.valueOf(columna));
+				EntreCalle entrecalleant = this.entreCalle(String.valueOf(fila) + String.valueOf(columna - 1));
 				Calle calle = entrecalleant.obtenerCalleDerecha();
 
 				entrecalleact.asignarCalleIzquierda(calle);
 			}
 		}
 	}
-	*/
+
 }
