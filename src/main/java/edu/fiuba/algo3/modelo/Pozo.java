@@ -10,6 +10,13 @@ public class Pozo implements Obstaculo {
 	}
 
 	public void pasarObstaculo(CuatroXCuatro camioneta, Jugador jugador) {
-		jugador.restarPuntaje(0);
+		int veces_atravezados = camioneta.sumar_veces_pasados_en_pozo();
+
+		if(veces_atravezados < 3) {
+			jugador.restarPuntaje(0);
+		}else {
+			jugador.restarPuntaje(3);
+		}
+
 	}
 }

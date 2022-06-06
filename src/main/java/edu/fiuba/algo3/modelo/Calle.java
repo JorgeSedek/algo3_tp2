@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
 public class Calle {
-
+    private Obstaculo obstaculo;
     private EntreCalle primerEntreCalle;
     private EntreCalle segundaEntreCalle;
-
-    private Obstaculo obstaculo;
 
     public Calle(){
         primerEntreCalle = null;
@@ -19,6 +17,23 @@ public class Calle {
     public void asignarEntreCalles(EntreCalle unaEntreCalle, EntreCalle otraEntreCalle){
         primerEntreCalle = unaEntreCalle;
         segundaEntreCalle = otraEntreCalle;
+   }
+
+   public void asignarObstaculo(Obstaculo unObstaculo){
+        obstaculo = unObstaculo;
+   }
+
+   public EntreCalle EntreCalleEnFrente(EntreCalle unaEntreCalle){
+        if (unaEntreCalle == primerEntreCalle){
+            return segundaEntreCalle;
+        }
+        if (unaEntreCalle == segundaEntreCalle){
+            return primerEntreCalle;
+        }
+        return null;
+   }
+   public Obstaculo obstaculo(){
+        return obstaculo;
    }
 
 }

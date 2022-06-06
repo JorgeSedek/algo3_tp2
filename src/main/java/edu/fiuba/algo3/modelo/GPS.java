@@ -32,6 +32,7 @@ public class GPS {
         }
     }
 
+
     public Jugador obtenerJugador () {
         return this.jugador;
     }
