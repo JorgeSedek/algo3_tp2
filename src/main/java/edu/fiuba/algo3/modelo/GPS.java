@@ -11,6 +11,26 @@ public class GPS {
         jugador = new Jugador(nombre, vehiculo);
     }
     public void moverVehiculo (String movimiento) {
+
+        switch (movimiento){
+            case "derecha":
+                this.ubicacion.incrementarColumna();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
+            case "izquierda":
+                this.ubicacion.disminuirColumna();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
+            case "abajo":
+                this.ubicacion.incrementarFila();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
+            case "arriba":
+                this.ubicacion.disminuirFila();
+                this.jugador.moverVehiculo(this.ubicacion);
+            break;
+        }
+/*
         if (movimiento == "derecha") {
             this.ubicacion.incrementarColumna();
             this.jugador.moverVehiculo(this.ubicacion);
@@ -30,7 +50,7 @@ public class GPS {
             this.ubicacion.disminuirFila();
             this.jugador.moverVehiculo(this.ubicacion);
         }
-
+*/
     }
 
     public Jugador obtenerJugador () {
