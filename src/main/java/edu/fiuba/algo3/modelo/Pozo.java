@@ -13,7 +13,7 @@ public class Pozo implements Obstaculo {
 		int veces_atravezados = camioneta.sumar_veces_pasados_en_pozo();
 
 		if(veces_atravezados < 3) {
-			jugador.restarPuntaje(2);
+			jugador.restarPuntaje(0);
 		}else {
 			jugador.restarPuntaje(3);
 		}
