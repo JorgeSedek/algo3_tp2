@@ -125,7 +125,7 @@ public class EscenarioTest {
 
 		assertNotEquals(entrecalle_sup.obtenerCalleDerecha(), entrecalle_inf.obtenerCalleIzquierda());
 	}
-
+    /*
 	@Test void seVerificaQueCiertasCallesTenganEntreCallesAdyacentes(){
 		Escenario escenario = new Escenario(15, 15);
 		Calle calle1 = escenario.entreCalle("1-1").obtenerCalleDerecha();
@@ -136,4 +136,6 @@ public class EscenarioTest {
 		Calle calle4 = escenario.entreCalle("2-1").obtenerCalleSuperior();
 		assertEquals(calle3, calle4);
 	}
+	*/
+
 }
