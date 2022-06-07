@@ -3,8 +3,12 @@ package edu.fiuba.algo3.modelo;
 abstract class Vehiculo {
     private Direccion ubicacion;
 
-    void mover (Direccion direccion) {
-        this.ubicacion = direccion;
+    public Vehiculo() {
+        this.ubicacion = new Direccion();
+    }
+
+    public Vehiculo(int fila, int columna) {
+        this.ubicacion = new Direccion(fila, columna);
     }
 
    public Obstaculo moverIzquierda(Escenario escenario){
@@ -13,7 +17,24 @@ abstract class Vehiculo {
         ubicacion = (escenario.entreCalle(ubicacion.asString())).direccion();
         return obstaculo;
    }
-    Direccion obtenerUbicacion () {
+    public Direccion obtenerUbicacion () {
         return this.ubicacion;
+    }
+
+    public void mover(String movimiento) {
+        switch (movimiento){
+            case "derecha":
+                this.ubicacion.incrementarColumna();
+                break;
+            case "izquierda":
+                this.ubicacion.disminuirColumna();
+                break;
+            case "abajo":
+                this.ubicacion.incrementarFila();
+                break;
+            case "arriba":
+                this.ubicacion.disminuirFila();
+                break;
+        }
     }
 }

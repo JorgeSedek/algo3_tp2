@@ -25,8 +25,12 @@ public class Jugador {
 
     public String obtenerNombre(){return this.nombre;}
 
-    public void moverVehiculo(Direccion direccion) {
-        this.vehiculo.mover(direccion);
+    public Direccion obtenerUbicacion() {
+        return this.vehiculo.obtenerUbicacion();
+    }
+
+    public void moverVehiculo (String movimiento) {
+        this.vehiculo.mover(movimiento);
     }
 }
 
