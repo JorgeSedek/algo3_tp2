@@ -1,5 +1,6 @@
 @startuml
 class EntreCalle{
+-direccion:Direccion
 +llenarCalles()
 +obtenerCalleSuperior():Calle
 +obtenerCalleInferior():Calle
@@ -21,17 +22,27 @@ interface Obstaculo{
 +pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
 }
 
-class CuatroXCuatro{
--pozos_atravesados:Int
-+sumar_veces_pasados_en_pozo():Int
 
+class CuatroXCuatro{
+-pozosAtravesados:Int
++sumarVecesPasadosEnPozo():Int
++initialize()
 }
 
-Calle "2"--"4" EntreCalle
+class Auto{
++initialize()
+}
+
+class Moto{
++initialize()
+}
+
+Calle "4"--"2" EntreCalle
 Calle --> Obstaculo
-Obstaculo <|-- Auto
-Obstaculo <|-- CuatroXCuatro
-Obstaculo <|-- Moto
+Obstaculo ..> Auto
+Obstaculo ..> CuatroXCuatro
+Obstaculo ..> Moto
+
 
 
 @enduml

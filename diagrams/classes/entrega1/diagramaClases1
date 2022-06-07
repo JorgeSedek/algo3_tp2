@@ -1,0 +1,80 @@
+@startuml
+class EntreCalle{
+
+-superior:Calle
+-inferio:Calle
+-izquierda:Calle
+-derecha:Calle
++llenarCalles()
++obtenerCalleSuperior():Calle
++obtenerCalleInferior():Calle
++obtenerCalleIzquierda():Calle
++obtenerCalleDerecha():Calle
+
+}
+class Escenario{
+-filas:Int
+-columnas:Int
++entreCalle(clave:String):EntreCalle
++colocar(unaEntreCalle:EntreCalle, clave:String)
++estaOcupado(clave:String):boolean
+-llenar()
+-actualizarFilas()
+-actualizarColumnas()
+}
+
+class Gps{
++moverVehiculo(movimiento:String)
++obtenerJugador():Jugador
++obtenerUbicacionJugador():String
+}
+
+abstract Vehiculo{
++obtenerUbicacion():Direccion
++mover(movimiento:String)
+}
+
+class CuatroXCuatro{
+-pozosAtravesados:Int
++sumarVecesPasadosEnPozo():Int
++initialize()
+}
+
+class Direccion{
+-fila:Int
+-columna:Int
++incrementarFila()
++incrementarColumna()
++disminuirFila()
++disminuirColumna()
++asString():String
+}
+
+class Auto{
++initialize()
+}
+
+class Moto{
++initialize()
+}
+
+class Jugador{
+-movimiento:String
+-nombre:String
++movimientos():Int
++incrementarMovimiento(incremento:Int)
++disminuirMovimiento(disminucion:Int)
++obtenerNombre():String
++obtenerUbicacion():Direccion
++moverVehiculo (movimiento:String)
+}
+Gps *--Escenario
+Gps *--Jugador
+Jugador o-- Vehiculo
+Vehiculo <|-- Auto
+Vehiculo <|-- Moto
+Vehiculo <|-- CuatroXCuatro
+Escenario *--"*" EntreCalle
+EntreCalle --> Direccion
+Vehiculo --> Direccion
+@enduml

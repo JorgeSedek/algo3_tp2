@@ -1,0 +1,29 @@
+@startuml
+interface Obstaculo{
++pasarObstaculo(unAuto:Auto, unJugador:Jugador)
++pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
++pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+}
+
+class Pozo{
++pasarObstaculo(unAuto:Auto, unJugador:Jugador)
++pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
++pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+}
+
+class Policia{
++pasarObstaculo(unAuto:Auto, unJugador:Jugador)
++pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
++pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+}
+
+class Piquete{
++pasarObstaculo(unAuto:Auto, unJugador:Jugador)
++pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
++pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+}
+
+Obstaculo <|.. Pozo
+Obstaculo <|.. Policia
+Obstaculo <|.. Piquete
+@enduml
