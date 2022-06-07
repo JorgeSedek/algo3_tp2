@@ -1,38 +1,39 @@
 @startuml UnAutoAtraviesaLaCiudadYSeEncuentraConUnPozo
 
 actor ":Usuario"
-":Usuario" -> ":GPS" : iniciarJuego(nombre, auto, filas, columnas)
-":GPS" -> ":Jugador" : <<create>>
-":GPS" -> ":Escenario" : <<create>>
+create ":GPS"
+":Usuario" --> ":GPS" : GPS(nombre, auto, filas, columnas)
 
-":Jugador" -> "auto:Auto" : <<create>>
+create ":Jugador"
+":GPS" --> ":Jugador" : Jugador(nombre, vehiculo)
+
+create ":Escenario"
+":GPS" --> ":Escenario" : Escenario(filas, columnas)
 
 loop hasta completar el escenario
-":Escenario" -> ":EntreCalle" : <<create>>
+create ":EntreCalle"
+":Escenario" --> ":EntreCalle" : new
 
-":EntreCalle" -> ":Calle" : <<create>>
+create ":Calle"
+":EntreCalle" --> ":Calle" : new
 end
 
 loop hasta toparse con un pozo
 ":Usuario" -> ":GPS" : mover(Direccion)
 ":GPS" -> ":Jugador" : moverVehiculo(Direccion)
 
-
 ":Jugador" -> "auto:Auto" : mover(Direccion)
-
 
 "auto:Auto" -> ":EntreCalle" : mover(auto, Direccion)
 ":EntreCalle" -> ":Calle" : atravesarCalle(auto, Jugador)
 end
 
 ":Calle" -> "pozo:Pozo" : pasarObstaculo(auto, Jugador)
-"pozo:Pozo" -> ":Jugador" : restarPuntaje(3)
-
-
+"pozo:Pozo" -> ":Jugador" : incrementarMovimientos(3)
 
 ":GPS" -> ":Jugador" : puntaje()
 ":Jugador" -->> ":GPS" : puntaje
 
-":GPS" -->> ":Usuario" : puntajeFinal
+":GPS" -->> ":Usuario" : puntaje
 
 @enduml
