@@ -1,0 +1,37 @@
+@startuml
+class EntreCalle{
++llenarCalles()
++obtenerCalleSuperior():Calle
++obtenerCalleInferior():Calle
++obtenerCalleIzquierda():Calle
++obtenerCalleDerecha():Calle
+
+}
+
+class Calle{
++entreCallePrimera():EntreCalle
++entreCalleSegunda():EntreCalle
++otraEntreCalle(unaEntreCalle:EntreCalle):EntreCalle
++obstaculo():Obstaculo
+}
+
+interface Obstaculo{
++pasarObstaculo(unAuto:Auto, unJugador:Jugador)
++pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
++pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+}
+
+class CuatroXCuatro{
+-pozos_atravesados:Int
++sumar_veces_pasados_en_pozo():Int
+
+}
+
+Calle "2"--"4" EntreCalle
+Calle --> Obstaculo
+Obstaculo <|-- Auto
+Obstaculo <|-- CuatroXCuatro
+Obstaculo <|-- Moto
+
+
+@enduml
