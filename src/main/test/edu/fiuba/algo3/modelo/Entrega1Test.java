@@ -10,7 +10,8 @@ public class Entrega1Test {
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozo () {
         String nombre = "Martin";
         Moto vehiculo = new Moto();
-        // el vehiculo esta en la posicion 1,1
+
+        // El vehiculo se inicializa en la posicion 1-1
         GPS gps = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
@@ -24,7 +25,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertEquals(gps.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(gps.obtenerJugador().puntaje(), 3);
+        assertEquals(gps.obtenerJugador().movimientos(), 7);
     }
 
     /*
@@ -45,7 +46,8 @@ public class Entrega1Test {
     public void UnAutoAtraviesaLaCiudadYSeEncuentraConUnPozo () {
         String nombre = "Martin";
         Auto vehiculo = new Auto();
-        // el vehiculo esta en la posicion 1,1
+
+        // El vehiculo se inicializa en la posicion 1-1
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
@@ -59,7 +61,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(juego.obtenerJugador().puntaje(), 3);
+        assertEquals(juego.obtenerJugador().movimientos(), 7);
 
     }
 
@@ -67,7 +69,8 @@ public class Entrega1Test {
     public void Una4x4AtraviesaLaCiudadYSeEncuentraConUnPozo () {
         String nombre = "Martin";
         CuatroXCuatro vehiculo = new CuatroXCuatro();
-        // el vehiculo esta en la posicion 1,1
+
+        // El vehiculo se inicializa en la posicion 1-1
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
@@ -81,7 +84,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(juego.obtenerJugador().puntaje(), 0);
+        assertEquals(juego.obtenerJugador().movimientos(), 4);
 
     }
 
@@ -89,7 +92,8 @@ public class Entrega1Test {
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPiquete() {
         String nombre = "Cristian";
         Moto vehiculo = new Moto();
-        // el vehiculo esta en la posicion 1,1
+
+        // El vehiculo se inicializa en la posicion 1-1
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Piquete piquete = new Piquete();
 
@@ -103,7 +107,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(juego.obtenerJugador().puntaje(), 2);
+        assertEquals(juego.obtenerJugador().movimientos(), 6);
 
     }
 
@@ -111,7 +115,8 @@ public class Entrega1Test {
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPiqueteYPozo(){
         String nombre = "Cristian";
         Moto vehiculo = new Moto();
-        // el vehiculo esta en la posicion 1,1
+        
+        // El vehiculo se inicializa en la posicion 1-1
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Piquete piquete = new Piquete();
         Pozo pozo = new Pozo();
@@ -127,7 +132,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(juego.obtenerJugador().puntaje(), 5);
+        assertEquals(juego.obtenerJugador().movimientos(), 9);
     }
 /*
     Test

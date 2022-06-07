@@ -7,11 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
-import edu.fiuba.algo3.modelo.Pozo;
-import edu.fiuba.algo3.modelo.Vehiculo;
-
-
-
 public class PozoTest {
 	@Test
 	public void pasarObstaculoConAutoJugadorSeLeRestan3movimientos() {
@@ -20,7 +15,7 @@ public class PozoTest {
 		Jugador jugador = new Jugador("pepe", auto);
 		
 		pozo.pasarObstaculo(auto, jugador);
-		assertEquals(jugador.puntaje(), 3);
+		assertEquals(jugador.movimientos(), 3);
 	}
 	
 	@Test
@@ -30,7 +25,7 @@ public class PozoTest {
 		Jugador jugador = new Jugador("pepe", moto);
 		
 		pozo.pasarObstaculo(moto, jugador);
-		assertEquals(jugador.puntaje(), 3);
+		assertEquals(jugador.movimientos(), 3);
 	}
 	
 	@Test
@@ -40,6 +35,6 @@ public class PozoTest {
 		Jugador jugador = new Jugador("pepe", camioneta);
 		
 	    pozo.pasarObstaculo(camioneta, jugador);
-		assertEquals(jugador.puntaje(), 0);
+		assertEquals(jugador.movimientos(), 0);
 	}
 }
