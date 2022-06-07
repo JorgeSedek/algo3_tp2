@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor ":Usuario"
+create ":GPS"
+":Usuario" --> ":GPS" : GPS(nombre, moto, filas, columnas)
+
+create ":Jugador"
+":GPS" --> ":Jugador" : Jugador(nombre, moto)
+
+create ":Escenario"
+":GPS" --> ":Escenario" : Escenario(filas, columnas)
+
+loop hasta completar el escenario
+create ":EntreCalle"
+":Escenario" --> ":EntreCalle" : new
+
+create ":Calle"
+":EntreCalle" --> ":Calle" : new
+end
+
+loop hasta toparse con un piquete
+":Usuario" -> ":GPS" : mover(Direccion)
+":GPS" -> ":Jugador" : moverVehiculo(Direccion)
+
+":Jugador" -> ":Moto" : mover(Direccion)
+
+":Moto" -> ":EntreCalle" : mover(moto, Direccion)
+":EntreCalle" -> ":Calle" : atravesarCalle(moto, Jugador)
+end
+
+":Calle" -> ":Piquete" : pasarObstaculo(moto, Jugador)
+":Piquete" -> ":Jugador" : incrementarMovimientos(2)
+
+loop hasta toparse con un pozo
+":Usuario" -> ":GPS" : mover(Direccion)
+":GPS" -> ":Jugador" : moverVehiculo(Direccion)
+
+":Jugador" -> ":Moto" : mover(Direccion)
+
+":Moto" -> ":EntreCalle" : mover(moto, Direccion)
+":EntreCalle" -> ":Calle" : atravesarCalle(moto, Jugador)
+end
+
+":Calle" -> ":Pozo" : pasarObstaculo(moto, Jugador)
+":Pozo" -> ":Jugador" : incrementarMovimientos(3)
+
+":GPS" -> ":Jugador" : puntaje()
+":Jugador" -->> ":GPS" : puntaje
+
+":GPS" -->> ":Usuario" : puntaje
+
+@enduml
