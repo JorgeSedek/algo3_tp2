@@ -20,7 +20,7 @@ public class PozoTest {
 		Jugador jugador = new Jugador("pepe", auto);
 		
 		pozo.pasarObstaculo(auto, jugador);
-		assertEquals(jugador.puntaje(), -3);
+		assertEquals(jugador.puntaje(), 3);
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ public class PozoTest {
 		Jugador jugador = new Jugador("pepe", moto);
 		
 		pozo.pasarObstaculo(moto, jugador);
-		assertEquals(jugador.puntaje(), -3);
+		assertEquals(jugador.puntaje(), 3);
 	}
 	
 	@Test
