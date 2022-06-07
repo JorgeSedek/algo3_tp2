@@ -2,12 +2,12 @@ package edu.fiuba.algo3.modelo;
 
 public class Jugador {
 
-    private int puntaje;
+    private int movimientos;
     private Vehiculo vehiculo;
     private String nombre;
 
     public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
-        this.puntaje = 0;
+        this.movimientos = 0;
         this.vehiculo = vehiculoElegido;
         this.nombre = nombreJugador;
     }
@@ -17,11 +17,11 @@ public class Jugador {
         this.vehiculo.mover(direccion);
     }
     */
-    public int puntaje(){return this.puntaje;}
+    public int movimientos(){return this.movimientos;}
 
-    public void aumentarPuntaje(int incremento){this.puntaje += incremento;}
+    public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
 
-    public void restarPuntaje(int disminuir){this.puntaje -= disminuir;}
+    public void disminuirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
     public String obtenerNombre(){return this.nombre;}
 
@@ -31,6 +31,7 @@ public class Jugador {
 
     public void moverVehiculo (String movimiento) {
         this.vehiculo.mover(movimiento);
+        this.incrementarMovimientos(1);
     }
 }
 

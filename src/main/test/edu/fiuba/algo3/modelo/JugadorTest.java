@@ -10,22 +10,22 @@ public class JugadorTest {
         String nombre = "Pablo";
         Jugador jugador = new Jugador(nombre,new Auto());
         assertEquals(jugador.obtenerNombre(),nombre);
-        assertEquals(jugador.puntaje(),0);
+        assertEquals(jugador.movimientos(),0);
     }
 
     @Test
     public void seAumentaCorrectamenteElPuntaje(){
         int incremento = 3;
         Jugador jugador = new Jugador("Pablo", new Auto());
-        jugador.aumentarPuntaje(incremento);
-        assertEquals(jugador.puntaje(), incremento);
+        jugador.incrementarMovimientos(incremento);
+        assertEquals(jugador.movimientos(), incremento);
     }
 
     @Test
     public void seReduceCorrectamenteElPuntaje(){
         int reducir = 3;
         Jugador jugador = new Jugador("Pablo", new Auto());
-        jugador.restarPuntaje(reducir);
-        assertEquals(jugador.puntaje(),-3);
+        jugador.disminuirMovimientos(reducir);
+        assertEquals(jugador.movimientos(),-3);
     }
 }
