@@ -51,17 +51,19 @@ public class Entrega1Test {
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
-        Direccion destino = new Direccion(2,4);
+        Direccion destino = new Direccion(1,3);
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo("derecha");
         }
         juego.moverVehiculo("abajo");
+        juego.moverVehiculo("izquierda");
+        juego.moverVehiculo("arriba");
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(juego.obtenerJugador().movimientos(), 7);
+        assertEquals(juego.obtenerJugador().movimientos(), 9);
 
     }
 
@@ -115,7 +117,7 @@ public class Entrega1Test {
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPiqueteYPozo(){
         String nombre = "Cristian";
         Moto vehiculo = new Moto();
-        
+
         // El vehiculo se inicializa en la posicion 1-1
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Piquete piquete = new Piquete();
