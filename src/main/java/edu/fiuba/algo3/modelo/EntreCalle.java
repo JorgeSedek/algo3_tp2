@@ -16,12 +16,8 @@ public class EntreCalle {
 
     public EntreCalle(int fila, int columna) {
         this.direccion = new Direccion(fila, columna);
-        Calle calleSup =  new Calle();
-        Calle calleInf = new Calle();
-        Calle calleDer = new Calle();
-        Calle calleIzq = new Calle();
-
-        this.asignarCalles(calleSup, calleInf, calleIzq, calleDer);    }
+        this.llenarCalles();
+    }
 
     private void llenarCalles(){
         Calle calleSup =  new Calle();
