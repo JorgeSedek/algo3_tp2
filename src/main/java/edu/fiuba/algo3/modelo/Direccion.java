@@ -5,22 +5,14 @@ public class Direccion {
     private int columna;
     
     public Direccion() {
-    	this.asignarFila(1);
-    	this.asignarColumna(1);
+    	this.fila = 1;
+    	this.columna = 1;
     }
     
     public Direccion(int unaFila, int unaColumna) {
-    	this.asignarFila(unaFila);
-    	this.asignarColumna(unaColumna);
+    	this.fila = unaFila;
+    	this.columna = unaColumna;
     }
-    
-	public void asignarFila(int unaFila) {
-		this.fila = unaFila;
-	}
-	
-	public void asignarColumna(int unaColumna) {
-		this.columna = unaColumna;
-	}
 	
 	public int fila() {
 		return this.fila;

@@ -14,7 +14,16 @@ public class EntreCalle {
         this.derecha = null;
     }
 
-    public void llenarCalles(){
+    public EntreCalle(int fila, int columna) {
+        this.direccion = new Direccion(fila, columna);
+        Calle calleSup =  new Calle();
+        Calle calleInf = new Calle();
+        Calle calleDer = new Calle();
+        Calle calleIzq = new Calle();
+
+        this.asignarCalles(calleSup, calleInf, calleIzq, calleDer);    }
+
+    private void llenarCalles(){
         Calle calleSup =  new Calle();
         Calle calleInf = new Calle();
         Calle calleDer = new Calle();
@@ -61,4 +70,7 @@ public class EntreCalle {
         return this.derecha;
     }
 
+    public String obtenerDireccionString() {
+        return this.direccion.asString();
+    }
 }

@@ -7,19 +7,10 @@ public class Escenario {
 	private int filas;
 	private int columnas;
 	private final HashMap<String, EntreCalle> entreCalles;
-	
-	public Escenario() {
-		this.asignarFilas(4);
-		this.asignarColumnas(4);
-		this.entreCalles = new HashMap<>();
-		this.llenar();
-		this.actualizarFilas();
-		this.actualizarColumnas();
-	}
-	
+
 	public Escenario(int unasFilas, int unasColumnas) {
-		this.asignarFilas(unasFilas);
-		this.asignarColumnas(unasColumnas);
+		this.filas = unasFilas;
+		this.columnas = unasColumnas;
 		this.entreCalles = new HashMap<>();
 		this.llenar();
 		this.actualizarFilas();
@@ -41,15 +32,11 @@ public class Escenario {
 	public int columnas() {
 		return this.columnas;
 	}
-	
+
 	public EntreCalle entreCalle(String clave) {
 		return this.entreCalles.get(clave);
 	}
-	
-	public void colocar(EntreCalle unaEntreCalle, String unaClave) {
-		this.entreCalles.put(unaClave, unaEntreCalle);
-	}
-	
+
 	public boolean estaOcupado(String clave) {
 		return (this.entreCalles.get(clave) != null);
 	}
@@ -57,15 +44,11 @@ public class Escenario {
 	private void llenar() {
 		for(int fila = 1; fila <= filas; fila++) {
 			for(int columna = 1; columna <= columnas; columna++) {
-				EntreCalle entreCalle = new EntreCalle();
-				entreCalle.llenarCalles();
-				Direccion direccion = new Direccion(fila,columna);
-				entreCalle.asignaDireccion(direccion);
-				this.colocar(entreCalle, direccion.asString());
+				EntreCalle entreCalle = new EntreCalle(fila, columna);
+				this.entreCalles.put(entreCalle.obtenerDireccionString(), entreCalle);
 			}
 		}
 	}
-
 
 	private void actualizarFilas () {
 		/*
@@ -85,8 +68,6 @@ public class Escenario {
 
 				calle.asignarEntreCalles(entrecalleizq, entrecalleder);
 				entrecalleder.asignarCalleIzquierda(calle);
-
-
 			}
 		}
 	}

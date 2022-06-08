@@ -15,14 +15,12 @@ public class EscenarioTest {
 	public void seCreaUnaDireccionYnoEstaVacia() {
 		Direccion direccion = new Direccion();
 		assertTrue(direccion != null);
-		assertFalse(direccion == null);
 	}
 	
 	@Test
 	public void seCreaUnaDireccionConParametrosYnoEstaVacia() {
 		Direccion direccion = new Direccion(4,4);
 		assertTrue(direccion != null);
-		assertFalse(direccion == null);
 	}
 	
 	@Test 
@@ -44,26 +42,11 @@ public class EscenarioTest {
 	}
 	
 	@Test
-	public void creoEscenarioYnoEstaVacio() {
-		Escenario escenario = new Escenario();
-		assertTrue(escenario != null);
-		assertFalse(escenario == null);
-	}
-	
-	@Test
 	public void creoEscenarioConParametrosYnoEstaVacio() {
 		int unasFilas = 4;
 		int unasColumnas = 4;
 		Escenario escenario = new Escenario(unasFilas, unasColumnas);
-		assertTrue(escenario != null);
-		assertFalse(escenario == null);
-	}
-	
-	@Test
-	public void creoEscenarioYtieneFilasYcolumnas() {
-		Escenario escenario = new Escenario();
-		assertTrue(escenario.filas() > 0);
-		assertTrue(escenario.columnas() > 0);
+		assertNotNull(escenario);
 	}
 	
 	@Test
@@ -81,11 +64,10 @@ public class EscenarioTest {
 	
 	@Test
 	public void agregoUnEntreCalleYseGuarda() {
-		Escenario escenario = new Escenario();
-		EntreCalle entreCalle = new EntreCalle();
+		Escenario escenario = new Escenario(4, 4);
+		EntreCalle entreCalle = new EntreCalle(1, 1);
 		String clave = "1-1";
-		escenario.colocar(entreCalle, clave);
-		assertEquals(escenario.entreCalle(clave), entreCalle);
+		assertEquals(escenario.entreCalle(clave).obtenerDireccionString(), entreCalle.obtenerDireccionString());
 	}
 	
 	@Test
