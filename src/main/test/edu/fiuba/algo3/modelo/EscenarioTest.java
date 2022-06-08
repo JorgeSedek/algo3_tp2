@@ -110,7 +110,6 @@ public class EscenarioTest {
 
 		// La calle de la derecha de la entrecalle 5-3 debería ser la de la izquierda de la 5-4
 		assertEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleIzquierda());
-
 		assertNotEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleInferior());
 	}
 
@@ -125,6 +124,82 @@ public class EscenarioTest {
 		assertEquals(entrecalle_sup.obtenerCalleInferior(), entrecalle_inf.obtenerCalleSuperior());
 
 		assertNotEquals(entrecalle_sup.obtenerCalleDerecha(), entrecalle_inf.obtenerCalleIzquierda());
+	}
+
+	@Test
+	public void seCompartenTodasLasCallesEntreLasEntreCallesAdyacentesDeLaPrimerFila() {
+		Escenario escenario = new Escenario(15, 11);
+		Direccion direccion_izq = new Direccion(1,1);
+		Direccion direccion_der = new Direccion(1,2);
+
+		for (int i = 1; i <= 10; i++) {
+
+			EntreCalle entrecalle_izq = escenario.entreCalle(direccion_izq.asString());
+			EntreCalle entrecalle_der = escenario.entreCalle(direccion_der.asString());
+
+			// La calle de la derecha de la entrecalle1 1-i debería ser la de la izquierda de la 1-(i+1)
+			assertEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleIzquierda());
+
+			direccion_izq.incrementarColumna();
+			direccion_der.incrementarColumna();
+		}
+	}
+
+	@Test
+	public void seCompartenTodasLasCallesEntreLasEntreCallesAdyacentesDeLaUltimaFila() {
+		Escenario escenario = new Escenario(15, 11);
+		Direccion direccion_izq = new Direccion(15,1);
+		Direccion direccion_der = new Direccion(15,2);
+
+		for (int i = 1; i <= 10; i++) {
+
+			EntreCalle entrecalle_izq = escenario.entreCalle(direccion_izq.asString());
+			EntreCalle entrecalle_der = escenario.entreCalle(direccion_der.asString());
+
+			// La calle de la derecha de la entrecalle1 15-i debería ser la de la izquierda de la 15-(i+1)
+			assertEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleIzquierda());
+
+			direccion_izq.incrementarColumna();
+			direccion_der.incrementarColumna();
+		}
+	}
+
+	@Test
+	public void seCompartenTodasLasCallesEntreLasEntreCallesAdyacentesDeLaPrimerColumna() {
+		Escenario escenario = new Escenario(15, 11);
+		Direccion direccion_sup = new Direccion(1,1);
+		Direccion direccion_inf = new Direccion(2,1);
+
+		for (int i = 1; i <= 14; i++) {
+
+			EntreCalle entrecalle_sup = escenario.entreCalle(direccion_sup.asString());
+			EntreCalle entrecalle_inf = escenario.entreCalle(direccion_inf.asString());
+
+			// La calle de superior de la entrecalle1 i-1 debería ser la de la izquierda de la (i+1)-1
+			assertEquals(entrecalle_sup.obtenerCalleInferior(), entrecalle_inf.obtenerCalleSuperior());
+
+			direccion_sup.incrementarFila();
+			direccion_inf.incrementarFila();
+		}
+	}
+
+	@Test
+	public void seCompartenTodasLasCallesEntreLasEntreCallesAdyacentesDeLaUltimaColumna() {
+		Escenario escenario = new Escenario(15, 11);
+		Direccion direccion_sup = new Direccion(1,11);
+		Direccion direccion_inf = new Direccion(2,11);
+
+		for (int i = 1; i <= 14; i++) {
+
+			EntreCalle entrecalle_sup = escenario.entreCalle(direccion_sup.asString());
+			EntreCalle entrecalle_inf = escenario.entreCalle(direccion_inf.asString());
+
+			// La calle de superior de la entrecalle1 i-11 debería ser la de la izquierda de la (i+1)-11
+			assertEquals(entrecalle_sup.obtenerCalleInferior(), entrecalle_inf.obtenerCalleSuperior());
+
+			direccion_sup.incrementarFila();
+			direccion_inf.incrementarFila();
+		}
 	}
 
 	@Test

@@ -94,7 +94,7 @@ public class Escenario {
 	private void actualizarColumnas () {
 		/*
 		Actualiza las columnas del escenario, de forma tal que se comparten las calles entre las entrecalles
-		correspondientes, dentro de una misma fila (ej: La calle inferior de la
+		correspondientes, dentro de una misma columna (ej: La calle inferior de la
 		entrecalle 1-1, es la calle superior de la entrecalle 2-1)
 		 */
 		for(int fila = 2; fila <= filas; fila++) {
