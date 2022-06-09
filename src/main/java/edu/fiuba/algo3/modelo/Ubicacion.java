@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
-public class Direccion {
+public class Ubicacion {
     private int fila;
     private int columna;
     
-    public Direccion() {
+    public Ubicacion() {
     	this.fila = 1;
     	this.columna = 1;
     }
     
-    public Direccion(int unaFila, int unaColumna) {
+    public Ubicacion(int unaFila, int unaColumna) {
     	this.fila = unaFila;
     	this.columna = unaColumna;
     }

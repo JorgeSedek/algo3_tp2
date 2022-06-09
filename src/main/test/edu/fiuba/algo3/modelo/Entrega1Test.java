@@ -15,12 +15,12 @@ public class Entrega1Test {
         GPS gps = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
-        Direccion destino = new Direccion(2,4);
+        Ubicacion destino = new Ubicacion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            gps.moverVehiculoDerecha();
+            gps.moverVehiculo(new Derecha());
         }
-        gps.moverVehiculoAbajo();
+        gps.moverVehiculo(new Abajo());
         pozo.pasarObstaculo(vehiculo, gps.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -51,14 +51,14 @@ public class Entrega1Test {
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
-        Direccion destino = new Direccion(1,3);
+        Ubicacion destino = new Ubicacion(1,3);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculoDerecha();
+            juego.moverVehiculo(new Derecha());
         }
-        juego.moverVehiculoAbajo();
-        juego.moverVehiculoIzquierda();
-        juego.moverVehiculoArriba();
+        juego.moverVehiculo(new Abajo());
+        juego.moverVehiculo(new Izquierda());
+        juego.moverVehiculo(new Arriba());
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -76,12 +76,12 @@ public class Entrega1Test {
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
-        Direccion destino = new Direccion(2,4);
+        Ubicacion destino = new Ubicacion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculoDerecha();
+            juego.moverVehiculo(new Derecha());
         }
-        juego.moverVehiculoAbajo();
+        juego.moverVehiculo(new Abajo());
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -99,12 +99,12 @@ public class Entrega1Test {
         GPS juego = new GPS(nombre, vehiculo, 8, 8);
         Piquete piquete = new Piquete();
 
-        Direccion destino = new Direccion(2,4);
+        Ubicacion destino = new Ubicacion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculoDerecha();
+            juego.moverVehiculo(new Derecha());
         }
-        juego.moverVehiculoAbajo();
+        juego.moverVehiculo(new Abajo());
         piquete.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -123,12 +123,12 @@ public class Entrega1Test {
         Piquete piquete = new Piquete();
         Pozo pozo = new Pozo();
 
-        Direccion destino = new Direccion(2,4);
+        Ubicacion destino = new Ubicacion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculoDerecha();
+            juego.moverVehiculo(new Derecha());
         }
-        juego.moverVehiculoAbajo();
+        juego.moverVehiculo(new Abajo());
         piquete.pasarObstaculo(vehiculo, juego.obtenerJugador());
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
