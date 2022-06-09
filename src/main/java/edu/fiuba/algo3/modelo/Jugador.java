@@ -29,8 +29,23 @@ public class Jugador {
         return this.vehiculo.obtenerUbicacion();
     }
 
-    public void moverVehiculo (String movimiento) {
-        this.vehiculo.mover(movimiento);
+    public void moverVehiculoDerecha () {
+        this.vehiculo.moverDerecha();
+        this.incrementarMovimientos(1);
+    }
+
+    public void moverVehiculoIzquierda () {
+        this.vehiculo.moverIzquierda();
+        this.incrementarMovimientos(1);
+    }
+
+    public void moverVehiculoAbajo () {
+        this.vehiculo.moverAbajo();
+        this.incrementarMovimientos(1);
+    }
+
+    public void moverVehiculoArriba () {
+        this.vehiculo.moverArriba();
         this.incrementarMovimientos(1);
     }
 }

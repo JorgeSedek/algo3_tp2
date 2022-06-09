@@ -18,9 +18,9 @@ public class Entrega1Test {
         Direccion destino = new Direccion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            gps.moverVehiculo("derecha");
+            gps.moverVehiculoDerecha();
         }
-        gps.moverVehiculo("abajo");
+        gps.moverVehiculoAbajo();
         pozo.pasarObstaculo(vehiculo, gps.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -54,11 +54,11 @@ public class Entrega1Test {
         Direccion destino = new Direccion(1,3);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo("derecha");
+            juego.moverVehiculoDerecha();
         }
-        juego.moverVehiculo("abajo");
-        juego.moverVehiculo("izquierda");
-        juego.moverVehiculo("arriba");
+        juego.moverVehiculoAbajo();
+        juego.moverVehiculoIzquierda();
+        juego.moverVehiculoArriba();
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -79,9 +79,9 @@ public class Entrega1Test {
         Direccion destino = new Direccion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo("derecha");
+            juego.moverVehiculoDerecha();
         }
-        juego.moverVehiculo("abajo");
+        juego.moverVehiculoAbajo();
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -102,9 +102,9 @@ public class Entrega1Test {
         Direccion destino = new Direccion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo("derecha");
+            juego.moverVehiculoDerecha();
         }
-        juego.moverVehiculo("abajo");
+        juego.moverVehiculoAbajo();
         piquete.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
@@ -126,9 +126,9 @@ public class Entrega1Test {
         Direccion destino = new Direccion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo("derecha");
+            juego.moverVehiculoDerecha();
         }
-        juego.moverVehiculo("abajo");
+        juego.moverVehiculoAbajo();
         piquete.pasarObstaculo(vehiculo, juego.obtenerJugador());
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 

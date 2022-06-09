@@ -29,20 +29,19 @@ abstract class Vehiculo {
         return this.ubicacion;
     }
 
-    public void mover(String movimiento) {
-        switch (movimiento){
-            case "derecha":
-                this.ubicacion.incrementarColumna();
-                break;
-            case "izquierda":
-                this.ubicacion.disminuirColumna();
-                break;
-            case "abajo":
-                this.ubicacion.incrementarFila();
-                break;
-            case "arriba":
-                this.ubicacion.disminuirFila();
-                break;
-        }
+    public void moverDerecha() {
+        this.ubicacion.incrementarColumna();
+    }
+
+    public void moverIzquierda() {
+        this.ubicacion.disminuirColumna();
+    }
+
+    public void moverAbajo() {
+        this.ubicacion.incrementarFila();
+    }
+
+    public void moverArriba() {
+        this.ubicacion.disminuirFila();
     }
 }

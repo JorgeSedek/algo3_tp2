@@ -9,8 +9,19 @@ public class GPS {
         jugador = new Jugador(nombre, vehiculo);
     }
 
-    public void moverVehiculo (String movimiento) {
-        this.jugador.moverVehiculo(movimiento);
+    public void moverVehiculoDerecha () {
+        this.jugador.moverVehiculoDerecha();
+    }
+    public void moverVehiculoIzquierda () {
+        this.jugador.moverVehiculoIzquierda();
+    }
+
+    public void moverVehiculoAbajo () {
+        this.jugador.moverVehiculoAbajo();
+    }
+
+    public void moverVehiculoArriba () {
+        this.jugador.moverVehiculoArriba();
     }
 
     public Jugador obtenerJugador () {
