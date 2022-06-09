@@ -13,6 +13,10 @@ public class Ubicacion {
     	this.fila = unaFila;
     	this.columna = unaColumna;
     }
+
+	public boolean equals(Ubicacion ubicacion){
+		return (ubicacion.fila == this.fila & ubicacion.columna == this.columna);
+	}
 	
 	public int fila() {
 		return this.fila;

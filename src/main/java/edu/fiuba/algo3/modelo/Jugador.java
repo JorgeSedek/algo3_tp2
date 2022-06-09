@@ -35,10 +35,6 @@ public class Jugador {
 
     }
 
-    public void moverVehiculoDerecha () {
-        this.vehiculo.moverDerecha();
-        this.incrementarMovimientos(1);
-    }
 
 }
 
