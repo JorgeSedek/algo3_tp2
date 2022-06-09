@@ -5,6 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VehiculoTest {
     @Test
+    public void UbicacionSeComparaCorrectamenteConOtraUbicacion(){
+        Ubicacion ubicacion = new Ubicacion(2,3);
+        assertTrue(ubicacion.equals(new Ubicacion(2,3)));
+        assertFalse(ubicacion.equals(new Ubicacion(4,3)));
+        assertFalse(ubicacion.equals(new Ubicacion(2,5)));
+    }
+    @Test
     public void AutoseMueveEnDistintasDireccionesYdevuelveLaUbicacionCorrecta(){
         Vehiculo vehiculo = new Auto();
         vehiculo.mover(new Derecha());
