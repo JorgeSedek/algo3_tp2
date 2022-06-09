@@ -46,9 +46,13 @@ public class EntreCalle {
         this.asignarCalleIzquierda(izquierda);
         this.asignarCalleDerecha(derecha);
     }
+
+    /*
+
     public void asignaDireccion(Direccion unaDireccion){
         direccion = unaDireccion;
     }
+    */
 
     public Direccion direccion(){
         return direccion;
