@@ -25,28 +25,16 @@ public class Jugador {
 
     public String obtenerNombre(){return this.nombre;}
 
-    public Direccion obtenerUbicacion() {
+    public Ubicacion obtenerUbicacion() {
         return this.vehiculo.obtenerUbicacion();
     }
 
-    public void moverVehiculoDerecha () {
-        this.vehiculo.moverDerecha();
+    public void moverVehiculo(Direccion direccion){
+        this.vehiculo.mover(direccion);
         this.incrementarMovimientos(1);
+
     }
 
-    public void moverVehiculoIzquierda () {
-        this.vehiculo.moverIzquierda();
-        this.incrementarMovimientos(1);
-    }
 
-    public void moverVehiculoAbajo () {
-        this.vehiculo.moverAbajo();
-        this.incrementarMovimientos(1);
-    }
-
-    public void moverVehiculoArriba () {
-        this.vehiculo.moverArriba();
-        this.incrementarMovimientos(1);
-    }
 }
 

@@ -4,41 +4,76 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class VehiculoTest {
-
-    /*
-    ESTOS TESTS ESTAN DESACTUALIZADOS RESPECTO A LA IMPLEMENTACION ACTUAL
-
     @Test
-    public void seActualizoLaUbicacionDeLaMoto () {
-        EntreCalle una_entrecalle = new EntreCalle();
-        EntreCalle otra_entreCalle = new EntreCalle();
-        Moto moto = new Moto();
+    public void UbicacionSeComparaCorrectamenteConOtraUbicacion(){
+        Ubicacion ubicacion = new Ubicacion(2,3);
+        assertTrue(ubicacion.equals(new Ubicacion(2,3)));
+        assertFalse(ubicacion.equals(new Ubicacion(4,3)));
+        assertFalse(ubicacion.equals(new Ubicacion(2,5)));
+    }
+    @Test
+    public void AutoseMueveEnDistintasDireccionesYdevuelveLaUbicacionCorrecta(){
+        Vehiculo vehiculo = new Auto();
+        vehiculo.mover(new Derecha());
+        Ubicacion ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,2)));
 
-        moto.nuevaUbicacion(una_entrecalle);
-        assertEquals(moto.obtenerUbicacion(), una_entrecalle);
-        assertNotEquals(moto.obtenerUbicacion(), otra_entreCalle);
+        vehiculo.mover(new Izquierda());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+
+        vehiculo.mover(new Abajo());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(2,1)));
+
+        vehiculo.mover(new Arriba());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+
     }
 
     @Test
-    public void seActualizoLaUbicacionDelAuto () {
-        EntreCalle una_entrecalle = new EntreCalle();
-        EntreCalle otra_entreCalle = new EntreCalle();
-        Auto auto = new Auto();
+    public void MotoseMueveEnDistintasDireccionesYdevuelveLaUbicacionCorrecta(){
+        Vehiculo vehiculo = new Moto();
+        vehiculo.mover(new Derecha());
+        Ubicacion ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,2)));
 
-        auto.nuevaUbicacion(una_entrecalle);
-        assertEquals(auto.obtenerUbicacion(), una_entrecalle);
-        assertNotEquals(auto.obtenerUbicacion(), otra_entreCalle);
+        vehiculo.mover(new Izquierda());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+
+        vehiculo.mover(new Abajo());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(2,1)));
+
+        vehiculo.mover(new Arriba());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+
     }
 
     @Test
-    public void seActualizoLaUbicacionDeLaCuatroXCuatro () {
-        EntreCalle una_entrecalle = new EntreCalle();
-        EntreCalle otra_entreCalle = new EntreCalle();
-        CuatroXCuatro cuatroxcuatro = new CuatroXCuatro();
+    public void CamionetaseMueveEnDistintasDireccionesYdevuelveLaUbicacionCorrecta(){
+        Vehiculo vehiculo = new CuatroXCuatro();
+        vehiculo.mover(new Derecha());
+        Ubicacion ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,2)));
 
-        cuatroxcuatro.nuevaUbicacion(una_entrecalle);
-        assertEquals(cuatroxcuatro.obtenerUbicacion(), una_entrecalle);
-        assertNotEquals(cuatroxcuatro.obtenerUbicacion(), otra_entreCalle);
+        vehiculo.mover(new Izquierda());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+
+        vehiculo.mover(new Abajo());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(2,1)));
+
+        vehiculo.mover(new Arriba());
+        ubicacion = vehiculo.obtenerUbicacion();
+        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+
     }
-    */
+
+
+
 }

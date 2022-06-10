@@ -1,6 +1,6 @@
 @startuml
 class EntreCalle{
--direccion:Direccion
+-ubicacion:Direccion
 +llenarCalles()
 +obtenerCalleSuperior():Calle
 +obtenerCalleInferior():Calle

@@ -58,8 +58,8 @@ public class Escenario {
 		 */
 		for(int fila = 1; fila <= filas; fila++) {
 			for (int columna = 2; columna <= columnas; columna++) {
-				Direccion direccionder = new Direccion(fila, columna);
-				Direccion direccionizq = new Direccion(fila, columna - 1);
+				Ubicacion direccionder = new Ubicacion(fila, columna);
+				Ubicacion direccionizq = new Ubicacion(fila, columna - 1);
 
 				EntreCalle entrecalleder = this.entreCalle(direccionder.asString());
 				EntreCalle entrecalleizq = this.entreCalle(direccionizq.asString());
@@ -80,8 +80,8 @@ public class Escenario {
 		 */
 		for(int fila = 2; fila <= filas; fila++) {
 			for (int columna = 1; columna <= columnas; columna++) {
-				Direccion direccioninf = new Direccion(fila, columna);
-				Direccion direccionsup = new Direccion(fila - 1, columna);
+				Ubicacion direccioninf = new Ubicacion(fila, columna);
+				Ubicacion direccionsup = new Ubicacion(fila - 1, columna);
 
 				EntreCalle entrecalleinf = this.entreCalle(direccioninf.asString());
 				EntreCalle entrecallesup = this.entreCalle(direccionsup.asString());

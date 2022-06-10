@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 public class EntreCalle {
-    private Direccion direccion;
+    private Ubicacion ubicacion;
     private Calle superior;
     private Calle inferior;
     private Calle izquierda;
@@ -15,7 +15,7 @@ public class EntreCalle {
     }
 
     public EntreCalle(int fila, int columna) {
-        this.direccion = new Direccion(fila, columna);
+        this.ubicacion = new Ubicacion(fila, columna);
         this.llenarCalles();
     }
 
@@ -47,15 +47,20 @@ public class EntreCalle {
         this.asignarCalleDerecha(derecha);
     }
 
+
     /*
 
     public void asignaDireccion(Direccion unaDireccion){
         direccion = unaDireccion;
+=======
+    public void asignaDireccion(Ubicacion unaUbicacion){
+        ubicacion = unaUbicacion;
+>>>>>>> RefactorMovimiento
     }
     */
 
-    public Direccion direccion(){
-        return direccion;
+    public Ubicacion direccion(){
+        return ubicacion;
     }
     public Calle obtenerCalleSuperior () {
         return this.superior;
@@ -71,6 +76,6 @@ public class EntreCalle {
     }
 
     public String obtenerDireccionString() {
-        return this.direccion.asString();
+        return this.ubicacion.asString();
     }
 }

@@ -8,21 +8,10 @@ public class GPS {
         escenario = new Escenario(filas, columnas);
         jugador = new Jugador(nombre, vehiculo);
     }
-
-    public void moverVehiculoDerecha () {
-        this.jugador.moverVehiculoDerecha();
-    }
-    public void moverVehiculoIzquierda () {
-        this.jugador.moverVehiculoIzquierda();
+    public void moverVehiculo(Direccion direccion){
+        this.jugador.moverVehiculo(direccion);
     }
 
-    public void moverVehiculoAbajo () {
-        this.jugador.moverVehiculoAbajo();
-    }
-
-    public void moverVehiculoArriba () {
-        this.jugador.moverVehiculoArriba();
-    }
 
     public Jugador obtenerJugador () {
         return this.jugador;
