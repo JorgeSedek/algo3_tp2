@@ -15,8 +15,8 @@ class EntreCalle{
 class Escenario{
 -filas:Int
 -columnas:Int
-+entreCalle(clave:String):EntreCalle
-+colocar(unaEntreCalle:EntreCalle, clave:String)
++casillero(clave:String):EntreCalle
++colocar(unaCasillero:EntreCalle, clave:String)
 +estaOcupado(clave:String):boolean
 -llenar()
 -actualizarFilas()

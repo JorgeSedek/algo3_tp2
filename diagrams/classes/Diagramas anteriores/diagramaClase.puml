@@ -24,9 +24,9 @@ EntreCalle *-- "4" Calle
 
 class Escenario {
      -llenar()
-     +colocar(EntreCalle unaEntreCalle, String unaClave)
+     +colocar(EntreCalle unaCasillero, String unaClave)
      +estaOcupado(String clave)
-     +entreCalle(String clave)
+     +casillero(String clave)
 }
 
 class EntreCalle {

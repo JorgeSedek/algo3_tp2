@@ -12,7 +12,7 @@ class EntreCalle{
 class Calle{
 +entreCallePrimera():EntreCalle
 +entreCalleSegunda():EntreCalle
-+otraEntreCalle(unaEntreCalle:EntreCalle):EntreCalle
++otraCasillero(unaCasillero:EntreCalle):EntreCalle
 +obstaculo():Obstaculo
 }
 

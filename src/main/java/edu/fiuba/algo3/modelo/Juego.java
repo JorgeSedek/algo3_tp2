@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-public class GPS {
+public class Juego {
     private Escenario escenario;
     private Jugador jugador;
 
-    public GPS (String nombre, Vehiculo vehiculo, int filas, int columnas) {
+    public Juego(String nombre, Vehiculo vehiculo, int filas, int columnas) {
         escenario = new Escenario(filas, columnas);
         jugador = new Jugador(nombre, vehiculo);
     }

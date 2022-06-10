@@ -1,20 +1,20 @@
 package edu.fiuba.algo3.modelo;
 
-public class EntreCalle {
+public class Casillero {
     private Ubicacion ubicacion;
     private Calle superior;
     private Calle inferior;
     private Calle izquierda;
     private Calle derecha;
 
-    public EntreCalle () {
+    public Casillero() {
         this.superior = null;
         this.inferior = null;
         this.izquierda = null;
         this.derecha = null;
     }
 
-    public EntreCalle(int fila, int columna) {
+    public Casillero(int fila, int columna) {
         this.ubicacion = new Ubicacion(fila, columna);
         this.llenarCalles();
     }

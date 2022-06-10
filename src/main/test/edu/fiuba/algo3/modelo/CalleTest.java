@@ -14,27 +14,27 @@ public class CalleTest {
     @Test
     public void CalleDevuelveEntrecalles(){
         Calle calle = new Calle();
-        EntreCalle entreCalle1 = calle.entreCallePrimera();
-        EntreCalle entreCalle2 = calle.entreCalleSegunda();
+        Casillero casillero1 = calle.entreCallePrimera();
+        Casillero casillero2 = calle.entreCalleSegunda();
 
-        assertTrue(entreCalle1 != null);
-        assertTrue(entreCalle2 != null);
+        assertTrue(casillero1 != null);
+        assertTrue(casillero2 != null);
 
     }
 
     @Test
     public void lasEntreCallesDeCalleSonDistintasEntreEllas(){
         Calle calle = new Calle();
-        EntreCalle entreCalle1 = calle.entreCallePrimera();
-        EntreCalle entreCalle2 = calle.entreCalleSegunda();
+        Casillero casillero1 = calle.entreCallePrimera();
+        Casillero casillero2 = calle.entreCalleSegunda();
 
-        assertFalse(entreCalle1 == entreCalle2);
+        assertFalse(casillero1 == casillero2);
     }
 
     @Test
     public void calleConParametrosNoEstaVacia(){
-        EntreCalle entrecalle1 = new EntreCalle();
-        EntreCalle entrecalle2 = new EntreCalle();
+        Casillero entrecalle1 = new Casillero();
+        Casillero entrecalle2 = new Casillero();
 
         Calle calle = new Calle(entrecalle1, entrecalle2);
         assertFalse(calle == null);
@@ -42,14 +42,14 @@ public class CalleTest {
 
     @Test
     public void calleTiene2EntreCallesYAlingresarUnaEntreCalleDevuelveLaOtra(){
-        EntreCalle entrecalle1 = new EntreCalle();
-        EntreCalle entrecalle2 = new EntreCalle();
+        Casillero entrecalle1 = new Casillero();
+        Casillero entrecalle2 = new Casillero();
 
         Calle calle = new Calle(entrecalle1, entrecalle2);
-        EntreCalle entreCalleRecivida = calle.otraEntreCalle(entrecalle1);
-        assertEquals(entreCalleRecivida, entrecalle2);
-        entreCalleRecivida = calle.otraEntreCalle(entrecalle2);
-        assertEquals(entreCalleRecivida, entrecalle1);
+        Casillero casilleroRecivida = calle.otraEntreCalle(entrecalle1);
+        assertEquals(casilleroRecivida, entrecalle2);
+        casilleroRecivida = calle.otraEntreCalle(entrecalle2);
+        assertEquals(casilleroRecivida, entrecalle1);
     }
 
     @Test

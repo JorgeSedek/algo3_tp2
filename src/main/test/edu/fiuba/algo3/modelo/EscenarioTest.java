@@ -61,9 +61,9 @@ public class EscenarioTest {
 	@Test
 	public void agregoUnEntreCalleYseGuarda() {
 		Escenario escenario = new Escenario(4, 4);
-		EntreCalle entreCalle = new EntreCalle(1, 1);
+		Casillero casillero = new Casillero(1, 1);
 		String clave = "1-1";
-		assertEquals(escenario.entreCalle(clave).obtenerDireccionString(), entreCalle.obtenerDireccionString());
+		assertEquals(escenario.entreCalle(clave).obtenerDireccionString(), casillero.obtenerDireccionString());
 	}
 	
 	@Test
@@ -83,8 +83,8 @@ public class EscenarioTest {
 	public void seCompartenCallesEntreLasEntreCallesAdyacentesDeUnaMismaFila() {
 		Escenario escenario = new Escenario(15, 11);
 
-		EntreCalle entrecalle_izq = escenario.entreCalle("5-3"); // Fila 5, columna 3
-		EntreCalle entrecalle_der = escenario.entreCalle("5-4"); // Fila 5, columna 4
+		Casillero entrecalle_izq = escenario.entreCalle("5-3"); // Fila 5, columna 3
+		Casillero entrecalle_der = escenario.entreCalle("5-4"); // Fila 5, columna 4
 
 		// La calle de la derecha de la entrecalle 5-3 debería ser la de la izquierda de la 5-4
 		assertEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleIzquierda());
@@ -95,8 +95,8 @@ public class EscenarioTest {
 	public void seCompartenCallesEntreLasEntreCallesAdyacentesDeUnaMismaColumna() {
 		Escenario escenario = new Escenario(15, 11);
 
-		EntreCalle entrecalle_sup = escenario.entreCalle("5-2"); // Fila 5, columna 3
-		EntreCalle entrecalle_inf = escenario.entreCalle("6-2"); // Fila 5, columna 4
+		Casillero entrecalle_sup = escenario.entreCalle("5-2"); // Fila 5, columna 3
+		Casillero entrecalle_inf = escenario.entreCalle("6-2"); // Fila 5, columna 4
 
 		// La calle inferior de la entrecalle 5-2 debería ser la superior de la de la 6-2
 		assertEquals(entrecalle_sup.obtenerCalleInferior(), entrecalle_inf.obtenerCalleSuperior());
@@ -112,8 +112,8 @@ public class EscenarioTest {
 
 		for (int i = 1; i <= 10; i++) {
 
-			EntreCalle entrecalle_izq = escenario.entreCalle(ubicacion_izq.asString());
-			EntreCalle entrecalle_der = escenario.entreCalle(ubicacion_der.asString());
+			Casillero entrecalle_izq = escenario.entreCalle(ubicacion_izq.asString());
+			Casillero entrecalle_der = escenario.entreCalle(ubicacion_der.asString());
 
 			// La calle de la derecha de la entrecalle1 1-i debería ser la de la izquierda de la 1-(i+1)
 			assertEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleIzquierda());
@@ -131,8 +131,8 @@ public class EscenarioTest {
 
 		for (int i = 1; i <= 10; i++) {
 
-			EntreCalle entrecalle_izq = escenario.entreCalle(ubicacion_izq.asString());
-			EntreCalle entrecalle_der = escenario.entreCalle(ubicacion_der.asString());
+			Casillero entrecalle_izq = escenario.entreCalle(ubicacion_izq.asString());
+			Casillero entrecalle_der = escenario.entreCalle(ubicacion_der.asString());
 
 			// La calle de la derecha de la entrecalle1 15-i debería ser la de la izquierda de la 15-(i+1)
 			assertEquals(entrecalle_izq.obtenerCalleDerecha(), entrecalle_der.obtenerCalleIzquierda());
@@ -150,8 +150,8 @@ public class EscenarioTest {
 
 		for (int i = 1; i <= 14; i++) {
 
-			EntreCalle entrecalle_sup = escenario.entreCalle(ubicacion_sup.asString());
-			EntreCalle entrecalle_inf = escenario.entreCalle(ubicacion_inf.asString());
+			Casillero entrecalle_sup = escenario.entreCalle(ubicacion_sup.asString());
+			Casillero entrecalle_inf = escenario.entreCalle(ubicacion_inf.asString());
 
 			// La calle de superior de la entrecalle1 i-1 debería ser la de la izquierda de la (i+1)-1
 			assertEquals(entrecalle_sup.obtenerCalleInferior(), entrecalle_inf.obtenerCalleSuperior());
@@ -169,8 +169,8 @@ public class EscenarioTest {
 
 		for (int i = 1; i <= 14; i++) {
 
-			EntreCalle entrecalle_sup = escenario.entreCalle(ubicacion_sup.asString());
-			EntreCalle entrecalle_inf = escenario.entreCalle(ubicacion_inf.asString());
+			Casillero entrecalle_sup = escenario.entreCalle(ubicacion_sup.asString());
+			Casillero entrecalle_inf = escenario.entreCalle(ubicacion_inf.asString());
 
 			// La calle de superior de la entrecalle1 i-11 debería ser la de la izquierda de la (i+1)-11
 			assertEquals(entrecalle_sup.obtenerCalleInferior(), entrecalle_inf.obtenerCalleSuperior());

@@ -12,20 +12,20 @@ public class Entrega1Test {
         Moto vehiculo = new Moto();
 
         // El vehiculo se inicializa en la posicion 1-1
-        GPS gps = new GPS(nombre, vehiculo, 8, 8);
+        Juego juego = new Juego(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
         Ubicacion destino = new Ubicacion(2,4);
 
         for (int i = 0; i < 3; i++) {
-            gps.moverVehiculo(new Derecha());
+            juego.moverVehiculo(new Derecha());
         }
-        gps.moverVehiculo(new Abajo());
-        pozo.pasarObstaculo(vehiculo, gps.obtenerJugador());
+        juego.moverVehiculo(new Abajo());
+        pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertEquals(gps.obtenerUbicacionJugador(), destino.asString());
-        assertEquals(gps.obtenerJugador().movimientos(), 7);
+        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertEquals(juego.obtenerJugador().movimientos(), 7);
     }
 
     /*
@@ -48,7 +48,7 @@ public class Entrega1Test {
         Auto vehiculo = new Auto();
 
         // El vehiculo se inicializa en la posicion 1-1
-        GPS juego = new GPS(nombre, vehiculo, 8, 8);
+        Juego juego = new Juego(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
         Ubicacion destino = new Ubicacion(1,3);
@@ -73,7 +73,7 @@ public class Entrega1Test {
         CuatroXCuatro vehiculo = new CuatroXCuatro();
 
         // El vehiculo se inicializa en la posicion 1-1
-        GPS juego = new GPS(nombre, vehiculo, 8, 8);
+        Juego juego = new Juego(nombre, vehiculo, 8, 8);
         Pozo pozo = new Pozo();
 
         Ubicacion destino = new Ubicacion(2,4);
@@ -96,7 +96,7 @@ public class Entrega1Test {
         Moto vehiculo = new Moto();
 
         // El vehiculo se inicializa en la posicion 1-1
-        GPS juego = new GPS(nombre, vehiculo, 8, 8);
+        Juego juego = new Juego(nombre, vehiculo, 8, 8);
         Piquete piquete = new Piquete();
 
         Ubicacion destino = new Ubicacion(2,4);
@@ -119,7 +119,7 @@ public class Entrega1Test {
         Moto vehiculo = new Moto();
 
         // El vehiculo se inicializa en la posicion 1-1
-        GPS juego = new GPS(nombre, vehiculo, 8, 8);
+        Juego juego = new Juego(nombre, vehiculo, 8, 8);
         Piquete piquete = new Piquete();
         Pozo pozo = new Pozo();
 

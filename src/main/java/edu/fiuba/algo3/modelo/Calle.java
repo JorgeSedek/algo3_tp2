@@ -2,29 +2,29 @@ package edu.fiuba.algo3.modelo;
 
 public class Calle {
     private Obstaculo obstaculo;
-    private EntreCalle primerEntreCalle;
-    private EntreCalle segundaEntreCalle;
+    private Casillero primerCasillero;
+    private Casillero segundaCasillero;
 
     public Calle(){
-        primerEntreCalle = new EntreCalle();
-        segundaEntreCalle = new EntreCalle();
+        primerCasillero = new Casillero();
+        segundaCasillero = new Casillero();
     }
-    public Calle(EntreCalle unaEntreCalle, EntreCalle otraEntreCalle){
-        primerEntreCalle = unaEntreCalle;
-        segundaEntreCalle = otraEntreCalle;
-    }
-
-    public EntreCalle entreCallePrimera(){
-        return this.primerEntreCalle;
+    public Calle(Casillero unaCasillero, Casillero otraCasillero){
+        primerCasillero = unaCasillero;
+        segundaCasillero = otraCasillero;
     }
 
-    public EntreCalle entreCalleSegunda(){
-        return this.segundaEntreCalle;
+    public Casillero entreCallePrimera(){
+        return this.primerCasillero;
     }
 
-    public void asignarEntreCalles(EntreCalle unaEntreCalle, EntreCalle otraEntreCalle){
-        primerEntreCalle = unaEntreCalle;
-        segundaEntreCalle = otraEntreCalle;
+    public Casillero entreCalleSegunda(){
+        return this.segundaCasillero;
+    }
+
+    public void asignarEntreCalles(Casillero unaCasillero, Casillero otraCasillero){
+        primerCasillero = unaCasillero;
+        segundaCasillero = otraCasillero;
    }
 
    public void asignarObstaculo(Obstaculo unObstaculo){
@@ -32,11 +32,11 @@ public class Calle {
    }
 
 
-   public EntreCalle otraEntreCalle(EntreCalle unaEntreCalle){
-        if (unaEntreCalle == primerEntreCalle){
-            return segundaEntreCalle;
+   public Casillero otraEntreCalle(Casillero unaCasillero){
+        if (unaCasillero == primerCasillero){
+            return segundaCasillero;
         }
-      return primerEntreCalle;
+      return primerCasillero;
    }
 
    public Obstaculo obstaculo(){
