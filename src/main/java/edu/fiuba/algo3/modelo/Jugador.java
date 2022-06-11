@@ -40,6 +40,11 @@ public class Jugador {
 
     }
 
-
+    public boolean verificarMovimiento(int cantMovimientos){
+        if(this.movimientos == cantMovimientos){
+            return true;
+        }
+        return false;
+    }
 }
 

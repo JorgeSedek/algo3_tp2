@@ -36,7 +36,8 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        assertEquals(juego.obtenerJugador().movimientos(), 7);
+        //assertEquals(juego.obtenerJugador().verificarMovimiento(7), true);
+        assertTrue(juego.obtenerJugador().verificarMovimiento(7));
     }
 
     @Test
@@ -58,7 +59,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(1, 3)));
-        assertEquals(juego.obtenerJugador().movimientos(), 9);
+        assertTrue(juego.obtenerJugador().verificarMovimiento(9));
     }
 
     @Test
@@ -78,7 +79,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        assertEquals(juego.obtenerJugador().movimientos(), 4);
+        assertTrue(juego.obtenerJugador().verificarMovimiento(4));
     }
 
     @Test
@@ -98,7 +99,7 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        assertEquals(juego.obtenerJugador().movimientos(), 6);
+        assertTrue(juego.obtenerJugador().verificarMovimiento(6));
     }
 
     @Test
@@ -120,6 +121,6 @@ public class Entrega1Test {
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
         assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        assertEquals(juego.obtenerJugador().movimientos(), 9);
+        assertTrue(juego.obtenerJugador().verificarMovimiento(9));
     }
 }
