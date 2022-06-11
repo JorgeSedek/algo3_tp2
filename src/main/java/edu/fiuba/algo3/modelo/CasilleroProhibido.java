@@ -1,11 +1,14 @@
-package edu.fiuba.algo3.modelo;
+/*package edu.fiuba.algo3.modelo;
+
+import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
+import edu.fiuba.algo3.modelo.Movimiento.MovimientoProhibido;
 
 public class CasilleroProhibido extends Casillero{
-    public CasilleroProhibido(int fila, int columna) {
+    public CasilleroProhibido(Ubicacion ubicacion) {
         // uso del constructor de la clase abstracta
-        super(fila, columna);
+        super(ubicacion);
     }
     public Movimiento devolverMovimiento(){
         return (new MovimientoProhibido());
     }
-}
+}*/

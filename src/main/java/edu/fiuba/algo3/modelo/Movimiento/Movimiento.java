@@ -1,7 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Movimiento;
 
-public abstract class Movimiento {
-    protected Direccion direccion;
+import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Ubicacion;
+
+public interface Movimiento {
     /*
     Ya no se va a mover mas de una entrecalle a otra, si no de entrecalle a calle. Algunos casilleros
     van a ser edificios y ahi no se va a poder mover.
@@ -10,9 +12,7 @@ public abstract class Movimiento {
     es permitido o prohibido, si es prohibido la ubicacion que devuelve movimiento deberia se la misma
     que se paso como parametro de entrada. Si no se la modifica como aparece en MovimientoNormal
      */
-    abstract public Ubicacion mover(Ubicacion ubicacion);
+    Ubicacion mover(Ubicacion ubicacion);
 
-    public void asignarDireccion(Direccion direccion){
-        this.direccion = direccion;
-    }
+    void asignarDireccion(Direccion direccion);
 }

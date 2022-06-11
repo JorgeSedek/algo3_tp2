@@ -1,18 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+
 public class Jugador {
 
     private int movimientos;
     private Vehiculo vehiculo;
     private String nombre;
 
-    private Escenario escenario;
-
-    public Jugador(String nombreJugador, Vehiculo vehiculoElegido, Escenario escenario){
+    public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
         this.movimientos = 0;
         this.vehiculo = vehiculoElegido;
         this.nombre = nombreJugador;
-        this.escenario = escenario;
     }
 
     /*
