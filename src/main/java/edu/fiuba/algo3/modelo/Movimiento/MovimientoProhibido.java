@@ -3,6 +3,10 @@ package edu.fiuba.algo3.modelo.Movimiento;
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Ubicacion;
 
+/*
+
+SE COMENTA PORQUE NO SE UTILIZA
+
 public class MovimientoProhibido implements Movimiento{
     private Direccion direccion;
 
@@ -17,3 +21,4 @@ public class MovimientoProhibido implements Movimiento{
         this.direccion = direccion;
     }
 }
+*/
