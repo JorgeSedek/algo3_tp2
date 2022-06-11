@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
 
 public class Jugador {
 
@@ -42,6 +43,17 @@ public class Jugador {
 
     public boolean verificarMovimiento(int cantMovimientos){
         if(this.movimientos == cantMovimientos){
+            return true;
+        }
+        return false;
+    }
+
+    public void cambiarAutomovil(Vehiculo vehiculoNuevo){
+        this.vehiculo = vehiculoNuevo;
+    }
+
+    public boolean verificarVehiculoDatos(Ubicacion ubicacion, Movimiento movimiento){
+        if(this.vehiculo.obtenerUbicacion() == ubicacion && this.vehiculo.obtenerMovimiento() == movimiento){
             return true;
         }
         return false;
