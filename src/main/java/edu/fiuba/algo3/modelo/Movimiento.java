@@ -11,4 +11,8 @@ public abstract class Movimiento {
     que se paso como parametro de entrada. Si no se la modifica como aparece en MovimientoNormal
      */
     abstract public Ubicacion mover(Ubicacion ubicacion);
+
+    public void asignarDireccion(Direccion direccion){
+        this.direccion = direccion;
+    }
 }

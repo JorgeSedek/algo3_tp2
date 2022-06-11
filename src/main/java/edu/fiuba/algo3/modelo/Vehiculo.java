@@ -2,12 +2,14 @@ package edu.fiuba.algo3.modelo;
 
 abstract class Vehiculo {
 
-    private final Ubicacion ubicacion;
+    private Ubicacion ubicacion;
+    private Movimiento movimiento;
 
     public Vehiculo() {
         int fila = 1;
         int columna = 1;
         this.ubicacion = new Ubicacion(fila,columna);
+        this.movimiento = new MovimientoNormal();
     }
 
 
@@ -17,8 +19,12 @@ abstract class Vehiculo {
         return this.ubicacion;
     }
 
+
+
     public void mover(Direccion direccion){
-        direccion.mover(this.ubicacion);
+        movimiento.asignarDireccion(direccion);
+       this.ubicacion = movimiento.mover(this.ubicacion);
+
     }
 
 }
