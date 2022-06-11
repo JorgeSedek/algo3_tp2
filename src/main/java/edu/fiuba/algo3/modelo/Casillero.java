@@ -2,10 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class Casillero {
-    private ArrayList<ObjetoUrbano> contenidos;
-    private int indiceObjetoActual;
-    private Ubicacion ubicacion;
+abstract class Casillero {
+    protected ArrayList<ObjetoUrbano> contenidos;
+    protected int indiceObjetoActual;
+    protected Ubicacion ubicacion;
     /* HAY QUE PENSAR COMO HACER PARA CUANDO SE TIENE UNA SORPRESA. TODAVIA NO LE DIJE CUANDO REINICIAR
     EL INDICE "indiceObjetoActual". LA IDEA ES QUE DESPUES DE DAR EL ULTIMO ELEMENTO CONTENIDO SE REINICIE
  */
@@ -33,5 +33,5 @@ public class Casillero {
         return this.ubicacion.equals(ubicacion);
     }
 
-
+    abstract public Movimiento devolverMovimiento();
 }

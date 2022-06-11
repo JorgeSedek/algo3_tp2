@@ -27,4 +27,14 @@ abstract class Vehiculo {
 
     }
 
+    public Ubicacion siguienteUbicacion(Direccion direccion){
+        movimiento.asignarDireccion(direccion);
+        return movimiento.mover(this.ubicacion);
+
+    }
+
+    public void asignarMovimiento(Movimiento movimiento){
+        this.movimiento = movimiento;
+    }
+
 }

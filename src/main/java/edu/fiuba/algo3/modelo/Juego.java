@@ -6,7 +6,7 @@ public class Juego {
 
     public Juego(String nombre, Vehiculo vehiculo, int filas, int columnas) {
         escenario = new Escenario(filas, columnas);
-        jugador = new Jugador(nombre, vehiculo);
+        jugador = new Jugador(nombre, vehiculo, escenario);
     }
     public void moverVehiculo(Direccion direccion){
         this.jugador.moverVehiculo(direccion);

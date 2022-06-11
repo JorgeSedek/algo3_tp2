@@ -6,10 +6,13 @@ public class Jugador {
     private Vehiculo vehiculo;
     private String nombre;
 
-    public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
+    private Escenario escenario;
+
+    public Jugador(String nombreJugador, Vehiculo vehiculoElegido, Escenario escenario){
         this.movimientos = 0;
         this.vehiculo = vehiculoElegido;
         this.nombre = nombreJugador;
+        this.escenario = escenario;
     }
 
     /*
@@ -30,7 +33,9 @@ public class Jugador {
     }
 
     public void moverVehiculo(Direccion direccion){
+     
         this.vehiculo.mover(direccion);
+
         this.incrementarMovimientos(1);
 
     }
