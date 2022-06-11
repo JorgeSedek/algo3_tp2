@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Entrega1Test {
 
@@ -10,12 +11,14 @@ public class Entrega1Test {
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozo () {
         String nombre = "Martin";
         Moto vehiculo = new Moto();
-
+        int fila = 8;
+        int columna = 8;
         // El vehiculo se inicializa en la posicion 1-1
-        Juego juego = new Juego(nombre, vehiculo, 8, 8);
+        Juego juego = new Juego(nombre, vehiculo, fila, columna);
         Pozo pozo = new Pozo();
-
-        Ubicacion destino = new Ubicacion(2,4);
+        fila = 2;
+        columna = 4;
+        Ubicacion destino = new Ubicacion(fila,columna);
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new Derecha());
@@ -24,7 +27,7 @@ public class Entrega1Test {
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertTrue(juego.obtenerUbicacionJugador().equals(destino));
         assertEquals(juego.obtenerJugador().movimientos(), 7);
     }
 
@@ -62,7 +65,7 @@ public class Entrega1Test {
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertTrue(juego.obtenerUbicacionJugador().equals(destino));;
         assertEquals(juego.obtenerJugador().movimientos(), 9);
 
     }
@@ -85,7 +88,7 @@ public class Entrega1Test {
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertTrue(juego.obtenerUbicacionJugador().equals(destino));
         assertEquals(juego.obtenerJugador().movimientos(), 4);
 
     }
@@ -108,7 +111,7 @@ public class Entrega1Test {
         piquete.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertTrue(juego.obtenerUbicacionJugador().equals(destino));
         assertEquals(juego.obtenerJugador().movimientos(), 6);
 
     }
@@ -133,7 +136,7 @@ public class Entrega1Test {
         pozo.pasarObstaculo(vehiculo, juego.obtenerJugador());
 
         // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertEquals(juego.obtenerUbicacionJugador(), destino.asString());
+        assertTrue(juego.obtenerUbicacionJugador().equals(destino));
         assertEquals(juego.obtenerJugador().movimientos(), 9);
     }
 /*

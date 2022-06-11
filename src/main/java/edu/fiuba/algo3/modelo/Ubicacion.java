@@ -4,11 +4,7 @@ public class Ubicacion {
     private int fila;
     private int columna;
     
-    public Ubicacion() {
-    	this.fila = 1;
-    	this.columna = 1;
-    }
-    
+
     public Ubicacion(int unaFila, int unaColumna) {
     	this.fila = unaFila;
     	this.columna = unaColumna;
@@ -41,13 +37,10 @@ public class Ubicacion {
 		this.columna -= 1;
 	}
 
+	public boolean noEstaVacia(){
+		return (this != null);
+	}
 
-
-	public String asString() {
-			
-		return (String.valueOf(this.fila) + "-" + String.valueOf(this.columna));
-			
-		}
 	}
 
 

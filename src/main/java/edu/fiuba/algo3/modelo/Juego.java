@@ -17,7 +17,7 @@ public class Juego {
         return this.jugador;
     }
 
-    public String obtenerUbicacionJugador () {
-        return this.jugador.obtenerUbicacion().asString();
+    public Ubicacion obtenerUbicacionJugador () {
+        return this.jugador.obtenerUbicacion();
     }
 }

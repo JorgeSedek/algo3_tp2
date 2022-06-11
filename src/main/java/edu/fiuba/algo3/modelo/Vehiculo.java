@@ -5,7 +5,9 @@ abstract class Vehiculo {
     private final Ubicacion ubicacion;
 
     public Vehiculo() {
-        this.ubicacion = new Ubicacion(1,1);
+        int fila = 1;
+        int columna = 1;
+        this.ubicacion = new Ubicacion(fila,columna);
     }
 
 
