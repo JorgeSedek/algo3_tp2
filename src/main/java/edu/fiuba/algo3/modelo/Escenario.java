@@ -8,9 +8,9 @@ public class Escenario {
 	private int columnas;
 	private ArrayList<Casillero> casilleros;
 
-	public Escenario(int unasFilas, int unasColumnas) {
-		this.filas = unasFilas;
-		this.columnas = unasColumnas;
+	public Escenario(int filas, int columnas) {
+		this.filas = filas;
+		this.columnas = columnas;
 		this.casilleros = new ArrayList<>();
 		this.llenar();
 	}
@@ -18,8 +18,7 @@ public class Escenario {
 	private void llenar() {
 		for(int fila = 1; fila <= filas; fila++) {
 			for(int columna = 1; columna <= columnas; columna++) {
-				this.casilleros.add(new Casillero(fila, columna));
-
+				this.casilleros.add(new Casillero(new Ubicacion(fila, columna)));
 			}
 		}
 	}

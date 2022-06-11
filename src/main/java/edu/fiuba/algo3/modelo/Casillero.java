@@ -10,10 +10,10 @@ public class Casillero {
     EL INDICE "indiceObjetoActual". LA IDEA ES QUE DESPUES DE DAR EL ULTIMO ELEMENTO CONTENIDO SE REINICIE
  */
 
-    public Casillero(int fila, int columna){
+    public Casillero(Ubicacion ubicacion){
         this.contenidos = new ArrayList<>();
         this.indiceObjetoActual = 0;
-        this.ubicacion = new Ubicacion(fila, columna);
+        this.ubicacion = ubicacion;
     }
     public void contiene(ObjetoUrbano contenido){
        this.contenidos.add(contenido);

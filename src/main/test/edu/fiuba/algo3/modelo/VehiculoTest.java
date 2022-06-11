@@ -1,5 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
+import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
+import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
+import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
+import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
+import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,68 +21,53 @@ public class VehiculoTest {
         assertFalse(ubicacion.equals(new Ubicacion(2,5)));
     }
     @Test
-    public void AutoseMueveEnDistintasDireccionesYdevuelveLaUbicacionCorrecta(){
-        Vehiculo vehiculo = new Auto();
-        vehiculo.mover(new Derecha());
-        Ubicacion ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,2)));
+    public void AutoSeMueveEnDistintasDireccionesYDevuelveLaUbicacionCorrecta(){
+        Vehiculo vehiculo = new Auto(new Ubicacion(1,1), new MovimientoNormal());
 
-        vehiculo.mover(new Izquierda());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+        vehiculo.mover(new DireccionDerecha());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,2)));
 
-        vehiculo.mover(new Abajo());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(2,1)));
+        vehiculo.mover(new DireccionIzquierda());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
 
-        vehiculo.mover(new Arriba());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+        vehiculo.mover(new DireccionAbajo());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(2,1)));
 
+        vehiculo.mover(new DireccionArriba());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
     }
 
     @Test
-    public void MotoseMueveEnDistintasDireccionesYdevuelveLaUbicacionCorrecta(){
-        Vehiculo vehiculo = new Moto();
-        vehiculo.mover(new Derecha());
-        Ubicacion ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,2)));
+    public void MotoSeMueveEnDistintasDireccionesYDevuelveLaUbicacionCorrecta(){
+        Vehiculo vehiculo = new Moto(new Ubicacion(1,1), new MovimientoNormal());
 
-        vehiculo.mover(new Izquierda());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+        vehiculo.mover(new DireccionDerecha());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,2)));
 
-        vehiculo.mover(new Abajo());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(2,1)));
+        vehiculo.mover(new DireccionIzquierda());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
 
-        vehiculo.mover(new Arriba());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+        vehiculo.mover(new DireccionAbajo());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(2,1)));
 
+        vehiculo.mover(new DireccionArriba());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
     }
 
     @Test
-    public void CamionetaseMueveEnDistintasDireccionesYdevuelveLaUbicacionCorrecta(){
-        Vehiculo vehiculo = new CuatroXCuatro();
-        vehiculo.mover(new Derecha());
-        Ubicacion ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,2)));
+    public void CamionetaSeMueveEnDistintasDireccionesYDevuelveLaUbicacionCorrecta(){
+        Vehiculo vehiculo = new Camioneta(new Ubicacion(1,1), new MovimientoNormal());
 
-        vehiculo.mover(new Izquierda());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+        vehiculo.mover(new DireccionDerecha());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,2)));
 
-        vehiculo.mover(new Abajo());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(2,1)));
+        vehiculo.mover(new DireccionIzquierda());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
 
-        vehiculo.mover(new Arriba());
-        ubicacion = vehiculo.obtenerUbicacion();
-        assertTrue(ubicacion.equals(new Ubicacion(1,1)));
+        vehiculo.mover(new DireccionAbajo());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(2,1)));
 
+        vehiculo.mover(new DireccionArriba());
+        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
     }
-
-
-
 }

@@ -3,25 +3,24 @@ package edu.fiuba.algo3.modelo;
 public class Ubicacion {
     private int fila;
     private int columna;
-    
 
-    public Ubicacion(int unaFila, int unaColumna) {
-    	this.fila = unaFila;
-    	this.columna = unaColumna;
+    public Ubicacion(int fila, int columna) {
+    	this.fila = fila;
+    	this.columna = columna;
     }
 
 	public boolean equals(Ubicacion ubicacion){
 		return (ubicacion.fila == this.fila & ubicacion.columna == this.columna);
 	}
-	
+
 	public int fila() {
 		return this.fila;
 	}
-	
+
 	public int columna() {
 		return this.columna;
 	}
-	
+
 	public void incrementarFila () {
 		this.fila += 1;
 	}
