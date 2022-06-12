@@ -21,7 +21,7 @@ public class CambiarVehiculoTest {
         //Auto auto = new Auto(moto.obtenerUbicacion(), moto.obtenerMovimiento());
         CambioVehiculo cambioVehi = new CambioVehiculo();
 
-        cambioVehi.recibirSorpresa(jugador, moto);
+        cambioVehi.recibirSorpresa(moto, jugador);
 
         assertTrue(jugador.verificarVehiculoDatos(moto.obtenerUbicacion(), moto.obtenerMovimiento()));
     }
@@ -33,7 +33,7 @@ public class CambiarVehiculoTest {
         Jugador jugador = new Jugador("Cr", auto);
         CambioVehiculo cambioVehi = new CambioVehiculo();
 
-        cambioVehi.recibirSorpresa(jugador, auto);
+        cambioVehi.recibirSorpresa(auto, jugador);
 
         assertTrue(jugador.verificarVehiculoDatos(auto.obtenerUbicacion(), auto.obtenerMovimiento()));
     }
@@ -45,7 +45,7 @@ public class CambiarVehiculoTest {
         Jugador jugador = new Jugador("Cr", camion);
         CambioVehiculo cambioVehi = new CambioVehiculo();
 
-        cambioVehi.recibirSorpresa(jugador, camion);
+        cambioVehi.recibirSorpresa(camion, jugador);
 
         assertTrue(jugador.verificarVehiculoDatos(camion.obtenerUbicacion(), camion.obtenerMovimiento()));
     }
@@ -58,7 +58,7 @@ public class CambiarVehiculoTest {
         Auto auto = new Auto(new Ubicacion(2,4), new MovimientoNormal());
         CambioVehiculo cambioVehi = new CambioVehiculo();
 
-        cambioVehi.recibirSorpresa(jugador, moto);
+        cambioVehi.recibirSorpresa(moto, jugador);
 
         assertFalse(jugador.verificarVehiculoDatos(auto.obtenerUbicacion(), auto.obtenerMovimiento()));
     }

@@ -26,4 +26,8 @@ public abstract class Vehiculo {
 
     }
 
+    // metodos para Tests
+    public boolean equals(Vehiculo vehiculo) {
+        return this.ubicacion.equals(vehiculo.obtenerUbicacion());
+    }
 }

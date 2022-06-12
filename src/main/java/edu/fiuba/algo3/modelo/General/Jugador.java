@@ -63,5 +63,9 @@ public class Jugador {
         }
         return false;
     }
-}
 
+    public boolean mismoVehiculo(Vehiculo vehiculo) {
+        // TODO cambiar la comparación
+        return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.equals(vehiculo));
+    }
+}
