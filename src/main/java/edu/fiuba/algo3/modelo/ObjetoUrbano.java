@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-public class ObjetoUrbano {
+/*
+Se comenta porque de momento no se utiliza
+Objeto Urbano deberia ser tanto obstaculo como sorpresa
+
+public interface ObjetoUrbano {
 
 }
+*/

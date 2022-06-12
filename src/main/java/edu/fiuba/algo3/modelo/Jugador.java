@@ -17,10 +17,13 @@ public class Jugador {
     }
 
     /*
+    DE MOMENTO NO SE UTILIZA
+
     public void tuTurno(Direccion direccion){
         this.vehiculo.mover(direccion);
     }
     */
+
     public int movimientos(){return this.movimientos;}
 
     public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
@@ -41,6 +44,7 @@ public class Jugador {
 
     }
 
+    // Se usa para tests
     public boolean verificarMovimiento(int cantMovimientos){
         if(this.movimientos == cantMovimientos){
             return true;
@@ -48,10 +52,11 @@ public class Jugador {
         return false;
     }
 
-    public void cambiarAutomovil(Vehiculo vehiculoNuevo){
+    public void cambiarVehiculo(Vehiculo vehiculoNuevo){
         this.vehiculo = vehiculoNuevo;
     }
 
+    // Se usa para tests
     public boolean verificarVehiculoDatos(Ubicacion ubicacion, Movimiento movimiento){
         if(this.vehiculo.obtenerUbicacion() == ubicacion && this.vehiculo.obtenerMovimiento() == movimiento){
             return true;
