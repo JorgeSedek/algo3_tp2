@@ -23,6 +23,11 @@ public class Escenario {
 		}
 	}
 
+	/*
+	DE MOMENTO NO SE UTILIZAN (de hecho quedarían obsoletos estos metodos respecto a la implementación
+	actual ya que ahora un casillero es un cruce de calles, y no una calle). Se podría refactorizar
+	para que a partir de una calle de un casillero haga lo pedido.
+
 	public void agregarEn(ObjetoUrbano objetoUrbano, Ubicacion ubicacion){
 		Casillero casillero = this.buscarCasilleroEn(ubicacion);
 		casillero.contiene(objetoUrbano);
@@ -31,9 +36,5 @@ public class Escenario {
 	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
 		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)));
 	}
-
-	public ObjetoUrbano objetoUrbanoEn(Ubicacion ubicacion) {
-		Casillero casillero = this.buscarCasilleroEn(ubicacion);
-		return casillero.devolverContenido();
-	}
+	*/
 }
