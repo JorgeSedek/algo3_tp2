@@ -1,4 +1,8 @@
-/*package edu.fiuba.algo3.modelo;
+/*
+
+DE MOMENTO NO SE UTILIZA
+
+package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;

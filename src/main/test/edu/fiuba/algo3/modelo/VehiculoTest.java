@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;

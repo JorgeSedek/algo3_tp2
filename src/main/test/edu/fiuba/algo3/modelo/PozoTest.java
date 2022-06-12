@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
