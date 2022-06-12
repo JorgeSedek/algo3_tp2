@@ -68,4 +68,8 @@ public class Jugador {
         // TODO cambiar la comparación
         return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.equals(vehiculo));
     }
+
+    public Vehiculo obtenerVehiculo(){
+        return this.vehiculo;
+    }
 }
