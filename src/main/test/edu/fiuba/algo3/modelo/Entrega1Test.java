@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
-import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
@@ -31,7 +30,7 @@ public class Entrega1Test {
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener7Movimientos () {
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -55,7 +54,7 @@ public class Entrega1Test {
     @Test
     public void UnAutoSeMuevePorLaCiudad6VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener9Movimientos () {
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo auto = new Auto(ubicacion, new MovimientoNormal());
+        Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -81,7 +80,7 @@ public class Entrega1Test {
     @Test
     public void UnaCamionetaSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener4Movimientos () {
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+        Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador = new Jugador(nombre, camioneta);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -105,7 +104,7 @@ public class Entrega1Test {
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPiqueteDeberiaEstarEnOtraUbicacionYTener6Movimientos() {
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -129,7 +128,7 @@ public class Entrega1Test {
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoYUnPiqueteDeberiaEstarEnOtraUbicacionYTener9Movimientos(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);

@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
-import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
 
 public class Jugador {
 
@@ -56,13 +55,15 @@ public class Jugador {
         this.vehiculo = vehiculoNuevo;
     }
 
-    // Se usa para tests
-    public boolean verificarVehiculoDatos(Ubicacion ubicacion, Movimiento movimiento){
-        if(this.vehiculo.obtenerUbicacion() == ubicacion && this.vehiculo.obtenerMovimiento() == movimiento){
+    /*
+    No se utiliza de momento
+    public boolean verificarVehiculoDatos(Ubicacion ubicacion){
+        if(this.vehiculo.obtenerUbicacion() == ubicacion){
             return true;
         }
         return false;
     }
+    */
 
     public boolean mismoVehiculo(Vehiculo vehiculo) {
         // TODO cambiar la comparación

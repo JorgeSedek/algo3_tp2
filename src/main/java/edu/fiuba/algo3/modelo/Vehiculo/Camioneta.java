@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
-import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 
 public class Camioneta extends Vehiculo {
     private int pozos_atravesados;
 
-    public Camioneta(Ubicacion ubicacion, Movimiento movimiento) {
-        super(ubicacion, movimiento);
+    public Camioneta(Ubicacion ubicacion) {
+        super(ubicacion);
     }
 
     public int sumarVecesPasadosEnPozo(){

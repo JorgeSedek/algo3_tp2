@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
-import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -20,7 +19,7 @@ public class VehiculoTest {
     @Test
     public void unAutoSeMueveEnDistintasDireccionesDeberiaEstarEnLaUbicacionCorrecta(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo auto = new Auto(ubicacion, new MovimientoNormal());
+        Vehiculo auto = new Auto(ubicacion);
 
         auto.mover(new DireccionDerecha());
         int nuevaFila = 1;
@@ -50,7 +49,7 @@ public class VehiculoTest {
     @Test
     public void unaMotoSeMueveEnDistintasDireccionesDeberiaEstarEnLaUbicacionCorrecta(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Vehiculo moto = new Moto(ubicacion);
 
         moto.mover(new DireccionDerecha());
         int nuevaFila = 1;
@@ -80,7 +79,7 @@ public class VehiculoTest {
     @Test
     public void unaCamionetaSeMueveEnDistintasDireccionesDeberiaEstarEnLaUbicacionCorrecta(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+        Vehiculo camioneta = new Camioneta(ubicacion);
 
         camioneta.mover(new DireccionDerecha());
         int nuevaFila = 1;

@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
-import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
@@ -21,10 +20,10 @@ public class CambiarVehiculoTest {
     @Test
     public void jugadorTieneMotoYAtraviesaSorpresaCambioDeVehiculoDeberiaCambiarAAuto(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
         Sorpresa cambioVehiculo = new CambioVehiculo();
-        Vehiculo vehiculoEsperado = new Auto(ubicacion, new MovimientoNormal());
+        Vehiculo vehiculoEsperado = new Auto(ubicacion);
 
         cambioVehiculo.recibirSorpresa((Moto) moto, jugador);
 
@@ -34,10 +33,10 @@ public class CambiarVehiculoTest {
     @Test
     public void jugadorTieneAutoYAtraviesaSorpresaCambioVehiculoDeberiaCambiarACamioneta(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo auto = new Auto(ubicacion, new MovimientoNormal());
+        Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
         Sorpresa cambioVehiculo = new CambioVehiculo();
-        Vehiculo vehiculoEsperado = new Camioneta(ubicacion, new MovimientoNormal());
+        Vehiculo vehiculoEsperado = new Camioneta(ubicacion);
 
         cambioVehiculo.recibirSorpresa((Auto) auto, jugador);
 
@@ -47,10 +46,10 @@ public class CambiarVehiculoTest {
     @Test
     public void jugadorTieneCamionetaYAtraviesaCambioVehiculoDeberiaCambiarAMoto(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+        Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador = new Jugador(nombre, camioneta);
         Sorpresa cambioVehiculo = new CambioVehiculo();
-        Vehiculo vehiculoEsperado = new Moto(ubicacion, new MovimientoNormal());
+        Vehiculo vehiculoEsperado = new Moto(ubicacion);
 
         cambioVehiculo.recibirSorpresa((Camioneta) camioneta, jugador);
 
@@ -60,10 +59,10 @@ public class CambiarVehiculoTest {
     @Test
     public void jugadorTieneMotoYAtraviesaSorpresaCambioDeVehiculoDeberiaCambiarAAutoYPermanecerEnSuUbicacion(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
         Sorpresa cambioVehiculo = new CambioVehiculo();
-        Vehiculo vehiculoEsperado = new Auto(new Ubicacion(2,4), new MovimientoNormal());
+        Vehiculo vehiculoEsperado = new Auto(new Ubicacion(2,4));
 
         cambioVehiculo.recibirSorpresa((Moto) moto, jugador);
 

@@ -10,18 +10,17 @@ public class CambioVehiculo implements Sorpresa{
 
     @Override
     public void recibirSorpresa(Moto moto, Jugador jugador) {
-        Vehiculo auto = new Auto(moto.obtenerUbicacion(), moto.obtenerMovimiento());
+        Vehiculo auto = new Auto(moto.obtenerUbicacion());
         jugador.cambiarVehiculo(auto);
-        //return auto;
     }
 
     public void recibirSorpresa(Auto auto, Jugador jugador){
-        Vehiculo camioneta = new Camioneta(auto.obtenerUbicacion(), auto.obtenerMovimiento());
+        Vehiculo camioneta = new Camioneta(auto.obtenerUbicacion());
         jugador.cambiarVehiculo(camioneta);
     }
 
     public void recibirSorpresa(Camioneta camion, Jugador jugador){
-        Vehiculo moto = new Moto(camion.obtenerUbicacion(), camion.obtenerMovimiento());
+        Vehiculo moto = new Moto(camion.obtenerUbicacion());
         jugador.cambiarVehiculo(moto);
     }
 }

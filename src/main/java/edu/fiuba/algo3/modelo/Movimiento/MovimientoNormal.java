@@ -1,3 +1,4 @@
+/*
 package edu.fiuba.algo3.modelo.Movimiento;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
@@ -19,3 +20,4 @@ public class MovimientoNormal implements Movimiento{
         this.direccion = direccion;
     }
 }
+*/
