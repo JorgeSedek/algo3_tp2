@@ -61,8 +61,10 @@ public class CambiarVehiculoTest {
         Ubicacion ubicacion = new Ubicacion(fila, columna);
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
+        int fila = 2;
+        int columna = 4;
         Sorpresa cambioVehiculo = new CambioVehiculo();
-        Vehiculo vehiculoEsperado = new Auto(new Ubicacion(2,4));
+        Vehiculo vehiculoEsperado = new Auto(new Ubicacion(fila,columna));
 
         cambioVehiculo.recibirSorpresa((Moto) moto, jugador);
 
