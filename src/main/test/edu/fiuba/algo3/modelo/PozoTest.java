@@ -3,42 +3,73 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PozoTest {
-	@Test
-	public void pasarObstaculoConAutoJugadorSeLeRestan3movimientos() {
-		Pozo pozo = new Pozo();
-		Auto auto = new Auto(new Ubicacion(1,1), new MovimientoNormal());
-		Jugador jugador = new Jugador("pepe", auto/*, new Escenario(fila, columna)*/);
+	private String nombre = "Pablo";
+	private int fila = 1;
+	private int columna = 1;
 
-		pozo.pasarObstaculo(auto, jugador);
-		assertEquals(jugador.movimientos(), 3);
+	@Test
+	public void unJugadorPasaPorUnPozoConAutoDeberiaSumarse3MovimientosAJugador() {
+		Obstaculo pozo = new Pozo();
+		Ubicacion ubicacion = new Ubicacion(fila, columna);
+		Vehiculo auto = new Auto(ubicacion, new MovimientoNormal());
+		Jugador jugador = new Jugador(nombre, auto);
+		int cantidadMovimientos = 3;
+
+		pozo.pasarObstaculo((Auto) auto, jugador);
+
+		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
 	
 	@Test
-	public void pasarObstaculoConMotoJugadorSeLeRestan3movimientos() {
-		Pozo pozo = new Pozo();
-		Moto moto = new Moto(new Ubicacion(1,1), new MovimientoNormal());
-		Jugador jugador = new Jugador("pepe", moto/*, new Escenario(fila, columna)*/);
+	public void unJugadorPasaPorUnPozoConMotoDeberiaSumarse3MovimientosAJugador() {
+		Obstaculo pozo = new Pozo();
+		Ubicacion ubicacion = new Ubicacion(fila, columna);
+		Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+		Jugador jugador = new Jugador(nombre, moto);
+		int cantidadMovimientos = 3;
 
-		pozo.pasarObstaculo(moto, jugador);
-		assertEquals(jugador.movimientos(), 3);
+		pozo.pasarObstaculo((Moto) moto, jugador);
+
+		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
 	
 	@Test
-	public void pasarObstaculoConCuatroXCuatroJugadorSeLeRestan0movimientos() {
-		Pozo pozo = new Pozo();
-		Camioneta camioneta = new Camioneta(new Ubicacion(1,1), new MovimientoNormal());
-		Jugador jugador = new Jugador("pepe", camioneta/*, new Escenario(fila, columna)*/);
+	public void unJugadorPasaPorUnPozoConCamionetaNoDeberiaSumarseMovimientosAJugador() {
+		Obstaculo pozo = new Pozo();
+		Ubicacion ubicacion = new Ubicacion(fila, columna);
+		Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+		Jugador jugador = new Jugador(nombre, camioneta);
+		int cantidadMovimientos = 0;
 
-	    pozo.pasarObstaculo(camioneta, jugador);
-		assertEquals(jugador.movimientos(), 0);
+		pozo.pasarObstaculo((Camioneta) camioneta, jugador);
+
+		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+	}
+
+	@Test
+	public void unJugadorPasaPorUnPozo4VecesConCamionetaDeberiaSumarse3MovimientosAJugador() {
+		Obstaculo pozo = new Pozo();
+		Ubicacion ubicacion = new Ubicacion(fila, columna);
+		Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+		Jugador jugador = new Jugador(nombre, camioneta);
+		int cantidadMovimientos = 3;
+
+		for(int i = 1; i <= 4; i++) {
+			pozo.pasarObstaculo((Camioneta) camioneta, jugador);
+		}
+
+		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
 }

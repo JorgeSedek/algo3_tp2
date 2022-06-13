@@ -14,61 +14,96 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class VehiculoTest {
-    @Test
-    public void UbicacionSeComparaCorrectamenteConOtraUbicacion(){
-        Ubicacion ubicacion = new Ubicacion(2,3);
-        assertTrue(ubicacion.equals(new Ubicacion(2,3)));
-        assertFalse(ubicacion.equals(new Ubicacion(4,3)));
-        assertFalse(ubicacion.equals(new Ubicacion(2,5)));
-    }
-    @Test
-    public void AutoSeMueveEnDistintasDireccionesYDevuelveLaUbicacionCorrecta(){
-        Vehiculo vehiculo = new Auto(new Ubicacion(1,1), new MovimientoNormal());
-
-        vehiculo.mover(new DireccionDerecha());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,2)));
-
-        vehiculo.mover(new DireccionIzquierda());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
-
-        vehiculo.mover(new DireccionAbajo());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(2,1)));
-
-        vehiculo.mover(new DireccionArriba());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
-    }
+    private int fila = 1;
+    private int columna = 1;
 
     @Test
-    public void MotoSeMueveEnDistintasDireccionesYDevuelveLaUbicacionCorrecta(){
-        Vehiculo vehiculo = new Moto(new Ubicacion(1,1), new MovimientoNormal());
+    public void unAutoSeMueveEnDistintasDireccionesDeberiaEstarEnLaUbicacionCorrecta(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo auto = new Auto(ubicacion, new MovimientoNormal());
 
-        vehiculo.mover(new DireccionDerecha());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,2)));
+        auto.mover(new DireccionDerecha());
+        int nuevaFila = 1;
+        int nuevaColumna = 2;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(auto.verificarUbicacion(nuevaUbicacion));
 
-        vehiculo.mover(new DireccionIzquierda());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
+        auto.mover(new DireccionIzquierda());
+        nuevaFila = 1;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(auto.verificarUbicacion(nuevaUbicacion));
 
-        vehiculo.mover(new DireccionAbajo());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(2,1)));
+        auto.mover(new DireccionAbajo());
+        nuevaFila = 2;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(auto.verificarUbicacion(nuevaUbicacion));
 
-        vehiculo.mover(new DireccionArriba());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
+        auto.mover(new DireccionArriba());
+        nuevaFila = 1;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(auto.verificarUbicacion(nuevaUbicacion));
     }
 
     @Test
-    public void CamionetaSeMueveEnDistintasDireccionesYDevuelveLaUbicacionCorrecta(){
-        Vehiculo vehiculo = new Camioneta(new Ubicacion(1,1), new MovimientoNormal());
+    public void unaMotoSeMueveEnDistintasDireccionesDeberiaEstarEnLaUbicacionCorrecta(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
 
-        vehiculo.mover(new DireccionDerecha());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,2)));
+        moto.mover(new DireccionDerecha());
+        int nuevaFila = 1;
+        int nuevaColumna = 2;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
 
-        vehiculo.mover(new DireccionIzquierda());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
+        moto.mover(new DireccionIzquierda());
+        nuevaFila = 1;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
 
-        vehiculo.mover(new DireccionAbajo());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(2,1)));
+        moto.mover(new DireccionAbajo());
+        nuevaFila = 2;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
 
-        vehiculo.mover(new DireccionArriba());
-        assertTrue(vehiculo.obtenerUbicacion().equals(new Ubicacion(1,1)));
+        moto.mover(new DireccionArriba());
+        nuevaFila = 1;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
+    }
+
+    @Test
+    public void unaCamionetaSeMueveEnDistintasDireccionesDeberiaEstarEnLaUbicacionCorrecta(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+
+        camioneta.mover(new DireccionDerecha());
+        int nuevaFila = 1;
+        int nuevaColumna = 2;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
+
+        camioneta.mover(new DireccionIzquierda());
+        nuevaFila = 1;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
+
+        camioneta.mover(new DireccionAbajo());
+        nuevaFila = 2;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
+
+        camioneta.mover(new DireccionArriba());
+        nuevaFila = 1;
+        nuevaColumna = 1;
+        nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
     }
 }

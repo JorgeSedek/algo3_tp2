@@ -9,43 +9,40 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JugadorTest {
+    private String nombre = "Pablo";
+    private int fila = 1;
+    private int columna = 1;
 
     @Test
-    public void seCreaCorrectamenteLaClaseJugador(){
-        Jugador jugador = new Jugador("Pablo",new Auto(new Ubicacion(1,1), new MovimientoNormal()));
-        assertEquals(jugador.obtenerNombre(),"Pablo");
-        assertEquals(jugador.movimientos(),0);
+    public void seCreaUnJugadorDeberiaDevolverElNombreYSusMovimientosCorrectamente(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Jugador jugador = new Jugador(nombre,new Auto(ubicacion, new MovimientoNormal()));
+        int movimentosIniciales = 0;
+
+        assertEquals(jugador.obtenerNombre(), nombre);
+        assertTrue(jugador.verificarMovimiento(movimentosIniciales));
     }
 
     @Test
-    public void seAumentaCorrectamenteElPuntaje(){
+    public void seAumentanLosMovimientosDeUnJugadorEn3DeberiaDevolverQueSusMovimientosSon3(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Jugador jugador = new Jugador(nombre,new Auto(ubicacion, new MovimientoNormal()));
         int incremento = 3;
-        Jugador jugador = new Jugador("Pablo", new Auto(new Ubicacion(1,1), new MovimientoNormal()));
         jugador.incrementarMovimientos(incremento);
-        assertEquals(jugador.movimientos(), incremento);
+
+        assertTrue(jugador.verificarMovimiento(incremento));
     }
 
     @Test
-    public void seReduceCorrectamenteElPuntaje(){
-        int reducir = 3;
-        Jugador jugador = new Jugador("Pablo", new Auto(new Ubicacion(1,1), new MovimientoNormal()));
-        jugador.disminuirMovimientos(reducir);
-        assertEquals(jugador.movimientos(),-3);
-    }
+    public void seAumentaElPuntajeDeUnJugadorEn4YLuegoSeReduceEn3DeberiaTener1Movimiento(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Jugador jugador = new Jugador(nombre,new Auto(ubicacion, new MovimientoNormal()));
+        int incremento = 4;
+        int reduccion = 3;
+        int totalMovimientos = incremento - reduccion;
+        jugador.incrementarMovimientos(incremento);
+        jugador.disminuirMovimientos(reduccion);
 
-    @Test
-    public void movimientoCorrectoDevuelveResutadoCorrecto(){
-        int cantMovimientos = 2;
-        Jugador jugador = new Jugador("Cr", new Auto(new Ubicacion(1,1), new MovimientoNormal()));
-        jugador.incrementarMovimientos(2);
-        assertTrue(jugador.verificarMovimiento(2));
-    }
-
-    @Test
-    public void movimientoIncorrectoDevuelveResutadoCorrecto(){
-        int cantMovimientos = 2;
-        Jugador jugador = new Jugador("Cr", new Auto(new Ubicacion(1,1), new MovimientoNormal()));
-        jugador.incrementarMovimientos(2);
-        assertFalse(jugador.verificarMovimiento(3));
+        assertTrue(jugador.verificarMovimiento(totalMovimientos));
     }
 }

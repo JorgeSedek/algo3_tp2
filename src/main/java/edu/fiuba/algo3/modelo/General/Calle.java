@@ -25,6 +25,11 @@ public class Calle {
         return this.contenidos;
     }
 
+    // Se Usa para Test
+    public boolean verificarCantidadObjetosUrbanos(int cantidadObjetosUrbanos) {
+        return this.contenidos.size() == cantidadObjetosUrbanos;
+    }
+
     /*
     DE MOMENTO NO SE UTILIZA
 

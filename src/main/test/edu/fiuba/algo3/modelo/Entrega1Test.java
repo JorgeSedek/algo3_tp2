@@ -22,14 +22,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Entrega1Test {
+    private String nombre = "Martin";
+    private int fila = 1;
+    private int columna = 1;
+    private int totalFilas = 8;
+    private int totalColumnas = 8;
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener7Movimientos () {
-        Vehiculo moto = new Moto(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Martin", moto);
-        Escenario escenario = new Escenario(8, 8);
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, moto);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         Obstaculo pozo = new Pozo();
+        int nuevaFila = 2;
+        int nuevaColumna = 4;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        int movimientosEsperados = 7;
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -38,19 +48,22 @@ public class Entrega1Test {
 
         pozo.pasarObstaculo((Moto) moto, juego.obtenerJugador());
 
-        // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        //assertEquals(juego.obtenerJugador().verificarMovimiento(7), true);
-        assertTrue(juego.obtenerJugador().verificarMovimiento(7));
+        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnAutoSeMuevePorLaCiudad6VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener9Movimientos () {
-        Vehiculo auto = new Auto(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Martin", auto);
-        Escenario escenario = new Escenario(8, 8);
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo auto = new Auto(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, auto);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         Obstaculo pozo = new Pozo();
+        int nuevaFila = 1;
+        int nuevaColumna = 3;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        int movimientosEsperados = 9;
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -61,18 +74,22 @@ public class Entrega1Test {
 
         pozo.pasarObstaculo((Auto) auto, juego.obtenerJugador());
 
-        // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(1, 3)));
-        assertTrue(juego.obtenerJugador().verificarMovimiento(9));
+        assertTrue(auto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnaCamionetaSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener4Movimientos () {
-        Vehiculo camioneta = new Camioneta(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Martin", camioneta);
-        Escenario escenario = new Escenario(8, 8);
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, camioneta);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         Obstaculo pozo = new Pozo();
+        int nuevaFila = 2;
+        int nuevaColumna = 4;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        int movimientosEsperados = 4;
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -81,18 +98,22 @@ public class Entrega1Test {
 
         pozo.pasarObstaculo((Camioneta) camioneta, juego.obtenerJugador());
 
-        // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        assertTrue(juego.obtenerJugador().verificarMovimiento(4));
+        assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
+        assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPiqueteDeberiaEstarEnOtraUbicacionYTener6Movimientos() {
-        Vehiculo moto = new Moto(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Martin", moto);
-        Escenario escenario = new Escenario(8, 8);
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, moto);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         Obstaculo piquete = new Piquete();
+        int nuevaFila = 2;
+        int nuevaColumna = 4;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        int movimientosEsperados = 6;
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -101,19 +122,23 @@ public class Entrega1Test {
 
         piquete.pasarObstaculo((Moto) moto, juego.obtenerJugador());
 
-        // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        assertTrue(juego.obtenerJugador().verificarMovimiento(6));
+        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoYUnPiqueteDeberiaEstarEnOtraUbicacionYTener9Movimientos(){
-        Vehiculo moto = new Moto(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Martin", moto);
-        Escenario escenario = new Escenario(8, 8);
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, moto);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         Obstaculo pozo = new Pozo();
         Obstaculo piquete = new Piquete();
+        int nuevaFila = 2;
+        int nuevaColumna = 4;
+        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        int movimientosEsperados = 9;
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -123,8 +148,7 @@ public class Entrega1Test {
         pozo.pasarObstaculo((Moto) moto, juego.obtenerJugador());
         piquete.pasarObstaculo((Moto) moto, juego.obtenerJugador());
 
-        // La ubicacion se tendria que haber actualizado y la penalizacion efectuada
-        assertTrue(juego.obtenerUbicacionJugador().equals(new Ubicacion(2, 4)));
-        assertTrue(juego.obtenerJugador().verificarMovimiento(9));
+        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 }

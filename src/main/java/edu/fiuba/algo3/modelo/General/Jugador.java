@@ -66,7 +66,7 @@ public class Jugador {
 
     public boolean mismoVehiculo(Vehiculo vehiculo) {
         // TODO cambiar la comparación
-        return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.equals(vehiculo));
+        return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarUbicacion(vehiculo.obtenerUbicacion()));
     }
 
     public Vehiculo obtenerVehiculo(){

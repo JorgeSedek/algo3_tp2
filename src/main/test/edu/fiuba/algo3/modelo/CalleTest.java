@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.General.Calle;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import org.junit.jupiter.api.Test;
@@ -13,26 +14,28 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CalleTest {
 
     @Test
-    public void seCreaUnaCalleSinObjetosUrbanosYEstaVacia() {
+    public void seCreaUnaCalleSinObjetosUrbanosDeberiaEstarVacia() {
         Calle calle = new Calle();
-        assertEquals(calle.obtenerObjetosUrbanos().size(), 0);
+        int cantidadObstaculosYSorpresas = 0;
+
+        assertTrue(calle.verificarCantidadObjetosUrbanos(cantidadObstaculosYSorpresas));
     }
 
     @Test
-    public void seCreaUnaCalleSinObjetosUrbanosYAgregoUnObstaculo() {
+    public void seCreaUnaCalleSinObjetosUrbanosYAgregoUnPozoNoDeberiaEstarVacia() {
+        Obstaculo pozo = new Pozo();
         Calle calle = new Calle();
-        calle.agregarObjetoUrbano(new Pozo());
+        calle.agregarObjetoUrbano(pozo);
+        int cantidadObstaculosYSorpresas = 1;
 
-        assertEquals(calle.obtenerObjetosUrbanos().size(), 1);
+        assertTrue(calle.verificarCantidadObjetosUrbanos(cantidadObstaculosYSorpresas));
     }
 
     @Test
-    public void seCreaUnaCalleConObstaculoYPuedoObtenerlo() {
-        Pozo pozo = new Pozo();
+    public void seCreaUnaCalleConObjetosUrbanosDeberiaPoderObtenerLosObjetosUrbanos() {
+        Obstaculo pozo = new Pozo();
         ArrayList<ObjetoUrbano> objetosUrbanos = new ArrayList<ObjetoUrbano>();
-
         objetosUrbanos.add(pozo);
-
         Calle calle = new Calle(objetosUrbanos);
 
         assertEquals(calle.obtenerObjetosUrbanos(), objetosUrbanos);

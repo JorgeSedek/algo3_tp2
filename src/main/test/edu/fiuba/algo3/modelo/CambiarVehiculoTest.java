@@ -3,63 +3,70 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CambiarVehiculoTest {
+    private String nombre = "Tomas";
+    private int fila = 1;
+    private int columna = 1;
 
     @Test
-    public void jugadorTieneMotoYAtraviesaCambioVehiculoDeveCambiarAAuto(){
+    public void jugadorTieneMotoYAtraviesaSorpresaCambioDeVehiculoDeberiaCambiarAAuto(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, moto);
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Vehiculo vehiculoEsperado = new Auto(ubicacion, new MovimientoNormal());
 
-        Moto moto = new Moto(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Cr", moto);
-        //Auto auto = new Auto(moto.obtenerUbicacion(), moto.obtenerMovimiento());
-        CambioVehiculo cambioVehi = new CambioVehiculo();
+        cambioVehiculo.recibirSorpresa((Moto) moto, jugador);
 
-        cambioVehi.recibirSorpresa(moto, jugador);
-
-        assertTrue(jugador.verificarVehiculoDatos(moto.obtenerUbicacion(), moto.obtenerMovimiento()));
+        assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
 
     @Test
-    public void jugadorTieneAutoYAtraviesaCambioVehiculoDeveCambiarACamion(){
+    public void jugadorTieneAutoYAtraviesaSorpresaCambioVehiculoDeberiaCambiarACamioneta(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo auto = new Auto(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, auto);
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Vehiculo vehiculoEsperado = new Camioneta(ubicacion, new MovimientoNormal());
 
-        Auto auto = new Auto(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Cr", auto);
-        CambioVehiculo cambioVehi = new CambioVehiculo();
+        cambioVehiculo.recibirSorpresa((Auto) auto, jugador);
 
-        cambioVehi.recibirSorpresa(auto, jugador);
-
-        assertTrue(jugador.verificarVehiculoDatos(auto.obtenerUbicacion(), auto.obtenerMovimiento()));
+        assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
 
     @Test
-    public void jugadorTieneCamionYAtraviesaCambioVehiculoDeveCambiarAMoto(){
+    public void jugadorTieneCamionetaYAtraviesaCambioVehiculoDeberiaCambiarAMoto(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo camioneta = new Camioneta(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, camioneta);
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Vehiculo vehiculoEsperado = new Moto(ubicacion, new MovimientoNormal());
 
-        Camioneta camion = new Camioneta(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Cr", camion);
-        CambioVehiculo cambioVehi = new CambioVehiculo();
+        cambioVehiculo.recibirSorpresa((Camioneta) camioneta, jugador);
 
-        cambioVehi.recibirSorpresa(camion, jugador);
-
-        assertTrue(jugador.verificarVehiculoDatos(camion.obtenerUbicacion(), camion.obtenerMovimiento()));
+        assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
 
     @Test
-    public void jugadorTieneMotoYAtraviesaCambioVehiculo(){
+    public void jugadorTieneMotoYAtraviesaSorpresaCambioDeVehiculoDeberiaCambiarAAutoYPermanecerEnSuUbicacion(){
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
+        Vehiculo moto = new Moto(ubicacion, new MovimientoNormal());
+        Jugador jugador = new Jugador(nombre, moto);
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Vehiculo vehiculoEsperado = new Auto(new Ubicacion(2,4), new MovimientoNormal());
 
-        Moto moto = new Moto(new Ubicacion(1,1), new MovimientoNormal());
-        Jugador jugador = new Jugador("Cr", moto);
-        Auto auto = new Auto(new Ubicacion(2,4), new MovimientoNormal());
-        CambioVehiculo cambioVehi = new CambioVehiculo();
+        cambioVehiculo.recibirSorpresa((Moto) moto, jugador);
 
-        cambioVehi.recibirSorpresa(moto, jugador);
-
-        assertFalse(jugador.verificarVehiculoDatos(auto.obtenerUbicacion(), auto.obtenerMovimiento()));
+        assertFalse(jugador.mismoVehiculo(vehiculoEsperado));
     }
 }
