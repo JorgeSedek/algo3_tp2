@@ -27,3 +27,34 @@ public abstract class Vehiculo {
         return this.ubicacion.equals(nuevaUbicacion);
     }
 }
+
+/*
+POSIBLE SEGUNDA IMPLEMENTACION (Vehiculo ya no tiene una ubicacion, sino un casillero)
+
+public abstract class Vehiculo {
+
+    private Casillero casillero;
+
+    public Vehiculo(Casillero casillero) {
+        this.casillero = casillero;
+    }
+
+    public Casillero obtenerPosicion() {
+        return this.casillero;
+    }
+
+    // Comentado de momento porque movimiento no se utiliza
+    // public Movimiento obtenerMovimiento(){return this.movimiento;}
+
+    public void mover(Direccion direccion) {
+        this.casillero = this.casillero.obtenerCasilleroAdyacente(direccion);
+    }
+
+    // Metodos para Tests
+    public boolean verificarUbicacion(Casillero otraPosicion) {
+        return this.posicion.equals(otraPosicion);
+    }
+}
+
+
+ */

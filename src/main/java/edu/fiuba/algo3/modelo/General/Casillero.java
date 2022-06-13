@@ -22,7 +22,9 @@ public class Casillero {
     }
 
      */
-
+    public Ubicacion obtenerUbicacion () {
+        return this.ubicacion;
+    }
     public boolean equals(Ubicacion ubicacion){
         return this.ubicacion.equals(ubicacion);
     }
