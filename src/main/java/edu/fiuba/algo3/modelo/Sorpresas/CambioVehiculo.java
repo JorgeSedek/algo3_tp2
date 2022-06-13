@@ -9,6 +9,21 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 public class CambioVehiculo implements Sorpresa{
 
     @Override
+    public void recibirSorpresa(Vehiculo vehiculo, Jugador jugador) {
+        Vehiculo nuevoVehiculo = null;
+        if (vehiculo instanceof Auto) {
+            nuevoVehiculo = new Camioneta(vehiculo.obtenerUbicacion());
+        }
+        if (vehiculo instanceof Moto) {
+            nuevoVehiculo = new Auto(vehiculo.obtenerUbicacion());
+        }
+        if (vehiculo instanceof Camioneta) {
+            nuevoVehiculo = new Moto(vehiculo.obtenerUbicacion());
+        }
+        jugador.cambiarVehiculo(nuevoVehiculo);
+    }
+}
+/*
     public void recibirSorpresa(Moto moto, Jugador jugador) {
         Vehiculo auto = new Auto(moto.obtenerUbicacion());
         jugador.cambiarVehiculo(auto);
@@ -24,3 +39,4 @@ public class CambioVehiculo implements Sorpresa{
         jugador.cambiarVehiculo(moto);
     }
 }
+*/

@@ -16,7 +16,6 @@ public class CambiarVehiculoTest {
     private String nombre = "Tomas";
     private int fila = 1;
     private int columna = 1;
-
     @Test
     public void jugadorTieneMotoYAtraviesaSorpresaCambioDeVehiculoDeberiaCambiarAAuto(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
@@ -25,7 +24,7 @@ public class CambiarVehiculoTest {
         Sorpresa cambioVehiculo = new CambioVehiculo();
         Vehiculo vehiculoEsperado = new Auto(ubicacion);
 
-        cambioVehiculo.recibirSorpresa((Moto) moto, jugador);
+        cambioVehiculo.recibirSorpresa(moto, jugador);
 
         assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
@@ -38,7 +37,7 @@ public class CambiarVehiculoTest {
         Sorpresa cambioVehiculo = new CambioVehiculo();
         Vehiculo vehiculoEsperado = new Camioneta(ubicacion);
 
-        cambioVehiculo.recibirSorpresa((Auto) auto, jugador);
+        cambioVehiculo.recibirSorpresa(auto, jugador);
 
         assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
@@ -51,7 +50,7 @@ public class CambiarVehiculoTest {
         Sorpresa cambioVehiculo = new CambioVehiculo();
         Vehiculo vehiculoEsperado = new Moto(ubicacion);
 
-        cambioVehiculo.recibirSorpresa((Camioneta) camioneta, jugador);
+        cambioVehiculo.recibirSorpresa(camioneta, jugador);
 
         assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
@@ -66,7 +65,7 @@ public class CambiarVehiculoTest {
         Sorpresa cambioVehiculo = new CambioVehiculo();
         Vehiculo vehiculoEsperado = new Auto(new Ubicacion(fila,columna));
 
-        cambioVehiculo.recibirSorpresa((Moto) moto, jugador);
+        cambioVehiculo.recibirSorpresa(moto, jugador);
 
         assertFalse(jugador.mismoVehiculo(vehiculoEsperado));
     }

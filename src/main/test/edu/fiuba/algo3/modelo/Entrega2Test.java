@@ -42,7 +42,7 @@ public class Entrega2Test {
             juego.moverVehiculo(new DireccionAbajo());
         }
         // 12 movimientos sumados
-        favorable.recibirSorpresa((Moto) moto, juego.obtenerJugador());
+        favorable.recibirSorpresa(moto, juego.obtenerJugador());
         int movimientosEsperados = 10;
 
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -62,7 +62,7 @@ public class Entrega2Test {
             juego.moverVehiculo(new DireccionAbajo());
         }
         // 12 movimientos sumados
-        desfavorable.recibirSorpresa((Moto) moto, juego.obtenerJugador());
+        desfavorable.recibirSorpresa(moto, juego.obtenerJugador());
         int movimientosEsperados = 14;
 
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -82,7 +82,7 @@ public class Entrega2Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        cambioVehiculo.recibirSorpresa((Moto) moto, juego.obtenerJugador());
+        cambioVehiculo.recibirSorpresa(moto, juego.obtenerJugador());
 
         Vehiculo vehiculoEsperado = new Auto(ubicacion);
 
@@ -104,7 +104,7 @@ public class Entrega2Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        cambioVehiculo.recibirSorpresa((Camioneta) camioneta, juego.obtenerJugador());
+        cambioVehiculo.recibirSorpresa(camioneta, juego.obtenerJugador());
         piquete.pasarObstaculo((Moto) jugador.obtenerVehiculo(), juego.obtenerJugador());
 
         int movimientosEsperados = 6;
