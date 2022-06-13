@@ -1,26 +1,24 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
 
+import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
-public class Pozo implements Obstaculo {
+import java.util.HashMap;
 
-	public void pasarObstaculo(Auto auto, Jugador jugador) {
-		jugador.incrementarMovimientos(3);
-	}
-	
-	public void pasarObstaculo(Moto moto, Jugador jugador) {
-		jugador.incrementarMovimientos(3);
-	}
 
-	public void pasarObstaculo(Camioneta camioneta, Jugador jugador) {
-		int veces_atravezados = camioneta.sumarVecesPasadosEnPozo();
+public class Pozo extends ObjetoUrbano {
 
-		if(veces_atravezados > 3) {
-			jugador.incrementarMovimientos(3);
-		}
 
-	}
+    @Override
+    protected void initUrbanoMap() {
+
+    }
+
+   public void recibe(ObjetoUrbano objetoUrbano){
+
+   }
 }
+

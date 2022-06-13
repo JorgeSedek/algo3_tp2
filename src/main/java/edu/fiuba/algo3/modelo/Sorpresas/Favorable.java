@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
-
+/*
 public class Favorable implements Sorpresa {
     @Override
     public void recibirSorpresa(Vehiculo vehiculo, Jugador jugador) {
@@ -13,3 +13,4 @@ public class Favorable implements Sorpresa {
         jugador.disminuirMovimientos((int) reduccionPuntaje);
     }
 }
+*/

@@ -1,14 +1,30 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 
-public abstract class Vehiculo {
+import java.util.HashMap;
+
+public abstract class Vehiculo extends ObjetoUrbano{
 
     private Ubicacion ubicacion;
+    protected int cantMovimientos;
+
 
     public Vehiculo(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
+        this.cantMovimientos = 0;
+
+
+    }
+
+    public void incrementarMovimientos(int incremento){
+        this.cantMovimientos += incremento;
+    }
+
+    public int movimientos(){
+        return this.cantMovimientos;
     }
 
     public Ubicacion obtenerUbicacion () {
@@ -17,6 +33,8 @@ public abstract class Vehiculo {
 
     // Comentado de momento porque movimiento no se utiliza
     // public Movimiento obtenerMovimiento(){return this.movimiento;}
+
+
 
     public void mover(Direccion direccion) {
         direccion.mover(this.ubicacion);
@@ -28,6 +46,8 @@ public abstract class Vehiculo {
     }
 }
 
+
+
 /*
 POSIBLE SEGUNDA IMPLEMENTACION (Vehiculo ya no tiene una ubicacion, sino un casillero)
 
@@ -35,8 +55,11 @@ public abstract class Vehiculo {
 
     private Casillero casillero;
 
+
+
     public Vehiculo(Casillero casillero) {
         this.casillero = casillero;
+
     }
 
     public Casillero obtenerPosicion() {

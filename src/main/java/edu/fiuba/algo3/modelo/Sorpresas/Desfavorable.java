@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo.Sorpresas;
-
+/*
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -14,3 +14,4 @@ public class Desfavorable implements Sorpresa {
         jugador.incrementarMovimientos((int) aumentoMovimientos);
     }
 }
+*/

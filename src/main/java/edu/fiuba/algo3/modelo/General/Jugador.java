@@ -36,11 +36,18 @@ public class Jugador {
     }
 
     public void moverVehiculo(Direccion direccion){
-     
+        int incremento = 1;
         this.vehiculo.mover(direccion);
+        this.incrementarMovimientos(incremento);
 
-        this.incrementarMovimientos(1);
+    }
 
+   public int obtenerMovimiento(){
+        return this.movimientos;
+    }
+
+    public void sumarMovimientos(Vehiculo vehiculo){
+        this.movimientos += vehiculo.movimientos();
     }
 
     // Se usa para tests

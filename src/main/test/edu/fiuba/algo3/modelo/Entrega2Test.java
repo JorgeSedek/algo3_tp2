@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.modelo;
+/*
 
 import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
-import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
@@ -27,6 +25,7 @@ public class Entrega2Test {
     private int columna = 1;
     private int totalFilas = 8;
     private int totalColumnas = 8;
+    /*
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
@@ -97,7 +96,7 @@ public class Entrega2Test {
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         Sorpresa cambioVehiculo = new CambioVehiculo();
-        Obstaculo piquete = new Piquete();
+        ObjetoUrbano piquete = new Piquete();
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -138,3 +137,5 @@ public class Entrega2Test {
     }
 
 }
+
+ */

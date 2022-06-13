@@ -4,11 +4,8 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
-import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
-import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.General.*;
+
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -34,7 +31,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        Obstaculo pozo = new Pozo();
+        ObjetoUrbano pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
@@ -45,7 +42,8 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        pozo.pasarObstaculo((Moto) moto, juego.obtenerJugador());
+        moto.recibe(pozo);
+        jugador.sumarMovimientos(moto);
 
         assertTrue(moto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -58,7 +56,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, auto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        Obstaculo pozo = new Pozo();
+        ObjetoUrbano pozo = new Pozo();
         int nuevaFila = 1;
         int nuevaColumna = 3;
         Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
@@ -71,7 +69,8 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionIzquierda());
         juego.moverVehiculo(new DireccionArriba());
 
-        pozo.pasarObstaculo((Auto) auto, juego.obtenerJugador());
+        auto.recibe(pozo);
+        jugador.sumarMovimientos(auto);
 
         assertTrue(auto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -84,7 +83,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, camioneta);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        Obstaculo pozo = new Pozo();
+        ObjetoUrbano pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
@@ -95,7 +94,8 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        pozo.pasarObstaculo((Camioneta) camioneta, juego.obtenerJugador());
+        camioneta.recibe(pozo);
+        jugador.sumarMovimientos(camioneta);
 
         assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -108,7 +108,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        Obstaculo piquete = new Piquete();
+        ObjetoUrbano piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
@@ -119,7 +119,8 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        piquete.pasarObstaculo((Moto) moto, juego.obtenerJugador());
+        moto.recibe(piquete);
+        jugador.sumarMovimientos(moto);
 
         assertTrue(moto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -132,8 +133,8 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        Obstaculo pozo = new Pozo();
-        Obstaculo piquete = new Piquete();
+        ObjetoUrbano pozo = new Pozo();
+        ObjetoUrbano piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
@@ -144,8 +145,9 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        pozo.pasarObstaculo((Moto) moto, juego.obtenerJugador());
-        piquete.pasarObstaculo((Moto) moto, juego.obtenerJugador());
+        moto.recibe(pozo);
+        moto.recibe(piquete);
+        jugador.sumarMovimientos(moto);
 
         assertTrue(moto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
