@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
+import java.util.ArrayList;
+
 public class CambioVehiculo implements Sorpresa{
 
     @Override
