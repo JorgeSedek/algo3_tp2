@@ -40,7 +40,7 @@ public class Entrega2Test {
             juego.moverVehiculo(new DireccionDerecha());
             juego.moverVehiculo(new DireccionAbajo());
         }
-        // 12 movimientos sumados
+        // Realizo 12 movimientos
         favorable.recibirSorpresa(moto, juego.obtenerJugador());
         int movimientosEsperados = 10;
 
@@ -60,9 +60,9 @@ public class Entrega2Test {
             juego.moverVehiculo(new DireccionDerecha());
             juego.moverVehiculo(new DireccionAbajo());
         }
-        // 12 movimientos sumados
+        // Realizo 12 movimientos
         desfavorable.recibirSorpresa(moto, juego.obtenerJugador());
-        int movimientosEsperados = 14;
+        int movimientosEsperados = 15;
 
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
