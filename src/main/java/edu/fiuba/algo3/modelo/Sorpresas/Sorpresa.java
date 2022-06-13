@@ -5,9 +5,8 @@ import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public interface Sorpresa extends ObjetoUrbano {
-    void recibirSorpresa(Moto moto, Jugador jugador);
-    void recibirSorpresa(Camioneta camioneta, Jugador jugador);
-    void recibirSorpresa(Auto auto, Jugador jugador);
+    void recibirSorpresa(Vehiculo vehiculo, Jugador jugador);
 }

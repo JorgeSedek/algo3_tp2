@@ -67,7 +67,8 @@ public class Entrega2Test {
 
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
-
+}
+/*
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraUnaSorpresaCambioDeVehiculoDeberiaConvertirseEnAuto() {
         Ubicacion ubicacion = new Ubicacion(fila, columna);
@@ -138,3 +139,4 @@ public class Entrega2Test {
     }
 
 }
+*/

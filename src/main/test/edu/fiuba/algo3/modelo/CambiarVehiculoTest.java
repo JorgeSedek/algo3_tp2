@@ -11,12 +11,11 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
 public class CambiarVehiculoTest {
     private String nombre = "Tomas";
     private int fila = 1;
     private int columna = 1;
-
     @Test
     public void jugadorTieneMotoYAtraviesaSorpresaCambioDeVehiculoDeberiaCambiarAAuto(){
         Ubicacion ubicacion = new Ubicacion(fila, columna);
@@ -69,3 +68,4 @@ public class CambiarVehiculoTest {
         assertFalse(jugador.mismoVehiculo(vehiculoEsperado));
     }
 }
+*/
