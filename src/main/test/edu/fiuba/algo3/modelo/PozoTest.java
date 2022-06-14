@@ -26,7 +26,6 @@ public class PozoTest {
 		int cantidadMovimientos = 3;
 
 		auto.recibe(pozo);
-		jugador.sumarMovimientos(auto);
 
 		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
@@ -40,7 +39,6 @@ public class PozoTest {
 		int cantidadMovimientos = 3;
 
 		moto.recibe(pozo);
-		jugador.sumarMovimientos(moto);
 
 		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
@@ -54,7 +52,6 @@ public class PozoTest {
 		int cantidadMovimientos = 0;
 
 		camioneta.recibe(pozo);
-		jugador.sumarMovimientos(camioneta);
 
 		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
@@ -70,7 +67,6 @@ public class PozoTest {
 		for(int i = 1; i <= 4; i++) {
 			camioneta.recibe(pozo);
 		}
-		jugador.sumarMovimientos(camioneta);
 		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
 }

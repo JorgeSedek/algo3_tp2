@@ -1,44 +1,61 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.General.CollitionHandler;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
+import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
+import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
+import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
+import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 
 import java.util.HashMap;
 
-public abstract class Vehiculo extends ObjetoUrbano{
-
+public abstract class Vehiculo {
     private Ubicacion ubicacion;
-    protected int cantMovimientos;
-
+    protected HashMap<Class, CollitionHandler> urbanoMap;
+    protected int movimientos;
 
     public Vehiculo(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
-        this.cantMovimientos = 0;
-
-
+        this.initUrbanoMap();
     }
 
-    public void incrementarMovimientos(int incremento){
-        this.cantMovimientos += incremento;
+    private void initUrbanoMap() {
+        urbanoMap = new HashMap<>();
+        urbanoMap.put(Pozo.class, (x) -> recibePozo(x));
+        urbanoMap.put(Piquete.class, (x) -> recibePiquete(x));
+        urbanoMap.put(Favorable.class, (x) -> recibeFavorable(x));
+        urbanoMap.put(Desfavorable.class, (x) -> recibeDesfavorable(x));
+        urbanoMap.put(CambioVehiculo.class, (x) -> recibeCambioVehiculo(x));
     }
 
-    public int movimientos(){
-        return this.cantMovimientos;
+    protected abstract void recibePozo(ObjetoUrbano x);
+    protected abstract void recibePiquete(ObjetoUrbano x);
+    protected abstract void recibeFavorable(ObjetoUrbano x);
+    protected abstract void recibeDesfavorable(ObjetoUrbano x);
+    protected abstract void recibeCambioVehiculo(ObjetoUrbano x);
+
+
+    public void recibe(ObjetoUrbano otroObjetoUrbano) {
+        CollitionHandler handler = this.urbanoMap.get(otroObjetoUrbano.getClass());
+        handler.collideWith(otroObjetoUrbano);
     }
 
     public Ubicacion obtenerUbicacion () {
         return this.ubicacion;
     }
 
-    // Comentado de momento porque movimiento no se utiliza
-    // public Movimiento obtenerMovimiento(){return this.movimiento;}
-
-
-
     public void mover(Direccion direccion) {
         direccion.mover(this.ubicacion);
     }
+
+    public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
+
+    public void disminuirMovimientos(int disminucion){this.movimientos -= disminucion;}
+
+    public int movimientos(){return this.movimientos;}
 
     // Metodos para Tests
     public boolean verificarUbicacion(Ubicacion nuevaUbicacion) {

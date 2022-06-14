@@ -43,7 +43,6 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionAbajo());
 
         moto.recibe(pozo);
-        jugador.sumarMovimientos(moto);
 
         assertTrue(moto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -70,7 +69,6 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionArriba());
 
         auto.recibe(pozo);
-        jugador.sumarMovimientos(auto);
 
         assertTrue(auto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -95,7 +93,6 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionAbajo());
 
         camioneta.recibe(pozo);
-        jugador.sumarMovimientos(camioneta);
 
         assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -120,7 +117,6 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionAbajo());
 
         moto.recibe(piquete);
-        jugador.sumarMovimientos(moto);
 
         assertTrue(moto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -147,7 +143,6 @@ public class Entrega1Test {
 
         moto.recibe(pozo);
         moto.recibe(piquete);
-        jugador.sumarMovimientos(moto);
 
         assertTrue(moto.verificarUbicacion(nuevaUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));

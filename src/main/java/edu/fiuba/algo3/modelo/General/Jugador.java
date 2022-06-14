@@ -4,13 +4,10 @@ import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class Jugador {
-
-    private int movimientos;
     private Vehiculo vehiculo;
     private String nombre;
 
     public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
-        this.movimientos = 0;
         this.vehiculo = vehiculoElegido;
         this.nombre = nombreJugador;
     }
@@ -23,11 +20,11 @@ public class Jugador {
     }
     */
 
-    public int movimientos(){return this.movimientos;}
+    public int movimientos() {return this.vehiculo.movimientos();}
 
-    public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
+    public void incrementarMovimientos(int incremento){this.vehiculo.incrementarMovimientos(incremento);}
 
-    public void disminuirMovimientos(int disminucion){this.movimientos -= disminucion;}
+    public void disminuirMovimientos(int disminucion){this.vehiculo.disminuirMovimientos(disminucion);}
 
     public String obtenerNombre(){return this.nombre;}
 
@@ -38,21 +35,13 @@ public class Jugador {
     public void moverVehiculo(Direccion direccion){
         int incremento = 1;
         this.vehiculo.mover(direccion);
-        this.incrementarMovimientos(incremento);
+        this.vehiculo.incrementarMovimientos(incremento);
 
-    }
-
-   public int obtenerMovimiento(){
-        return this.movimientos;
-    }
-
-    public void sumarMovimientos(Vehiculo vehiculo){
-        this.movimientos += vehiculo.movimientos();
     }
 
     // Se usa para tests
     public boolean verificarMovimiento(int cantMovimientos){
-        if(this.movimientos == cantMovimientos){
+        if(this.vehiculo.movimientos() == cantMovimientos){
             return true;
         }
         return false;
@@ -61,16 +50,6 @@ public class Jugador {
     public void cambiarVehiculo(Vehiculo vehiculoNuevo){
         this.vehiculo = vehiculoNuevo;
     }
-
-    /*
-    No se utiliza de momento
-    public boolean verificarVehiculoDatos(Ubicacion ubicacion){
-        if(this.vehiculo.obtenerUbicacion() == ubicacion){
-            return true;
-        }
-        return false;
-    }
-    */
 
     public boolean mismoVehiculo(Vehiculo vehiculo) {
         // TODO cambiar la comparación

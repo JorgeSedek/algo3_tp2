@@ -14,28 +14,28 @@ public class Camioneta extends Vehiculo {
         super(ubicacion);
     }
 
-
-    @Override
-    protected void initUrbanoMap() {
-        urbanoMap = new HashMap<>();
-        urbanoMap.put(Pozo.class, (x) -> recibePozo(x));
-        urbanoMap.put(Piquete.class, (x) -> recibePiquete(x));
-    }
-
-    private void recibePozo(ObjetoUrbano x) {
-        int veces_atravezados = this.sumarVecesPasadosEnPozo();
-        int incremento = 3;
-        if (veces_atravezados > 3) {
-            this.incrementarMovimientos(incremento);
+    protected void recibePozo(ObjetoUrbano x) {
+        pozos_atravesados++;
+        if (pozos_atravesados > 3) {
+            this.incrementarMovimientos(3);
         }
     }
-    private void recibePiquete(ObjetoUrbano x) {
 
+    protected void recibePiquete(ObjetoUrbano x) {
     }
 
+    protected void recibeFavorable(ObjetoUrbano x) {
+        int movimientosReducidos = this.movimientos() / 5;
+        this.disminuirMovimientos(movimientosReducidos);
+    }
 
-    public int sumarVecesPasadosEnPozo(){
-        pozos_atravesados = pozos_atravesados + 1;
-        return pozos_atravesados;
+    protected void recibeDesfavorable(ObjetoUrbano x) {
+        int movimientosAumentados = this.movimientos() / 4;
+        this.incrementarMovimientos(movimientosAumentados);
+    }
+
+    protected void recibeCambioVehiculo(ObjetoUrbano x) {
+        Vehiculo nuevoVehiculo = new Moto(this.obtenerUbicacion());
+        //this.cambiarVehiculo(nuevoVehiculo);
     }
 }

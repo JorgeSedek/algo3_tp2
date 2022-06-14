@@ -12,20 +12,28 @@ public class Moto extends Vehiculo {
         super(ubicacion);
     }
 
-    @Override
-    protected void initUrbanoMap() {
-        urbanoMap = new HashMap<>();
-        urbanoMap.put(Pozo.class, (x) -> recibePozo(x));
-        urbanoMap.put(Piquete.class, (x) -> recibePiquete(x));
-    }
-
-    private void recibePozo(ObjetoUrbano x) {
+    protected void recibePozo(ObjetoUrbano x) {
         int incremento = 3;
         this.incrementarMovimientos(incremento);
     }
 
-    private void recibePiquete(ObjetoUrbano x) {
+    protected void recibePiquete(ObjetoUrbano x) {
         int incremento = 2;
         this.incrementarMovimientos(incremento);
+    }
+
+    protected void recibeFavorable(ObjetoUrbano x) {
+        int movimientosReducidos = this.movimientos() / 5;
+        this.disminuirMovimientos(movimientosReducidos);
+    }
+
+    protected void recibeDesfavorable(ObjetoUrbano x) {
+        int movimientosAumentados = this.movimientos() / 4;
+        this.incrementarMovimientos(movimientosAumentados);
+    }
+
+    protected void recibeCambioVehiculo(ObjetoUrbano x) {
+        Vehiculo nuevoVehiculo = new Auto(this.obtenerUbicacion());
+        //this.cambiarVehiculo(nuevoVehiculo);
     }
 }
