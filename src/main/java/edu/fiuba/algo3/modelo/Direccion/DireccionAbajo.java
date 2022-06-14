@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.Direccion;
 
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.Casillero;
 
 public class DireccionAbajo implements Direccion{
-    public void mover( Ubicacion ubicacion){
-        ubicacion.incrementarFila();
+    public void mover(Casillero casillero){
+        casillero.ubicacion().incrementarFila();
     }
 }

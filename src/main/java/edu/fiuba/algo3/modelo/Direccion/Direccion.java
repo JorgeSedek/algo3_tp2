@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Direccion;
 
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.Casillero;
 
 public interface Direccion {
-    void mover(Ubicacion ubicacion);
+    void mover(Casillero casillero);
 }

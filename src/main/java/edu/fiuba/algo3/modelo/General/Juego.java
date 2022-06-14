@@ -14,12 +14,4 @@ public class Juego {
     public void moverVehiculo(Direccion direccion){
         this.jugador.moverVehiculo(direccion);
     }
-
-    public Jugador obtenerJugador () {
-        return this.jugador;
-    }
-
-    public Ubicacion obtenerUbicacionJugador () {
-        return this.jugador.obtenerUbicacion();
-    }
 }

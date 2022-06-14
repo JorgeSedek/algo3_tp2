@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor ":Usuario"
+create ":Juego"
+":Usuario" --> ":Juego" : Juego(escenario, jugador)
+
+create "moto :Moto"
+":Juego" --> "moto :Moto" : Vehiculo(Ubicacion)
+
+create ":Jugador"
+":Juego" --> ":Jugador" : Jugador(nombre, moto)
+
+create ":Escenario"
+":Juego" --> ":Escenario" : Escenario(filas, columnas)
+
+loop hasta completar el escenario
+create ":Casillero"
+":Escenario" --> ":Casillero" : new
+
+create ":Calle"
+":Casillero" --> ":Calle" : new
+end
+
+loop hasta toparse con una sorpresa
+":Usuario" -> ":Juego" : moverVehiculo(Direccion)
+":Juego" -> ":Jugador" : moverVehiculo(Direccion)
+
+":Jugador" -> "moto :Moto" : mover(Direccion)
+":Jugador" -> "moto :Moto" : incrementarMovimientos(int movimiento)
+
+"moto :Moto" -> ":Direccion" : mover(Ubicacion)
+":Direccion" -> ":Ubicacion" : mover()
+end
+
+":Jugador" -> "moto :Moto" : recibe(desfavorable)
+"moto :Moto" -> "moto :Moto" : recibeDesfavorable()
+"moto :Moto" -> "moto :Moto" : incrementarMovimientos(int movimientos)
+
+
+":Juego" -> ":Jugador" : puntaje()
+":Jugador" -->> ":Juego" : puntaje
+
+":Juego" -->> ":Usuario" : puntaje
+@enduml

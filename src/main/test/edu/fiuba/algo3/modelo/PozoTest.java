@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
@@ -20,8 +21,8 @@ public class PozoTest {
 	@Test
 	public void unJugadorPasaPorUnPozoConAutoDeberiaSumarse3MovimientosAJugador() {
 		ObjetoUrbano pozo = new Pozo();
-		Ubicacion ubicacion = new Ubicacion(fila, columna);
-		Vehiculo auto = new Auto(ubicacion);
+		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+		Vehiculo auto = new Auto(casillero);
 		Jugador jugador = new Jugador(nombre, auto);
 		int cantidadMovimientos = 3;
 
@@ -33,8 +34,8 @@ public class PozoTest {
 	@Test
 	public void unJugadorPasaPorUnPozoConMotoDeberiaSumarse3MovimientosAJugador() {
 		ObjetoUrbano pozo = new Pozo();
-		Ubicacion ubicacion = new Ubicacion(fila, columna);
-		Vehiculo moto = new Moto(ubicacion);
+		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+		Vehiculo moto = new Moto(casillero);
 		Jugador jugador = new Jugador(nombre, moto);
 		int cantidadMovimientos = 3;
 
@@ -46,8 +47,8 @@ public class PozoTest {
 	@Test
 	public void unJugadorPasaPorUnPozoConCamionetaNoDeberiaSumarseMovimientosAJugador() {
 		ObjetoUrbano pozo = new Pozo();
-		Ubicacion ubicacion = new Ubicacion(fila, columna);
-		Vehiculo camioneta = new Camioneta(ubicacion);
+		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+		Vehiculo camioneta = new Camioneta(casillero);
 		Jugador jugador = new Jugador(nombre, camioneta);
 		int cantidadMovimientos = 0;
 
@@ -59,8 +60,8 @@ public class PozoTest {
 	@Test
 	public void unJugadorPasaPorUnPozo4VecesConCamionetaDeberiaSumarse3MovimientosAJugador() {
 		ObjetoUrbano pozo = new Pozo();
-		Ubicacion ubicacion = new Ubicacion(fila, columna);
-		Vehiculo camioneta = new Camioneta(ubicacion);
+		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+		Vehiculo camioneta = new Camioneta(casillero);
 		Jugador jugador = new Jugador(nombre, camioneta);
 		int cantidadMovimientos = 3;
 

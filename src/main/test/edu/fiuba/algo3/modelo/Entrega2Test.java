@@ -4,7 +4,9 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.General.*;
+
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
+
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
@@ -28,8 +30,8 @@ public class Entrega2Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -40,7 +42,9 @@ public class Entrega2Test {
             juego.moverVehiculo(new DireccionAbajo());
         }
         // Realizo 12 movimientos
+
         moto = moto.recibe(favorable);
+
         int movimientosEsperados = 10;
 
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -48,8 +52,8 @@ public class Entrega2Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaDesfavorableDeberiaTener14Movimientos() {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -60,7 +64,9 @@ public class Entrega2Test {
             juego.moverVehiculo(new DireccionAbajo());
         }
         // Realizo 12 movimientos
+
         moto = moto.recibe(desfavorable);
+
         int movimientosEsperados = 15;
 
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -68,9 +74,11 @@ public class Entrega2Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraUnaSorpresaCambioDeVehiculoDeberiaConvertirseEnAuto() {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo vehiculo = new Moto(ubicacion);
+
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo vehiculo = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
+
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         ObjetoUrbano cambioVehiculo = new CambioVehiculo();
@@ -80,19 +88,23 @@ public class Entrega2Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
+
         vehiculo = vehiculo.recibe(cambioVehiculo);
         jugador.cambiarVehiculo(vehiculo);
 
-        Vehiculo vehiculoEsperado = new Auto(ubicacion);
+        Vehiculo vehiculoEsperado = new Auto(casillero);
 
         assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
 
-    @Test
+   @Test
     public void UnaCamionetaSeEncuentraConSorpresaCambioDeVehiculoYUnPiqueteDeberiaPoderPasarElPiqueteYTener6Movimientos(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo vehiculo = new Camioneta(ubicacion);
+
+       Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo vehiculo = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
+
+
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         ObjetoUrbano cambioVehiculo = new CambioVehiculo();
@@ -103,26 +115,27 @@ public class Entrega2Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
+
         vehiculo = vehiculo.recibe(cambioVehiculo);
         jugador.cambiarVehiculo(vehiculo);
         vehiculo = jugador.obtenerVehiculo().recibe(piquete);
 
        int movimientosEsperados = 6;
 
-       Vehiculo vehiculoEsperado = new Moto(new Ubicacion(2,4));
+
+       Vehiculo vehiculoEsperado = new Moto(new Casillero(new Ubicacion(2,4)));
 
       assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
       assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
-    private void assertEquals() {
-    }
 
     @Test
     public void UnaCamionetaSeMueve4VecesPorLaCiudadYSeEncuentra4VecesConPozoDeberiaTener7Movimientos(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo vehiculo = new Camioneta(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo vehiculo = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
+
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         ObjetoUrbano pozo = new Pozo();
@@ -133,7 +146,9 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
         for(int i=0; i<4; i++){
+
             vehiculo = vehiculo.recibe(pozo);
+
         }
 
         int movimientosEsperados = 7;
@@ -141,5 +156,7 @@ public class Entrega2Test {
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
+
 }
+
 

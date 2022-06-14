@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.CollitionHandler;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
@@ -13,12 +14,12 @@ import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import java.util.HashMap;
 
 public abstract class Vehiculo {
-    private Ubicacion ubicacion;
+    protected Casillero casillero;
     protected HashMap<Class, CollitionHandler> urbanoMap;
     protected int movimientos;
 
-    public Vehiculo(Ubicacion ubicacion) {
-        this.ubicacion = ubicacion;
+    public Vehiculo(Casillero casillero) {
+        this.casillero = casillero;
         this.initUrbanoMap();
     }
 
@@ -38,22 +39,27 @@ public abstract class Vehiculo {
     protected abstract Vehiculo recibeCambioVehiculo(ObjetoUrbano x);
 
 
+
     public Vehiculo recibe(ObjetoUrbano otroObjetoUrbano) {
         CollitionHandler handler = this.urbanoMap.get(otroObjetoUrbano.getClass());
        Vehiculo vehiculo = handler.collideWith(otroObjetoUrbano);
         return vehiculo;
     }
 
-    public void asignarMovimientos(int cantMovimientos){
+    public void asignarMovimientos(int cantMovimientos) {
         this.movimientos = cantMovimientos;
     }
 
     public Ubicacion obtenerUbicacion () {
-        return this.ubicacion;
+        return this.casillero.ubicacion();
+    }
+
+    public Casillero casillero() {
+        return this.casillero;
     }
 
     public void mover(Direccion direccion) {
-        direccion.mover(this.ubicacion);
+        direccion.mover(this.casillero);
     }
 
     public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
@@ -63,43 +69,7 @@ public abstract class Vehiculo {
     public int movimientos(){return this.movimientos;}
 
     // Metodos para Tests
-    public boolean verificarUbicacion(Ubicacion nuevaUbicacion) {
-        return this.ubicacion.equals(nuevaUbicacion);
+    public boolean verificarCasillero(Casillero nuevoCasillero) {
+        return this.casillero.equals(nuevoCasillero);
     }
 }
-
-
-
-/*
-POSIBLE SEGUNDA IMPLEMENTACION (Vehiculo ya no tiene una ubicacion, sino un casillero)
-
-public abstract class Vehiculo {
-
-    private Casillero casillero;
-
-
-
-    public Vehiculo(Casillero casillero) {
-        this.casillero = casillero;
-
-    }
-
-    public Casillero obtenerPosicion() {
-        return this.casillero;
-    }
-
-    // Comentado de momento porque movimiento no se utiliza
-    // public Movimiento obtenerMovimiento(){return this.movimiento;}
-
-    public void mover(Direccion direccion) {
-        this.casillero = this.casillero.obtenerCasilleroAdyacente(direccion);
-    }
-
-    // Metodos para Tests
-    public boolean verificarUbicacion(Casillero otraPosicion) {
-        return this.posicion.equals(otraPosicion);
-    }
-}
-
-
- */

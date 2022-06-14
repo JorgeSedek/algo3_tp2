@@ -1,17 +1,14 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
-import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
-import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
-
-import java.util.HashMap;
 
 public class Camioneta extends Vehiculo {
     private int pozos_atravesados;
 
-    public Camioneta(Ubicacion ubicacion) {
-        super(ubicacion);
+    public Camioneta(Casillero casillero) {
+        super(casillero);
     }
 
     protected Vehiculo recibePozo(ObjetoUrbano x) {
@@ -39,7 +36,8 @@ public class Camioneta extends Vehiculo {
     }
 
     protected Vehiculo recibeCambioVehiculo(ObjetoUrbano x) {
-        Vehiculo nuevoVehiculo = new Moto(this.obtenerUbicacion());
+        Vehiculo nuevoVehiculo = new Moto(this.casillero());
+
         //this.cambiarVehiculo(nuevoVehiculo);
         nuevoVehiculo.asignarMovimientos(this.movimientos());
         return (nuevoVehiculo);

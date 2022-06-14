@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,8 +16,9 @@ public class JugadorTest {
 
     @Test
     public void seCreaUnJugadorDeberiaDevolverElNombreYSusMovimientosCorrectamente(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Jugador jugador = new Jugador(nombre,new Auto(ubicacion));
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo auto = new Auto(casillero);
+        Jugador jugador = new Jugador(nombre, auto);
         int movimentosIniciales = 0;
 
         assertEquals(jugador.obtenerNombre(), nombre);
@@ -24,8 +27,9 @@ public class JugadorTest {
 
     @Test
     public void seAumentanLosMovimientosDeUnJugadorEn3DeberiaDevolverQueSusMovimientosSon3(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Jugador jugador = new Jugador(nombre,new Auto(ubicacion));
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo auto = new Auto(casillero);
+        Jugador jugador = new Jugador(nombre, auto);
         int incremento = 3;
         jugador.incrementarMovimientos(incremento);
 
@@ -34,8 +38,9 @@ public class JugadorTest {
 
     @Test
     public void seAumentaElPuntajeDeUnJugadorEn4YLuegoSeReduceEn3DeberiaTener1Movimiento(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Jugador jugador = new Jugador(nombre,new Auto(ubicacion));
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo auto = new Auto(casillero);
+        Jugador jugador = new Jugador(nombre, auto);
         int incremento = 4;
         int reduccion = 3;
         int totalMovimientos = incremento - reduccion;

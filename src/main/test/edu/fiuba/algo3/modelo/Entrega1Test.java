@@ -14,7 +14,6 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Entrega1Test {
@@ -26,15 +25,15 @@ public class Entrega1Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener7Movimientos () {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         ObjetoUrbano pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
-        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 7;
 
         for (int i = 0; i < 3; i++) {
@@ -44,21 +43,21 @@ public class Entrega1Test {
 
         moto = moto.recibe(pozo);
 
-        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(moto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnAutoSeMuevePorLaCiudad6VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener9Movimientos () {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo auto = new Auto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         ObjetoUrbano pozo = new Pozo();
         int nuevaFila = 1;
         int nuevaColumna = 3;
-        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 9;
 
         for (int i = 0; i < 3; i++) {
@@ -70,21 +69,21 @@ public class Entrega1Test {
 
         auto = auto.recibe(pozo);
 
-        assertTrue(auto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(auto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnaCamionetaSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener4Movimientos () {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo camioneta = new Camioneta(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         ObjetoUrbano pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
-        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 4;
 
         for (int i = 0; i < 3; i++) {
@@ -94,21 +93,21 @@ public class Entrega1Test {
 
         camioneta = camioneta.recibe(pozo);
 
-        assertTrue(camioneta.verificarUbicacion(nuevaUbicacion));
+        assertTrue(camioneta.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPiqueteDeberiaEstarEnOtraUbicacionYTener6Movimientos() {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
         ObjetoUrbano piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
-        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 6;
 
         for (int i = 0; i < 3; i++) {
@@ -118,14 +117,14 @@ public class Entrega1Test {
 
         moto = moto.recibe(piquete);
 
-        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(moto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoYUnPiqueteDeberiaEstarEnOtraUbicacionYTener9Movimientos(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -133,7 +132,7 @@ public class Entrega1Test {
         ObjetoUrbano piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
-        Ubicacion nuevaUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
+        Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 9;
 
         for (int i = 0; i < 3; i++) {
@@ -144,7 +143,7 @@ public class Entrega1Test {
         moto = moto.recibe(pozo);
         moto = moto.recibe(piquete);
 
-        assertTrue(moto.verificarUbicacion(nuevaUbicacion));
+        assertTrue(moto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 }
