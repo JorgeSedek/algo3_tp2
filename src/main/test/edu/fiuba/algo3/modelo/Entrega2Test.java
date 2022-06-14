@@ -3,12 +3,8 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.General.*;
-import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
-import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
-import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
-import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
@@ -28,8 +24,8 @@ public class Entrega2Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -48,8 +44,8 @@ public class Entrega2Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaDesfavorableDeberiaTener14Movimientos() {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -68,8 +64,8 @@ public class Entrega2Test {
 
     /*@Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraUnaSorpresaCambioDeVehiculoDeberiaConvertirseEnAuto() {
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo moto = new Moto(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -89,8 +85,8 @@ public class Entrega2Test {
 
     /*@Test
     public void UnaCamionetaSeEncuentraConSorpresaCambioDeVehiculoYUnPiqueteDeberiaPoderPasarElPiqueteYTener6Movimientos(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo camioneta = new Camioneta(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
@@ -114,8 +110,8 @@ public class Entrega2Test {
 
     @Test
     public void UnaCamionetaSeMueve4VecesPorLaCiudadYSeEncuentra4VecesConPozoDeberiaTener7Movimientos(){
-        Ubicacion ubicacion = new Ubicacion(fila, columna);
-        Vehiculo camioneta = new Camioneta(ubicacion);
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);

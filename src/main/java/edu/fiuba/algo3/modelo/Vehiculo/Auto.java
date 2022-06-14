@@ -1,18 +1,12 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
-import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
-import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
-import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
-import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
-import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
-
-import java.util.HashMap;
 
 public class Auto extends Vehiculo {
-    public Auto(Ubicacion ubicacion) {
-        super(ubicacion);
+    public Auto(Casillero casillero) {
+        super(casillero);
     }
 
     protected void recibePozo(ObjetoUrbano x) {
@@ -34,7 +28,7 @@ public class Auto extends Vehiculo {
     }
 
     protected void recibeCambioVehiculo(ObjetoUrbano x) {
-        Vehiculo nuevoVehiculo = new Camioneta(this.obtenerUbicacion());
+        Vehiculo nuevoVehiculo = new Camioneta(this.casillero());
         //this.cambiarVehiculo(nuevoVehiculo);
     }
 }

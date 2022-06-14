@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.CollitionHandler;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
@@ -13,22 +14,22 @@ import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import java.util.HashMap;
 
 public abstract class Vehiculo {
-    private Ubicacion ubicacion;
+    private Casillero casillero;
     protected HashMap<Class, CollitionHandler> urbanoMap;
     protected int movimientos;
 
-    public Vehiculo(Ubicacion ubicacion) {
-        this.ubicacion = ubicacion;
+    public Vehiculo(Casillero casillero) {
+        this.casillero = casillero;
         this.initUrbanoMap();
     }
 
     private void initUrbanoMap() {
         urbanoMap = new HashMap<>();
-        urbanoMap.put(Pozo.class, (x) -> recibePozo(x));
-        urbanoMap.put(Piquete.class, (x) -> recibePiquete(x));
-        urbanoMap.put(Favorable.class, (x) -> recibeFavorable(x));
-        urbanoMap.put(Desfavorable.class, (x) -> recibeDesfavorable(x));
-        urbanoMap.put(CambioVehiculo.class, (x) -> recibeCambioVehiculo(x));
+        urbanoMap.put(Pozo.class, this::recibePozo);
+        urbanoMap.put(Piquete.class, this::recibePiquete);
+        urbanoMap.put(Favorable.class, this::recibeFavorable);
+        urbanoMap.put(Desfavorable.class, this::recibeDesfavorable);
+        urbanoMap.put(CambioVehiculo.class, this::recibeCambioVehiculo);
     }
 
     protected abstract void recibePozo(ObjetoUrbano x);
@@ -37,18 +38,21 @@ public abstract class Vehiculo {
     protected abstract void recibeDesfavorable(ObjetoUrbano x);
     protected abstract void recibeCambioVehiculo(ObjetoUrbano x);
 
-
     public void recibe(ObjetoUrbano otroObjetoUrbano) {
         CollitionHandler handler = this.urbanoMap.get(otroObjetoUrbano.getClass());
-        handler.collideWith(otroObjetoUrbano);
+        handler.recibir(otroObjetoUrbano);
     }
 
     public Ubicacion obtenerUbicacion () {
-        return this.ubicacion;
+        return this.casillero.ubicacion();
+    }
+
+    public Casillero casillero() {
+        return this.casillero;
     }
 
     public void mover(Direccion direccion) {
-        direccion.mover(this.ubicacion);
+        direccion.mover(this.casillero);
     }
 
     public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
@@ -58,43 +62,7 @@ public abstract class Vehiculo {
     public int movimientos(){return this.movimientos;}
 
     // Metodos para Tests
-    public boolean verificarUbicacion(Ubicacion nuevaUbicacion) {
-        return this.ubicacion.equals(nuevaUbicacion);
+    public boolean verificarCasillero(Casillero nuevoCasillero) {
+        return this.casillero.equals(nuevoCasillero);
     }
 }
-
-
-
-/*
-POSIBLE SEGUNDA IMPLEMENTACION (Vehiculo ya no tiene una ubicacion, sino un casillero)
-
-public abstract class Vehiculo {
-
-    private Casillero casillero;
-
-
-
-    public Vehiculo(Casillero casillero) {
-        this.casillero = casillero;
-
-    }
-
-    public Casillero obtenerPosicion() {
-        return this.casillero;
-    }
-
-    // Comentado de momento porque movimiento no se utiliza
-    // public Movimiento obtenerMovimiento(){return this.movimiento;}
-
-    public void mover(Direccion direccion) {
-        this.casillero = this.casillero.obtenerCasilleroAdyacente(direccion);
-    }
-
-    // Metodos para Tests
-    public boolean verificarUbicacion(Casillero otraPosicion) {
-        return this.posicion.equals(otraPosicion);
-    }
-}
-
-
- */

@@ -28,8 +28,4 @@ public class Ubicacion {
 	public void disminuirColumna() {
 		this.columna -= 1;
 	}
-
-	public Ubicacion ubicacionInferior() {
-		return new Ubicacion(this.fila + 1, this.columna);
-	}
 }
