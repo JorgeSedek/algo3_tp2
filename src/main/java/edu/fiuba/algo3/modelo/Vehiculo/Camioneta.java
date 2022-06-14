@@ -14,28 +14,34 @@ public class Camioneta extends Vehiculo {
         super(ubicacion);
     }
 
-    protected void recibePozo(ObjetoUrbano x) {
+    protected Vehiculo recibePozo(ObjetoUrbano x) {
         pozos_atravesados++;
         if (pozos_atravesados > 3) {
             this.incrementarMovimientos(3);
         }
+        return this;
     }
 
-    protected void recibePiquete(ObjetoUrbano x) {
+    protected Vehiculo recibePiquete(ObjetoUrbano x) {
+        return this;
     }
 
-    protected void recibeFavorable(ObjetoUrbano x) {
+    protected Vehiculo recibeFavorable(ObjetoUrbano x) {
         int movimientosReducidos = this.movimientos() / 5;
         this.disminuirMovimientos(movimientosReducidos);
+        return this;
     }
 
-    protected void recibeDesfavorable(ObjetoUrbano x) {
+    protected Vehiculo recibeDesfavorable(ObjetoUrbano x) {
         int movimientosAumentados = this.movimientos() / 4;
         this.incrementarMovimientos(movimientosAumentados);
+        return this;
     }
 
-    protected void recibeCambioVehiculo(ObjetoUrbano x) {
+    protected Vehiculo recibeCambioVehiculo(ObjetoUrbano x) {
         Vehiculo nuevoVehiculo = new Moto(this.obtenerUbicacion());
         //this.cambiarVehiculo(nuevoVehiculo);
+        nuevoVehiculo.asignarMovimientos(this.movimientos());
+        return (nuevoVehiculo);
     }
 }

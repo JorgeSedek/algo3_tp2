@@ -31,16 +31,21 @@ public abstract class Vehiculo {
         urbanoMap.put(CambioVehiculo.class, (x) -> recibeCambioVehiculo(x));
     }
 
-    protected abstract void recibePozo(ObjetoUrbano x);
-    protected abstract void recibePiquete(ObjetoUrbano x);
-    protected abstract void recibeFavorable(ObjetoUrbano x);
-    protected abstract void recibeDesfavorable(ObjetoUrbano x);
-    protected abstract void recibeCambioVehiculo(ObjetoUrbano x);
+    protected abstract Vehiculo recibePozo(ObjetoUrbano x);
+    protected abstract Vehiculo recibePiquete(ObjetoUrbano x);
+    protected abstract Vehiculo recibeFavorable(ObjetoUrbano x);
+    protected abstract Vehiculo recibeDesfavorable(ObjetoUrbano x);
+    protected abstract Vehiculo recibeCambioVehiculo(ObjetoUrbano x);
 
 
-    public void recibe(ObjetoUrbano otroObjetoUrbano) {
+    public Vehiculo recibe(ObjetoUrbano otroObjetoUrbano) {
         CollitionHandler handler = this.urbanoMap.get(otroObjetoUrbano.getClass());
-        handler.collideWith(otroObjetoUrbano);
+       Vehiculo vehiculo = handler.collideWith(otroObjetoUrbano);
+        return vehiculo;
+    }
+
+    public void asignarMovimientos(int cantMovimientos){
+        this.movimientos = cantMovimientos;
     }
 
     public Ubicacion obtenerUbicacion () {

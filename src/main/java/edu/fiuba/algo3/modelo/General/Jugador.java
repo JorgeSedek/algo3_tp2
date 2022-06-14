@@ -41,10 +41,8 @@ public class Jugador {
 
     // Se usa para tests
     public boolean verificarMovimiento(int cantMovimientos){
-        if(this.vehiculo.movimientos() == cantMovimientos){
-            return true;
-        }
-        return false;
+        return (this.vehiculo.movimientos() == cantMovimientos);
+
     }
 
     public void cambiarVehiculo(Vehiculo vehiculoNuevo){
