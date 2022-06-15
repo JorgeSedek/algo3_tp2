@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Policia;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
+
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
@@ -18,10 +19,14 @@ public abstract class Vehiculo {
     protected Casillero casillero;
     protected HashMap<Class, CollitionHandler> urbanoMap;
     protected int movimientos;
+    protected Vehiculo cambio;
+
+
 
     public Vehiculo(Casillero casillero) {
         this.casillero = casillero;
         this.initUrbanoMap();
+
     }
 
     private void initUrbanoMap() {
@@ -34,17 +39,16 @@ public abstract class Vehiculo {
         urbanoMap.put(CambioVehiculo.class, (x) -> recibeCambioVehiculo(x));
     }
 
-    protected abstract Vehiculo recibePozo(ObjetoUrbano x);
-    protected abstract Vehiculo recibePiquete(ObjetoUrbano x);
-    protected abstract Vehiculo recibePolicia(ObjetoUrbano x);
-    protected abstract Vehiculo recibeFavorable(ObjetoUrbano x);
-    protected abstract Vehiculo recibeDesfavorable(ObjetoUrbano x);
-    protected abstract Vehiculo recibeCambioVehiculo(ObjetoUrbano x);
+    protected abstract void recibePozo(ObjetoUrbano x);
+    protected abstract void recibePiquete(ObjetoUrbano x);
+    protected abstract void recibePolicia(ObjetoUrbano x);
+    protected abstract void recibeFavorable(ObjetoUrbano x);
+    protected abstract void recibeDesfavorable(ObjetoUrbano x);
+    protected abstract void recibeCambioVehiculo(ObjetoUrbano x);
 
-    public Vehiculo recibe(ObjetoUrbano otroObjetoUrbano) {
+    public void recibe(ObjetoUrbano otroObjetoUrbano) {
         CollitionHandler handler = this.urbanoMap.get(otroObjetoUrbano.getClass());
-       Vehiculo vehiculo = handler.collideWith(otroObjetoUrbano);
-        return vehiculo;
+        handler.collideWith(otroObjetoUrbano);
     }
 
     public void asignarMovimientos(int cantMovimientos) {
@@ -72,5 +76,9 @@ public abstract class Vehiculo {
     // Metodos para Tests
     public boolean verificarCasillero(Casillero nuevoCasillero) {
         return this.casillero.equals(nuevoCasillero);
+    }
+
+    public Vehiculo cambio(){
+        return this.cambio;
     }
 }

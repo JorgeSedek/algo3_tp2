@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class Jugador {
     private Vehiculo vehiculo;
-    private String nombre;
+    private final String nombre;
 
     public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
         this.vehiculo = vehiculoElegido;
@@ -20,7 +20,7 @@ public class Jugador {
     }
     */
 
-    public int movimientos() {return this.vehiculo.movimientos();}
+    //public int movimientos() {return this.vehiculo.movimientos();}
 
     public void incrementarMovimientos(int incremento){this.vehiculo.incrementarMovimientos(incremento);}
 
@@ -28,10 +28,10 @@ public class Jugador {
 
     public String obtenerNombre(){return this.nombre;}
 
-    public Ubicacion obtenerUbicacion() {
+  /*  public Ubicacion obtenerUbicacion() {
         return this.vehiculo.obtenerUbicacion();
     }
-
+*/
     public void moverVehiculo(Direccion direccion){
         int incremento = 1;
         this.vehiculo.mover(direccion);

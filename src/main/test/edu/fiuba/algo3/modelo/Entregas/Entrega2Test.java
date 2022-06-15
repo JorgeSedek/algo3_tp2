@@ -89,8 +89,8 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
 
-        vehiculo = vehiculo.recibe(cambioVehiculo);
-        jugador.cambiarVehiculo(vehiculo);
+        vehiculo.recibe(cambioVehiculo);
+        jugador.cambiarVehiculo(vehiculo.cambio());
 
         Vehiculo vehiculoEsperado = new Auto(casillero);
 
@@ -116,9 +116,9 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
 
-        vehiculo = vehiculo.recibe(cambioVehiculo);
-        jugador.cambiarVehiculo(vehiculo);
-        vehiculo = jugador.obtenerVehiculo().recibe(piquete);
+       vehiculo.recibe(cambioVehiculo);
+        jugador.cambiarVehiculo(vehiculo.cambio());
+        jugador.obtenerVehiculo().recibe(piquete);
 
        int movimientosEsperados = 6;
 
