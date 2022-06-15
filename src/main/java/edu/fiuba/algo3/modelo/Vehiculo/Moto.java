@@ -10,13 +10,13 @@ public class Moto extends Vehiculo {
 
     protected void recibePozo(ObjetoUrbano x) {
         int incremento = 3;
-        this.incrementarMovimientos(incremento);
+        this.calculadora.incrementarMovimientos(incremento);
 
     }
 
     protected void recibePiquete(ObjetoUrbano x) {
         int incremento = 2;
-        this.incrementarMovimientos(incremento);
+        this.calculadora.incrementarMovimientos(incremento);
 
     }
 
@@ -24,20 +24,22 @@ public class Moto extends Vehiculo {
         int probabilidad = (int) Math.random() * 10 + 1;
         if(probabilidad <= 8) {
             int disminucion = 3;
-            this.disminuirMovimientos(disminucion);
+            this.calculadora.disminuirMovimientos(disminucion);
         }
 
     }
 
     protected void recibeFavorable(ObjetoUrbano x) {
-        int movimientosReducidos = this.movimientos() / 5;
-        this.disminuirMovimientos(movimientosReducidos);
+        int divisor = 5;
+        int movimientosReducidos = this.calculadora.dividirMovimientos(divisor);
+        this.calculadora.disminuirMovimientos(movimientosReducidos);
 
     }
 
     protected void  recibeDesfavorable(ObjetoUrbano x) {
-        int movimientosAumentados = this.movimientos() / 4;
-        this.incrementarMovimientos(movimientosAumentados);
+        int divisor = 4;
+        int movimientosAumentados = this.calculadora.dividirMovimientos(divisor);
+        this.calculadora.incrementarMovimientos(movimientosAumentados);
 
     }
 
@@ -45,7 +47,7 @@ public class Moto extends Vehiculo {
     protected void recibeCambioVehiculo(ObjetoUrbano x) {
         Vehiculo nuevoVehiculo = new Auto(this.casillero());
         //this.cambiarVehiculo(nuevoVehiculo);
-        nuevoVehiculo.asignarMovimientos(this.movimientos());
+        nuevoVehiculo.asignarCalculadoraMov(this.calculadora);
         this.cambio = nuevoVehiculo;
 
     }

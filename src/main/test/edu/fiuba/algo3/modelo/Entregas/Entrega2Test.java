@@ -50,6 +50,8 @@ public class Entrega2Test {
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
+
+
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaDesfavorableDeberiaTener14Movimientos() {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));

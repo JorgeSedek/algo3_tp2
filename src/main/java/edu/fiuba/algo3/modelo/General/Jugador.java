@@ -1,15 +1,21 @@
 package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Vehiculo.CalculadoraMovimiento;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+
 
 public class Jugador {
     private Vehiculo vehiculo;
     private final String nombre;
 
+    private CalculadoraMovimiento calculadora;
+
     public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
         this.vehiculo = vehiculoElegido;
         this.nombre = nombreJugador;
+        this.calculadora = new CalculadoraMovimiento();
+        this.vehiculo.asignarCalculadoraMov(this.calculadora);
     }
 
     /*
@@ -22,9 +28,9 @@ public class Jugador {
 
     //public int movimientos() {return this.vehiculo.movimientos();}
 
-    public void incrementarMovimientos(int incremento){this.vehiculo.incrementarMovimientos(incremento);}
+    public void incrementarMovimientos(int incremento){this.calculadora.incrementarMovimientos(incremento);}
 
-    public void disminuirMovimientos(int disminucion){this.vehiculo.disminuirMovimientos(disminucion);}
+    public void disminuirMovimientos(int disminucion){this.calculadora.disminuirMovimientos(disminucion);}
 
     public String obtenerNombre(){return this.nombre;}
 
@@ -35,14 +41,13 @@ public class Jugador {
     public void moverVehiculo(Direccion direccion){
         int incremento = 1;
         this.vehiculo.mover(direccion);
-        this.vehiculo.incrementarMovimientos(incremento);
+        this.calculadora.incrementarMovimientos(incremento);
 
     }
 
     // Se usa para tests
     public boolean verificarMovimiento(int cantMovimientos){
-        return (this.vehiculo.movimientos() == cantMovimientos);
-
+       return this.calculadora.verificarMovimientos(cantMovimientos);
     }
 
     public void cambiarVehiculo(Vehiculo vehiculoNuevo){

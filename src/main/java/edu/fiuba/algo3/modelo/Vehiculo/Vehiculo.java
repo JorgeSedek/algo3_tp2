@@ -18,7 +18,7 @@ import java.util.HashMap;
 public abstract class Vehiculo {
     protected Casillero casillero;
     protected HashMap<Class, CollitionHandler> urbanoMap;
-    protected int movimientos;
+    protected CalculadoraMovimiento calculadora;
     protected Vehiculo cambio;
 
 
@@ -27,6 +27,10 @@ public abstract class Vehiculo {
         this.casillero = casillero;
         this.initUrbanoMap();
 
+    }
+
+    public void asignarCalculadoraMov(CalculadoraMovimiento calculadora){
+        this.calculadora = calculadora;
     }
 
     private void initUrbanoMap() {
@@ -51,10 +55,10 @@ public abstract class Vehiculo {
         handler.collideWith(otroObjetoUrbano);
     }
 
-    public void asignarMovimientos(int cantMovimientos) {
+  /*  public void asignarMovimientos(int cantMovimientos) {
         this.movimientos = cantMovimientos;
     }
-
+*/
     public Ubicacion obtenerUbicacion () {
         return this.casillero.ubicacion();
     }
@@ -67,15 +71,19 @@ public abstract class Vehiculo {
         direccion.mover(this.casillero);
     }
 
-    public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
+    public void incrementarMovimientos(int incremento){this.calculadora.incrementarMovimientos(incremento);}
 
-    public void disminuirMovimientos(int disminucion){this.movimientos -= disminucion;}
+    public void disminuirMovimientos(int disminucion){this.calculadora.disminuirMovimientos(disminucion);}
 
-    public int movimientos(){return this.movimientos;}
+   // public int movimientos(){return this.movimientos;}
 
     // Metodos para Tests
     public boolean verificarCasillero(Casillero nuevoCasillero) {
         return this.casillero.equals(nuevoCasillero);
+    }
+
+    public boolean verificarMovimiento(int cantMovimientos){
+        return this.calculadora.verificarMovimientos(cantMovimientos);
     }
 
     public Vehiculo cambio(){
