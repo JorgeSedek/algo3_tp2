@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Entregas;
 
 import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
@@ -41,7 +41,7 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        moto = moto.recibe(pozo);
+        moto.recibe(pozo);
 
         assertTrue(moto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -67,7 +67,7 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionIzquierda());
         juego.moverVehiculo(new DireccionArriba());
 
-        auto = auto.recibe(pozo);
+        auto.recibe(pozo);
 
         assertTrue(auto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -91,7 +91,7 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        camioneta = camioneta.recibe(pozo);
+        camioneta.recibe(pozo);
 
         assertTrue(camioneta.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -115,7 +115,7 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        moto = moto.recibe(piquete);
+        moto.recibe(piquete);
 
         assertTrue(moto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -140,8 +140,8 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        moto = moto.recibe(pozo);
-        moto = moto.recibe(piquete);
+        moto.recibe(pozo);
+        moto.recibe(piquete);
 
         assertTrue(moto.verificarCasillero(nuevoCasillero));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Entregas;
 
 
 import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
@@ -43,7 +43,7 @@ public class Entrega2Test {
         }
         // Realizo 12 movimientos
 
-        moto = moto.recibe(favorable);
+        moto.recibe(favorable);
 
         int movimientosEsperados = 10;
 
@@ -65,7 +65,7 @@ public class Entrega2Test {
         }
         // Realizo 12 movimientos
 
-        moto = moto.recibe(desfavorable);
+        moto.recibe(desfavorable);
 
         int movimientosEsperados = 15;
 
@@ -146,17 +146,11 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
         for(int i=0; i<4; i++){
-
-            vehiculo = vehiculo.recibe(pozo);
-
+            vehiculo.recibe(pozo);
         }
 
         int movimientosEsperados = 7;
 
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
-
-
 }
-
-

@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.General.CollitionHandler;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
+import edu.fiuba.algo3.modelo.Obstaculos.Policia;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
@@ -27,6 +28,7 @@ public abstract class Vehiculo {
         urbanoMap = new HashMap<>();
         urbanoMap.put(Pozo.class, (x) -> recibePozo(x));
         urbanoMap.put(Piquete.class, (x) -> recibePiquete(x));
+        urbanoMap.put(Policia.class, (x) -> recibePolicia(x));
         urbanoMap.put(Favorable.class, (x) -> recibeFavorable(x));
         urbanoMap.put(Desfavorable.class, (x) -> recibeDesfavorable(x));
         urbanoMap.put(CambioVehiculo.class, (x) -> recibeCambioVehiculo(x));
@@ -34,11 +36,10 @@ public abstract class Vehiculo {
 
     protected abstract Vehiculo recibePozo(ObjetoUrbano x);
     protected abstract Vehiculo recibePiquete(ObjetoUrbano x);
+    protected abstract Vehiculo recibePolicia(ObjetoUrbano x);
     protected abstract Vehiculo recibeFavorable(ObjetoUrbano x);
     protected abstract Vehiculo recibeDesfavorable(ObjetoUrbano x);
     protected abstract Vehiculo recibeCambioVehiculo(ObjetoUrbano x);
-
-
 
     public Vehiculo recibe(ObjetoUrbano otroObjetoUrbano) {
         CollitionHandler handler = this.urbanoMap.get(otroObjetoUrbano.getClass());

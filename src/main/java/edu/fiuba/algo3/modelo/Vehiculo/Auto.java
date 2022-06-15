@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
 
 public class Auto extends Vehiculo {
     public Auto(Casillero casillero) {
@@ -16,6 +15,16 @@ public class Auto extends Vehiculo {
     }
 
     protected Vehiculo recibePiquete(ObjetoUrbano x) {
+        return this;
+    }
+
+    @Override
+    protected Vehiculo recibePolicia(ObjetoUrbano x) {
+        int probabilidad = (int) Math.random() * 10 + 1;
+        if(probabilidad <= 5) {
+            int disminucion = 3;
+            this.disminuirMovimientos(disminucion);
+        }
         return this;
     }
 
