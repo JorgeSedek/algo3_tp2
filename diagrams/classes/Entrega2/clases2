@@ -1,0 +1,57 @@
+@startuml
+class Jugador{
+-nombre:String
++Jugador(nombreJugador:String , vehiculoElegido:Vehiculo)
++incrementarMovimientos(incremento:int)
++disminuirMovimientos(disminucion:int)
++moverVehiculo(direccion:Direccion)
++cambiarVehiculo(vehiculoNuevo:Vehiculo)
+}
+abstract Vehiculo{
+#casillero:Casillero
+#urbanoMap:Class[*]
++Vehiculo(casillero:Casillero)
+-initUrbanoMap() 
+#abstract recibePozo(x:ObjetoUrbano):Vehiculo
+#abstract recibePiquete(x:ObjetoUrbano):Vehiculo
+#abstract recibeFavorable(x:ObjetoUrbano):Vehiculo
+#abstract recibeDesfavorable(x:ObjetoUrbano):Vehiculo
+#abstract recibeCambioVehiculo(x:ObjetoUrbano):Vehiculo
++recibe(otroObjetoUrbano:ObjetoUrbano)
++asignarMovimientos(cantMovimientos:int)
++obtenerUbicacion ():Ubicacion
++casillero() :Casillero
++mover(direccion:Direccion)
++incrementarMovimientos(incremento:int)
++disminuirMovimientos(disminucion:int)
++movimientos():int
+}
+
+class Auto{
+# recibePozo(x:ObjetoUrbano):Vehiculo
+# recibePiquete(x:ObjetoUrbano):Vehiculo
+# recibeFavorable(x:ObjetoUrbano):Vehiculo
+# recibeDesfavorable(x:ObjetoUrbano):Vehiculo
+# recibeCambioVehiculo(x:ObjetoUrbano):Vehiculo
+}
+class Moto{
+# recibePozo(x:ObjetoUrbano):Vehiculo
+# recibePiquete(x:ObjetoUrbano):Vehiculo
+# recibeFavorable(x:ObjetoUrbano):Vehiculo
+# recibeDesfavorable(x:ObjetoUrbano):Vehiculo
+# recibeCambioVehiculo(x:ObjetoUrbano):Vehiculo
+}
+class Camioneta{
+# recibePozo(x:ObjetoUrbano):Vehiculo
+# recibePiquete(x:ObjetoUrbano):Vehiculo
+# recibeFavorable(x:ObjetoUrbano):Vehiculo
+# recibeDesfavorable(x:ObjetoUrbano):Vehiculo
+# recibeCambioVehiculo(x:ObjetoUrbano):Vehiculo
+}
+Jugador --> Vehiculo
+Vehiculo <|-- Auto
+Vehiculo <|-- Moto
+Vehiculo <|-- Camioneta
+
+
+@enduml

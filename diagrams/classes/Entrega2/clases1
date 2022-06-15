@@ -1,0 +1,50 @@
+@startuml
+class Juego{
++Juego(escenario:Escenario, jugador:Jugador)
++moverVehiculo(direccion: Direccion)
+}
+
+interface Direccion{
++mover(casillero:Casillero)
+}
+class DireccionAbajo{
++mover(casillero:Casillero)
+}
+class DireccionArriba{
++mover(casillero:Casillero)
+}
+class DireccionDerecha{
++mover(casillero:Casillero)
+}
+class DireccionIzquierda{
++mover(casillero:Casillero)
+}
+
+class Jugador{
+-vehiculo:Vehiculo
+-nombre:String
++Jugador(nombreJugador:String , vehiculoElegido:Vehiculo)
++incrementarMovimientos(incremento:int)
++disminuirMovimientos(disminucion:int)
++moverVehiculo(direccion:Direccion)
++cambiarVehiculo(vehiculoNuevo:Vehiculo)
+}
+
+class Escenario{
+-filas:int
+-columnas:int
+-casilleros:Casillero[*]
+-llenar()
++ Escenario(filas:int, columnas:int)
+
+
+}
+Juego -> Escenario
+Juego --> Jugador
+Juego .> Direccion
+Jugador .>Direccion
+Direccion <|- DireccionAbajo
+Direccion <|-- DireccionArriba
+Direccion <|-- DireccionDerecha
+Direccion <|-- DireccionIzquierda
+@enduml
