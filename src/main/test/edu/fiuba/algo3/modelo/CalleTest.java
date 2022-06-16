@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.General.Calle;
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
+import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,31 +13,40 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalleTest {
 
-  /*  @Test
-    public void seCreaUnaCalleSinObjetosUrbanosDeberiaEstarVacia() {
+    @Test
+    public void seCreaUnaCalleSinElementosDeberiaEstarVacia() {
         Calle calle = new Calle();
-        int cantidadObstaculosYSorpresas = 0;
 
-        assertTrue(calle.verificarCantidadObjetosUrbanos(cantidadObstaculosYSorpresas));
+        assertTrue(calle.verificarSorpresa(null));
+        assertTrue(calle.verificarObstaculo(null));
     }
 
     @Test
-    public void seCreaUnaCalleSinObjetosUrbanosYAgregoUnPozoNoDeberiaEstarVacia() {
-        ObjetoUrbano pozo = new Pozo();
+    public void seCreaUnaCalleSinElementosYAgregoUnPozoDeberiaContenerlo() {
+        Obstaculo pozo = new Pozo();
         Calle calle = new Calle();
-        calle.agregarObjetoUrbano(pozo);
-        int cantidadObstaculosYSorpresas = 1;
+        calle.agregarObstaculo(pozo);
 
-        assertTrue(calle.verificarCantidadObjetosUrbanos(cantidadObstaculosYSorpresas));
+        assertTrue(calle.verificarObstaculo(pozo));
     }
 
     @Test
-    public void seCreaUnaCalleConObjetosUrbanosDeberiaPoderObtenerLosObjetosUrbanos() {
-        ObjetoUrbano pozo = new Pozo();
-        ArrayList<ObjetoUrbano> objetosUrbanos = new ArrayList<ObjetoUrbano>();
-        objetosUrbanos.add(pozo);
-        Calle calle = new Calle(objetosUrbanos);
+    public void seCreaUnaCalleSinElementosYAgregoUnaSorpresaFavorableDeberiaContenerla() {
+        Sorpresa favorable = new Favorable();
+        Calle calle = new Calle();
+        calle.agregarSorpresa(favorable);
 
-        assertEquals(calle.obtenerObjetosUrbanos(), objetosUrbanos);
-    }*/
+        assertTrue(calle.verificarSorpresa(favorable));
+    }
+    @Test
+    public void seCreaUnaCalleConSorpresaYObstaculoDeberiaContenerlos() {
+        Obstaculo pozo = new Pozo();
+        Sorpresa favorable = new Favorable();
+
+        Calle calle = new Calle(pozo, favorable);
+
+        assertTrue(calle.verificarObstaculo(pozo));
+        assertTrue(calle.verificarSorpresa(favorable));
+    }
+    
 }
