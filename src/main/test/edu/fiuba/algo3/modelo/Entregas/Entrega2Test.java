@@ -5,12 +5,14 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.General.*;
 
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -27,7 +29,6 @@ public class Entrega2Test {
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
-
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
@@ -35,7 +36,7 @@ public class Entrega2Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano favorable = new Favorable();
+        Sorpresa favorable = new Favorable();
 
         for (int i = 0; i < 6; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -59,7 +60,7 @@ public class Entrega2Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano desfavorable = new Desfavorable();
+        Sorpresa desfavorable = new Desfavorable();
 
         for (int i = 0; i < 6; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -83,7 +84,7 @@ public class Entrega2Test {
 
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano cambioVehiculo = new CambioVehiculo();
+        Sorpresa cambioVehiculo = new CambioVehiculo();
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -109,8 +110,8 @@ public class Entrega2Test {
 
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano cambioVehiculo = new CambioVehiculo();
-        ObjetoUrbano piquete = new Piquete();
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Obstaculo piquete = new Piquete();
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
@@ -140,7 +141,7 @@ public class Entrega2Test {
 
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano pozo = new Pozo();
+        Obstaculo pozo = new Pozo();
 
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());

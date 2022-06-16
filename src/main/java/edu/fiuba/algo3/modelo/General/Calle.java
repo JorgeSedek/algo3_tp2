@@ -1,53 +1,29 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
+
 import java.util.ArrayList;
 
 public class Calle {
-    private ArrayList<ObjetoUrbano> contenidos;
-    // private int indiceObjetoActual;
+    private Obstaculo obstaculo;
+    private Sorpresa sorpresa;
 
     public Calle() {
-        this.contenidos = new ArrayList<>();
+        this.obstaculo = null;
+        this.sorpresa = null;
     }
 
-    // Para tests, con este constructor se le puede pasar un array de objetos urbanos y la calle
-    // es creada con ellos (se pueden forzar obstaculos/sorpresas en la creacion)
-    public Calle(ArrayList<ObjetoUrbano> contenidos ) {
-        this.contenidos = contenidos;
+    public Calle(Obstaculo obstaculo, Sorpresa sorpresa) {
+        this.obstaculo = obstaculo;
+        this.sorpresa = sorpresa;
     }
-
-    // Agrega la sorpresa u obstaculo pasado por parametro a la calle
-    public void agregarObjetoUrbano(ObjetoUrbano objetoUrbano){
-        this.contenidos.add(objetoUrbano);
+    public Calle(Obstaculo obstaculo) {
+        this.obstaculo = obstaculo;
+        this.sorpresa = null;
     }
-
-    public ArrayList<ObjetoUrbano> obtenerObjetosUrbanos(){
-        return this.contenidos;
+    public Calle(Sorpresa sorpresa) {
+        this.obstaculo = null;
+        this.sorpresa = sorpresa;
     }
-
-    // Se Usa para Test
-    public boolean verificarCantidadObjetosUrbanos(int cantidadObjetosUrbanos) {
-        return this.contenidos.size() == cantidadObjetosUrbanos;
-    }
-
-    /*
-    DE MOMENTO NO SE UTILIZA
-
-    // Aplica las sorpresas u obstaculos correspondientes
-    public void aplicarObjetosUrbanos(Jugador jugador) {
-        for (int i = 0; i <= contenidos.size(); i++) {
-            contenidos.get(i).aplicar(jugador);
-        }
-    }
-    */
-
-    /*
-    DE MOMENTO NO SE UTILIZA
-
-    public ObjetoUrbano obtenerObjetoUrbano(){
-        ObjetoUrbano contenido = this.contenidos.get(indiceObjetoActual);
-        indiceObjetoActual++;
-        return contenido;
-    }
-    */
 }

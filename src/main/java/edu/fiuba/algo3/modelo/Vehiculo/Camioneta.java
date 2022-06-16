@@ -1,56 +1,31 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
-import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 public class Camioneta extends Vehiculo {
     private int pozos_atravesados;
 
     public Camioneta(Casillero casillero) {
         super(casillero);
+        this.pozos_atravesados = 0;
     }
 
-    protected void recibePozo(ObjetoUrbano x) {
-        pozos_atravesados++;
-        if (pozos_atravesados > 3) {
-            int incremento = 3;
-            this.calculadora.incrementarMovimientos(incremento);
-        }
-
+    public void recibe(Obstaculo obstaculo) {
+        obstaculo.atravesar(this);
     }
 
-    protected void recibePiquete(ObjetoUrbano x) {
-
+    public void recibe(Sorpresa sorpresa) {
+        sorpresa.atravesar(this);
     }
 
-    protected void recibePolicia(ObjetoUrbano x) {
-        int probabilidad = (int) Math.random() * 10 + 1;
-        if(probabilidad <= 3) {
-            int disminucion = 3;
-            this.calculadora.disminuirMovimientos(disminucion);
-        }
-
+    public boolean pasoLimitePozos() {
+        int maximoPozosAtravezadosGratis = 3;
+        return this.pozos_atravesados > maximoPozosAtravezadosGratis;
     }
 
-    protected void recibeFavorable(ObjetoUrbano x) {
-        int divisor = 5;
-        int movimientosReducidos = this.calculadora.dividirMovimientos(divisor);
-        this.calculadora.disminuirMovimientos(movimientosReducidos);
-
-    }
-
-    protected void recibeDesfavorable(ObjetoUrbano x) {
-        int divisor = 4;
-        int movimientosAumentados = this.calculadora.dividirMovimientos(divisor);
-        this.calculadora.incrementarMovimientos(movimientosAumentados);
-
-    }
-
-    protected void recibeCambioVehiculo(ObjetoUrbano x) {
-        Vehiculo nuevoVehiculo = new Moto(this.casillero());
-
-        //this.cambiarVehiculo(nuevoVehiculo);
-        nuevoVehiculo.asignarCalculadoraMov(this.calculadora);
-        this.cambio = nuevoVehiculo;
+    public void atravezoPozo() {
+        this.pozos_atravesados++;
     }
 }
