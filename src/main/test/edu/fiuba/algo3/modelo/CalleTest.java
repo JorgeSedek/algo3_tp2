@@ -24,8 +24,7 @@ public class CalleTest {
     @Test
     public void seCreaUnaCallConPozoDeberiaContenerlo() {
         Obstaculo pozo = new Pozo();
-        Calle calle = new Calle();
-        calle.agregarObstaculo(pozo);
+        Calle calle = new Calle(pozo);
 
         assertTrue(calle.verificarObstaculo(pozo));
     }
@@ -33,8 +32,7 @@ public class CalleTest {
     @Test
     public void seCreaUnaCalleConSorpresaFavorableDeberiaContenerla() {
         Sorpresa favorable = new Favorable();
-        Calle calle = new Calle();
-        calle.agregarSorpresa(favorable);
+        Calle calle = new Calle(favorable);
 
         assertTrue(calle.verificarSorpresa(favorable));
     }
