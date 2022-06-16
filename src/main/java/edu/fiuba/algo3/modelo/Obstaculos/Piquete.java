@@ -6,10 +6,11 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class Piquete implements Obstaculo {
     public void atravesar(Auto auto) {
+        // No deberia poder pasar
     }
 
     public void atravesar(Camioneta camioneta) {
-
+        // No deberia poder pasar
     }
 
     public void atravesar(Moto moto) {
