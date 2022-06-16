@@ -49,7 +49,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void seAumentaElPuntajeDeUnJugadorEn4YLuegoSeReduceEn3DeberiaTener1Movimiento(){
+    public void seAumentanLosMovimientosDeUnJugadorEn4YLuegoSeReducenEn3DeberiaTener1Movimiento(){
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);

@@ -21,8 +21,8 @@ public abstract class Vehiculo {
 
     public abstract void recibe(Sorpresa sorpresa);
 
-    public int porcentajeMovimientos(int porcentajePedido) {
-        return this.movimientos * porcentajePedido / 100;
+    public int porcentajeMovimientos(int porcentaje) {
+        return this.movimientos * porcentaje / 100;
     }
 
     public Casillero casillero() {
@@ -37,11 +37,12 @@ public abstract class Vehiculo {
 
     public void disminuirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
-    // Metodos para Tests
+    // Metodo para ests
     public boolean verificarCasillero(Casillero nuevoCasillero) {
         return this.casillero.equals(nuevoCasillero);
     }
 
+    // Metodo para ests
     public boolean verificarMovimientos(int cantMovimientos){
         return (this.movimientos == cantMovimientos);
     }

@@ -39,4 +39,33 @@ public class Calle {
         this.obstaculo = null;
         this.sorpresa = sorpresa;
     }
+
+    /*
+    DE MOMENTO NO SE UTILIZAN
+
+    public Sorpresa obtenerSorpresa() {
+        return this.sorpresa;
+    }
+
+    public Obstaculo obtenerObstaculo() {
+        return this.obstaculo;
+    }
+
+    public void agregarSorpresa(Sorpresa sorpresa) {
+        this.sorpresa = sorpresa;
+    }
+
+    public void agregarObstaculo(Obstaculo obstaculo) {
+        this.obstaculo = obstaculo;
+    }
+    */
+
+    // Metodo para tests
+    public boolean verificarSorpresa(Sorpresa otraSorpresa) {
+        return this.sorpresa == otraSorpresa;
+    }
+    // Metodo para tests
+    public boolean verificarObstaculo(Obstaculo otroObstaculo) {
+        return this.obstaculo == otroObstaculo;
+    }
 }

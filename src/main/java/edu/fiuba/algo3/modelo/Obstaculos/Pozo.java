@@ -3,24 +3,27 @@ package edu.fiuba.algo3.modelo.Obstaculos;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class Pozo implements Obstaculo {
-    public void atravezar(Auto auto) {
-        int incremento = 3;
-        auto.incrementarMovimientos(incremento);
+    public void atravesar(Auto auto) {
+        _atravesar(auto);
     }
 
-    public void atravezar(Camioneta camioneta) {
+    public void atravesar(Camioneta camioneta) {
         camioneta.atravezoPozo();
         if(camioneta.pasoLimitePozos()) {
-            int incremento = 3;
-            camioneta.incrementarMovimientos(incremento);
+            _atravesar(camioneta);
         }
     }
 
-    public void atravezar(Moto moto) {
+    public void atravesar(Moto moto) {
+        _atravesar(moto);
+    }
+
+    private void _atravesar(Vehiculo vehiculo) {
         int incremento = 3;
-        moto.incrementarMovimientos(incremento);
+        vehiculo.incrementarMovimientos(incremento);
     }
 }
 

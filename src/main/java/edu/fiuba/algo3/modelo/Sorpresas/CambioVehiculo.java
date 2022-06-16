@@ -6,19 +6,19 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class CambioVehiculo implements Sorpresa {
-    public void atravezar(Auto auto) {
+    public void atravesar(Auto auto) {
         Vehiculo nuevoVehiculo = new Camioneta(auto.casillero());
         nuevoVehiculo.incrementarMovimientos(auto.movimientos());
         auto.establecerCambio(nuevoVehiculo);
     }
 
-    public void atravezar(Camioneta camioneta) {
+    public void atravesar(Camioneta camioneta) {
         Vehiculo nuevoVehiculo = new Moto(camioneta.casillero());
         nuevoVehiculo.incrementarMovimientos(camioneta.movimientos());
         camioneta.establecerCambio(nuevoVehiculo);
     }
 
-    public void atravezar(Moto moto) {
+    public void atravesar(Moto moto) {
         Vehiculo nuevoVehiculo = new Auto(moto.casillero());
         nuevoVehiculo.incrementarMovimientos(moto.movimientos());
         moto.establecerCambio(nuevoVehiculo);

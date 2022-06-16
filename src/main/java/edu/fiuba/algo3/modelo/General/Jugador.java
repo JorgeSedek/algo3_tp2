@@ -35,6 +35,7 @@ public class Jugador {
         this.vehiculo = vehiculoNuevo;
     }
 
+    // Se usa para tests
     public boolean mismoVehiculo(Vehiculo vehiculo) {
         // TODO cambiar la comparación
         return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarCasillero(vehiculo.casillero()));

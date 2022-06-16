@@ -5,9 +5,9 @@ import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public interface Sorpresa {
-    void atravezar(Auto auto);
+    void atravesar(Auto auto);
 
-    void atravezar(Camioneta camioneta);
+    void atravesar(Camioneta camioneta);
 
-    void atravezar(Moto moto);
+    void atravesar(Moto moto);
 }

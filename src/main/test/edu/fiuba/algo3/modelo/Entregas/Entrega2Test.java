@@ -20,7 +20,6 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Entrega2Test {
     private String nombre = "Tomas";
@@ -34,7 +33,6 @@ public class Entrega2Test {
     private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(new Ubicacion(fila2, columna2))));
     private int totalFilas = 8;
     private int totalColumnas = 8;
-
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
@@ -110,7 +108,7 @@ public class Entrega2Test {
    @Test
     public void UnaCamionetaSeEncuentraConSorpresaCambioDeVehiculoYUnPiqueteDeberiaPoderPasarElPiqueteYTener6Movimientos(){
 
-       Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo vehiculo = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
@@ -127,8 +125,8 @@ public class Entrega2Test {
 
 
        vehiculo.recibe(cambioVehiculo);
-        jugador.cambiarVehiculo(vehiculo.cambio());
-        jugador.obtenerVehiculo().recibe(piquete);
+       jugador.cambiarVehiculo(vehiculo.cambio());
+       jugador.obtenerVehiculo().recibe(piquete);
 
        int movimientosEsperados = 6;
 
@@ -137,8 +135,8 @@ public class Entrega2Test {
 
        Vehiculo vehiculoEsperado = new Moto(new Casillero(new Ubicacion(fila,columna)));
 
-      assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
-      assertTrue(jugador.verificarMovimiento(movimientosEsperados));
+       assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
+       assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
 

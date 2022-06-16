@@ -10,10 +10,10 @@ public class Moto extends Vehiculo {
     }
 
     public void recibe(Obstaculo obstaculo) {
-        obstaculo.atravezar(this);
+        obstaculo.atravesar(this);
     }
 
     public void recibe(Sorpresa sorpresa) {
-        sorpresa.atravezar(this);
+        sorpresa.atravesar(this);
     }
 }

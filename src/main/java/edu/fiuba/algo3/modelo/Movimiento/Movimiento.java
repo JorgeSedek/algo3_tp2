@@ -1,4 +1,6 @@
 /*
+SE COMENTA PORQUE NO SE UTILIZA
+
 package edu.fiuba.algo3.modelo.Movimiento;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;

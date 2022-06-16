@@ -16,7 +16,8 @@ public class Escenario {
 		this.casilleros = new ArrayList<>();
 		this.llenar();
 	}
-	
+
+	// Completa el escenario con casilleros
 	private void llenar() {
 		for (int fila = 1; fila <= filas; fila++) {
 			for (int columna = 1; columna <= columnas; columna++) {
