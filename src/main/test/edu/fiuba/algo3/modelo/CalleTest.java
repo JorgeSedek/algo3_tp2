@@ -22,7 +22,7 @@ public class CalleTest {
     }
 
     @Test
-    public void seCreaUnaCallConPozoDeberiaContenerlo() {
+    public void seCreaUnaCalleConPozoDeberiaContenerlo() {
         Obstaculo pozo = new Pozo();
         Calle calle = new Calle(pozo);
 
