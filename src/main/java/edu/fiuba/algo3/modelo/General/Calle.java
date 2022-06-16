@@ -27,13 +27,6 @@ public class Calle {
         this.sorpresa = sorpresa;
     }
 
-    public void agregarSorpresa(Sorpresa sorpresa) {
-        this.sorpresa = sorpresa;
-    }
-
-    public void agregarObstaculo(Obstaculo obstaculo) {
-        this.obstaculo = obstaculo;
-    }
     /*
     DE MOMENTO NO SE UTILIZAN
 
