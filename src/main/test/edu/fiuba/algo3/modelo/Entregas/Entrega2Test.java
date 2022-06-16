@@ -102,7 +102,7 @@ public class Entrega2Test {
    @Test
     public void UnaCamionetaSeEncuentraConSorpresaCambioDeVehiculoYUnPiqueteDeberiaPoderPasarElPiqueteYTener6Movimientos(){
 
-       Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo vehiculo = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
@@ -127,8 +127,8 @@ public class Entrega2Test {
 
        Vehiculo vehiculoEsperado = new Moto(new Casillero(new Ubicacion(2,4)));
 
-      assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
-      assertTrue(jugador.verificarMovimiento(movimientosEsperados));
+       assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
+       assertTrue(jugador.verificarMovimiento(movimientosEsperados));
     }
 
 

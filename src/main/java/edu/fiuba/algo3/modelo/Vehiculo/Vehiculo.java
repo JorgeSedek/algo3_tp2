@@ -75,7 +75,7 @@ public abstract class Vehiculo {
 
     public void disminuirMovimientos(int disminucion){this.calculadora.disminuirMovimientos(disminucion);}
 
-   // public int movimientos(){return this.movimientos;}
+    // public int movimientos(){return this.movimientos;}
 
     // Metodos para Tests
     public boolean verificarCasillero(Casillero nuevoCasillero) {
