@@ -44,6 +44,14 @@ public class Calle {
     public Obstaculo obtenerObstaculo() {
         return this.obstaculo;
     }
+
+    public void agregarSorpresa(Sorpresa sorpresa) {
+        this.sorpresa = sorpresa;
+    }
+
+    public void agregarObstaculo(Obstaculo obstaculo) {
+        this.obstaculo = obstaculo;
+    }
     */
 
     // Metodo para tests
