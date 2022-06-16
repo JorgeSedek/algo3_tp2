@@ -119,8 +119,8 @@ public class Entrega2Test {
 
 
        vehiculo.recibe(cambioVehiculo);
-        jugador.cambiarVehiculo(vehiculo.cambio());
-        jugador.obtenerVehiculo().recibe(piquete);
+       jugador.cambiarVehiculo(vehiculo.cambio());
+       jugador.obtenerVehiculo().recibe(piquete);
 
        int movimientosEsperados = 6;
 
