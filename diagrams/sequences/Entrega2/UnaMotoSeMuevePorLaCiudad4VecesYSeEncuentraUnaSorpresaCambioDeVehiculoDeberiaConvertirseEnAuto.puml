@@ -4,8 +4,11 @@ actor ":Usuario"
 create ":Juego"
 ":Usuario" --> ":Juego" : Juego(escenario, jugador)
 
+create ":Casillero"
+":Juego" --> ":Casillero" : Casillero(Ubicaciion)
+
 create "moto :Moto"
-":Juego" --> "moto :Moto" : Vehiculo(Ubicacion)
+":Juego" --> "moto :Moto" : Vehiculo(Casillero)
 
 create ":Jugador"
 ":Juego" --> ":Jugador" : Jugador(nombre, moto)
