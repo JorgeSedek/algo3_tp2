@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Obstaculos;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
@@ -19,7 +18,7 @@ public class PozoTest {
 
 	@Test
 	public void unJugadorPasaPorUnPozoConAutoDeberiaSumarse3MovimientosAJugador() {
-		ObjetoUrbano pozo = new Pozo();
+		Obstaculo pozo = new Pozo();
 		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
 		Vehiculo auto = new Auto(casillero);
 		Jugador jugador = new Jugador(nombre, auto);
@@ -32,7 +31,7 @@ public class PozoTest {
 	
 	@Test
 	public void unJugadorPasaPorUnPozoConMotoDeberiaSumarse3MovimientosAJugador() {
-		ObjetoUrbano pozo = new Pozo();
+		Obstaculo pozo = new Pozo();
 		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
 		Vehiculo moto = new Moto(casillero);
 		Jugador jugador = new Jugador(nombre, moto);
@@ -45,7 +44,7 @@ public class PozoTest {
 	
 	@Test
 	public void unJugadorPasaPorUnPozoConCamionetaNoDeberiaSumarseMovimientosAJugador() {
-		ObjetoUrbano pozo = new Pozo();
+		Obstaculo pozo = new Pozo();
 		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
 		Vehiculo camioneta = new Camioneta(casillero);
 		Jugador jugador = new Jugador(nombre, camioneta);
@@ -58,7 +57,7 @@ public class PozoTest {
 
 	@Test
 	public void unJugadorPasaPorUnPozo4VecesConCamionetaDeberiaSumarse3MovimientosAJugador() {
-		ObjetoUrbano pozo = new Pozo();
+		Obstaculo pozo = new Pozo();
 		Casillero casillero = new Casillero(new Ubicacion(fila, columna));
 		Vehiculo camioneta = new Camioneta(casillero);
 		Jugador jugador = new Jugador(nombre, camioneta);

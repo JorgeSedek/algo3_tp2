@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.*;
 
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -30,7 +31,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano pozo = new Pozo();
+        Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
@@ -54,7 +55,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, auto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano pozo = new Pozo();
+        Obstaculo pozo = new Pozo();
         int nuevaFila = 1;
         int nuevaColumna = 3;
         Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
@@ -80,7 +81,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, camioneta);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano pozo = new Pozo();
+        Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
@@ -104,7 +105,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano piquete = new Piquete();
+        Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));
@@ -128,8 +129,8 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador);
-        ObjetoUrbano pozo = new Pozo();
-        ObjetoUrbano piquete = new Piquete();
+        Obstaculo pozo = new Pozo();
+        Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
         Casillero nuevoCasillero = new Casillero(new Ubicacion(nuevaFila, nuevaColumna));

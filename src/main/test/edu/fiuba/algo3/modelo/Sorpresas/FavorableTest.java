@@ -1,11 +1,8 @@
 package edu.fiuba.algo3.modelo.Sorpresas;
 
-import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.ObjetoUrbano;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
-import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -21,7 +18,7 @@ public class FavorableTest {
 
     @Test
     public void unJugadorPasaPorUnaSorpresaFavorableConMotoDeberiaDescontarse20PorcientoDeMovimientosAJugador() {
-        ObjetoUrbano favorable = new Favorable();
+        Sorpresa favorable = new Favorable();
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
@@ -37,7 +34,7 @@ public class FavorableTest {
 
     @Test
     public void unJugadorPasaPorUnaSorpresaFavorableConAutoDeberiaDescontarse20PorcientoDeMovimientosAJugador() {
-        ObjetoUrbano favorable = new Favorable();
+        Sorpresa favorable = new Favorable();
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
@@ -53,7 +50,7 @@ public class FavorableTest {
 
     @Test
     public void unJugadorPasaPorUnaSorpresaFavorableConCamionetaDeberiaDescontarse20PorcientoDeMovimientosAJugador() {
-        ObjetoUrbano favorable = new Favorable();
+        Sorpresa favorable = new Favorable();
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
