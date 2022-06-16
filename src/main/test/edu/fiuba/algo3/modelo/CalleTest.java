@@ -48,5 +48,5 @@ public class CalleTest {
         assertTrue(calle.verificarObstaculo(pozo));
         assertTrue(calle.verificarSorpresa(favorable));
     }
-    
+
 }
