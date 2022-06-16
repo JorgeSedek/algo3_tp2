@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
+import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
@@ -33,6 +35,27 @@ public class JuegoTest {
     }
 
     @Test
+    public void seCreaJuegoYlosAtributoNoSonNulos(){
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
+        Jugador jugador = new Jugador(nombre, moto);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
+        Juego juego = new Juego(escenario, jugador, jugador2);
+        assertTrue(juego.verificarAtributosNoNulos());
+    }
+
+    public void seHaceCambioDeJugadoresYatributosSiguenSiendoNoNulos(){
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
+        Jugador jugador = new Jugador(nombre, moto);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
+        Juego juego = new Juego(escenario, jugador, jugador2);
+        juego.cambioJugador();
+        assertTrue(juego.verificarAtributosNoNulos());
+
+    }
+
+    @Test
     public void seCambiaElJugadorYJugadoresCambianTurno() {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
@@ -58,10 +81,32 @@ public class JuegoTest {
         juego.moverVehiculo(new DireccionDerecha());
         int movimientosEsperados = 2;
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertFalse(juego.verificarMovJugadorEspera(movimientosEsperados));
         juego.cambioJugador();
         juego.moverVehiculo(new DireccionArriba());
         movimientosEsperados = 1;
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
-
+        assertFalse(juego.verificarMovJugadorEspera(movimientosEsperados));
     }
+
+    @Test
+    public void jugadorActivoSeMueveEnVariasDireccionesYlosMovimientosDelOtroJugadorNOcambian(){
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(casillero);
+        Jugador jugador = new Jugador(nombre, moto);
+        Escenario escenario = new Escenario(totalFilas, totalColumnas);
+        Juego juego = new Juego(escenario, jugador, jugador2);
+        int movimientosEsperados = 0;
+        juego.moverVehiculo(new DireccionDerecha());
+        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
+        juego.moverVehiculo(new DireccionArriba());
+        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
+        juego.moverVehiculo(new DireccionAbajo());
+        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
+        juego.moverVehiculo(new DireccionIzquierda());
+        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
+    }
+
+
+
 }

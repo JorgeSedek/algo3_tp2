@@ -38,4 +38,8 @@ public class Juego {
     public boolean verificarMovJugadorEspera(int movimientosEsperados){
         return (this.jugadorEspera.verificarMovimiento(movimientosEsperados));
     }
+
+    public boolean verificarAtributosNoNulos(){
+        return (this.escenario != null & this.jugadorActivo != null & this.jugadorEspera != null);
+    }
 }
