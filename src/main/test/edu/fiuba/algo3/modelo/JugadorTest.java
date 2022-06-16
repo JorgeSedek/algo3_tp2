@@ -27,6 +27,18 @@ public class JugadorTest {
     }
 
     @Test
+    public void seComparanDosJUgadoresYNosonElmismo(){
+
+        String nombre2 = "jorge";
+        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Vehiculo auto = new Auto(casillero);
+        Vehiculo auto2 = auto;
+        Jugador jugador = new Jugador(nombre, auto);
+        Jugador jugador2 = new Jugador(nombre2, auto2);
+        assertFalse(jugador.equals(jugador2));
+    }
+
+    @Test
     public void seCreaUnJugadorDeberiaDevolverElNombreYSusMovimientosCorrectamente(){
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(casillero);

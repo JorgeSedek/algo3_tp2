@@ -44,6 +44,7 @@ public class JuegoTest {
         assertTrue(juego.verificarAtributosNoNulos());
     }
 
+    @Test
     public void seHaceCambioDeJugadoresYatributosSiguenSiendoNoNulos(){
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
