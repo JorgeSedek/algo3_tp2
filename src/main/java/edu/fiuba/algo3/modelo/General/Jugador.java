@@ -43,4 +43,15 @@ public class Jugador {
     public Vehiculo obtenerVehiculo(){
         return this.vehiculo;
     }
+
+    private String nombre(){
+       return this.nombre;
+    }
+    private Vehiculo vehiculo(){
+        return this.vehiculo;
+    }
+
+    public boolean equals(Jugador otroJugador){
+        return (this.nombre == otroJugador.nombre() & this.vehiculo == otroJugador.vehiculo());
+    }
 }

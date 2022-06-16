@@ -8,6 +8,8 @@ public class Escenario {
 	private int columnas;
 	private ArrayList<Casillero> casilleros;
 
+	private ArrayList<Calle> calle;
+
 	public Escenario(int filas, int columnas) {
 		this.filas = filas;
 		this.columnas = columnas;
@@ -20,6 +22,17 @@ public class Escenario {
 			for (int columna = 1; columna <= columnas; columna++) {
 				this.casilleros.add(new Casillero(new Ubicacion(fila, columna)));
 			}
+		}
+	}
+
+	private void llenarCalles(int indiceCasillero){
+		if (indiceCasillero < columnas) {
+			Casillero primerCasillero = casilleros.get(indiceCasillero);
+			Casillero segundoCasillero = casilleros.get(indiceCasillero + 1);
+			Calle calle = new Calle();
+			calle.asignarOrigenYDestino(primerCasillero, segundoCasillero);
+			int siguienteIndice = indiceCasillero + 1;
+			this.llenarCalles(siguienteIndice);
 		}
 	}
 
@@ -37,4 +50,6 @@ public class Escenario {
 		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)));
 	}
 	*/
+
+
 }

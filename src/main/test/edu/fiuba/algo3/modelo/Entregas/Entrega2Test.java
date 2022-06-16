@@ -24,8 +24,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Entrega2Test {
     private String nombre = "Tomas";
+    private String nombre2 = "Juan";
+
     private int fila = 1;
     private int columna = 1;
+    private int fila2 = 2;
+    private int columna2 = 2;
+
+    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(new Ubicacion(fila2, columna2))));
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
@@ -36,7 +42,7 @@ public class Entrega2Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Sorpresa favorable = new Favorable();
 
         for (int i = 0; i < 6; i++) {
@@ -60,7 +66,7 @@ public class Entrega2Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Sorpresa desfavorable = new Desfavorable();
 
         for (int i = 0; i < 6; i++) {
@@ -84,7 +90,7 @@ public class Entrega2Test {
         Jugador jugador = new Jugador(nombre, vehiculo);
 
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Sorpresa cambioVehiculo = new CambioVehiculo();
 
         for (int i = 0; i < 3; i++) {
@@ -110,7 +116,7 @@ public class Entrega2Test {
 
 
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Sorpresa cambioVehiculo = new CambioVehiculo();
         Obstaculo piquete = new Piquete();
 
@@ -126,8 +132,10 @@ public class Entrega2Test {
 
        int movimientosEsperados = 6;
 
+       int fila = 2;
+       int columna = 4;
 
-       Vehiculo vehiculoEsperado = new Moto(new Casillero(new Ubicacion(2,4)));
+       Vehiculo vehiculoEsperado = new Moto(new Casillero(new Ubicacion(fila,columna)));
 
       assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
       assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -141,7 +149,7 @@ public class Entrega2Test {
         Jugador jugador = new Jugador(nombre, vehiculo);
 
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
 
         for (int i = 0; i < 3; i++) {

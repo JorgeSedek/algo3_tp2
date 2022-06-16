@@ -19,8 +19,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Entrega1Test {
     private String nombre = "Martin";
+    private String nombre2 = "Juan";
+
+
     private int fila = 1;
     private int columna = 1;
+
+    private  int fila2 = 2;
+
+    private  int columna2 = 2;
+    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(new Ubicacion(fila2, columna2))));
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
@@ -30,7 +38,7 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
@@ -54,7 +62,7 @@ public class Entrega1Test {
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 1;
         int nuevaColumna = 3;
@@ -80,7 +88,7 @@ public class Entrega1Test {
         Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
@@ -104,7 +112,7 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
@@ -128,7 +136,7 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario escenario = new Escenario(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador);
+        Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
