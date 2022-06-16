@@ -31,7 +31,6 @@ public class Escenario {
 			Casillero primerCasillero = casilleros.get(indiceCasillero);
 			Casillero segundoCasillero = casilleros.get(indiceCasillero + 1);
 			Calle calle = new Calle();
-			calle.asignarOrigenYDestino(primerCasillero, segundoCasillero);
 			int siguienteIndice = indiceCasillero + 1;
 			this.llenarCalles(siguienteIndice);
 		}

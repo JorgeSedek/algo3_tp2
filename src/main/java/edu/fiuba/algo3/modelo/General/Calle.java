@@ -14,7 +14,7 @@ public class Calle {
         this.obstaculo = null;
         this.sorpresa = null;
     }
-    
+
 
     public Calle(Obstaculo obstaculo, Sorpresa sorpresa) {
         this.obstaculo = obstaculo;
