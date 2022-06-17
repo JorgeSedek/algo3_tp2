@@ -31,7 +31,8 @@ public class JuegoTest {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
 
         assertNotNull(juego);
@@ -42,7 +43,8 @@ public class JuegoTest {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
 
         assertTrue(juego.verificarAtributosNoNulos());
@@ -53,7 +55,8 @@ public class JuegoTest {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
 
         juego.cambioJugador();
@@ -67,7 +70,8 @@ public class JuegoTest {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
 
         assertTrue(juego.compararJugadorActivo(jugador));
@@ -85,13 +89,16 @@ public class JuegoTest {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
+
         juego.moverVehiculo(new DireccionDerecha());
         juego.moverVehiculo(new DireccionDerecha());
+
         int movimientosEsperados = 2;
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
         assertFalse(juego.verificarMovJugadorEspera(movimientosEsperados));
+
         juego.cambioJugador();
         juego.moverVehiculo(new DireccionArriba());
         movimientosEsperados = 1;
@@ -100,13 +107,14 @@ public class JuegoTest {
     }
 
     @Test
-    public void jugadorActivoSeMueveEnVariasDireccionesYlosMovimientosDelOtroJugadorNOcambian(){
+    public void jugadorActivoSeMueveEnVariasDireccionesYlosMovimientosDelOtroJugadorNoCambian(){
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         int movimientosEsperados = 0;
+
         juego.moverVehiculo(new DireccionDerecha());
         assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
         juego.moverVehiculo(new DireccionArriba());

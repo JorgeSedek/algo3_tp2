@@ -40,7 +40,7 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
@@ -65,7 +65,7 @@ public class Entrega1Test {
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
 
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 1;
@@ -92,7 +92,7 @@ public class Entrega1Test {
         Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
 
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
@@ -117,7 +117,7 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
@@ -142,7 +142,7 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
+        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         Obstaculo piquete = new Piquete();
