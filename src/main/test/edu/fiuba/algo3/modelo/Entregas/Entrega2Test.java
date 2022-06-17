@@ -34,16 +34,14 @@ public class Entrega2Test {
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
-    private Escenario escenario = Escenario.getInstance();
-
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Sorpresa favorable = new Favorable();
 
         for (int i = 0; i < 6; i++) {
@@ -67,8 +65,8 @@ public class Entrega2Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Sorpresa desfavorable = new Desfavorable();
 
         for (int i = 0; i < 6; i++) {
@@ -91,8 +89,8 @@ public class Entrega2Test {
         Vehiculo vehiculo = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Sorpresa cambioVehiculo = new CambioVehiculo();
 
         for (int i = 0; i < 3; i++) {
@@ -117,8 +115,8 @@ public class Entrega2Test {
         Jugador jugador = new Jugador(nombre, vehiculo);
 
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Sorpresa cambioVehiculo = new CambioVehiculo();
         Obstaculo piquete = new Piquete();
 
@@ -150,8 +148,8 @@ public class Entrega2Test {
         Vehiculo vehiculo = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Obstaculo pozo = new Pozo();
 
         for (int i = 0; i < 3; i++) {

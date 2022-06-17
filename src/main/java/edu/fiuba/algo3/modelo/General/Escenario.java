@@ -33,12 +33,8 @@ public class Escenario {
 	}
 
 	// Resetea el escenario a un estado inicial (con una cantidad de filas y columnas)
-	public static Escenario resetInstance(int filas, int columnas) {
-		if (INSTANCE == null) {
-			return null; // Quiza debería lanzar una excepcion (Se quiere resetear una instancia que no se creo)
-		}
+	public static void resetInstance(int filas, int columnas) {
 		createInstance(filas, columnas);
-		return INSTANCE; // Quiza que no lo devuelva, es muy util para los tests el que lo devuelva
 	}
 
 	// Completa el escenario con casilleros

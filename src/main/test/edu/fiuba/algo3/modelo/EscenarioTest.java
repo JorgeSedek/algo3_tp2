@@ -17,30 +17,28 @@ public class EscenarioTest {
 	}
 
 	@Test
-    public void alResetearEscenarioYaNoEsElMismo() {
-        assertNotEquals(Escenario.getInstance(), Escenario.resetInstance(filas, columnas));
+    public void alResetearEscenarioYaNoEsElMismoEscenario() {
+		Escenario.resetInstance(filas, columnas);
+
+		Escenario primerEscenario = Escenario.getInstance();
+		Escenario.resetInstance(filas, columnas);
+		Escenario segundoEscenario = Escenario.getInstance();
+
+        assertNotEquals(primerEscenario, segundoEscenario);
     }
 
 	@Test
 	public void elEscenarioSeReseteoCorrectamente() {
-		int filasIniciales = 8;
-		int columnasIniciales = 8;
-		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(filasIniciales));
-		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(columnasIniciales));
+		int filasEsperadas = 6;
+		int columnasEsperadas = 6;
+		Escenario.resetInstance(filasEsperadas, columnasEsperadas);
+
+		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(filasEsperadas));
+		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(columnasEsperadas));
 
 		Escenario.resetInstance(filas, columnas);
 		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(filas));
 		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(columnas));
-	}
-
-	@Test
-	public void despuesDeResetearLasInstanciasSonDistintas() {
-		Escenario primerInstancia = Escenario.getInstance();
-		Escenario.resetInstance(3, 3);
-		Escenario segundaInstancia = Escenario.getInstance();
-
-		assertNotEquals(primerInstancia, segundaInstancia);
-
 	}
 
 	@Test

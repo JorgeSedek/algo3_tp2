@@ -32,16 +32,14 @@ public class Entrega1Test {
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
-    private Escenario escenario = Escenario.getInstance();
-
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener7Movimientos () {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
@@ -65,8 +63,8 @@ public class Entrega1Test {
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 1;
         int nuevaColumna = 3;
@@ -92,8 +90,8 @@ public class Entrega1Test {
         Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
         int nuevaColumna = 4;
@@ -117,8 +115,8 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
         int nuevaColumna = 4;
@@ -142,8 +140,8 @@ public class Entrega1Test {
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
-        escenario = Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(escenario, jugador, jugador2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
         Obstaculo pozo = new Pozo();
         Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
