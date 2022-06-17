@@ -10,7 +10,6 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 2** - [Jorge Sedek](https://github.com/JorgeSedek)
 * **Integrante 3** - [Cristian Martin Lin](https://github.com/CrisML)
 * **Integrante 4** - [Tomas Nahuel Olivera](https://github.com/Tomas-NO)
-* **Integrante 5** - [Sebastian Vera Benitez](https://github.com/SVeraB)
 
 Corrector: **{Pablo Rodríguez Massuh}**
 

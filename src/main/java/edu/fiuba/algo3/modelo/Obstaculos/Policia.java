@@ -29,4 +29,6 @@ public class Policia implements Obstaculo {
             moto.incrementarMovimientos(incremento);
         }
     }
+
+
 }
