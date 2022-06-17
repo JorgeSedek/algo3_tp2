@@ -38,7 +38,7 @@ public class Escenario {
 			return null; // Quiza debería lanzar una excepcion (Se quiere resetear una instancia que no se creo)
 		}
 		createInstance(filas, columnas);
-		return INSTANCE; // Quiza que no lo devuelva, es util para los tests de Escenario el que lo devuelva
+		return INSTANCE; // Quiza que no lo devuelva, es muy util para los tests el que lo devuelva
 	}
 
 	// Completa el escenario con casilleros

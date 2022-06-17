@@ -39,7 +39,8 @@ public class Entrega1Test {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        Escenario.resetInstance(totalFilas, totalColumnas);
+
+        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
@@ -63,7 +64,8 @@ public class Entrega1Test {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
-        Escenario.resetInstance(totalFilas, totalColumnas);
+
+        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 1;
@@ -89,7 +91,8 @@ public class Entrega1Test {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
-        Escenario.resetInstance(totalFilas, totalColumnas);
+
+        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 2;
@@ -113,7 +116,8 @@ public class Entrega1Test {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        Escenario.resetInstance(totalFilas, totalColumnas);
+
+        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo piquete = new Piquete();
         int nuevaFila = 2;
@@ -137,7 +141,8 @@ public class Entrega1Test {
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
-        Escenario.resetInstance(totalFilas, totalColumnas);
+
+        this.escenario = Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(escenario, jugador, jugador2);
         Obstaculo pozo = new Pozo();
         Obstaculo piquete = new Piquete();

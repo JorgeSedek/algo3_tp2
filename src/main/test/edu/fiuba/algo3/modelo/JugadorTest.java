@@ -16,7 +16,6 @@ public class JugadorTest {
 
     @Test
     public void seComparanDosJUgadoresYsonElmismo(){
-
         String nombre2 = nombre;
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(casillero);
@@ -28,8 +27,7 @@ public class JugadorTest {
 
     @Test
     public void seComparanDosJUgadoresYNosonElmismo(){
-
-        String nombre2 = "jorge";
+        String nombre2 = "Jorge";
         Casillero casillero = new Casillero(new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(casillero);
         Vehiculo auto2 = auto;

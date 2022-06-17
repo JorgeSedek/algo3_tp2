@@ -32,4 +32,24 @@ public class EscenarioTest {
 		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(filas));
 		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(columnas));
 	}
+
+	@Test
+	public void despuesDeResetearLasInstanciasSonDistintas() {
+		Escenario primerInstancia = Escenario.getInstance();
+		Escenario.resetInstance(3, 3);
+		Escenario segundaInstancia = Escenario.getInstance();
+
+		assertNotEquals(primerInstancia, segundaInstancia);
+
+	}
+
+	@Test
+	public void alObtenerLaInstanciaDeEscenarioEstaSeComparteEntreFunciones() {
+		assertEquals(auxiliarObtieneUnEscenarioYLoDevuelve(), Escenario.getInstance());
+	}
+
+	// Metodo auxiliar para tests
+	private Escenario auxiliarObtieneUnEscenarioYLoDevuelve() {
+		return Escenario.getInstance();
+	}
 }
