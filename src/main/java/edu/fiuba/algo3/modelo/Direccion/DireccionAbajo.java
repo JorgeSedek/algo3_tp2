@@ -6,6 +6,7 @@ public class DireccionAbajo implements Direccion{
     public void mover(Casillero casillero){
         DireccionAbajo direccion = this;
         casillero.mover(direccion);
+
     }
 
     public Direccion direccionOpuesta(){
