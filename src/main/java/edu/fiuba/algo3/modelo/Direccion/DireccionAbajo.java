@@ -6,4 +6,8 @@ public class DireccionAbajo implements Direccion{
     public void mover(Casillero casillero){
         casillero.incrementarFila();
     }
+
+    public Direccion direccionOpuesta(){
+        return new DireccionArriba();
+    }
 }

@@ -6,4 +6,8 @@ public class DireccionIzquierda implements Direccion{
     public void mover(Casillero casillero){
         casillero.disminuirColumna();
     }
+
+    public Direccion direccionOpuesta(){
+        return new DireccionDerecha();
+    }
 }

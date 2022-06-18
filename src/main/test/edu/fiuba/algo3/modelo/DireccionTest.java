@@ -53,4 +53,5 @@ public class DireccionTest {
 
         assertTrue(casillero.equals(casilleroEsperado));
     }
+
 }

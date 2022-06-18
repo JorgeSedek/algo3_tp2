@@ -7,4 +7,7 @@ public class DireccionDerecha implements Direccion{
 
         casillero.incrementarColumna();
     }
+    public Direccion direccionOpuesta(){
+        return new DireccionIzquierda();
+    }
 }

@@ -8,4 +8,8 @@ public class DireccionArriba implements Direccion{
 
         casillero.disminuirFila();
     }
+
+    public Direccion direccionOpuesta(){
+        return new DireccionAbajo();
+    }
 }
