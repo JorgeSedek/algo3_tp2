@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
+import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
+import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
+import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
+
 public class Casillero {
     private int fila;
     private int columna;
@@ -13,19 +18,19 @@ public class Casillero {
         return (casillero.fila == this.fila & casillero.columna == this.columna);
     }
 
-    public void incrementarFila() {
+    public void mover(DireccionAbajo direccion) {
         this.fila += 1;
     }
 
-    public void incrementarColumna() {
+    public void mover(DireccionDerecha direccion) {
         this.columna += 1;
     }
 
-    public void disminuirFila() {
+    public void mover(DireccionArriba direccion) {
         this.fila -= 1;
     }
 
-    public void disminuirColumna() {
+    public void  mover(DireccionIzquierda direccion) {
         this.columna -= 1;
     }
 
