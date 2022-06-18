@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Obstaculos;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -19,7 +18,7 @@ public class PiqueteTest {
     @Test
     public void unJugadorPasaPorUnPiqueteConMotoDeberiaSumarse2MovimientosAJugador() {
         Obstaculo piquete = new Piquete();
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         int cantidadMovimientos = 2;
@@ -32,7 +31,7 @@ public class PiqueteTest {
     @Test
     public void unJugadorPasaPorUnPiqueteConAutoNoDeberiaSumarseMovimientosAJugador() {
         Obstaculo piquete = new Piquete();
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
         int cantidadMovimientos = 0;
@@ -45,7 +44,7 @@ public class PiqueteTest {
     @Test
     public void unJugadorPasaPorUnPiqueteConCamionetaNoDeberiaSumarseMovimientosAJugador() {
         Obstaculo piquete = new Piquete();
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo camioneta = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, camioneta);
         int cantidadMovimientos = 0;

@@ -1,26 +1,14 @@
-/*
 
-SE COMENTA PORQUE NO SE UTILIZA
 
 package edu.fiuba.algo3.modelo.Movimiento;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.Casillero;
 
 public class MovimientoNormal implements Movimiento{
-
-    private Direccion direccion;
-
-    @Override
-    public Ubicacion mover(Ubicacion ubicacion){
-
-        this.direccion.mover(ubicacion);
-        return ubicacion;
+    public void mover(Casillero casilleroActual, Direccion direccion){
+        direccion.mover(casilleroActual);
     }
 
-    @Override
-    public void asignarDireccion(Direccion direccion) {
-        this.direccion = direccion;
-    }
+
 }
-*/

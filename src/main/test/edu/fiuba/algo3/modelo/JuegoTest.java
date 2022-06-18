@@ -20,13 +20,13 @@ public class JuegoTest {
     private int fila2 = 2;
     private int columna2 = 2;
 
-    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(new Ubicacion(fila2, columna2))));
+    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(fila2, columna2)));
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
     @Test
     public void seCreaUnjuegoYnoEstaVacio() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -37,7 +37,7 @@ public class JuegoTest {
 
     @Test
     public void seCreaJuegoYlosAtributoNoSonNulos(){
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -48,7 +48,7 @@ public class JuegoTest {
 
     @Test
     public void seHaceCambioDeJugadoresYatributosSiguenSiendoNoNulos(){
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -62,7 +62,7 @@ public class JuegoTest {
 
     @Test
     public void seCambiaElJugadorYJugadoresCambianTurno() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -80,7 +80,7 @@ public class JuegoTest {
 
     @Test
     public void seMueveJugadorSeCambiaJugadorYlosMovimientosSonLosCorrectos() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -102,7 +102,7 @@ public class JuegoTest {
 
     @Test
     public void jugadorActivoSeMueveEnVariasDireccionesYlosMovimientosDelOtroJugadorNoCambian(){
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);

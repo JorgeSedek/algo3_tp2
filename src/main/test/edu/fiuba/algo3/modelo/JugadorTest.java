@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,7 @@ public class JugadorTest {
     @Test
     public void seComparanDosJUgadoresYsonElmismo(){
         String nombre2 = nombre;
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo auto = new Auto(casillero);
         Vehiculo auto2 = auto;
         Jugador jugador = new Jugador(nombre, auto);
@@ -28,7 +27,7 @@ public class JugadorTest {
     @Test
     public void seComparanDosJUgadoresYNosonElmismo(){
         String nombre2 = "Jorge";
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo auto = new Auto(casillero);
         Vehiculo auto2 = auto;
         Jugador jugador = new Jugador(nombre, auto);
@@ -38,7 +37,7 @@ public class JugadorTest {
 
     @Test
     public void seCreaUnJugadorDeberiaDevolverElNombreYSusMovimientosCorrectamente(){
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
         int movimentosIniciales = 0;
@@ -49,7 +48,7 @@ public class JugadorTest {
 
     @Test
     public void seAumentanLosMovimientosDeUnJugadorEn3DeberiaDevolverQueSusMovimientosSon3(){
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
         int incremento = 3;
@@ -60,7 +59,7 @@ public class JugadorTest {
 
     @Test
     public void seAumentanLosMovimientosDeUnJugadorEn4YLuegoSeReducenEn3DeberiaTener1Movimiento(){
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo auto = new Auto(casillero);
         Jugador jugador = new Jugador(nombre, auto);
         int incremento = 4;

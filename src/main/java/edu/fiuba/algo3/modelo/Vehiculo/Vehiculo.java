@@ -2,12 +2,14 @@ package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.General.Casillero;
+import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
+import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
-
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 
 public abstract class Vehiculo {
+    protected Movimiento movimiento;
     protected Casillero casillero;
     protected int movimientos;
     protected Vehiculo cambio;
@@ -15,6 +17,7 @@ public abstract class Vehiculo {
     public Vehiculo(Casillero casillero) {
         this.casillero = casillero;
         this.movimientos = 0;
+        this.movimiento = new MovimientoNormal();
     }
 
     public abstract void recibe(Obstaculo obstaculo);

@@ -4,6 +4,6 @@ import edu.fiuba.algo3.modelo.General.Casillero;
 
 public class DireccionAbajo implements Direccion{
     public void mover(Casillero casillero){
-        casillero.ubicacion().incrementarFila();
+        casillero.incrementarFila();
     }
 }

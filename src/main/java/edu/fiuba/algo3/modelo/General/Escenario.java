@@ -41,7 +41,7 @@ public class Escenario {
 	private void llenar() {
 		for (int fila = 1; fila <= filas; fila++) {
 			for (int columna = 1; columna <= columnas; columna++) {
-				this.casilleros.add(new Casillero(new Ubicacion(fila, columna)));
+				this.casilleros.add(new Casillero(fila, columna));
 			}
 		}
 	}

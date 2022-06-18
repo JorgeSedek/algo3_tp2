@@ -30,13 +30,13 @@ public class Entrega2Test {
     private int fila2 = 2;
     private int columna2 = 2;
 
-    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(new Ubicacion(fila2, columna2))));
+    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(fila2, columna2)));
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
@@ -61,7 +61,7 @@ public class Entrega2Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaDesfavorableDeberiaTener14Movimientos() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo moto = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, moto);
 
@@ -85,7 +85,7 @@ public class Entrega2Test {
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraUnaSorpresaCambioDeVehiculoDeberiaConvertirseEnAuto() {
 
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo vehiculo = new Moto(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
@@ -110,7 +110,7 @@ public class Entrega2Test {
    @Test
     public void UnaCamionetaSeEncuentraConSorpresaCambioDeVehiculoYUnPiqueteDeberiaPoderPasarElPiqueteYTener6Movimientos(){
 
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo vehiculo = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
@@ -135,7 +135,7 @@ public class Entrega2Test {
        int fila = 2;
        int columna = 4;
 
-       Vehiculo vehiculoEsperado = new Moto(new Casillero(new Ubicacion(fila,columna)));
+       Vehiculo vehiculoEsperado = new Moto(new Casillero(fila,columna));
 
        assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
        assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -144,7 +144,7 @@ public class Entrega2Test {
 
     @Test
     public void UnaCamionetaSeMueve4VecesPorLaCiudadYSeEncuentra4VecesConPozoDeberiaTener7Movimientos(){
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Vehiculo vehiculo = new Camioneta(casillero);
         Jugador jugador = new Jugador(nombre, vehiculo);
 

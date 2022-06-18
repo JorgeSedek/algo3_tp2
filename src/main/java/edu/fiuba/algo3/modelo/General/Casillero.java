@@ -1,19 +1,32 @@
 package edu.fiuba.algo3.modelo.General;
 
-import java.util.ArrayList;
-
 public class Casillero {
-    private Ubicacion ubicacion;
+    private int fila;
+    private int columna;
 
-    public Casillero(Ubicacion ubicacion){
-        this.ubicacion = ubicacion;
+    public Casillero(int fila, int columna) {
+        this.fila = fila;
+        this.columna = columna;
     }
 
-    public Ubicacion ubicacion() {
-        return this.ubicacion;
+    public boolean equals(Casillero casillero) {
+        return (casillero.fila == this.fila & casillero.columna == this.columna);
     }
 
-    public boolean equals(Casillero otroCasillero) {
-        return this.ubicacion.equals(otroCasillero.ubicacion());
+    public void incrementarFila() {
+        this.fila += 1;
     }
+
+    public void incrementarColumna() {
+        this.columna += 1;
+    }
+
+    public void disminuirFila() {
+        this.fila -= 1;
+    }
+
+    public void disminuirColumna() {
+        this.columna -= 1;
+    }
+
 }

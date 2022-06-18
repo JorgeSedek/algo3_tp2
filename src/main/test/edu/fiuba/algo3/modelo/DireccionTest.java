@@ -12,44 +12,44 @@ public class DireccionTest {
 
     @Test
     public void unaDireccionAbajoRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Direccion direccionAbajo = new DireccionAbajo();
         direccionAbajo.mover(casillero);
         int nuevaFila = 3;
-        Casillero casilleroEsperado = new Casillero(new Ubicacion(nuevaFila, columna));
+        Casillero casilleroEsperado = new Casillero(nuevaFila, columna);
 
         assertTrue(casillero.equals(casilleroEsperado));
     }
 
     @Test
     public void unaDireccionArribaRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Direccion direccionArriba = new DireccionArriba();
         direccionArriba.mover(casillero);
         int nuevaFila = 1;
-        Casillero casilleroEsperado = new Casillero(new Ubicacion(nuevaFila, columna));
+        Casillero casilleroEsperado = new Casillero(nuevaFila, columna);
 
         assertTrue(casillero.equals(casilleroEsperado));
     }
 
     @Test
     public void unaDireccionDerechaRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Direccion direccionDerecha = new DireccionDerecha();
         direccionDerecha.mover(casillero);
         int nuevaColumna = 3;
-        Casillero casilleroEsperado = new Casillero(new Ubicacion(fila, nuevaColumna));
+        Casillero casilleroEsperado = new Casillero(fila, nuevaColumna);
 
         assertTrue(casillero.equals(casilleroEsperado));
     }
 
     @Test
     public void unaDireccionIzquierdaRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(new Ubicacion(fila, columna));
+        Casillero casillero = new Casillero(fila, columna);
         Direccion direccionIzquierda = new DireccionIzquierda();
         direccionIzquierda.mover(casillero);
         int nuevaColumna = 1;
-        Casillero casilleroEsperado = new Casillero(new Ubicacion(fila, nuevaColumna));
+        Casillero casilleroEsperado = new Casillero(fila, nuevaColumna);
 
         assertTrue(casillero.equals(casilleroEsperado));
     }
