@@ -37,6 +37,39 @@ public class CasilleroTest {
 
         assertFalse(casillero.equals(primeraUbicacion));
     }
+
+    /*
+    @Test
+    public void seVerificaQueLosCasillerosAdyacentesSeanLosCorrectos(){
+        int fila = 2;
+        int columna = 2;
+        int filaIzquierda = 1;
+        int filaDerecha = 3;
+        int columnaArriba = 1;
+        int columnaAbajo = 3;
+
+        HashMap<Direccion, Casillero> casillerosAdyacentes = new HashMap<Direccion, Casillero>();
+
+        Casillero casillero = new Casillero(fila,columna);
+        casillero.cargarCasillerosAdyacentes();
+
+        Casillero casilleroIzquierda = new Casillero(filaIzquierda,columna);
+        Casillero casilleroDerecha = new Casillero(filaDerecha,columna);
+        Casillero casilleroAbajo = new Casillero(fila,columnaAbajo);
+        Casillero casilleroArriba = new Casillero(fila,columnaArriba);
+
+
+        casillerosAdyacentes.put(new DireccionDerecha(), casilleroDerecha);
+        casillerosAdyacentes.put(new DireccionIzquierda(), casilleroIzquierda);
+        casillerosAdyacentes.put(new DireccionAbajo(), casilleroAbajo);
+        casillerosAdyacentes.put(new DireccionArriba(), casilleroArriba);
+
+        assertTrue(casillero.verificarCasillerosAdyacentes(casillerosAdyacentes));
+
+
+
+    }
+    */
 }
 
 

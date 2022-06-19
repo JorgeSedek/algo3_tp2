@@ -19,20 +19,39 @@ public class Ubicacion {
 		return (this.fila % 2 == 0 & this.columna % 2 == 0);
 	}
 	public void mover(DireccionAbajo direccion) {
-		this.fila += 1;
+		Escenario escenario = Escenario.getInstance();
+		if (escenario.filaDentroDeLimites(fila)) {
+			this.fila += 1;
+		}
 	}
 
 	public void mover(DireccionDerecha direccion) {
-		this.columna += 1;
+		Escenario escenario = Escenario.getInstance();
+		if (escenario.columnaDentroDeLimites(columna)) {
+			this.columna += 1;
+		}
 	}
 
 	public void mover(DireccionArriba direccion) {
-		this.fila -= 1;
+		Escenario escenario = Escenario.getInstance();
+		if (escenario.filaDentroDeLimites(fila)) {
+			this.fila -= 1;
+		}
 	}
 
-	public void  mover(DireccionIzquierda direccion) {
-		this.columna -= 1;
+	public void mover(DireccionIzquierda direccion) {
+		Escenario escenario = Escenario.getInstance();
+		if (escenario.columnaDentroDeLimites(columna)) {
+			this.columna -= 1;
+		}
+
 	}
+
+	public Ubicacion copia(){
+		return new Ubicacion(this.fila,this.columna);
+	}
+
+
 
 
 }

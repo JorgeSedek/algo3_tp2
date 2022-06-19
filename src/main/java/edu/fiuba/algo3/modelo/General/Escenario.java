@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.General;
 
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,8 +10,6 @@ public class Escenario {
 	private int columnas;
 
 	private ArrayList<Casillero> casilleros;
-
-	private Vehiculo vehiculoActivo;
 
 	private static Escenario INSTANCE = null;
 
@@ -48,7 +44,9 @@ public class Escenario {
 	private void llenar() {
 		for (int fila = 1; fila <= filas; fila++) {
 			for (int columna = 1; columna <= columnas; columna++) {
-				this.casilleros.add(new Casillero(fila, columna));
+				Casillero casillero = new Casillero(fila, columna);
+			//	casillero.cargarCasillerosAdyacentes();
+				this.casilleros.add(casillero);
 			}
 		}
 	}
@@ -80,6 +78,14 @@ public class Escenario {
 		List<Casillero> casillerosFiltrados = casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)).collect(Collectors.toList());
 		int primerElemento = 0;
 		return casillerosFiltrados.get(primerElemento);
+	}
+
+	public boolean filaDentroDeLimites(int fila){
+		return (fila >= 1 & fila <= filas);
+	}
+
+	public boolean columnaDentroDeLimites(int columna){
+		return (columna >= 1 & columna <= columnas);
 	}
 
 // Metodo para tests
