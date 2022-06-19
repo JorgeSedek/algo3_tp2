@@ -50,8 +50,9 @@ public class Entrega1Test {
             juego.moverVehiculo(new DireccionDerecha());
         }
         juego.moverVehiculo(new DireccionAbajo());
-
-        moto.atravesar(pozo);
+        Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
+        casilleroConPozo.asignarObstaculo(pozo);
+        moto.atravesar(casilleroConPozo);
 
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -78,7 +79,9 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionIzquierda());
         juego.moverVehiculo(new DireccionArriba());
 
-        auto.atravesar(pozo);
+        Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
+        casilleroConPozo.asignarObstaculo(pozo);
+        auto.atravesar(casilleroConPozo);
 
         assertTrue(auto.verificarUbicacion(nuevoUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -103,7 +106,9 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        camioneta.atravesar(pozo);
+        Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
+        casilleroConPozo.asignarObstaculo(pozo);
+        camioneta.atravesar(casilleroConPozo);
 
         assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -128,7 +133,9 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        moto.atravesar(piquete);
+        Casillero casilleroConPiquete = new Casillero(nuevaFila,nuevaColumna);
+        casilleroConPiquete.asignarObstaculo(piquete);
+        moto.atravesar(casilleroConPiquete);
 
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
         assertTrue(jugador.verificarMovimiento(movimientosEsperados));

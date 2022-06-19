@@ -66,13 +66,13 @@ public class Escenario {
 		}
 	}
 */
-	public void agregarEn(Vehiculo vehiculo, Casillero otroCasillero){
-		Casillero casillero = this.buscarCasilleroEn(otroCasillero);
+	public void agregarEn(Vehiculo vehiculo, Ubicacion ubicacion){
+		Casillero casillero = this.buscarCasilleroEn(ubicacion);
 		casillero.colocar(vehiculo);
 	}
 
-	public Casillero buscarCasilleroEn(Casillero otroCasillero){
-		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(otroCasillero)));
+	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
+		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)));
 	}
 
 

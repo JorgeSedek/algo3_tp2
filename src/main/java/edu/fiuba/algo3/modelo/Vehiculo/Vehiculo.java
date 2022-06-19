@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
@@ -24,6 +25,12 @@ public abstract class Vehiculo {
 
     public abstract void atravesar(Sorpresa sorpresa);
 
+    public void atravesar(Casillero casillero){
+        Vehiculo vehiculo = this;
+        casillero.entregaSorpresa(vehiculo);
+        casillero.entregaObstaculo(vehiculo);
+    }
+
     public int porcentajeMovimientos(int porcentaje) {
         return this.movimientos * porcentaje / 100;
     }
@@ -34,6 +41,13 @@ public abstract class Vehiculo {
 */
     public void mover(Direccion direccion) {
         movimiento.mover(ubicacion, direccion);
+        Vehiculo vehiculo = this;
+       // escenario.agregarEn(vehiculo, new Casillero(ubicacion));
+        // Casillero casilleroNuevo = escenario.buscarCasilleroEn(ubicacion);
+        // this.atravesar(casillero);
+        // movimiento.mover(ubicacion, direccion);
+        // escenario.agregarEn(vehiculo, ubicacion);
+
     }
 
     public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
@@ -67,6 +81,10 @@ public abstract class Vehiculo {
 
     public boolean verificarUbicacion(Ubicacion ubicacion) {
         return this.ubicacion.equals(ubicacion);
+    }
+
+    public Casillero casillero(){
+        return new Casillero(ubicacion);
     }
 
 }
