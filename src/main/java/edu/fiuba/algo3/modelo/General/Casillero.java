@@ -55,5 +55,14 @@ public class Casillero {
         this.obstaculo = obstaculo;
     }
 
+    public Ubicacion ubicacion(){
+        return this.ubicacion;
+    }
+    public boolean equals(Casillero otroCasillero){
+        return (this.ubicacion.equals(otroCasillero.ubicacion()));
+    }
 
+    public boolean equals(Ubicacion otraUbicacion) {
+        return (this.ubicacion.equals(otraUbicacion));
+    }
 }

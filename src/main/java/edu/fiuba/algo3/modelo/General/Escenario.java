@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.General;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Escenario {
 
@@ -66,17 +68,21 @@ public class Escenario {
 		}
 	}
 */
+	/*
 	public void agregarEn(Vehiculo vehiculo, Ubicacion ubicacion){
 		Casillero casillero = this.buscarCasilleroEn(ubicacion);
 		casillero.colocar(vehiculo);
 	}
+	*/
+
 
 	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
-		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)));
+		List<Casillero> casillerosFiltrados = casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)).collect(Collectors.toList());
+		int primerElemento = 0;
+		return casillerosFiltrados.get(primerElemento);
 	}
 
-
-	// Metodo para tests
+// Metodo para tests
 	public boolean verificarNumeroDeFilas(int filas) {
 		return this.filas == filas;
 	}
