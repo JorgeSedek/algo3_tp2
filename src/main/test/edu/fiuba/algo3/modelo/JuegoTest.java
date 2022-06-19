@@ -5,117 +5,71 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.*;
+import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class JuegoTest {
     private String nombre = "Tomas";
-    private String nombre2 = "Juan";
-
     private int fila = 1;
     private int columna = 1;
-    private int fila2 = 2;
-    private int columna2 = 2;
-
-    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(fila2, columna2)));
+    private Casillero casilleroInicial = new Casillero(fila, columna);
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
     @Test
     public void seCreaUnjuegoYnoEstaVacio() {
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
-        Jugador jugador = new Jugador(nombre, moto);
+        Vehiculo moto = new Moto(casilleroInicial);
+        Jugador jugador1 = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
+        List<Jugador> jugadores = new ArrayList<>() {{
+            add(jugador1);
+        }};
+        Juego juego = new Juego(jugadores);
 
         assertNotNull(juego);
     }
 
     @Test
     public void seCreaJuegoYlosAtributoNoSonNulos(){
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
-        Jugador jugador = new Jugador(nombre, moto);
+        Vehiculo moto = new Moto(casilleroInicial);
+        Jugador jugador1 = new Jugador(nombre, moto);
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
+        List<Jugador> jugadores = new ArrayList<>() {{
+            add(jugador1);
+        }};
+        Juego juego = new Juego(jugadores);
 
         assertTrue(juego.verificarAtributosNoNulos());
     }
 
     @Test
-    public void seHaceCambioDeJugadoresYatributosSiguenSiendoNoNulos(){
+    public void seCreaUnJuegoCon2JugadoresYSeMuevenDeberianEstarEnLaMismaPosicion() {
+        Vehiculo moto = new Moto(casilleroInicial);
+        Jugador jugador1 = new Jugador(nombre, moto);
         Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
-        Jugador jugador = new Jugador(nombre, moto);
+        Vehiculo auto = new Auto(casillero);
+        Jugador jugador2 = new Jugador(nombre, auto);
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
+        List<Jugador> jugadores = new ArrayList<>() {{
+            add(jugador1);
+            add(jugador2);
+        }};
+        Juego juego = new Juego(jugadores);
 
-        juego.cambioJugador();
+        for(int i = 1; i <= 4; i++) {
+            juego.moverVehiculo(new DireccionDerecha());
+        }
+        int nuevaColumna = 3;
+        Casillero nuevoCasillero = new Casillero(fila, nuevaColumna);
 
-        assertTrue(juego.verificarAtributosNoNulos());
-
-    }
-
-    @Test
-    public void seCambiaElJugadorYJugadoresCambianTurno() {
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
-        Jugador jugador = new Jugador(nombre, moto);
-        Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
-
-        assertTrue(juego.compararJugadorActivo(jugador));
-        assertTrue(juego.compararJugadorEspera(jugador2));
-
-        juego.cambioJugador();
-
-        assertTrue(juego.compararJugadorActivo(jugador2));
-        assertTrue(juego.compararJugadorEspera(jugador));
-    }
-
-
-    @Test
-    public void seMueveJugadorSeCambiaJugadorYlosMovimientosSonLosCorrectos() {
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
-        Jugador jugador = new Jugador(nombre, moto);
-        Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
-
-        juego.moverVehiculo(new DireccionDerecha());
-        juego.moverVehiculo(new DireccionDerecha());
-
-        int movimientosEsperados = 2;
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
-        assertFalse(juego.verificarMovJugadorEspera(movimientosEsperados));
-
-        juego.cambioJugador();
-        juego.moverVehiculo(new DireccionArriba());
-        movimientosEsperados = 1;
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
-        assertFalse(juego.verificarMovJugadorEspera(movimientosEsperados));
-    }
-
-    @Test
-    public void jugadorActivoSeMueveEnVariasDireccionesYlosMovimientosDelOtroJugadorNoCambian(){
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
-        Jugador jugador = new Jugador(nombre, moto);
-        Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(Escenario.getInstance(), jugador, jugador2);
-        int movimientosEsperados = 0;
-
-        juego.moverVehiculo(new DireccionDerecha());
-        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
-        juego.moverVehiculo(new DireccionArriba());
-        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
-        juego.moverVehiculo(new DireccionAbajo());
-        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
-        juego.moverVehiculo(new DireccionIzquierda());
-        assertTrue(juego.verificarMovJugadorEspera(movimientosEsperados));
+        assertTrue(moto.verificarCasillero(nuevoCasillero));
+        assertTrue(auto.verificarCasillero(nuevoCasillero));
     }
 }

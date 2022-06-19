@@ -2,44 +2,38 @@ package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 
-public class Juego {
-    private Escenario escenario;
-    private Jugador jugadorActivo;
-    private Jugador jugadorEspera;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Juego(Escenario escenario, Jugador jugador1, Jugador jugador2) {
-        this.escenario = escenario;
-        this.jugadorActivo = jugador1;
-        this.jugadorEspera = jugador2;
+public class Juego {
+    private List<Jugador> jugadores;
+    private Jugador jugadorActivo;
+    private int numJugador;
+
+    public Juego(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+        this.numJugador = 1;
+        this.jugadorActivo = jugadores.get(numJugador-1);
     }
 
     public void moverVehiculo(Direccion direccion){
         this.jugadorActivo.moverVehiculo(direccion);
+        this.cambioJugador();
     }
 
-    public void cambioJugador(){
-        Jugador jugadorAux = this.jugadorEspera;
-        this.jugadorEspera = this.jugadorActivo;
-        this.jugadorActivo = jugadorAux;
-    }
-
-    public boolean compararJugadorActivo(Jugador jugadorEsperado){
-        return (this.jugadorActivo.equals(jugadorEsperado));
-    }
-
-    public boolean compararJugadorEspera(Jugador jugadorEsperado){
-        return (this.jugadorEspera.equals(jugadorEsperado));
+    private void cambioJugador(){
+        this.numJugador++;
+        if(numJugador > jugadores.size()) {
+            this.numJugador = 1;
+        }
+        this.jugadorActivo = jugadores.get(numJugador-1);
     }
 
     public boolean verificarMovJugadorActivo(int movimientosEsperados){
         return (this.jugadorActivo.verificarMovimiento(movimientosEsperados));
     }
 
-    public boolean verificarMovJugadorEspera(int movimientosEsperados){
-        return (this.jugadorEspera.verificarMovimiento(movimientosEsperados));
-    }
-
     public boolean verificarAtributosNoNulos(){
-        return (this.escenario != null & this.jugadorActivo != null & this.jugadorEspera != null);
+        return (this.jugadores != null & this.jugadorActivo != null);
     }
 }
