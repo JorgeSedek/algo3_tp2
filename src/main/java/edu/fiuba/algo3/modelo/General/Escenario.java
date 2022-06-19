@@ -1,12 +1,17 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+
 import java.util.ArrayList;
 
 public class Escenario {
 
 	private int filas;
 	private int columnas;
+
 	private ArrayList<Casillero> casilleros;
+
+	private Vehiculo vehiculoActivo;
 
 	private static Escenario INSTANCE = null;
 
@@ -45,6 +50,7 @@ public class Escenario {
 			}
 		}
 	}
+
 	/*
 	DE MOMENTO NO SE UTILIZAN (de hecho quedarían obsoletos estos metodos respecto a la implementación
 	actual ya que ahora un casillero es un cruce de calles, y no una calle). Se podría refactorizar
@@ -59,16 +65,16 @@ public class Escenario {
 			this.llenarCalles(siguienteIndice);
 		}
 	}
-
-	public void agregarEn(ObjetoUrbano objetoUrbano, Ubicacion ubicacion){
-		Casillero casillero = this.buscarCasilleroEn(ubicacion);
-		casillero.contiene(objetoUrbano);
+*/
+	public void agregarEn(Vehiculo vehiculo, Casillero otroCasillero){
+		Casillero casillero = this.buscarCasilleroEn(otroCasillero);
+		casillero.colocar(vehiculo);
 	}
 
-	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
-		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)));
+	public Casillero buscarCasilleroEn(Casillero otroCasillero){
+		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(otroCasillero)));
 	}
-	*/
+
 
 	// Metodo para tests
 	public boolean verificarNumeroDeFilas(int filas) {

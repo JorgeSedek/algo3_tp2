@@ -30,14 +30,14 @@ public class Entrega2Test {
     private int fila2 = 2;
     private int columna2 = 2;
 
-    private Jugador jugador2 = new Jugador(nombre2, new Moto(new Casillero(fila2, columna2)));
+    private Jugador jugador2 = new Jugador(nombre2, new Moto((new Ubicacion(fila2, columna2))));
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
 
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -50,7 +50,7 @@ public class Entrega2Test {
         }
         // Realizo 12 movimientos
 
-        moto.recibe(favorable);
+        moto.atravesar(favorable);
 
         int movimientosEsperados = 10;
 
@@ -61,8 +61,8 @@ public class Entrega2Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaDesfavorableDeberiaTener14Movimientos() {
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
 
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -75,7 +75,7 @@ public class Entrega2Test {
         }
         // Realizo 12 movimientos
 
-        moto.recibe(desfavorable);
+        moto.atravesar(desfavorable);
 
         int movimientosEsperados = 15;
 
@@ -85,8 +85,8 @@ public class Entrega2Test {
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraUnaSorpresaCambioDeVehiculoDeberiaConvertirseEnAuto() {
 
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo vehiculo = new Moto(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo vehiculo = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -99,10 +99,10 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
 
-        vehiculo.recibe(cambioVehiculo);
+        vehiculo.atravesar(cambioVehiculo);
         jugador.cambiarVehiculo(vehiculo.cambio());
 
-        Vehiculo vehiculoEsperado = new Auto(casillero);
+        Vehiculo vehiculoEsperado = new Auto(ubicacion);
 
         assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
     }
@@ -110,8 +110,8 @@ public class Entrega2Test {
    @Test
     public void UnaCamionetaSeEncuentraConSorpresaCambioDeVehiculoYUnPiqueteDeberiaPoderPasarElPiqueteYTener6Movimientos(){
 
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo vehiculo = new Camioneta(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo vehiculo = new Camioneta(ubicacion);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
 
@@ -126,16 +126,16 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
 
-       vehiculo.recibe(cambioVehiculo);
+       vehiculo.atravesar(cambioVehiculo);
        jugador.cambiarVehiculo(vehiculo.cambio());
-       jugador.obtenerVehiculo().recibe(piquete);
+       jugador.obtenerVehiculo().atravesar(piquete);
 
        int movimientosEsperados = 6;
 
        int fila = 2;
        int columna = 4;
 
-       Vehiculo vehiculoEsperado = new Moto(new Casillero(fila,columna));
+       Vehiculo vehiculoEsperado = new Moto((new Ubicacion(fila,columna)));
 
        assertTrue(jugador.mismoVehiculo(vehiculoEsperado));
        assertTrue(jugador.verificarMovimiento(movimientosEsperados));
@@ -144,8 +144,8 @@ public class Entrega2Test {
 
     @Test
     public void UnaCamionetaSeMueve4VecesPorLaCiudadYSeEncuentra4VecesConPozoDeberiaTener7Movimientos(){
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo vehiculo = new Camioneta(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo vehiculo = new Camioneta(ubicacion);
         Jugador jugador = new Jugador(nombre, vehiculo);
 
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -158,7 +158,7 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
         for(int i=0; i<4; i++){
-            vehiculo.recibe(pozo);
+            vehiculo.atravesar(pozo);
         }
 
         int movimientosEsperados = 7;

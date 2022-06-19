@@ -1,37 +1,33 @@
 package edu.fiuba.algo3.modelo.General;
 
-import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
-import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
-import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
-import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
+import edu.fiuba.algo3.modelo.Ocupante.Edificio;
+import edu.fiuba.algo3.modelo.Ocupante.Ocupante;
+import edu.fiuba.algo3.modelo.Ocupante.Vacio;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class Casillero {
     private int fila;
     private int columna;
+    private Vehiculo vehiculo;
+    private Ocupante ocupante;
+
+    private Ubicacion ubicacion;
 
     public Casillero(int fila, int columna) {
-        this.fila = fila;
-        this.columna = columna;
+        this.ubicacion = new Ubicacion(fila,columna);
+        this.ocupante = (Ocupante) new Vacio();
+        if (this.hayEdificio()){
+            this.ocupante = (Ocupante) new Edificio();
+        }
     }
 
-    public boolean equals(Casillero casillero) {
-        return (casillero.fila == this.fila & casillero.columna == this.columna);
+    public boolean hayEdificio(){
+        return (ubicacion.hayEdificio());
+    }
+    public void colocar(Vehiculo vehiculo){
+        this.vehiculo = vehiculo;
     }
 
-    public void mover(DireccionAbajo direccion) {
-        this.fila += 1;
-    }
 
-    public void mover(DireccionDerecha direccion) {
-        this.columna += 1;
-    }
-
-    public void mover(DireccionArriba direccion) {
-        this.fila -= 1;
-    }
-
-    public void  mover(DireccionIzquierda direccion) {
-        this.columna -= 1;
-    }
 
 }

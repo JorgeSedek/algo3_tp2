@@ -3,14 +3,10 @@
 package edu.fiuba.algo3.modelo.Movimiento;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
-import edu.fiuba.algo3.modelo.General.Casillero;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 
-public abstract class Movimiento {
+public interface Movimiento {
 
-    protected Direccion direccion;
-    public abstract void mover(Casillero casilleroActual, Direccion direccion);
+    void mover(Ubicacion ubicacionActual, Direccion direccion);
 
-    protected void asignarDireccion(Direccion direccion){
-        this.direccion = direccion;
-    }
 }

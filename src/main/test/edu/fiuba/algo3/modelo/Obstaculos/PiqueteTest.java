@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
 
-import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -18,12 +18,12 @@ public class PiqueteTest {
     @Test
     public void unJugadorPasaPorUnPiqueteConMotoDeberiaSumarse2MovimientosAJugador() {
         Obstaculo piquete = new Piquete();
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo moto = new Moto(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
         int cantidadMovimientos = 2;
 
-        moto.recibe(piquete);
+        moto.atravesar(piquete);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }
@@ -31,12 +31,12 @@ public class PiqueteTest {
     @Test
     public void unJugadorPasaPorUnPiqueteConAutoNoDeberiaSumarseMovimientosAJugador() {
         Obstaculo piquete = new Piquete();
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo auto = new Auto(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
         int cantidadMovimientos = 0;
 
-        auto.recibe(piquete);
+        auto.atravesar(piquete);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }
@@ -44,12 +44,12 @@ public class PiqueteTest {
     @Test
     public void unJugadorPasaPorUnPiqueteConCamionetaNoDeberiaSumarseMovimientosAJugador() {
         Obstaculo piquete = new Piquete();
-        Casillero casillero = new Casillero(fila, columna);
-        Vehiculo camioneta = new Camioneta(casillero);
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador = new Jugador(nombre, camioneta);
         int cantidadMovimientos = 0;
 
-        camioneta.recibe(piquete);
+        camioneta.atravesar(piquete);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }
