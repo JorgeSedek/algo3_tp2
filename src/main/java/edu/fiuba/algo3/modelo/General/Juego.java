@@ -12,8 +12,8 @@ public class Juego {
 
     public Juego(List<Jugador> jugadores) {
         this.jugadores = jugadores;
-        this.numJugador = 1;
-        this.jugadorActivo = jugadores.get(numJugador-1);
+        this.numJugador = 0;
+        this.jugadorActivo = jugadores.get(numJugador);
     }
 
     public void moverVehiculo(Direccion direccion){
@@ -23,17 +23,27 @@ public class Juego {
 
     private void cambioJugador(){
         this.numJugador++;
-        if(numJugador > jugadores.size()) {
-            this.numJugador = 1;
+        if(numJugador >= jugadores.size()) {
+            this.numJugador = 0;
         }
-        this.jugadorActivo = jugadores.get(numJugador-1);
+        this.jugadorActivo = jugadores.get(numJugador);
     }
 
+
+    // Se usa para tests
     public boolean verificarMovJugadorActivo(int movimientosEsperados){
         return (this.jugadorActivo.verificarMovimiento(movimientosEsperados));
     }
 
+    // Se usa para tests
     public boolean verificarAtributosNoNulos(){
         return (this.jugadores != null & this.jugadorActivo != null);
     }
+
+    // Se usa para tests
+    public boolean verificarJugadorActivo(Jugador jugador) {
+        return this.jugadorActivo == jugador;
+    }
+
+
 }

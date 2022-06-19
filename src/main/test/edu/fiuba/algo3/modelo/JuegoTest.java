@@ -63,13 +63,76 @@ public class JuegoTest {
         }};
         Juego juego = new Juego(jugadores);
 
-        for(int i = 1; i <= 4; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+        for(int i = 0; i < 4; i++) {
+            juego.moverVehiculo(new DireccionDerecha()); // 4 Movimientos a la derecha
         }
         int nuevaColumna = 3;
         Casillero nuevoCasillero = new Casillero(fila, nuevaColumna);
 
         assertTrue(moto.verificarCasillero(nuevoCasillero));
         assertTrue(auto.verificarCasillero(nuevoCasillero));
+    }
+
+
+    @Test
+    public void seCreaUnJuegoCon3JugadoresYSeCambiaCorrectamenteDeJugadorActivoAlMoverse() {
+        Vehiculo moto = new Moto(casilleroInicial);
+        Jugador jugador1 = new Jugador(nombre, moto);
+        Casillero casillero1 = new Casillero(fila, columna);
+        Vehiculo auto = new Auto(casillero1);
+        Jugador jugador2 = new Jugador(nombre, auto);
+        Casillero casillero2 = new Casillero(fila, columna);
+        Vehiculo auto2 = new Auto(casillero2);
+        Jugador jugador3 = new Jugador(nombre, auto2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        List<Jugador> jugadores = new ArrayList<>() {{
+            add(jugador1);
+            add(jugador2);
+            add(jugador3);
+        }};
+        Juego juego = new Juego(jugadores);
+
+        // Act and Assert
+        assertTrue(juego.verificarJugadorActivo(jugador1));
+        juego.moverVehiculo(new DireccionDerecha());
+        assertTrue(juego.verificarJugadorActivo(jugador2));
+        juego.moverVehiculo(new DireccionDerecha());
+        assertTrue(juego.verificarJugadorActivo(jugador3));
+        juego.moverVehiculo(new DireccionDerecha());
+        assertTrue(juego.verificarJugadorActivo(jugador1));
+    }
+
+    @Test
+    public void seCreaUnJuegoCon3JugadoresYSeMuevenLasPosicionesDeberianSerIndependientes() {
+        Vehiculo moto = new Moto(casilleroInicial);
+        Jugador jugador1 = new Jugador(nombre, moto);
+
+        Casillero casillero1 = new Casillero(fila, columna);
+        Vehiculo auto = new Auto(casillero1);
+        Jugador jugador2 = new Jugador(nombre, auto);
+
+        Casillero casillero2 = new Casillero(fila, columna);
+        Vehiculo auto2 = new Auto(casillero2);
+        Jugador jugador3 = new Jugador(nombre, auto2);
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        List<Jugador> jugadores = new ArrayList<>() {{
+            add(jugador1);
+            add(jugador2);
+            add(jugador3);
+        }};
+        Juego juego = new Juego(jugadores);
+
+        for(int i = 0; i < 4; i++) {
+            juego.moverVehiculo(new DireccionDerecha()); // 4 Movimientos a la derecha
+        }
+        juego.moverVehiculo(new DireccionAbajo());
+        
+        Casillero casilleroDeJugador1 = new Casillero(1, 3);
+        Casillero casilleroDeJugador2 = new Casillero(2, 2);
+        Casillero casilleroDeJugador3 = new Casillero(1, 2);
+
+        assertTrue(moto.verificarCasillero(casilleroDeJugador1));
+        assertTrue(auto.verificarCasillero(casilleroDeJugador2));
+        assertTrue(auto2.verificarCasillero(casilleroDeJugador3));
     }
 }

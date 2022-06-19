@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -70,4 +71,5 @@ public class JugadorTest {
 
         assertTrue(jugador.verificarMovimiento(totalMovimientos));
     }
+
 }

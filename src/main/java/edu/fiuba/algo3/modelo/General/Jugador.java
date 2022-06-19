@@ -52,6 +52,7 @@ public class Jugador {
         return this.vehiculo;
     }
 
+    // Se usa para tests
     public boolean equals(Jugador otroJugador){
         return (this.nombre == otroJugador.nombre() & this.vehiculo == otroJugador.vehiculo());
     }
