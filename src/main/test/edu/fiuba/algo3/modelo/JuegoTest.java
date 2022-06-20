@@ -126,7 +126,7 @@ public class JuegoTest {
     }
 
     @Test
-    public void jugadorActivoSeMueveEnVariasDireccionesYlosMovimientosDelOtroJugadorNoCambian () {
+    public void seCreaUnJuegoCon3JugadoresYLuegoDeMoverseLasUbicacionesSonIndependientesEntreLosJugadores() {
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(ubicacion);
 
