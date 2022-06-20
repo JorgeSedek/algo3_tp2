@@ -129,8 +129,8 @@ public class JuegoTest {
     public void seCreaUnJuegoCon3JugadoresYLuegoDeMoverseLasUbicacionesSonIndependientesEntreLosJugadores() {
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(ubicacion);
-
         Jugador jugador1 = new Jugador(nombre, moto);
+
         Ubicacion ubicacion1 = new Ubicacion(fila, columna);
         Vehiculo auto = new Auto(ubicacion1);
         Jugador jugador2 = new Jugador(nombre, auto);
@@ -151,12 +151,12 @@ public class JuegoTest {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        Ubicacion ubicacionDeJugador1 = new Ubicacion(1, 3);
-        Ubicacion ubicacionDeJugador2 = new Ubicacion(2, 2);
-        Ubicacion ubicacionDeJugador3 = new Ubicacion(1, 2);
+        Ubicacion ubicacionEsperadaDeJugador1 = new Ubicacion(1, 3);
+        Ubicacion ubicacionEsperadaDeJugador2 = new Ubicacion(2, 2);
+        Ubicacion ubicacionEsperadaDeJugador3 = new Ubicacion(1, 2);
 
-        assertTrue(moto.verificarUbicacion(ubicacionDeJugador1));
-        assertTrue(auto.verificarUbicacion(ubicacionDeJugador2));
-        assertTrue(auto2.verificarUbicacion(ubicacionDeJugador3));
+        assertTrue(moto.verificarUbicacion(ubicacionEsperadaDeJugador1));
+        assertTrue(auto.verificarUbicacion(ubicacionEsperadaDeJugador2));
+        assertTrue(auto2.verificarUbicacion(ubicacionEsperadaDeJugador3));
     }
 }

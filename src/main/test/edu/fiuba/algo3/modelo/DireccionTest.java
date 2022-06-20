@@ -20,7 +20,6 @@ public class DireccionTest {
 
         assertTrue(ubicacion.equals(ubicacionEsperado));
     }
-
     @Test
     public void unaDireccionArribaRecibeUnUbicacionYLoMueveDeberiaEstarEnOtraUbicacion() {
         Ubicacion ubicacion = new Ubicacion(fila, columna);
@@ -31,7 +30,6 @@ public class DireccionTest {
 
         assertTrue(ubicacion.equals(ubicacionEsperado));
     }
-
     @Test
     public void unaDireccionDerechaRecibeUnUbicacionYLoMueveDeberiaEstarEnOtraUbicacion() {
         Ubicacion ubicacion = new Ubicacion(fila, columna);

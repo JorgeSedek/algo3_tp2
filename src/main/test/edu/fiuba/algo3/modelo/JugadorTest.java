@@ -21,6 +21,7 @@ public class JugadorTest {
         Vehiculo auto2 = auto;
         Jugador jugador = new Jugador(nombre, auto);
         Jugador jugador2 = new Jugador(nombre2, auto2);
+
         assertTrue(jugador.equals(jugador2));
     }
 
@@ -32,6 +33,7 @@ public class JugadorTest {
         Vehiculo auto2 = auto;
         Jugador jugador = new Jugador(nombre, auto);
         Jugador jugador2 = new Jugador(nombre2, auto2);
+
         assertFalse(jugador.equals(jugador2));
     }
 
@@ -52,6 +54,7 @@ public class JugadorTest {
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
         int incremento = 3;
+
         jugador.incrementarMovimientos(incremento);
 
         assertTrue(jugador.verificarMovimiento(incremento));
@@ -65,6 +68,7 @@ public class JugadorTest {
         int incremento = 4;
         int reduccion = 3;
         int totalMovimientos = incremento - reduccion;
+
         jugador.incrementarMovimientos(incremento);
         jugador.disminuirMovimientos(reduccion);
 

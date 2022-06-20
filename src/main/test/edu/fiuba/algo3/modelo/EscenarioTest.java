@@ -26,7 +26,6 @@ public class EscenarioTest {
 
         assertNotEquals(primerEscenario, segundoEscenario);
     }
-
 	@Test
 	public void elEscenarioSeReseteoCorrectamente() {
 		int filasEsperadas = 6;
@@ -55,8 +54,6 @@ public class EscenarioTest {
 		assertTrue(casilleroBuscado.equals(new Casillero(fila,columna)));
 		assertFalse(casilleroBuscado.equals(new Casillero(otraFila,otraColumna)));
 	}
-
-
 
 	@Test
 	public void alObtenerLaInstanciaDeEscenarioEstaSeComparteEntreFunciones() {

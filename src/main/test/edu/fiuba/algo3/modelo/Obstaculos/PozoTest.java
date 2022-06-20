@@ -65,6 +65,7 @@ public class PozoTest {
 		for(int i = 1; i <= 4; i++) {
 			camioneta.atravesar(pozo);
 		}
+
 		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
 	}
 }

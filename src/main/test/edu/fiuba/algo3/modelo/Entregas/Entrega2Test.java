@@ -42,6 +42,7 @@ public class Entrega2Test {
         Juego juego = new Juego(jugadores);
         Sorpresa favorable = new Favorable();
 
+        // Act
         for (int i = 0; i < 6; i++) {
             juego.moverVehiculo(new DireccionDerecha());
             juego.moverVehiculo(new DireccionAbajo());
@@ -50,6 +51,7 @@ public class Entrega2Test {
 
         moto.atravesar(favorable);
 
+        // Assert
         int movimientosEsperados = 10;
 
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
@@ -66,6 +68,7 @@ public class Entrega2Test {
         Juego juego = new Juego(jugadores);
         Sorpresa desfavorable = new Desfavorable();
 
+        // Act
         for (int i = 0; i < 6; i++) {
             juego.moverVehiculo(new DireccionDerecha());
             juego.moverVehiculo(new DireccionAbajo());
@@ -74,6 +77,7 @@ public class Entrega2Test {
 
         moto.atravesar(desfavorable);
 
+        // Assert
         int movimientosEsperados = 15;
 
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
@@ -90,6 +94,7 @@ public class Entrega2Test {
         Juego juego = new Juego(jugadores);
         Sorpresa cambioVehiculo = new CambioVehiculo();
 
+        // Act
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
         }
@@ -98,6 +103,7 @@ public class Entrega2Test {
         vehiculo.atravesar(cambioVehiculo);
         jugador1.cambiarVehiculo(vehiculo.cambio());
 
+        // Assert
         Vehiculo vehiculoEsperado = new Auto(ubicacion);
 
         assertTrue(jugador1.mismoVehiculo(vehiculoEsperado));
@@ -116,6 +122,7 @@ public class Entrega2Test {
         Sorpresa cambioVehiculo = new CambioVehiculo();
         Obstaculo piquete = new Piquete();
 
+        // Act
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
         }
@@ -126,6 +133,7 @@ public class Entrega2Test {
        jugador1.cambiarVehiculo(vehiculo.cambio());
        jugador1.obtenerVehiculo().atravesar(piquete);
 
+       // Assert
        int movimientosEsperados = 6;
 
        int fila = 2;
@@ -147,6 +155,7 @@ public class Entrega2Test {
         Juego juego = new Juego(jugadores);
         Obstaculo pozo = new Pozo();
 
+        // Act
         for (int i = 0; i < 3; i++) {
             juego.moverVehiculo(new DireccionDerecha());
         }
@@ -156,6 +165,7 @@ public class Entrega2Test {
             vehiculo.atravesar(pozo);
         }
 
+        // Assert
         int movimientosEsperados = 7;
 
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));

@@ -25,7 +25,6 @@ public class DesfavorableTest {
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 1.25);
 
         moto.incrementarMovimientos(cantidadMovimientosHechos);
-
         moto.atravesar(desfavorable);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
@@ -41,7 +40,6 @@ public class DesfavorableTest {
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 1.25);
 
         auto.incrementarMovimientos(cantidadMovimientosHechos);
-
         auto.atravesar(desfavorable);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
@@ -57,7 +55,6 @@ public class DesfavorableTest {
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 1.25);
 
         camioneta.incrementarMovimientos(cantidadMovimientosHechos);
-
         camioneta.atravesar(desfavorable);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
