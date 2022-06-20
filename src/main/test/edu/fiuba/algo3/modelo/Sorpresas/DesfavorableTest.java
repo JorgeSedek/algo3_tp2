@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DesfavorableTest {
@@ -27,6 +28,8 @@ public class DesfavorableTest {
         moto.incrementarMovimientos(cantidadMovimientosHechos);
 
         moto.recibe(desfavorable);
+
+        assertEquals(moto.movimientos(), cantidadMovimientosEsperados);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
     }

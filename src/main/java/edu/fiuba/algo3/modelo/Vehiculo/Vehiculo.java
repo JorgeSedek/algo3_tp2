@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 
@@ -38,7 +39,7 @@ public abstract class Vehiculo {
 
     public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
 
-    public void disminuirMovimientos(int disminucion){this.movimientos -= disminucion;}
+    public void reducirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
     // Metodo para ests
     public boolean verificarCasillero(Casillero nuevoCasillero) {

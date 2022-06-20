@@ -1,29 +1,35 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
 
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
+import edu.fiuba.algo3.modelo.Efecto.EfectoIncrementarMovimientos;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class Pozo implements Obstaculo {
-    public void atravesar(Auto auto) {
-        _atravesar(auto);
+    private int incremento = 3;
+
+    public Efecto atravesar(Auto auto) {
+        return this.calcularEfecto();
     }
 
-    public void atravesar(Camioneta camioneta) {
+    public Efecto atravesar(Camioneta camioneta) {
         camioneta.atravezoPozo();
         if(camioneta.pasoLimitePozos()) {
-            _atravesar(camioneta);
+            return this.calcularEfecto();
         }
+        return new EfectoGeneral();
     }
 
-    public void atravesar(Moto moto) {
-        _atravesar(moto);
+    public Efecto atravesar(Moto moto) {
+        return this.calcularEfecto();
     }
 
-    private void _atravesar(Vehiculo vehiculo) {
-        int incremento = 3;
-        vehiculo.incrementarMovimientos(incremento);
+    private Efecto calcularEfecto() {
+        Efecto efecto = new EfectoGeneral();
+        return new EfectoIncrementarMovimientos(efecto, incremento);
     }
 }
 

@@ -1,34 +1,37 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
 
 
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
+import edu.fiuba.algo3.modelo.Efecto.EfectoIncrementarMovimientos;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class Policia implements Obstaculo {
-    public void atravesar(Auto auto) {
-        double probabilidad = Math.random(); // Valor decimal entre 0 y 1
-        if(probabilidad <= 0.5) {
-            int incremento = 3;
-            auto.incrementarMovimientos(incremento);
-        }
+    private int incremento = 3;
+
+    public Efecto atravesar(Auto auto) {
+        double probabilidadParo = 0.5;
+        return this.calcularEfecto(probabilidadParo);
     }
 
-    public void atravesar(Camioneta camioneta) {
+    public Efecto atravesar(Camioneta camioneta) {
+        double probabilidadParo = 0.3;
+        return this.calcularEfecto(probabilidadParo);
+    }
+
+    public Efecto atravesar(Moto moto) {
+        double probabilidadParo = 0.8;
+        return this.calcularEfecto(probabilidadParo);
+    }
+
+    private Efecto calcularEfecto(double probabilidadParo) {
         double probabilidad = Math.random();
-        if(probabilidad <= 0.3) {
-            int incremento = 3;
-            camioneta.incrementarMovimientos(incremento);
+        if(probabilidad <= probabilidadParo) {
+            Efecto efecto = new EfectoGeneral();
+            return new EfectoIncrementarMovimientos(efecto, incremento);
         }
+        return new EfectoGeneral();
     }
-
-    public void atravesar(Moto moto) {
-        double probabilidad = Math.random();
-        if(probabilidad <= 0.8) {
-            int incremento = 3;
-            moto.incrementarMovimientos(incremento);
-        }
-    }
-
-
 }

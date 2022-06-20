@@ -1,20 +1,28 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
 
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
+import edu.fiuba.algo3.modelo.Efecto.EfectoIncrementarMovimientos;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class Piquete implements Obstaculo {
-    public void atravesar(Auto auto) {
+    public Efecto atravesar(Auto auto) {
         // No deberia poder pasar
+        return new EfectoGeneral();
+
     }
 
-    public void atravesar(Camioneta camioneta) {
+    public Efecto atravesar(Camioneta camioneta) {
         // No deberia poder pasar
+        return new EfectoGeneral();
+
     }
 
-    public void atravesar(Moto moto) {
+    public Efecto atravesar(Moto moto) {
         int incremento = 2;
-        moto.incrementarMovimientos(incremento);
+        Efecto efecto = new EfectoGeneral();
+        return new EfectoIncrementarMovimientos(efecto, incremento);
     }
 }

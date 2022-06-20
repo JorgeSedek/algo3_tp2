@@ -1,26 +1,30 @@
 package edu.fiuba.algo3.modelo.Sorpresas;
 
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
+import edu.fiuba.algo3.modelo.Efecto.EfectoIncrementarMovimientosPorcentual;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class Desfavorable implements Sorpresa {
-    public void atravesar(Auto auto) {
-        _atravesar(auto);
+    private int porcentajeIncremento = 25;
+
+    public Efecto atravesar(Auto auto) {
+        return this.calcularEfecto();
     }
 
-    public void atravesar(Camioneta camioneta) {
-        _atravesar(camioneta);
+    public Efecto atravesar(Camioneta camioneta) {
+        return this.calcularEfecto();
     }
 
-    public void atravesar(Moto moto) {
-        _atravesar(moto);
+    public Efecto atravesar(Moto moto) {
+        return this.calcularEfecto();
     }
 
-    private void _atravesar(Vehiculo vehiculo) {
-        int porcentajeAumento = 25;
-        int incremento = vehiculo.porcentajeMovimientos(porcentajeAumento);
-        vehiculo.incrementarMovimientos(incremento);
+    private Efecto calcularEfecto() {
+        Efecto efecto = new EfectoGeneral();
+        return new EfectoIncrementarMovimientosPorcentual(efecto, porcentajeIncremento);
     }
 }

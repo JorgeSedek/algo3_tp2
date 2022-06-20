@@ -15,7 +15,7 @@ public class Jugador {
 
     public void incrementarMovimientos(int incremento){this.vehiculo.incrementarMovimientos(incremento);}
 
-    public void disminuirMovimientos(int disminucion){this.vehiculo.disminuirMovimientos(disminucion);}
+    public void disminuirMovimientos(int disminucion){this.vehiculo.reducirMovimientos(disminucion);}
 
     public String obtenerNombre(){return this.nombre;}
 
