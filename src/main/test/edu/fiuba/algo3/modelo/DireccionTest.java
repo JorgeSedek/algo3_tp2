@@ -11,47 +11,46 @@ public class DireccionTest {
     private int columna = 2;
 
     @Test
-    public void unaDireccionAbajoRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(fila, columna);
+    public void unaDireccionAbajoRecibeUnUbicacionYLoMueveDeberiaEstarEnOtraUbicacion() {
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
         Direccion direccionAbajo = new DireccionAbajo();
-        direccionAbajo.mover(casillero);
+        direccionAbajo.mover(ubicacion);
         int nuevaFila = 3;
-        Casillero casilleroEsperado = new Casillero(nuevaFila, columna);
+        Ubicacion ubicacionEsperado = new Ubicacion(nuevaFila, columna);
 
-        assertTrue(casillero.equals(casilleroEsperado));
+        assertTrue(ubicacion.equals(ubicacionEsperado));
     }
 
     @Test
-    public void unaDireccionArribaRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(fila, columna);
+    public void unaDireccionArribaRecibeUnUbicacionYLoMueveDeberiaEstarEnOtraUbicacion() {
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
         Direccion direccionArriba = new DireccionArriba();
-        direccionArriba.mover(casillero);
+        direccionArriba.mover(ubicacion);
         int nuevaFila = 1;
-        Casillero casilleroEsperado = new Casillero(nuevaFila, columna);
+        Ubicacion ubicacionEsperado = new Ubicacion(nuevaFila, columna);
 
-        assertTrue(casillero.equals(casilleroEsperado));
+        assertTrue(ubicacion.equals(ubicacionEsperado));
     }
 
     @Test
-    public void unaDireccionDerechaRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(fila, columna);
+    public void unaDireccionDerechaRecibeUnUbicacionYLoMueveDeberiaEstarEnOtraUbicacion() {
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
         Direccion direccionDerecha = new DireccionDerecha();
-        direccionDerecha.mover(casillero);
+        direccionDerecha.mover(ubicacion);
         int nuevaColumna = 3;
-        Casillero casilleroEsperado = new Casillero(fila, nuevaColumna);
+        Ubicacion ubicacionEsperado = new Ubicacion(fila, nuevaColumna);
 
-        assertTrue(casillero.equals(casilleroEsperado));
+        assertTrue(ubicacion.equals(ubicacionEsperado));
     }
 
     @Test
-    public void unaDireccionIzquierdaRecibeUnCasilleroYLoMueveDeberiaEstarEnOtraUbicacion() {
-        Casillero casillero = new Casillero(fila, columna);
+    public void unaDireccionIzquierdaRecibeUnUbicacionYLoMueveDeberiaEstarEnOtraUbicacion() {
+        Ubicacion ubicacion = new Ubicacion(fila, columna);
         Direccion direccionIzquierda = new DireccionIzquierda();
-        direccionIzquierda.mover(casillero);
+        direccionIzquierda.mover(ubicacion);
         int nuevaColumna = 1;
-        Casillero casilleroEsperado = new Casillero(fila, nuevaColumna);
+        Ubicacion ubicacionEsperado = new Ubicacion(fila, nuevaColumna);
 
-        assertTrue(casillero.equals(casilleroEsperado));
+        assertTrue(ubicacion.equals(ubicacionEsperado));
     }
-
 }

@@ -1,11 +1,14 @@
 package edu.fiuba.algo3.modelo.General;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Escenario {
 
 	private int filas;
 	private int columnas;
+
 	private ArrayList<Casillero> casilleros;
 
 	private static Escenario INSTANCE = null;
@@ -41,10 +44,13 @@ public class Escenario {
 	private void llenar() {
 		for (int fila = 1; fila <= filas; fila++) {
 			for (int columna = 1; columna <= columnas; columna++) {
-				this.casilleros.add(new Casillero(fila, columna));
+				Casillero casillero = new Casillero(fila, columna);
+			//	casillero.cargarCasillerosAdyacentes();
+				this.casilleros.add(casillero);
 			}
 		}
 	}
+
 	/*
 	DE MOMENTO NO SE UTILIZAN (de hecho quedarían obsoletos estos metodos respecto a la implementación
 	actual ya que ahora un casillero es un cruce de calles, y no una calle). Se podría refactorizar
@@ -59,18 +65,30 @@ public class Escenario {
 			this.llenarCalles(siguienteIndice);
 		}
 	}
-
-	public void agregarEn(ObjetoUrbano objetoUrbano, Ubicacion ubicacion){
+*/
+	/*
+	public void agregarEn(Vehiculo vehiculo, Ubicacion ubicacion){
 		Casillero casillero = this.buscarCasilleroEn(ubicacion);
-		casillero.contiene(objetoUrbano);
-	}
-
-	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
-		return ((Casillero) this.casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)));
+		casillero.colocar(vehiculo);
 	}
 	*/
 
-	// Metodo para tests
+
+	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
+		List<Casillero> casillerosFiltrados = casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)).collect(Collectors.toList());
+		int primerElemento = 0;
+		return casillerosFiltrados.get(primerElemento);
+	}
+
+	public boolean filaDentroDeLimites(int fila){
+		return (fila >= 1 & fila <= filas);
+	}
+
+	public boolean columnaDentroDeLimites(int columna){
+		return (columna >= 1 & columna <= columnas);
+	}
+
+// Metodo para tests
 	public boolean verificarNumeroDeFilas(int filas) {
 		return this.filas == filas;
 	}

@@ -21,7 +21,7 @@ public class Juego {
         this.cambioJugador();
     }
 
-    private void cambioJugador(){
+    public void cambioJugador(){
         this.numJugador++;
         if(numJugador >= jugadores.size()) {
             this.numJugador = 0;
