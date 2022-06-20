@@ -24,31 +24,15 @@ public class Entrega1Test {
     private String nombre = "Martin";
     private int fila = 1;
     private int columna = 1;
-    /*
-<<<<<<< HEAD
-    private Casillero casilleroInicial = new Casillero(fila, columna);
-=======
-/*
-    private  int fila2 = 2;
-
-    private  int columna2 = 2;
-    private Jugador jugador2 = new Jugador(nombre2, new Moto((new Ubicacion(fila2, columna2))));
->>>>>>> ramaAlternativa
-
- */
     private int totalFilas = 8;
     private int totalColumnas = 8;
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener7Movimientos () {
-
-
-
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador1 = new Jugador(nombre, moto);
-        List<Jugador> jugadores = new ArrayList<Jugador>() {{ add(jugador1); }};
-
+        List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
@@ -66,7 +50,6 @@ public class Entrega1Test {
         casilleroConPozo.asignarObstaculo(pozo);
         moto.atravesar(casilleroConPozo);
 
-;
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
 
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
@@ -76,12 +59,10 @@ public class Entrega1Test {
 
     @Test
     public void UnAutoSeMuevePorLaCiudad6VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener9Movimientos () {
-
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador1 = new Jugador(nombre, auto);
-        List<Jugador> jugadores = new ArrayList<Jugador>() {{ add(jugador1); }};
-
+        List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
@@ -102,8 +83,6 @@ public class Entrega1Test {
         casilleroConPozo.asignarObstaculo(pozo);
         auto.atravesar(casilleroConPozo);
 
-
-
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(auto.verificarUbicacion(nuevoUbicacion));
 
@@ -112,16 +91,10 @@ public class Entrega1Test {
 
     @Test
     public void UnaCamionetaSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoDeberiaEstarEnOtraUbicacionYTener4Movimientos () {
-
-
-
-
-
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
-            Vehiculo camioneta = new Camioneta(ubicacion);
-            Jugador jugador1 = new Jugador(nombre, camioneta);
-            List<Jugador> jugadores = new ArrayList<Jugador>() {{ add(jugador1); }};
-
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador1 = new Jugador(nombre, camioneta);
+        List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
@@ -140,8 +113,7 @@ public class Entrega1Test {
         casilleroConPozo.asignarObstaculo(pozo);
         camioneta.atravesar(casilleroConPozo);
 
-
-            assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));
+        assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
 
     }
@@ -152,7 +124,7 @@ public class Entrega1Test {
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador1 = new Jugador(nombre, moto);
-        List<Jugador> jugadores = new ArrayList<Jugador>() {{ add(jugador1); }};
+        List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
 
         Escenario.resetInstance(totalFilas, totalColumnas);
@@ -172,7 +144,6 @@ public class Entrega1Test {
         casilleroConPiquete.asignarObstaculo(piquete);
         moto.atravesar(casilleroConPiquete);
 
-
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
 
@@ -180,13 +151,10 @@ public class Entrega1Test {
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad4VecesYSeEncuentraConUnPozoYUnPiqueteDeberiaEstarEnOtraUbicacionYTener9Movimientos(){
-
-
-
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador1 = new Jugador(nombre, moto);
-        List<Jugador> jugadores = new ArrayList<Jugador>() {{ add(jugador1); }};
+        List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
@@ -204,7 +172,6 @@ public class Entrega1Test {
 
         moto.atravesar(pozo);
         moto.atravesar(piquete);
-
 
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));

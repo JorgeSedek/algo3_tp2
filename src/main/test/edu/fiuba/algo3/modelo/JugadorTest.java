@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +16,7 @@ public class JugadorTest {
     @Test
     public void seComparanDosJUgadoresYsonElmismo(){
         String nombre2 = nombre;
-       Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);
         Vehiculo auto2 = auto;
         Jugador jugador = new Jugador(nombre, auto);
@@ -28,7 +27,7 @@ public class JugadorTest {
     @Test
     public void seComparanDosJUgadoresYNosonElmismo(){
         String nombre2 = "Jorge";
-       Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);
         Vehiculo auto2 = auto;
         Jugador jugador = new Jugador(nombre, auto);
@@ -38,7 +37,7 @@ public class JugadorTest {
 
     @Test
     public void seCreaUnJugadorDeberiaDevolverElNombreYSusMovimientosCorrectamente(){
-       Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
         int movimentosIniciales = 0;
@@ -49,7 +48,7 @@ public class JugadorTest {
 
     @Test
     public void seAumentanLosMovimientosDeUnJugadorEn3DeberiaDevolverQueSusMovimientosSon3(){
-       Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
         int incremento = 3;
@@ -60,7 +59,7 @@ public class JugadorTest {
 
     @Test
     public void seAumentanLosMovimientosDeUnJugadorEn4YLuegoSeReducenEn3DeberiaTener1Movimiento(){
-       Ubicacion ubicacion = (new Ubicacion(fila, columna));
+        Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
         int incremento = 4;

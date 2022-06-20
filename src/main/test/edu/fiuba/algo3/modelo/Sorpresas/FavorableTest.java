@@ -57,7 +57,6 @@ public class FavorableTest {
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 0.8);
 
         camioneta.incrementarMovimientos(cantidadMovimientosHechos);
-
         camioneta.atravesar(favorable);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
