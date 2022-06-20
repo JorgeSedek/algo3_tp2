@@ -38,7 +38,7 @@ public class Jugador {
     // Se usa para tests
     public boolean mismoVehiculo(Vehiculo vehiculo) {
         // TODO cambiar la comparación
-        return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarCasillero(vehiculo.casillero()));
+        return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarUbicacion(vehiculo.ubicacion()));
     }
 
     public Vehiculo obtenerVehiculo(){
@@ -52,6 +52,7 @@ public class Jugador {
         return this.vehiculo;
     }
 
+    // Se usa para tests
     public boolean equals(Jugador otroJugador){
         return (this.nombre == otroJugador.nombre() & this.vehiculo == otroJugador.vehiculo());
     }

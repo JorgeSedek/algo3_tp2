@@ -1,25 +1,24 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Efecto.Efecto;
-import edu.fiuba.algo3.modelo.General.Casillero;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
-import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 public class Camioneta extends Vehiculo {
     private int pozos_atravesados;
 
-    public Camioneta(Casillero casillero) {
-        super(casillero);
+    public Camioneta(Ubicacion ubicacion) {
+        super(ubicacion);
         this.pozos_atravesados = 0;
     }
 
-    public void recibe(Obstaculo obstaculo) {
+    public void atravesar(Obstaculo obstaculo) {
         Efecto efectoAplicar = obstaculo.atravesar(this);
         efectoAplicar.aplicar(this);
     }
 
-    public void recibe(Sorpresa sorpresa) {
+    public void atravesar(Sorpresa sorpresa) {
         Efecto efectoAplicar = sorpresa.atravesar(this);
         efectoAplicar.aplicar(this);
     }

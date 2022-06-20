@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Escenario;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import org.junit.jupiter.api.Test;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +26,6 @@ public class EscenarioTest {
 
         assertNotEquals(primerEscenario, segundoEscenario);
     }
-
 	@Test
 	public void elEscenarioSeReseteoCorrectamente() {
 		int filasEsperadas = 6;
@@ -38,6 +38,21 @@ public class EscenarioTest {
 		Escenario.resetInstance(filas, columnas);
 		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(filas));
 		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(columnas));
+	}
+
+	@Test
+	public void EscenarioDevuelveElCasilleroBuscadoPorUbicacion() {
+		Escenario.resetInstance(filas, columnas);
+
+		Escenario primerEscenario = Escenario.getInstance();
+		int fila = 2;
+		int columna = 2;
+		Casillero casilleroBuscado = primerEscenario.buscarCasilleroEn(new Ubicacion(fila,columna));
+		int otraFila = 3;
+		int otraColumna = 3;
+
+		assertTrue(casilleroBuscado.equals(new Casillero(fila,columna)));
+		assertFalse(casilleroBuscado.equals(new Casillero(otraFila,otraColumna)));
 	}
 
 	@Test
