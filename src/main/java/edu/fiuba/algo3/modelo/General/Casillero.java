@@ -77,7 +77,6 @@ public class Casillero {
         return (true /*casilleroAbajoEsIgual & casilleroArribaEsIgual & casilleroIzquierdaEsIgual & casilleroDerechaEsIgual*/);
     }
 
-
     public boolean hayEdificio(){
         return (ubicacion.hayEdificio());
     }
