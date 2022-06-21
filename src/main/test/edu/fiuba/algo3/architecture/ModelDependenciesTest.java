@@ -14,7 +14,7 @@ public class ModelDependenciesTest {
 
     @Test
     public void elModeloSoloPuedeReferenciarClasesDelModeloAdemasJavaAdemasJunit() {
-        JavaClasses importedClasses = new ClassFileImporter().importPackages("edu.fiuba.algo3.modelo");
+        JavaClasses importedClasses = new ClassFileImporter().importPackages("edu.fiuba.algo3.modelo.Aplicacion");
 
         String[] listOfPackages = {MODEL, JAVA_LANG, JUNIT};
 
