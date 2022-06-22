@@ -66,4 +66,6 @@ public class GeneralTest {
         assertTrue(auto.verificarMovimientos(10));
 
     }
+
+
 }
