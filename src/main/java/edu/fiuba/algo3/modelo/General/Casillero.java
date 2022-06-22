@@ -101,6 +101,10 @@ public class Casillero {
         this.obstaculo = obstaculo;
     }
 
+    public void asignarSorpresa(Sorpresa sorpresa){
+        this.sorpresa = sorpresa;
+    }
+
     public Ubicacion obtenerUbicacion(){
         return this.ubicacion;
     }

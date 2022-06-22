@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +93,11 @@ public class Escenario {
 	public void agregarObstaculoEn(Ubicacion ubicacion, Obstaculo obstaculo) {
 		Casillero casillero = this.buscarCasilleroEn(ubicacion);
 		casillero.asignarObstaculo(obstaculo);
+	}
+
+	public void agregarSorpresaEn(Ubicacion ubicacion, Sorpresa sorpresa) {
+		Casillero casillero = this.buscarCasilleroEn(ubicacion);
+		casillero.asignarSorpresa(sorpresa);
 	}
 
 	// Metodo para tests

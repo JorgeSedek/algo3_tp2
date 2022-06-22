@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.General.Casillero;
+import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.Movimiento.MovimientoNormal;
@@ -35,14 +36,18 @@ public abstract class Vehiculo {
         return this.movimientos * porcentaje / 100;
     }
 
-    /*public Casillero casillero() {
+    /*
+    public Casillero casillero() {
         return this.casillero;
     }
-*/
+    */
     public void mover(Direccion direccion) {
         movimiento.mover(ubicacion, direccion);
-        Vehiculo vehiculo = this;
-      //  Escenario.getInstance().agregarVehiculoEnCasillero(vehiculo, ubicacion);
+        Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
+        this.atravesar(nuevoCasillero);
+
+        //Vehiculo vehiculo = this;
+        //Escenario.getInstance().agregarVehiculoEnCasillero(vehiculo, ubicacion);
         //Casillero casilleroNuevo = Escenario.getInstance().buscarCasilleroEn(ubicacion);
         //this.atravesar(casilleroNuevo);
         // movimiento.mover(ubicacion, direccion);

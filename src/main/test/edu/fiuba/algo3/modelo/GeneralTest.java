@@ -17,8 +17,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GeneralTest {
     private String nombre = "Martin";
-    private int totalFilas = 9;
-    private int totalColumnas = 9;
+    private int totalFilas = 40;
+    private int totalColumnas = 40;
     private int filaInicial = 2;
     private int columnaInicial = 2;
 
@@ -39,6 +39,26 @@ public class GeneralTest {
         juego.moverVehiculo(new DireccionDerecha());
 
         //assertTrue(auto.verificarMovimientos(4));
+
+    }
+
+    @Test
+    public void seAgregaUnaSorpresaFavorableAlEscenarioDelJuegoYUnAutoSeMueveYPasaPorEstaDeberiaTener10Movimientos() {
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo auto = new Auto(ubicacion);
+        Jugador jugador1 = new Jugador(nombre, auto);
+        List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
+
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(jugadores);
+
+        // Act
+        Pozo pozo = new Pozo();
+        Ubicacion ubicacionPozo = new Ubicacion(2,3);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
+        juego.moverVehiculo(new DireccionDerecha());
+
+        assertTrue(auto.verificarMovimientos(4));
 
     }
 }
