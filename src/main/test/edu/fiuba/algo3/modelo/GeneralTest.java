@@ -38,10 +38,10 @@ public class GeneralTest {
         Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
         juego.moverVehiculo(new DireccionDerecha());
 
-        //assertTrue(auto.verificarMovimientos(4));
+        assertTrue(auto.verificarMovimientos(4));
 
     }
-
+/*
     @Test
     public void seAgregaUnaSorpresaFavorableAlEscenarioDelJuegoYUnAutoSeMueveYPasaPorEstaDeberiaTener10Movimientos() {
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
@@ -61,4 +61,5 @@ public class GeneralTest {
         assertTrue(auto.verificarMovimientos(4));
 
     }
+    */
 }
