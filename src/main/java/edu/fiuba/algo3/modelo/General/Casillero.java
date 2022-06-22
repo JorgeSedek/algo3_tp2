@@ -36,7 +36,7 @@ public class Casillero {
         this.ubicacion = ubicacion;
         this.ocupante = (Ocupante) new Vacio();
     }
-
+    /*
     public void cargarCasillerosAdyacentes(){
 
         Escenario escenario = Escenario.getInstance();
@@ -54,7 +54,7 @@ public class Casillero {
         Ubicacion ubicacionArriba = ubicacion.copia();
         ubicacionArriba.mover(new DireccionArriba());
         Casillero casilleroAbajo = escenario.buscarCasilleroEn(ubicacionArriba);
-       casillerosAdyacentes.put(new DireccionAbajo(), casilleroAbajo);
+        casillerosAdyacentes.put(new DireccionAbajo(), casilleroAbajo);
 
 
         Ubicacion ubicacionAbajo = ubicacion.copia();
@@ -62,28 +62,32 @@ public class Casillero {
         Casillero casilleroArriba = escenario.buscarCasilleroEn(ubicacionAbajo);
         casillerosAdyacentes.put(new DireccionArriba(), casilleroArriba);
     }
+    */
 
+    /*
     public boolean verificarCasillerosAdyacentes(HashMap<Direccion, Casillero> casillerosAdyacentes){
         DireccionDerecha derecha = new DireccionDerecha();
         DireccionIzquierda izquierda = new DireccionIzquierda();
         DireccionArriba arriba = new DireccionArriba();
         DireccionAbajo abajo = new DireccionAbajo();
-        /*
+
         boolean casilleroDerechaEsIgual = (casillerosAdyacentes.get(derecha)).equals(this.casillerosAdyacentes.get(derecha));
         boolean casilleroIzquierdaEsIgual = (casillerosAdyacentes.get(izquierda)).equals(this.casillerosAdyacentes.get(izquierda));
         boolean casilleroArribaEsIgual = (casillerosAdyacentes.get(arriba)).equals(this.casillerosAdyacentes.get(arriba));
         boolean casilleroAbajoEsIgual = (casillerosAdyacentes.get(abajo)).equals(this.casillerosAdyacentes.get(abajo));
-*/
-        return (true /*casilleroAbajoEsIgual & casilleroArribaEsIgual & casilleroIzquierdaEsIgual & casilleroDerechaEsIgual*/);
-    }
 
+        return (true /*casilleroAbajoEsIgual & casilleroArribaEsIgual & casilleroIzquierdaEsIgual & casilleroDerechaEsIgual);
+    }
+    */
     public boolean hayEdificio(){
         return (ubicacion.hayEdificio());
     }
-    public void colocar(Vehiculo vehiculo){
+
+    /*
+    public void colocarVehiculo(Vehiculo vehiculo){
         this.vehiculo = vehiculo;
     }
-
+    */
     public void entregaSorpresa(Vehiculo vehiculo){
         vehiculo.atravesar(sorpresa);
     }
@@ -91,11 +95,11 @@ public class Casillero {
     public void entregaObstaculo(Vehiculo vehiculo){
         vehiculo.atravesar(obstaculo);
     }
-
+    /*
     public void asignarSorpresa(Sorpresa sorpresa){
         this.sorpresa = sorpresa;
     }
-
+    */
     public void asignarObstaculo(Obstaculo obstaculo){
         this.obstaculo = obstaculo;
     }

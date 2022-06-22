@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Juego {
@@ -18,10 +17,10 @@ public class Juego {
 
     public void moverVehiculo(Direccion direccion){
         this.jugadorActivo.moverVehiculo(direccion);
-        this.cambioJugador();
+        this.cambiarJugador();
     }
 
-    public void cambioJugador(){
+    public void cambiarJugador(){
         this.numJugador++;
         if(numJugador >= jugadores.size()) {
             this.numJugador = 0;

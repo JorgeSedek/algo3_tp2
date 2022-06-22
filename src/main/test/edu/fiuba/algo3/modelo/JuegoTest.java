@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
-import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
-import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -91,7 +89,7 @@ public class JuegoTest {
         }};
         Juego juego = new Juego(jugadores);
 
-        juego.cambioJugador();
+        juego.cambiarJugador();
 
         assertTrue(juego.verificarAtributosNoNulos());
 

@@ -42,7 +42,7 @@ public abstract class Vehiculo {
     public void mover(Direccion direccion) {
         movimiento.mover(ubicacion, direccion);
         Vehiculo vehiculo = this;
-      //  Escenario.getInstance().agregarEn(vehiculo, ubicacion);
+      //  Escenario.getInstance().agregarVehiculoEnCasillero(vehiculo, ubicacion);
         //Casillero casilleroNuevo = Escenario.getInstance().buscarCasilleroEn(ubicacion);
         //this.atravesar(casilleroNuevo);
         // movimiento.mover(ubicacion, direccion);

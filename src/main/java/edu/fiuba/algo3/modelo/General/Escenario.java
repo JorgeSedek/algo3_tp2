@@ -65,9 +65,8 @@ public class Escenario {
 			this.llenarCalles(siguienteIndice);
 		}
 	}
-*/
-	/*
-	public void agregarEn(Vehiculo vehiculo, Ubicacion ubicacion){
+
+	public void agregarVehiculoEnCasillero(Vehiculo vehiculo, Ubicacion ubicacion){
 		Casillero casillero = this.buscarCasilleroEn(ubicacion);
 		casillero.colocar(vehiculo);
 	}
