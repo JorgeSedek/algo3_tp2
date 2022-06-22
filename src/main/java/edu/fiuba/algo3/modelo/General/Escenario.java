@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -87,7 +89,12 @@ public class Escenario {
 		return (columna >= 1 & columna <= columnas);
 	}
 
-// Metodo para tests
+	public void agregarObstaculoEn(Ubicacion ubicacion, Obstaculo obstaculo) {
+		Casillero casillero = this.buscarCasilleroEn(ubicacion);
+		casillero.asignarObstaculo(obstaculo);
+	}
+
+	// Metodo para tests
 	public boolean verificarNumeroDeFilas(int filas) {
 		return this.filas == filas;
 	}

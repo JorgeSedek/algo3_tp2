@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.General;
 
-import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.SinObstaculo;
 import edu.fiuba.algo3.modelo.Ocupante.Edificio;
@@ -10,19 +9,17 @@ import edu.fiuba.algo3.modelo.Sorpresas.SinSorpresa;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
-import java.util.HashMap;
-
 public class Casillero {
-    private Vehiculo vehiculo;
+    //private Vehiculo vehiculo;
     private Ocupante ocupante;
     private Obstaculo obstaculo;
     private Sorpresa sorpresa;
     private Ubicacion ubicacion;
 
-    private HashMap<Direccion, Casillero> casillerosAdyacentes;
+    //private HashMap<Direccion, Casillero> casillerosAdyacentes;
 
     public Casillero(int fila, int columna) {
-        this.casillerosAdyacentes = new HashMap<Direccion, Casillero>();
+        //this.casillerosAdyacentes = new HashMap<Direccion, Casillero>();
         this.ubicacion = new Ubicacion(fila,columna);
         this.obstaculo = new SinObstaculo();
         this.sorpresa = new SinSorpresa();
@@ -104,11 +101,12 @@ public class Casillero {
         this.obstaculo = obstaculo;
     }
 
-    public Ubicacion ubicacion(){
+    public Ubicacion obtenerUbicacion(){
         return this.ubicacion;
     }
+
     public boolean equals(Casillero otroCasillero){
-        return (this.ubicacion.equals(otroCasillero.ubicacion()));
+        return (this.ubicacion.equals(otroCasillero.obtenerUbicacion()));
     }
 
     public boolean equals(Ubicacion otraUbicacion) {

@@ -54,12 +54,14 @@ public abstract class Vehiculo {
 
     public void reducirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
-    // Metodo para ests
+    /*
+    // Metodo para tests
     public boolean verificarCasillero(Ubicacion nuevaUbicacion) {
         return this.ubicacion.equals(nuevaUbicacion);
     }
+    */
 
-    // Metodo para ests
+    // Metodo para tests
     public boolean verificarMovimientos(int cantMovimientos){
         return (this.movimientos == cantMovimientos);
     }
@@ -87,4 +89,5 @@ public abstract class Vehiculo {
         return new Casillero(ubicacion);
     }
 
+    //
 }
