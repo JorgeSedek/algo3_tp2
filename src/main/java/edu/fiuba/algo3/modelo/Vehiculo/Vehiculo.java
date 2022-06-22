@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 
 public abstract class Vehiculo {
+
     protected Movimiento movimiento;
     protected Ubicacion ubicacion;
     protected int movimientos;

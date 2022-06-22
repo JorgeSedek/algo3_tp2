@@ -7,12 +7,13 @@ import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.Efecto.EfectoIncrementarMovimientos;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Math.IMath;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.Math.Random;
 import org.junit.jupiter.api.Test;
-//import edu.fiuba.algo3.modelo.General.Random;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -31,32 +32,63 @@ public class PoliciaTest{
     private int col = 1;
     private int cantidadMovimientos = 3;
 
+    private double randomFalso = 0.2;
+
     //@Mock
     //private Random random;
     //private Policia policia;
 
-/*    @Test
+    @Test
     public void MotoPasaPorPoliciaYSeLeSuma3Movimientos(){
-        //Obstaculo policia = new Policia();
+        Obstaculo policia = new Policia();
         Ubicacion ubicacion = (new Ubicacion(fila, col));
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
-        //Efecto efecto = new EfectoGeneral();
-        double probabilidadParo = 0.8;
 
-        //when(policia.calcularEfecto(probabilidadParo)).thenAnswer(new EfectoIncrementarMovimientos(efecto, cantidadMovimientos));
-        //when(policia.atravesar(moto)).thenAnswer(new EfectoIncrementarMovimientos(efecto, cantidadMovimientos));
+        IMath random = mock(IMath.class);
 
-        doAnswer((policiaP) -> {
-            Efecto efecto = new EfectoGeneral().getMock();
-            Efecto efectoIncrementar = new EfectoIncrementarMovimiento(efecto, cantidadMovimientos).getMock();
-            policia.efectoIncrementar;
-            return null;
-        })
+        //doNothing().when(random.darNumeroAleatorio());
+        when(random.darNumeroAleatorio()).thenReturn(randomFalso);
+
+        moto.atravesar(policia);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
-    }*/
+    }
 
+    @Test
+    public void AutoPasaPorPoliciaYSeLeSuma3Movimientos(){
+        Obstaculo policia = new Policia();
+        Ubicacion ubicacion = (new Ubicacion(fila, col));
+        Vehiculo auto = new Auto(ubicacion);
+        Jugador jugador = new Jugador(nombre, auto);
+
+        IMath random = mock(Random.class);
+
+        //doNothing().when(random.darNumeroAleatorio());
+        when(random.darNumeroAleatorio()).thenReturn(randomFalso);
+
+        auto.atravesar(policia);
+
+        assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+    }
+
+    @Test
+    public void CamionetaPasaPorPoliciaYSeLeSuma3Movimientos(){
+        Obstaculo policia = new Policia();
+        Ubicacion ubicacion = (new Ubicacion(fila, col));
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador = new Jugador(nombre, camioneta);
+
+        IMath random = mock(Random.class);
+
+        //doNothing().when(random.darNumeroAleatorio());
+        when(random.darNumeroAleatorio()).thenReturn(randomFalso);
+
+        camioneta.atravesar(policia);
+
+        assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+    }
+/*
     @Test
     public void MotoPasaPorPoliciaYSeLeSuma3Movimientos(){
         Obstaculo policia = new Policia();
@@ -79,26 +111,49 @@ public class PoliciaTest{
 
     }
 
+    @Test
+    public void CamionetaPasaPorPoliciaYSeLeSuma3Movimientos(){
+        Obstaculo policia = new Policia();
+        Ubicacion ubicacion = (new Ubicacion(fila, col));
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador = new Jugador(nombre, camioneta);
+        Obstaculo policiaSpy = Mockito.spy(policia);
+
+        doAnswer((policiaP)->{
+            Policia poli = (Policia)policiaP.getMock();
+            Efecto efecto = new EfectoGeneral();
+            return new EfectoIncrementarMovimientos(efecto, cantidadMovimientos);
+
+            //return null;
+        }).when(policiaSpy).atravesar((Camioneta) camioneta);
+
+        camioneta.atravesar(policia);
+
+        assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+
+    }
+
+    @Test
+    public void AutoPasaPorPoliciaYSeLeSuma3Movimientos(){
+        Obstaculo policia = new Policia();
+        Ubicacion ubicacion = (new Ubicacion(fila, col));
+        Vehiculo auto = new Auto(ubicacion);
+        Jugador jugador = new Jugador(nombre, auto);
+        Obstaculo policiaSpy = Mockito.spy(policia);
+
+        doAnswer((policiaP)->{
+            Policia poli = (Policia)policiaP.getMock();
+            Efecto efecto = new EfectoGeneral();
+            return new EfectoIncrementarMovimientos(efecto, cantidadMovimientos);
+
+            //return null;
+        }).when(policiaSpy).atravesar((Auto) auto);
+
+        auto.atravesar(policia);
+
+        assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+
+    }
+*/
 }
 
-/*
-    doAnswer(new Answer() {
-        @Override
-        public Object answer(InvocationOnMock invocation) throws Throwable {
-
-            Efecto efecto = new EfectoGeneral();
-            new EfectoIncrementarMovimientos(efecto, cantidadMovimientos);
-
-            return null;
-        }
-    }).when(policia.atravesar((Moto)moto));
-
-
-    when(policia.calcularEfecto(probabilidadParo, 0.5)).thenAnswer(new Answer<Efecto>() {
-            @Override
-            public Object answer(InvocationOnMock invocation) throws Throwable {
-                Efecto efecto = new EfectoGeneral();
-                return new EfectoIncrementarMovimientos(efecto, cantidadMovimientos);
-            }
-        });
-    */
