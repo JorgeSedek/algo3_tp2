@@ -3,9 +3,9 @@ package edu.fiuba.algo3.modelo.Efecto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class EfectoIncrementarMovimientosPorcentual extends EfectoDecorador {
-    private int porcentajeIncremento;
+    private double porcentajeIncremento;
 
-    public EfectoIncrementarMovimientosPorcentual(Efecto efecto, int porcentajeIncremento) {
+    public EfectoIncrementarMovimientosPorcentual(Efecto efecto, double porcentajeIncremento) {
         super(efecto);
         this.porcentajeIncremento = porcentajeIncremento;
     }
@@ -13,7 +13,7 @@ public class EfectoIncrementarMovimientosPorcentual extends EfectoDecorador {
     @Override
     public void aplicar(Vehiculo vehiculo) {
         super.aplicar(vehiculo);
-        int incremento = vehiculo.porcentajeMovimientos(this.porcentajeIncremento);
-        vehiculo.incrementarMovimientos(incremento);
+        double incremento = vehiculo.porcentajeMovimientos(this.porcentajeIncremento);
+        vehiculo.incrementarMovimientos( (int) incremento);
     }
 }

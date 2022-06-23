@@ -13,7 +13,7 @@ public class EfectoReducirMovimientosPorcentual extends EfectoDecorador {
     @Override
     public void aplicar(Vehiculo vehiculo) {
         super.aplicar(vehiculo);
-        int reduccion = vehiculo.porcentajeMovimientos(this.porcentajeReduccion);
-        vehiculo.reducirMovimientos(reduccion);
+        double reduccion = vehiculo.porcentajeMovimientos(this.porcentajeReduccion);
+        vehiculo.reducirMovimientos( (int) reduccion);
     }
 }

@@ -26,7 +26,7 @@ public abstract class Vehiculo {
         casillero.atravezar(this);
     }
 
-    public int porcentajeMovimientos(int porcentaje) {
+    public double porcentajeMovimientos(double porcentaje) {
         return this.movimientos * porcentaje / 100;
     }
 
