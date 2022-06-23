@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
+import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
@@ -98,7 +99,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void SeAgregaUnaSorpresaDesvaforableYUnPozoAlEscenarioYCamionetaSeMueveDeveriaTener(){
+    public void SeAgregaUnaSorpresaDesvaforableYUnPozoAlEscenarioYCamionetaSeMueveDeveriaTener13(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador0 = new Jugador(nombre, camioneta);
@@ -124,7 +125,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void SeAgrega2SorpresasDesfavorablesYAutoPasaPorLasDosSuMovimientoDeberiaSer(){
+    public void SeAgrega2SorpresasDesfavorablesYAutoPasaPorLasDosSuMovimientoDeberiaSer11(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador0 = new Jugador(nombre, auto);
@@ -151,5 +152,59 @@ public class GeneralTest {
 
     }
 
+    @Test
+    public void SeAgregaUnCambioVehiculoYUnPozoYAutoPasaPorLosDos(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo vehiculo = new Auto(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, vehiculo);
+        int cantMovimientos = 8;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador0);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(jugadores);
+
+        Sorpresa cambioTransp = new CambioVehiculo();
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,3);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, cambioTransp);
+        Obstaculo pozo = new Pozo();
+        Ubicacion ubicacionObstaculo = new Ubicacion(2,5);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
+
+        for(int i=0; i<8; i++){
+            juego.moverVehiculo(new DireccionDerecha());
+        }
+        //Deberia ser 8 porque auto a cambiar a camioneta no le afecta el pozo
+        assertTrue(vehiculo.verificarUbicacion(new Ubicacion(2,10)));
+        assertTrue(vehiculo.verificarMovimientos(cantMovimientos));
+    }
+
+    @Test
+    public void SeAgregaUnCambioVehiculoYUnPozoYCamionetaPasaPorLosDos(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo vehiculo = new Camioneta(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, vehiculo);
+        int cantMovimientos = 11;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador0);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(jugadores);
+
+        Sorpresa cambioTransp = new CambioVehiculo();
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,3);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, cambioTransp);
+        Obstaculo pozo = new Pozo();
+        Ubicacion ubicacionObstaculo = new Ubicacion(2,5);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
+
+
+        for(int i=0; i<8; i++){
+            juego.moverVehiculo(new DireccionDerecha());
+        }
+        //Deberia ser 11 porque la camioneta se cambia a moto y moto al pasar por pozo se le suma 3 movimientos
+        assertTrue(vehiculo.verificarUbicacion(new Ubicacion(2,10)));
+        assertTrue(vehiculo.verificarMovimientos(cantMovimientos));
+    }
 
 }
