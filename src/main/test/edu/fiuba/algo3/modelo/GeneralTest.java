@@ -5,11 +5,13 @@ import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
@@ -56,7 +58,7 @@ public class GeneralTest {
 
         // Act
         Sorpresa sorpresaFavorable = new Favorable();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,14);
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,13);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaFavorable);
 
         for (int i = 0; i < 12; i++) {
@@ -94,4 +96,60 @@ public class GeneralTest {
         assertTrue(auto.verificarMovimientos(15));
 
     }
+
+    @Test
+    public void SeAgregaUnaSorpresaDesvaforableYUnPozoAlEscenarioYCamionetaSeMueveDeveriaTener(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, camioneta);
+        int cantMovimientos = 13;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador0);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(jugadores);
+
+        Sorpresa sorpresaDes = new Desfavorable();
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,7);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDes);
+        Obstaculo pozo = new Pozo();
+        Ubicacion ubicacionObstaculo = new Ubicacion(2,3);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
+
+        for(int i=0; i<12; i++){
+            juego.moverVehiculo(new DireccionDerecha());
+        }
+
+        assertTrue(camioneta.verificarMovimientos(cantMovimientos));
+    }
+
+    @Test
+    public void SeAgrega2SorpresasDesfavorablesYAutoPasaPorLasDosSuMovimientoDeberiaSer(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo auto = new Auto(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, auto);
+        int cantMovimientos = 11;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador0);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego juego = new Juego(jugadores);
+
+        Sorpresa sorpresaDes1 = new Desfavorable();
+        Ubicacion ubicacionSorpresa1 = new Ubicacion(2,9);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa1, sorpresaDes1);
+        Sorpresa sorpresaDes2 = new Desfavorable();
+        Ubicacion ubicacionSorpresa2 = new Ubicacion(2,7);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa2, sorpresaDes2);
+
+        for(int i=0; i<8; i++){
+            juego.moverVehiculo(new DireccionDerecha());
+        }
+
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,10)));
+        assertTrue(auto.verificarMovimientos(cantMovimientos));
+
+    }
+
+
 }

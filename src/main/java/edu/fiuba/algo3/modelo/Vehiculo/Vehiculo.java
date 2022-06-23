@@ -48,7 +48,6 @@ public abstract class Vehiculo {
         Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
         this.atravesar(nuevoCasillero);
 
-
         //Vehiculo vehiculo = this;
         //Escenario.getInstance().agregarVehiculoEnCasillero(vehiculo, ubicacion);
         //Casillero casilleroNuevo = Escenario.getInstance().buscarCasilleroEn(ubicacion);
