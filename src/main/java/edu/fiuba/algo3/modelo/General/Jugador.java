@@ -20,9 +20,7 @@ public class Jugador {
     public String obtenerNombre(){return this.nombre;}
 
     public void moverVehiculo(Direccion direccion){
-        int incremento = 1;
         this.vehiculo.mover(direccion);
-        this.vehiculo.incrementarMovimientos(incremento);
 
     }
 

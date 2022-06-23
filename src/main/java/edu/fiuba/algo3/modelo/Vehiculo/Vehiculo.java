@@ -32,7 +32,7 @@ public abstract class Vehiculo {
         casillero.entregaObstaculo(vehiculo);
     }
 
-    public int porcentajeMovimientos(int porcentaje) {
+    public double porcentajeMovimientos(double porcentaje) {
         return this.movimientos * porcentaje / 100;
     }
 
@@ -43,8 +43,10 @@ public abstract class Vehiculo {
     */
     public void mover(Direccion direccion) {
         movimiento.mover(ubicacion, direccion);
+        this.movimientos++;
         Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
         this.atravesar(nuevoCasillero);
+
 
         //Vehiculo vehiculo = this;
         //Escenario.getInstance().agregarVehiculoEnCasillero(vehiculo, ubicacion);

@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
-
+/*
 //FALTA IMPLEMENTAR TESTS
 
 import edu.fiuba.algo3.modelo.Efecto.Efecto;
@@ -35,7 +35,7 @@ public class PoliciaTest{
     //private Random random;
     //private Policia policia;
 
-/*    @Test
+    @Test
     public void MotoPasaPorPoliciaYSeLeSuma3Movimientos(){
         //Obstaculo policia = new Policia();
         Ubicacion ubicacion = (new Ubicacion(fila, col));
@@ -55,7 +55,7 @@ public class PoliciaTest{
         })
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
-    }*/
+    }
 
     @Test
     public void MotoPasaPorPoliciaYSeLeSuma3Movimientos(){
@@ -81,7 +81,6 @@ public class PoliciaTest{
 
 }
 
-/*
     doAnswer(new Answer() {
         @Override
         public Object answer(InvocationOnMock invocation) throws Throwable {
