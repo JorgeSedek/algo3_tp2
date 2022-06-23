@@ -23,10 +23,9 @@ public class PoliciaTest {
     @Test
     public void unaMotoPasaPorControlPolicialYLoParanDeberiaTener3Movimientos() {
         IMath mathMock = mock(IMath.class);
-        Policia policia = new Policia();
-        policia.cambiarMath(mathMock);
+        Obstaculo policia = new Policia(mathMock);
         Vehiculo moto = new Moto(ubicacionInicial);
-        when(mathMock.darNumeroAleatorio()).thenReturn(randomFallo);
+        when(mathMock.random()).thenReturn(randomFallo);
         moto.atravesar(policia);
         assertTrue(moto.verificarMovimientos(cantidadMovimientosSiParan));
     }
@@ -34,10 +33,9 @@ public class PoliciaTest {
     @Test
     public void unaMotoPasaPorControlPolicialYNoLoParanDeberiaTener0Movimientos() {
         IMath mathMock = mock(IMath.class);
-        Policia policia = new Policia();
-        policia.cambiarMath(mathMock);
+        Obstaculo policia = new Policia(mathMock);
         Vehiculo moto = new Moto(ubicacionInicial);
-        when(mathMock.darNumeroAleatorio()).thenReturn(randomExito);
+        when(mathMock.random()).thenReturn(randomExito);
         moto.atravesar(policia);
         assertTrue(moto.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
@@ -45,10 +43,9 @@ public class PoliciaTest {
     @Test
     public void unAutoPasaPorControlPolicialYLoParanDeberiaTener3Movimientos() {
         IMath mathMock = mock(IMath.class);
-        Policia policia = new Policia();
-        policia.cambiarMath(mathMock);
+        Obstaculo policia = new Policia(mathMock);
         Vehiculo auto = new Auto(ubicacionInicial);
-        when(mathMock.darNumeroAleatorio()).thenReturn(randomFallo);
+        when(mathMock.random()).thenReturn(randomFallo);
         auto.atravesar(policia);
         assertTrue(auto.verificarMovimientos(cantidadMovimientosSiParan));
     }
@@ -56,10 +53,9 @@ public class PoliciaTest {
     @Test
     public void unAutoPasaPorControlPolicialYNoLoParanDeberiaTener3Movimientos() {
         IMath mathMock = mock(IMath.class);
-        Policia policia = new Policia();
-        policia.cambiarMath(mathMock);
+        Obstaculo policia = new Policia(mathMock);
         Vehiculo auto = new Auto(ubicacionInicial);
-        when(mathMock.darNumeroAleatorio()).thenReturn(randomExito);
+        when(mathMock.random()).thenReturn(randomExito);
         auto.atravesar(policia);
         assertTrue(auto.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
@@ -67,10 +63,9 @@ public class PoliciaTest {
     @Test
     public void unaCamionetaPasaPorControlPolicialYLoParanDeberiaTener3Movimientos() {
         IMath mathMock = mock(IMath.class);
-        Policia policia = new Policia();
-        policia.cambiarMath(mathMock);
+        Obstaculo policia = new Policia(mathMock);
         Vehiculo camioneta = new Camioneta(ubicacionInicial);
-        when(mathMock.darNumeroAleatorio()).thenReturn(randomFallo);
+        when(mathMock.random()).thenReturn(randomFallo);
         camioneta.atravesar(policia);
         assertTrue(camioneta.verificarMovimientos(cantidadMovimientosSiParan));
     }
@@ -78,10 +73,9 @@ public class PoliciaTest {
     @Test
     public void unaCamionetaPasaPorControlPolicialYNoLoParanDeberiaTener3Movimientos() {
         IMath mathMock = mock(IMath.class);
-        Policia policia = new Policia();
-        policia.cambiarMath(mathMock);
+        Obstaculo policia = new Policia(mathMock);
         Vehiculo camioneta = new Camioneta(ubicacionInicial);
-        when(mathMock.darNumeroAleatorio()).thenReturn(randomExito);
+        when(mathMock.random()).thenReturn(randomExito);
         camioneta.atravesar(policia);
         assertTrue(camioneta.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
