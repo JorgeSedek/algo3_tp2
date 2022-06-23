@@ -90,7 +90,7 @@ public class PoliciaTest{
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }
-    
+
     @Test
     public void MotoPasaPorPoliciaYSeLeSuma3Movimientos(){
         Obstaculo policia = new Policia();
