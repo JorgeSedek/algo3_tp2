@@ -68,7 +68,8 @@ public class GeneralTest {
             juego.moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
         }
 
-        // Al momento de pasar por la sorpresa, tiene 12 movimientos, luego de aplicarse tiene 10
+        // Al momento de pasar por la sorpresa, tiene 11 movimientos, luego de aplicarse tiene 9
+        // y por ultimo se mueve una vez mas a la derecha, teniendo 10 movimientos
 
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
@@ -101,7 +102,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void SeAgregaUnaSorpresaDesvaforableYUnPozoAlEscenarioYCamionetaSeMueveDeveriaTener13(){
+    public void SeAgregaUnaSorpresaDesvaforableYUnPozoAlEscenarioYCamionetaSeMueveDeberiaTener13(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador0 = new Jugador(nombre, camioneta);
@@ -176,7 +177,7 @@ public class GeneralTest {
         for(int i=0; i<8; i++){
             juego.moverVehiculo(new DireccionDerecha());
         }
-        //Deberia ser 8 porque auto a cambiar a camioneta no le afecta el pozo
+        // Deberia ser 8 porque auto a cambiar a camioneta no le afecta el pozo
         assertTrue(vehiculo.verificarUbicacion(new Ubicacion(2,10)));
         assertTrue(vehiculo.verificarMovimientos(cantMovimientos));
     }
@@ -206,7 +207,7 @@ public class GeneralTest {
         }
         Vehiculo vehiculo1 = new Moto(vehiculo.ubicacion());
 
-        //Deberia ser 11 porque la camioneta se cambia a moto y moto al pasar por pozo se le suma 3 movimientos
+        // Deberia ser 11 porque la camioneta se cambia a moto y moto al pasar por pozo se le suma 3 movimientos
         assertTrue(vehiculo.verificarUbicacion(new Ubicacion(2,10)));
         //assertTrue(vehiculo.verificarMovimientos(cantMovimientos));
         assertTrue(jugador0.mismoVehiculo(vehiculo));
