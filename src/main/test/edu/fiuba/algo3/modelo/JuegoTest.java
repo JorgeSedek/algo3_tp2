@@ -69,7 +69,7 @@ public class JuegoTest {
         for (int i = 0; i < 4; i++) {
             juego.moverVehiculo(new DireccionDerecha()); // 4 Movimientos a la derecha
         }
-        int nuevaColumna = 3;
+        int nuevaColumna = 5;
         Ubicacion nuevaUbicacion = new Ubicacion(fila, nuevaColumna);
 
         assertTrue(moto.verificarUbicacion(nuevaUbicacion));
@@ -149,9 +149,9 @@ public class JuegoTest {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        Ubicacion ubicacionEsperadaDeJugador1 = new Ubicacion(1, 3);
-        Ubicacion ubicacionEsperadaDeJugador2 = new Ubicacion(2, 2);
-        Ubicacion ubicacionEsperadaDeJugador3 = new Ubicacion(1, 2);
+        Ubicacion ubicacionEsperadaDeJugador1 = new Ubicacion(1, 5);
+        Ubicacion ubicacionEsperadaDeJugador2 = new Ubicacion(3, 3);
+        Ubicacion ubicacionEsperadaDeJugador3 = new Ubicacion(1, 3);
 
         assertTrue(moto.verificarUbicacion(ubicacionEsperadaDeJugador1));
         assertTrue(auto.verificarUbicacion(ubicacionEsperadaDeJugador2));

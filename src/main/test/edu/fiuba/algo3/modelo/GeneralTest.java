@@ -60,8 +60,9 @@ public class GeneralTest {
 
         // Act
         Sorpresa sorpresaFavorable = new Favorable();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,13);
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,25);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaFavorable);
+
 
         for (int i = 0; i < 12; i++) {
             juego.moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
@@ -70,7 +71,7 @@ public class GeneralTest {
         // Al momento de pasar por la sorpresa, tiene 12 movimientos, luego de aplicarse tiene 10
 
         // Assert
-        assertTrue(auto.verificarUbicacion(new Ubicacion(2,14)));
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
         assertTrue(auto.verificarMovimientos(10));
 
     }
@@ -86,7 +87,7 @@ public class GeneralTest {
 
         // Act
         Sorpresa sorpresaDesfavorable = new Desfavorable();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,14);
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,25);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDesfavorable);
 
         for (int i = 0; i < 12; i++) {
@@ -94,7 +95,7 @@ public class GeneralTest {
         }
 
         // Assert
-        assertTrue(auto.verificarUbicacion(new Ubicacion(2,14)));
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
         assertTrue(auto.verificarMovimientos(15));
 
     }
@@ -112,10 +113,10 @@ public class GeneralTest {
         Juego juego = new Juego(jugadores);
 
         Sorpresa sorpresaDes = new Desfavorable();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,7);
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,15);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDes);
         Obstaculo pozo = new Pozo();
-        Ubicacion ubicacionObstaculo = new Ubicacion(2,3);
+        Ubicacion ubicacionObstaculo = new Ubicacion(2,7);
         Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
 
         for(int i=0; i<12; i++){
@@ -138,17 +139,17 @@ public class GeneralTest {
         Juego juego = new Juego(jugadores);
 
         Sorpresa sorpresaDes1 = new Desfavorable();
-        Ubicacion ubicacionSorpresa1 = new Ubicacion(2,9);
+        Ubicacion ubicacionSorpresa1 = new Ubicacion(2,17);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa1, sorpresaDes1);
         Sorpresa sorpresaDes2 = new Desfavorable();
-        Ubicacion ubicacionSorpresa2 = new Ubicacion(2,7);
+        Ubicacion ubicacionSorpresa2 = new Ubicacion(2,13);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa2, sorpresaDes2);
 
         for(int i=0; i<8; i++){
             juego.moverVehiculo(new DireccionDerecha());
         }
 
-        assertTrue(auto.verificarUbicacion(new Ubicacion(2,10)));
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));
         assertTrue(auto.verificarMovimientos(cantMovimientos));
 
     }

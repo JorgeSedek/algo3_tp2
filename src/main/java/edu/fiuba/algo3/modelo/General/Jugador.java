@@ -21,7 +21,6 @@ public class Jugador {
 
     public void moverVehiculo(Direccion direccion){
         this.vehiculo.mover(direccion);
-
     }
 
     // Se usa para tests

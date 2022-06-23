@@ -28,8 +28,8 @@ public class Entrega2Test {
     private String nombre = "Tomas";
     private int fila = 1;
     private int columna = 1;
-    private int totalFilas = 8;
-    private int totalColumnas = 8;
+    private int totalFilas = 20;
+    private int totalColumnas = 20;
 
     @Test
     public void UnaMotoSeMuevePorLaCiudad12VecesYSeEncuentraUnaSorpresaFavorableDeberiaTener10Movimientos() {
@@ -47,7 +47,7 @@ public class Entrega2Test {
             juego.moverVehiculo(new DireccionDerecha());
             juego.moverVehiculo(new DireccionAbajo());
         }
-        // Realizo 12 movimientos
+        // Realizo 6 movimientos
 
         moto.atravesar(favorable);
 
@@ -136,8 +136,8 @@ public class Entrega2Test {
        // Assert
        int movimientosEsperados = 6;
 
-       int fila = 2;
-       int columna = 4;
+       int fila = 3;
+       int columna = 7;
 
        Vehiculo vehiculoEsperado = new Moto((new Ubicacion(fila,columna)));
 

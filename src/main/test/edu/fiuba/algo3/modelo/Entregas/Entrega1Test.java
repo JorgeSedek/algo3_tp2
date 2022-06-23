@@ -37,8 +37,8 @@ public class Entrega1Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
         Obstaculo pozo = new Pozo();
-        int nuevaFila = 2;
-        int nuevaColumna = 4;
+        int nuevaFila = 3;
+        int nuevaColumna = 7;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 7;
 
@@ -69,7 +69,7 @@ public class Entrega1Test {
         Juego juego = new Juego(jugadores);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 1;
-        int nuevaColumna = 3;
+        int nuevaColumna = 5;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 9;
 
@@ -100,8 +100,8 @@ public class Entrega1Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
         Obstaculo pozo = new Pozo();
-        int nuevaFila = 2;
-        int nuevaColumna = 4;
+        int nuevaFila = 3;
+        int nuevaColumna = 7;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 4;
 
@@ -131,8 +131,8 @@ public class Entrega1Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
         Obstaculo piquete = new Piquete();
-        int nuevaFila = 2;
-        int nuevaColumna = 4;
+        int nuevaFila = 3;
+        int nuevaColumna = 7;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 6;
 
@@ -163,8 +163,8 @@ public class Entrega1Test {
         Juego juego = new Juego(jugadores);
         Obstaculo pozo = new Pozo();
         Obstaculo piquete = new Piquete();
-        int nuevaFila = 2;
-        int nuevaColumna = 4;
+        int nuevaFila = 3;
+        int nuevaColumna = 7;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         int movimientosEsperados = 9;
 
