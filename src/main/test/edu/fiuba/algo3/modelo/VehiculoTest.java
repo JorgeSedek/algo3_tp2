@@ -24,7 +24,7 @@ public class VehiculoTest {
 
         auto.mover(new DireccionDerecha());
         int nuevaFila = 1;
-        int nuevaColumna = 2;
+        int nuevaColumna = 3;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         assertTrue(auto.verificarUbicacion(nuevoUbicacion));
 
@@ -35,7 +35,7 @@ public class VehiculoTest {
         assertTrue(auto.verificarUbicacion(nuevoUbicacion));
 
         auto.mover(new DireccionAbajo());
-        nuevaFila = 2;
+        nuevaFila = 3;
         nuevaColumna = 1;
         nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         assertTrue(auto.verificarUbicacion(nuevoUbicacion));
@@ -54,7 +54,7 @@ public class VehiculoTest {
 
         moto.mover(new DireccionDerecha());
         int nuevaFila = 1;
-        int nuevaColumna = 2;
+        int nuevaColumna = 3;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
 
@@ -65,7 +65,7 @@ public class VehiculoTest {
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
 
         moto.mover(new DireccionAbajo());
-        nuevaFila = 2;
+        nuevaFila = 3;
         nuevaColumna = 1;
         nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
@@ -84,7 +84,7 @@ public class VehiculoTest {
 
         camioneta.mover(new DireccionDerecha());
         int nuevaFila = 1;
-        int nuevaColumna = 2;
+        int nuevaColumna = 3;
         Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));
 
@@ -95,7 +95,7 @@ public class VehiculoTest {
         assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));
 
         camioneta.mover(new DireccionAbajo());
-        nuevaFila = 2;
+        nuevaFila = 3;
         nuevaColumna = 1;
         nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
         assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));

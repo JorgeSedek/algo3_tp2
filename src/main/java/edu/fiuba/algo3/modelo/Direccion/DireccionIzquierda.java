@@ -4,9 +4,7 @@ import edu.fiuba.algo3.modelo.General.Ubicacion;
 
 public class DireccionIzquierda implements Direccion{
     public void mover(Ubicacion ubicacion){
-        DireccionIzquierda direccion = this;
-        ubicacion.mover(direccion);
-
+        ubicacion.mover(this);
     }
 
     public Direccion direccionOpuesta(){

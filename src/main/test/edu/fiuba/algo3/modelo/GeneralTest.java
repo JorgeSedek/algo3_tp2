@@ -55,17 +55,14 @@ public class GeneralTest {
 
         // Act
         Sorpresa sorpresaFavorable = new Favorable();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,13);
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,15);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaFavorable);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 7; i++) {
             juego.moverVehiculo(new DireccionDerecha());
         }
 
         // Assert
-        assertTrue(auto.verificarMovimientos(10));
-
+        assertTrue(auto.verificarMovimientos(6));
     }
-
-
 }

@@ -25,11 +25,13 @@ import static org.mockito.Mockito.*;
 //import static org.mockito.stubbing.Answer;
 
 
+/*
 public class PoliciaTest{
     private String nombre = "SinNombre";
     private int fila = 1;
     private int col = 1;
     private int cantidadMovimientos = 3;
+*/
 
     //@Mock
     //private Random random;
@@ -57,7 +59,7 @@ public class PoliciaTest{
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }*/
 
-    @Test
+/*    @Test
     public void MotoPasaPorPoliciaYSeLeSuma3Movimientos(){
         Obstaculo policia = new Policia();
         Ubicacion ubicacion = (new Ubicacion(fila, col));
@@ -79,7 +81,7 @@ public class PoliciaTest{
 
     }
 
-}
+}*/
 
 /*
     doAnswer(new Answer() {
