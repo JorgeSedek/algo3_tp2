@@ -38,7 +38,7 @@ public class Policia implements Obstaculo {
         return this.calcularEfecto(probabilidadParo, probabilidad) ;
     }
 
-    public Efecto calcularEfecto(double probabilidadParo, double probabilidad){
+    private Efecto calcularEfecto(double probabilidadParo, double probabilidad){
         //double probabilidad = Math.random();
         if(probabilidad <= probabilidadParo) {
             Efecto efecto = new EfectoGeneral();
@@ -47,4 +47,7 @@ public class Policia implements Obstaculo {
         return new EfectoGeneral();
     }
 
+    public void cambiarMath(IMath random) {
+        this.random = random;
+    }
 }
