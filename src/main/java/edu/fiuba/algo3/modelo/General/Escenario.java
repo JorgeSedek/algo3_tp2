@@ -1,10 +1,11 @@
 package edu.fiuba.algo3.modelo.General;
 
-import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
-import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
+import edu.fiuba.algo3.modelo.Obstaculos.*;
+import edu.fiuba.algo3.modelo.Sorpresas.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Escenario {
@@ -98,6 +99,48 @@ public class Escenario {
 	public void agregarSorpresaEn(Ubicacion ubicacion, Sorpresa sorpresa) {
 		Casillero casillero = this.buscarCasilleroEn(ubicacion);
 		casillero.asignarSorpresa(sorpresa);
+	}
+
+	// Para generar el escenario aleatorio (devuelve una sorpresa aleatoria)
+	private Sorpresa generarSorpresaAleatoria() {
+		ArrayList<Sorpresa> sorpresas = obtenerSorpresasPosibles();
+		int indexRandom = new Random().nextInt(sorpresas.size()); // Un int entre 0 (incluyente) y size (excluyente)
+
+		return sorpresas.get(indexRandom);
+	}
+
+	// Para generar el escenario aleatorio (devuelve un obstaculo aleatorio)
+	private Obstaculo generarObstaculoAleatorio() {
+		ArrayList<Obstaculo> obstaculos = obtenerObstaculosPosibles();
+		int indexRandom = new Random().nextInt(obstaculos.size()); // Un int entre 0 (incluyente) y size (excluyente)
+
+		return obstaculos.get(indexRandom);
+	}
+
+	// Para generar el escenario aleatorio (devuelve un array con las posibles sorpresas
+	// incluido el SinSorpresa)
+	private ArrayList<Sorpresa> obtenerSorpresasPosibles() {
+		ArrayList<Sorpresa> sorpresas = new ArrayList<>() {{
+			add(new SinSorpresa());
+			add(new Favorable());
+			add(new Desfavorable());
+			add(new CambioVehiculo());
+		}};
+
+		return sorpresas;
+	}
+
+	// Para generar el escenario aleatorio (devuelve un array con los posibles obstaculos
+	// incluido el SinObstaculo)
+	private ArrayList<Obstaculo> obtenerObstaculosPosibles() {
+		ArrayList<Obstaculo> obstaculos = new ArrayList<>() {{
+			add(new SinObstaculo());
+			add(new Piquete());
+			add(new Policia());
+			add(new Pozo());
+		}};
+
+		return obstaculos;
 	}
 
 	// Metodo para tests

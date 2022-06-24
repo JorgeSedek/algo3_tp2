@@ -19,6 +19,10 @@ public class Policia implements Obstaculo {
         this.random = imath;
     }
 
+    public Policia() {
+        this.random = null;
+    }
+
     public Efecto atravesar(Auto auto) {
         double probabilidadParo = 0.5;
         this.probabilidad = this.random.random();
