@@ -23,7 +23,8 @@ public class Escenario {
 		this.filas = filas;
 		this.columnas = columnas;
 		this.casilleros = new ArrayList<>();
-		this.llenar();
+		this.llenarConCasilleros();
+		// this.randomizarEscenario(); Descomentar cuando se quiera generar de forma aleatoria obstaculos y sorpresas
 	}
 
 	private synchronized static void createInstance(int filas, int columnas) {
@@ -45,7 +46,7 @@ public class Escenario {
 	}
 
 	// Completa el escenario con casilleros
-	private void llenar() {
+	private void llenarConCasilleros() {
 		for (int fila = 1; fila <= filas; fila++) {
 			for (int columna = 1; columna <= columnas; columna++) {
 				Casillero casillero = new Casillero(fila, columna);

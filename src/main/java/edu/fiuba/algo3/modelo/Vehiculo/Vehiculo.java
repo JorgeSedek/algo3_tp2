@@ -23,7 +23,7 @@ public abstract class Vehiculo {
     public abstract void atravesar(Sorpresa sorpresa);
 
     public void atravesar(Casillero casillero){
-        casillero.atravezar(this);
+        casillero.atravesar(this);
     }
 
     public double porcentajeMovimientos(double porcentaje) {

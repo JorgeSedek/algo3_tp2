@@ -41,7 +41,7 @@ public class Casillero {
         return (this.ubicacion.equals(otraUbicacion));
     }
 
-    public void atravezar(Vehiculo vehiculo) {
+    public void atravesar(Vehiculo vehiculo) {
         vehiculo.atravesar(sorpresa);
         vehiculo.atravesar(obstaculo);
     }
