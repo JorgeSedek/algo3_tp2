@@ -101,6 +101,21 @@ public class Escenario {
 		casillero.asignarSorpresa(sorpresa);
 	}
 
+	// Al llamar a este metodo en el constructor, el escenario va a tener sorpresas y obstaculos
+	// aleatorios en sus casilleros
+	private void randomizarEscenario() {
+		for (int i = 0; i < casilleros.size(); i++) {
+			Casillero casillero = casilleros.get(i);
+			if (this.esCalle(casillero)) {
+				Obstaculo obstaculo = generarObstaculoAleatorio();
+				Sorpresa sorpresa = generarSorpresaAleatoria();
+
+				agregarObstaculoEn(casillero.obtenerUbicacion(), obstaculo);
+				agregarSorpresaEn(casillero.obtenerUbicacion(), sorpresa);
+			}
+		}
+	}
+
 	// Para generar el escenario aleatorio (devuelve una sorpresa aleatoria)
 	private Sorpresa generarSorpresaAleatoria() {
 		ArrayList<Sorpresa> sorpresas = obtenerSorpresasPosibles();
@@ -141,6 +156,12 @@ public class Escenario {
 		}};
 
 		return obstaculos;
+	}
+
+	// Para generar el escenario aleatorio (verifica si el casillero representa una calle)
+	private boolean esCalle(Casillero casillero) {
+		Ubicacion ubicacion = casillero.obtenerUbicacion();
+		return ubicacion.hayCalle();
 	}
 
 	// Metodo para tests

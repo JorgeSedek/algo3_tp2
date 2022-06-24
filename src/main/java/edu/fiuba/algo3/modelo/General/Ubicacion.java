@@ -14,10 +14,17 @@ public class Ubicacion {
 	public boolean equals(Ubicacion ubicacion) {
 		return (ubicacion.fila == this.fila & ubicacion.columna == this.columna);
 	}
-
+	/*
 	public boolean hayEdificio(){
 		return (this.fila % 2 == 0 & this.columna % 2 == 0);
 	}
+	*/
+
+	// Es una calle si su fila o su columna es impar
+	public boolean hayCalle() {
+		return (this.fila % 2 == 1 || this.columna % 2 == 1);
+	}
+
 	public void mover(DireccionAbajo direccion) {
 		Escenario escenario = Escenario.getInstance();
 		if (escenario.filaDentroDeLimites(fila)) {
@@ -46,11 +53,11 @@ public class Ubicacion {
 		}
 
 	}
-
+	/*
 	public Ubicacion copia(){
 		return new Ubicacion(this.fila,this.columna);
 	}
-
+	*/
 
 
 
