@@ -92,8 +92,9 @@ public class Escenario {
 	}
 	*/
 
-	// Al llamar a este metodo, el escenario va a tener sorpresas y obstaculos aleatorios en sus casilleros
-	private void agregarObstaculosYSorpresas() {
+	// Al llamar a este metodo, el escenario va a tener sorpresas y obstaculos segun su colocador
+	// Por ejemplo, si su colocador es ColocadorRandom, va a tener sorpresas y obstaculos random
+	public void agregarObstaculosYSorpresas() {
 		colocador.agregarObstaculosYSorpresas(casilleros);
 	}
 
