@@ -36,13 +36,13 @@ public class GeneralTest {
         Jugador jugador1 = new Jugador(nombre, auto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         // Act
         Pozo pozo = new Pozo();
         Ubicacion ubicacionPozo = new Ubicacion(2,3);
         Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
-        juego.moverVehiculo(new DireccionDerecha());
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
         // Assert
         assertTrue(auto.verificarMovimientos(4));
@@ -56,7 +56,7 @@ public class GeneralTest {
         Jugador jugador1 = new Jugador(nombre, auto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         // Act
         Sorpresa sorpresaFavorable = new Favorable();
@@ -65,7 +65,7 @@ public class GeneralTest {
 
 
         for (int i = 0; i < 12; i++) {
-            juego.moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
+            Juego.getInstance().moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
         }
 
         // Al momento de pasar por la sorpresa, tiene 11 movimientos, luego de aplicarse tiene 9
@@ -84,7 +84,7 @@ public class GeneralTest {
         Jugador jugador1 = new Jugador(nombre, auto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         // Act
         Sorpresa sorpresaDesfavorable = new Desfavorable();
@@ -92,7 +92,7 @@ public class GeneralTest {
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDesfavorable);
 
         for (int i = 0; i < 12; i++) {
-            juego.moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
+            Juego.getInstance().moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
         }
 
         // Assert
@@ -111,7 +111,7 @@ public class GeneralTest {
             {add(jugador0);}
         };
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         Sorpresa sorpresaDes = new Desfavorable();
         Ubicacion ubicacionSorpresa = new Ubicacion(2,15);
@@ -121,7 +121,7 @@ public class GeneralTest {
         Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
 
         for(int i=0; i<12; i++){
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
 
         assertTrue(camioneta.verificarMovimientos(cantMovimientos));
@@ -137,7 +137,7 @@ public class GeneralTest {
             {add(jugador0);}
         };
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         Sorpresa sorpresaDes1 = new Desfavorable();
         Ubicacion ubicacionSorpresa1 = new Ubicacion(2,17);
@@ -147,7 +147,7 @@ public class GeneralTest {
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa2, sorpresaDes2);
 
         for(int i=0; i<8; i++){
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
 
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));

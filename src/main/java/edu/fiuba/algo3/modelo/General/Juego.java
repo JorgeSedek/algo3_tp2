@@ -8,13 +8,26 @@ public class Juego {
     private List<Jugador> jugadores;
     private Jugador jugadorActivo;
     private int numJugador;
-
     private List<Puntaje> puntuaciones;
+    private static Juego INSTANCE = null;
 
-    public Juego(List<Jugador> jugadores) {
+    private Juego(List<Jugador> jugadores) {
         this.jugadores = jugadores;
         this.numJugador = 0;
         this.jugadorActivo = jugadores.get(numJugador);
+    }
+
+    private synchronized static void createInstance(List<Jugador> jugadores) {
+        INSTANCE = new Juego(jugadores);
+    }
+
+    public static Juego getInstance() {
+        return INSTANCE; // Cuidado que si no se llamo primero al resetInstance, devuelve un null
+    }
+
+    // Resetea el juego a un estado inicial (con un array de jugadores)
+    public static void resetInstance(List<Jugador> jugadores) {
+        createInstance(jugadores);
     }
 
     public void moverVehiculo(Direccion direccion){
@@ -45,7 +58,8 @@ public class Juego {
     }
 
     // Deberia llevarnos a la pantalla de puntuaciones, donde se muestran los
-    // por ejemplo, 10 puntajes mas altos
+    // por ejemplo, 10 puntajes mas altos (o quiza que devuelva un array
+    // con los puntajes ya ordenados)
     private void mostrarTopPuntuaciones() {
 
     }

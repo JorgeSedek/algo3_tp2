@@ -31,9 +31,9 @@ public class JuegoTest {
         List<Jugador> jugadores = new ArrayList<>() {{
             add(jugador1);
         }};
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
-        assertNotNull(juego);
+        assertNotNull(Juego.getInstance());
     }
 
     @Test
@@ -46,9 +46,9 @@ public class JuegoTest {
         List<Jugador> jugadores = new ArrayList<>() {{
             add(jugador1);
         }};
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
-        assertTrue(juego.verificarAtributosNoNulos());
+        assertTrue(Juego.getInstance().verificarAtributosNoNulos());
     }
 
     @Test
@@ -64,10 +64,10 @@ public class JuegoTest {
             add(jugador1);
             add(jugador2);
         }};
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         for (int i = 0; i < 4; i++) {
-            juego.moverVehiculo(new DireccionDerecha()); // 4 Movimientos a la derecha
+            Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 4 Movimientos a la derecha
         }
         int nuevaColumna = 5;
         Ubicacion nuevaUbicacion = new Ubicacion(fila, nuevaColumna);
@@ -87,11 +87,11 @@ public class JuegoTest {
             add(jugador1);
             add(jugador2);
         }};
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
-        juego.cambiarJugador();
+        Juego.getInstance().cambiarJugador();
 
-        assertTrue(juego.verificarAtributosNoNulos());
+        assertTrue(Juego.getInstance().verificarAtributosNoNulos());
 
     }
     @Test
@@ -111,16 +111,16 @@ public class JuegoTest {
             add(jugador2);
             add(jugador3);
         }};
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         // Act and Assert
-        assertTrue(juego.verificarJugadorActivo(jugador1));
-        juego.moverVehiculo(new DireccionDerecha());
-        assertTrue(juego.verificarJugadorActivo(jugador2));
-        juego.moverVehiculo(new DireccionDerecha());
-        assertTrue(juego.verificarJugadorActivo(jugador3));
-        juego.moverVehiculo(new DireccionDerecha());
-        assertTrue(juego.verificarJugadorActivo(jugador1));
+        assertTrue(Juego.getInstance().verificarJugadorActivo(jugador1));
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        assertTrue(Juego.getInstance().verificarJugadorActivo(jugador2));
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        assertTrue(Juego.getInstance().verificarJugadorActivo(jugador3));
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        assertTrue(Juego.getInstance().verificarJugadorActivo(jugador1));
     }
 
     @Test
@@ -142,12 +142,12 @@ public class JuegoTest {
             add(jugador2);
             add(jugador3);
         }};
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         for (int i = 0; i < 4; i++) {
-            juego.moverVehiculo(new DireccionDerecha()); // 4 Movimientos a la derecha
+            Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 4 Movimientos a la derecha
         }
-        juego.moverVehiculo(new DireccionAbajo());
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
 
         Ubicacion ubicacionEsperadaDeJugador1 = new Ubicacion(1, 5);
         Ubicacion ubicacionEsperadaDeJugador2 = new Ubicacion(3, 3);

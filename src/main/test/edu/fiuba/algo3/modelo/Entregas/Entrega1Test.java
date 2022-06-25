@@ -35,7 +35,7 @@ public class Entrega1Test {
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 3;
         int nuevaColumna = 7;
@@ -44,15 +44,15 @@ public class Entrega1Test {
 
         // Act
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        juego.moverVehiculo(new DireccionAbajo());
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
         Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPozo.asignarObstaculo(pozo);
         moto.atravesar(casilleroConPozo);
 
         // Assert
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(Juego.getInstance().verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
         assertTrue(jugador1.verificarMovimiento(movimientosEsperados));
 
@@ -66,7 +66,7 @@ public class Entrega1Test {
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 1;
         int nuevaColumna = 5;
@@ -75,18 +75,18 @@ public class Entrega1Test {
 
         // Act
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        juego.moverVehiculo(new DireccionAbajo());
-        juego.moverVehiculo(new DireccionIzquierda());
-        juego.moverVehiculo(new DireccionArriba());
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
+        Juego.getInstance().moverVehiculo(new DireccionIzquierda());
+        Juego.getInstance().moverVehiculo(new DireccionArriba());
 
         Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPozo.asignarObstaculo(pozo);
         auto.atravesar(casilleroConPozo);
 
         // Assert
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(Juego.getInstance().verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(auto.verificarUbicacion(nuevoUbicacion));
     }
 
@@ -98,7 +98,7 @@ public class Entrega1Test {
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
         Obstaculo pozo = new Pozo();
         int nuevaFila = 3;
         int nuevaColumna = 7;
@@ -107,9 +107,9 @@ public class Entrega1Test {
 
         // Act
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        juego.moverVehiculo(new DireccionAbajo());
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
 
         Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPozo.asignarObstaculo(pozo);
@@ -117,7 +117,7 @@ public class Entrega1Test {
 
         // Assert
         assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(Juego.getInstance().verificarMovJugadorActivo(movimientosEsperados));
 
     }
 
@@ -129,7 +129,7 @@ public class Entrega1Test {
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
         Obstaculo piquete = new Piquete();
         int nuevaFila = 3;
         int nuevaColumna = 7;
@@ -138,16 +138,16 @@ public class Entrega1Test {
 
         // Act
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        juego.moverVehiculo(new DireccionAbajo());
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
 
         Casillero casilleroConPiquete = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPiquete.asignarObstaculo(piquete);
         moto.atravesar(casilleroConPiquete);
 
         // Assert
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(Juego.getInstance().verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
 
     }
@@ -160,7 +160,7 @@ public class Entrega1Test {
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
         Obstaculo pozo = new Pozo();
         Obstaculo piquete = new Piquete();
         int nuevaFila = 3;
@@ -170,15 +170,15 @@ public class Entrega1Test {
 
         // Act
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        juego.moverVehiculo(new DireccionAbajo());
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
 
         moto.atravesar(pozo);
         moto.atravesar(piquete);
 
         // Assert
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(Juego.getInstance().verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
 
     }
