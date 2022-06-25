@@ -1,18 +1,17 @@
 package edu.fiuba.algo3.modelo.General;
 
-import edu.fiuba.algo3.modelo.Obstaculos.*;
-import edu.fiuba.algo3.modelo.Sorpresas.*;
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Escenario {
 
 	private int filas;
 	private int columnas;
-
+	private ColocadorItems colocador;
 	private ArrayList<Casillero> casilleros;
 
 	private static Escenario INSTANCE = null;
@@ -24,6 +23,8 @@ public class Escenario {
 		this.columnas = columnas;
 		this.casilleros = new ArrayList<>();
 		this.llenarConCasilleros();
+		this.colocador = new ColocadorVacio();
+		this.agregarObstaculosYSorpresas();
 		// this.randomizarEscenario(); Descomentar cuando se quiera generar de forma aleatoria obstaculos y sorpresas
 	}
 
@@ -102,68 +103,17 @@ public class Escenario {
 		casillero.asignarSorpresa(sorpresa);
 	}
 
+	public void asignarColocador(ColocadorItems colocador){
+		this.colocador = colocador;
+	}
+
+
 	// Al llamar a este metodo en el constructor, el escenario va a tener sorpresas y obstaculos
 	// aleatorios en sus casilleros
-	private void randomizarEscenario() {
-		for (int i = 0; i < casilleros.size(); i++) {
-			Casillero casillero = casilleros.get(i);
-			if (this.esCalle(casillero)) {
-				Obstaculo obstaculo = generarObstaculoAleatorio();
-				Sorpresa sorpresa = generarSorpresaAleatoria();
-
-				agregarObstaculoEn(casillero.obtenerUbicacion(), obstaculo);
-				agregarSorpresaEn(casillero.obtenerUbicacion(), sorpresa);
-			}
-		}
+	private void agregarObstaculosYSorpresas() {
+		colocador.agregarObstaculoYSorpresa(casilleros);
 	}
 
-	// Para generar el escenario aleatorio (devuelve una sorpresa aleatoria)
-	private Sorpresa generarSorpresaAleatoria() {
-		ArrayList<Sorpresa> sorpresas = obtenerSorpresasPosibles();
-		int indexRandom = new Random().nextInt(sorpresas.size()); // Un int entre 0 (incluyente) y size (excluyente)
-
-		return sorpresas.get(indexRandom);
-	}
-
-	// Para generar el escenario aleatorio (devuelve un obstaculo aleatorio)
-	private Obstaculo generarObstaculoAleatorio() {
-		ArrayList<Obstaculo> obstaculos = obtenerObstaculosPosibles();
-		int indexRandom = new Random().nextInt(obstaculos.size()); // Un int entre 0 (incluyente) y size (excluyente)
-
-		return obstaculos.get(indexRandom);
-	}
-
-	// Para generar el escenario aleatorio (devuelve un array con las posibles sorpresas
-	// incluido el SinSorpresa)
-	private ArrayList<Sorpresa> obtenerSorpresasPosibles() {
-		ArrayList<Sorpresa> sorpresas = new ArrayList<>() {{
-			add(new SinSorpresa());
-			add(new Favorable());
-			add(new Desfavorable());
-			add(new CambioVehiculo());
-		}};
-
-		return sorpresas;
-	}
-
-	// Para generar el escenario aleatorio (devuelve un array con los posibles obstaculos
-	// incluido el SinObstaculo)
-	private ArrayList<Obstaculo> obtenerObstaculosPosibles() {
-		ArrayList<Obstaculo> obstaculos = new ArrayList<>() {{
-			add(new SinObstaculo());
-			add(new Piquete());
-			add(new Policia());
-			add(new Pozo());
-		}};
-
-		return obstaculos;
-	}
-
-	// Para generar el escenario aleatorio (verifica si el casillero representa una calle)
-	private boolean esCalle(Casillero casillero) {
-		Ubicacion ubicacion = casillero.obtenerUbicacion();
-		return ubicacion.hayCalle();
-	}
 
 	// Metodo para tests
 	public boolean verificarNumeroDeFilas(int filas) {
