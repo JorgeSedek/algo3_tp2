@@ -8,14 +8,9 @@ public class Puntaje {
 
     public Puntaje(Jugador jugador){
         this.nombreJugador = jugador.obtenerNombre();
-        this.puntuacion = convertirMovimientosAPuntaje(jugador.obtenerMovimientos());
+        this.puntuacion = jugador.obtenerMovimientos();
     }
 
-    // Convierte los movimientos de un jugador a un puntaje y lo devuelve
-    private int convertirMovimientosAPuntaje(int movimientos) {
-        int puntuacionBase = 1000;
-        return puntuacionBase - movimientos; // A mayor movimientos, menor la puntuacion
-    }
     /*
     DE MOMENTO NO SE UTILIZAN
 

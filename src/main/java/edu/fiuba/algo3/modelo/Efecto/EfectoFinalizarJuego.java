@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.modelo.Efecto;
 
+import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 /*
 public class EfectoFinalizarJuego extends EfectoDecorador {
-    public EfectoFinalizarJuego(Efecto efecto, ) {
+    public EfectoFinalizarJuego(Efecto efecto) {
         super(efecto);
     }
 
@@ -11,4 +12,5 @@ public class EfectoFinalizarJuego extends EfectoDecorador {
         super.aplicar(vehiculo);
     }
 }
-*/
+
+ */

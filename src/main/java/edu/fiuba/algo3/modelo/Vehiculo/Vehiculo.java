@@ -1,9 +1,12 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Escenario;
+import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
@@ -16,6 +19,11 @@ public abstract class Vehiculo {
     public Vehiculo(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
         this.movimientos = 0;
+    }
+
+    public void atravesar(Meta meta) {
+        Efecto efectoAplicar = meta.atravesar(this);
+        efectoAplicar.aplicar(this);
     }
 
     public abstract void atravesar(Obstaculo obstaculo);

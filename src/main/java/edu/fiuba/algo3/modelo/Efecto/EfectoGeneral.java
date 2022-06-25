@@ -6,6 +6,6 @@ public class EfectoGeneral implements Efecto {
     public EfectoGeneral() {
     }
     public void aplicar(Vehiculo vehiculo) {
-        // efecto por defecto aplicado
+        // Efecto por defecto aplicado
     }
 }

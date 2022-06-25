@@ -40,6 +40,8 @@ public class Juego {
     private void agregarPuntuacion(Jugador jugador) {
         Puntaje puntaje = jugador.obtenerPuntaje();
         puntuaciones.add(puntaje);
+        // puntuaciones.sort();
+        // Metodo que ordene la lista de puntuaciones de menor a mayor
     }
 
     // Deberia llevarnos a la pantalla de puntuaciones, donde se muestran los
