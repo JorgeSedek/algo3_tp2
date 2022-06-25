@@ -24,8 +24,6 @@ public class Escenario {
 		this.casilleros = new ArrayList<>();
 		this.llenarConCasilleros();
 		this.colocador = new ColocadorVacio();
-		this.agregarObstaculosYSorpresas();
-		// this.randomizarEscenario(); Descomentar cuando se quiera generar de forma aleatoria obstaculos y sorpresas
 	}
 
 	private synchronized static void createInstance(int filas, int columnas) {
@@ -51,33 +49,10 @@ public class Escenario {
 		for (int fila = 1; fila <= filas; fila++) {
 			for (int columna = 1; columna <= columnas; columna++) {
 				Casillero casillero = new Casillero(fila, columna);
-			//	casillero.cargarCasillerosAdyacentes();
 				this.casilleros.add(casillero);
 			}
 		}
 	}
-
-	/*
-	DE MOMENTO NO SE UTILIZAN (de hecho quedarían obsoletos estos metodos respecto a la implementación
-	actual ya que ahora un casillero es un cruce de calles, y no una calle). Se podría refactorizar
-	para que a partir de una calle de un casillero haga lo pedido.
-
-	private void llenarCalles(int indiceCasillero){
-		if (indiceCasillero < columnas) {
-			Casillero primerCasillero = casilleros.get(indiceCasillero);
-			Casillero segundoCasillero = casilleros.get(indiceCasillero + 1);
-			Calle calle = new Calle();
-			int siguienteIndice = indiceCasillero + 1;
-			this.llenarCalles(siguienteIndice);
-		}
-	}
-
-	public void agregarVehiculoEnCasillero(Vehiculo vehiculo, Ubicacion ubicacion){
-		Casillero casillero = this.buscarCasilleroEn(ubicacion);
-		casillero.colocar(vehiculo);
-	}
-	*/
-
 
 	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
 		List<Casillero> casillerosFiltrados = casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)).collect(Collectors.toList());
@@ -103,17 +78,24 @@ public class Escenario {
 		casillero.asignarSorpresa(sorpresa);
 	}
 
+	// Asigna un colocador random (si se desea crear un escenario de forma random)
+	// Para que el colocador asigne de forma aleatoria los obstaculos y sorpresas al escenario
+	// hay que llamar luego al metodo "agregarObstaculosYSorpresas"
+	public void asignarColocadorRandom() {
+		this.colocador = new ColocadorRandom();
+	}
+
+	/*
+	// Asigna un colocador pasado por argumento
 	public void asignarColocador(ColocadorItems colocador){
 		this.colocador = colocador;
 	}
+	*/
 
-
-	// Al llamar a este metodo en el constructor, el escenario va a tener sorpresas y obstaculos
-	// aleatorios en sus casilleros
+	// Al llamar a este metodo, el escenario va a tener sorpresas y obstaculos aleatorios en sus casilleros
 	private void agregarObstaculosYSorpresas() {
-		colocador.agregarObstaculoYSorpresa(casilleros);
+		colocador.agregarObstaculosYSorpresas(casilleros);
 	}
-
 
 	// Metodo para tests
 	public boolean verificarNumeroDeFilas(int filas) {

@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ColocadorRandom implements ColocadorItems{
-    public void agregarObstaculoYSorpresa(ArrayList<Casillero> casilleros){
+
+    // Dado un array de casilleros, agrega obstaculos y sorpresas de forma aleatoria en los mismos
+    public void agregarObstaculosYSorpresas(ArrayList<Casillero> casilleros){
         for (int i = 0; i < casilleros.size(); i++) {
             Casillero casillero = casilleros.get(i);
             if (this.esCalle(casillero)) {
@@ -18,7 +20,6 @@ public class ColocadorRandom implements ColocadorItems{
                 agregarSorpresaEn(casillero, sorpresa);
             }
         }
-
     }
 
     // Para generar el escenario aleatorio (devuelve una sorpresa aleatoria)
