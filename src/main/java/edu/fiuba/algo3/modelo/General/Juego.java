@@ -9,6 +9,8 @@ public class Juego {
     private Jugador jugadorActivo;
     private int numJugador;
 
+    private List<Puntaje> puntuaciones;
+
     public Juego(List<Jugador> jugadores) {
         this.jugadores = jugadores;
         this.numJugador = 0;
@@ -26,6 +28,24 @@ public class Juego {
             this.numJugador = 0;
         }
         this.jugadorActivo = jugadores.get(numJugador);
+    }
+
+    // Finaliza el juego, agrega la puntuacion del jugador y nos lleva a la pantalla de puntuaciones
+    public void finalizar() {
+        this.agregarPuntuacion(jugadorActivo);
+        this.mostrarTopPuntuaciones();
+    }
+
+    // Agrega la puntuacion de un jugador a las puntuaciones
+    private void agregarPuntuacion(Jugador jugador) {
+        Puntaje puntaje = jugador.obtenerPuntaje();
+        puntuaciones.add(puntaje);
+    }
+
+    // Deberia llevarnos a la pantalla de puntuaciones, donde se muestran los
+    // por ejemplo, 10 puntajes mas altos
+    private void mostrarTopPuntuaciones() {
+
     }
 
 

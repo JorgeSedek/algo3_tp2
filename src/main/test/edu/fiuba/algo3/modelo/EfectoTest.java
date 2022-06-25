@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Efecto.*;
-import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
@@ -22,6 +21,6 @@ public class EfectoTest {
         efecto = new EfectoReducirMovimientos(efecto, 10);
         efecto.aplicar(moto);
 
-        assertEquals(moto.movimientos(), 20);
+        assertEquals(moto.obtenerMovimientos(), 20);
     }
 }

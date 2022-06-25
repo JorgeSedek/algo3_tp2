@@ -38,6 +38,10 @@ public class Jugador {
         return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarUbicacion(vehiculo.ubicacion()));
     }
 
+    public Puntaje obtenerPuntaje() {
+        return new Puntaje(this);
+    }
+
     public Vehiculo obtenerVehiculo(){
         return this.vehiculo;
     }
@@ -45,6 +49,7 @@ public class Jugador {
     private String nombre(){
        return this.nombre;
     }
+
     private Vehiculo vehiculo(){
         return this.vehiculo;
     }
@@ -52,5 +57,9 @@ public class Jugador {
     // Se usa para tests
     public boolean equals(Jugador otroJugador){
         return (this.nombre == otroJugador.nombre() & this.vehiculo == otroJugador.vehiculo());
+    }
+
+    public int obtenerMovimientos() {
+        return this.vehiculo.obtenerMovimientos();
     }
 }

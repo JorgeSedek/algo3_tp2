@@ -54,7 +54,7 @@ public abstract class Vehiculo {
         return this.cambio;
     }
 
-    public int movimientos() {
+    public int obtenerMovimientos() {
         return this.movimientos;
     }
 

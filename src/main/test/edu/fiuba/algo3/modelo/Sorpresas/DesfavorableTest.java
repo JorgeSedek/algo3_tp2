@@ -28,7 +28,7 @@ public class DesfavorableTest {
         moto.incrementarMovimientos(cantidadMovimientosHechos);
         moto.atravesar(desfavorable);
 
-        assertEquals(moto.movimientos(), cantidadMovimientosEsperados);
+        assertEquals(moto.obtenerMovimientos(), cantidadMovimientosEsperados);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
     }
