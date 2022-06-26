@@ -8,29 +8,47 @@ public class Jugador {
     private Vehiculo vehiculo;
     private final String nombre;
 
+    private int movimientos;
+
     public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
         this.vehiculo = vehiculoElegido;
         this.nombre = nombreJugador;
     }
 
-    public void incrementarMovimientos(int incremento){this.vehiculo.incrementarMovimientos(incremento);}
+    public void incrementarMovimientos(int incremento){
+        this.vehiculo.incrementarMovimientos(incremento);
+        this.movimientos += incremento;
+    }
 
-    public void disminuirMovimientos(int disminucion){this.vehiculo.reducirMovimientos(disminucion);}
+    public void disminuirMovimientos(int disminucion){
+        this.vehiculo.reducirMovimientos(disminucion);
+        this.movimientos -= disminucion;
+    }
 
     public String obtenerNombre(){return this.nombre;}
 
     public void moverVehiculo(Direccion direccion){
-        this.vehiculo.mover(direccion);
+        Jugador jugador = this;
+        this.vehiculo.mover(direccion, jugador);
+
     }
+
+
 
     // Se usa para tests
     public boolean verificarMovimiento(int cantMovimientos){
-       return this.vehiculo.verificarMovimientos(cantMovimientos);
+       return (this.movimientos == cantMovimientos);
+    }
+
+    public double porcentajeMovimientos(double porcentaje) {
+        return this.movimientos * porcentaje / 100;
     }
 
     public void cambiarVehiculo(Vehiculo vehiculoNuevo){
         this.vehiculo = vehiculoNuevo;
     }
+
+    public void reducirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
     // Se usa para tests
     public boolean mismoVehiculo(Vehiculo vehiculo) {

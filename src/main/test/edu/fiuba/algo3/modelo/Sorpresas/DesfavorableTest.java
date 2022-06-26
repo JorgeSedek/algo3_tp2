@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DesfavorableTest {
@@ -25,10 +24,10 @@ public class DesfavorableTest {
         int cantidadMovimientosHechos = 10;
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 1.25);
 
-        moto.incrementarMovimientos(cantidadMovimientosHechos);
-        moto.atravesar(desfavorable);
+        jugador.incrementarMovimientos(cantidadMovimientosHechos);
+        moto.atravesar(desfavorable, jugador);
 
-        assertEquals(moto.obtenerMovimientos(), cantidadMovimientosEsperados);
+       // assertEquals(jugador.obtenerMovimientos(), cantidadMovimientosEsperados);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
     }
@@ -42,8 +41,8 @@ public class DesfavorableTest {
         int cantidadMovimientosHechos = 10;
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 1.25);
 
-        auto.incrementarMovimientos(cantidadMovimientosHechos);
-        auto.atravesar(desfavorable);
+        jugador.incrementarMovimientos(cantidadMovimientosHechos);
+        auto.atravesar(desfavorable, jugador);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
     }
@@ -57,8 +56,8 @@ public class DesfavorableTest {
         int cantidadMovimientosHechos = 10;
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 1.25);
 
-        camioneta.incrementarMovimientos(cantidadMovimientosHechos);
-        camioneta.atravesar(desfavorable);
+        jugador.incrementarMovimientos(cantidadMovimientosHechos);
+        camioneta.atravesar(desfavorable, jugador);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientosEsperados));
     }

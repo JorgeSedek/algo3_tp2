@@ -2,10 +2,7 @@ package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Efecto.Efecto;
-import edu.fiuba.algo3.modelo.General.Casillero;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
@@ -26,16 +23,34 @@ public abstract class Vehiculo {
         efectoAplicar.aplicar(this);
     }
 
-    public abstract void atravesar(Obstaculo obstaculo);
+    public abstract void atravesar(Obstaculo obstaculo, Jugador jugador) ;
 
-    public abstract void atravesar(Sorpresa sorpresa);
+    public abstract void atravesar(Sorpresa sorpresa, Jugador jugador) ;
 
-    public void atravesar(Casillero casillero){
+    public abstract void atravesar(Obstaculo obstaculo) ;
+
+    public abstract void atravesar(Sorpresa sorpresa) ;
+
+    public void atravesar(Casillero casillero, Jugador jugador) {
+        casillero.atravesar(this, jugador);
+    }
+
+    public void atravesar(Casillero casillero) {
         casillero.atravesar(this);
     }
 
     public double porcentajeMovimientos(double porcentaje) {
         return this.movimientos * porcentaje / 100;
+    }
+
+    public void mover(Direccion direccion, Jugador jugador) {
+        this.movimientos++;
+        int incremento = 1;
+        jugador.incrementarMovimientos(incremento);
+        direccion.mover(ubicacion);
+        Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
+        this.atravesar(nuevoCasillero, jugador);
+        direccion.mover(ubicacion);
     }
 
     public void mover(Direccion direccion) {

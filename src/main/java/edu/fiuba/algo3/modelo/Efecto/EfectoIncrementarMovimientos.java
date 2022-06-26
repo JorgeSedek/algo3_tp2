@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Efecto;
 
+import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class EfectoIncrementarMovimientos extends EfectoDecorador {
@@ -14,5 +15,10 @@ public class EfectoIncrementarMovimientos extends EfectoDecorador {
     public void aplicar(Vehiculo vehiculo) {
         super.aplicar(vehiculo);
         vehiculo.incrementarMovimientos(this.incremento);
+    }
+
+    public void aplicar(Jugador jugador) {
+        super.aplicar(jugador);
+        jugador.incrementarMovimientos(this.incremento);
     }
 }

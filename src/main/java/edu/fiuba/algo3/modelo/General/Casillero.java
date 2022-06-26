@@ -46,9 +46,15 @@ public class Casillero {
         return (this.ubicacion.equals(otraUbicacion));
     }
 
+    public void atravesar(Vehiculo vehiculo, Jugador jugador) {
+        vehiculo.atravesar(meta);
+        vehiculo.atravesar(sorpresa, jugador) ;
+        vehiculo.atravesar(obstaculo, jugador) ;
+    }
+
     public void atravesar(Vehiculo vehiculo) {
         vehiculo.atravesar(meta);
-        vehiculo.atravesar(sorpresa);
-        vehiculo.atravesar(obstaculo);
+        vehiculo.atravesar(sorpresa) ;
+        vehiculo.atravesar(obstaculo) ;
     }
 }

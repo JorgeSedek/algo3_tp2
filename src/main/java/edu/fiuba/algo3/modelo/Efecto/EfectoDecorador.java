@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Efecto;
 
+import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class EfectoDecorador implements Efecto {
@@ -11,5 +12,9 @@ public class EfectoDecorador implements Efecto {
 
     public void aplicar(Vehiculo vehiculo) {
         wrappee.aplicar(vehiculo);
+    }
+
+    public void aplicar(Jugador jugador) {
+        wrappee.aplicar(jugador);
     }
 }

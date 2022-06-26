@@ -23,7 +23,7 @@ public class PiqueteTest {
         Jugador jugador = new Jugador(nombre, moto);
         int cantidadMovimientos = 2;
 
-        moto.atravesar(piquete);
+        moto.atravesar(piquete, jugador);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }
@@ -36,7 +36,7 @@ public class PiqueteTest {
         Jugador jugador = new Jugador(nombre, auto);
         int cantidadMovimientos = 0;
 
-        auto.atravesar(piquete);
+        auto.atravesar(piquete, jugador);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }
@@ -49,7 +49,7 @@ public class PiqueteTest {
         Jugador jugador = new Jugador(nombre, camioneta);
         int cantidadMovimientos = 0;
 
-        camioneta.atravesar(piquete);
+        camioneta.atravesar(piquete, jugador);
 
         assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
     }

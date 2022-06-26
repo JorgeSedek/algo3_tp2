@@ -7,13 +7,11 @@ import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
-import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
@@ -45,7 +43,7 @@ public class GeneralTest {
         Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
         // Assert
-        assertTrue(auto.verificarMovimientos(4));
+        assertTrue(jugador1.verificarMovimiento(4));
 
     }
 
@@ -73,7 +71,7 @@ public class GeneralTest {
 
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
-        assertTrue(auto.verificarMovimientos(10));
+        assertTrue(jugador1.verificarMovimiento(10));
 
     }
 
@@ -97,7 +95,7 @@ public class GeneralTest {
 
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
-        assertTrue(auto.verificarMovimientos(15));
+        assertTrue(jugador1.verificarMovimiento(15));
 
     }
 
@@ -124,7 +122,7 @@ public class GeneralTest {
             Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
 
-        assertTrue(camioneta.verificarMovimientos(cantMovimientos));
+        assertTrue(jugador0.verificarMovimiento(cantMovimientos));
     }
 
     @Test
@@ -151,7 +149,7 @@ public class GeneralTest {
         }
 
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));
-        assertTrue(auto.verificarMovimientos(cantMovimientos));
+        assertTrue(jugador0.verificarMovimiento(cantMovimientos));
 
     }
 /*
