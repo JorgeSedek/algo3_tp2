@@ -13,14 +13,12 @@ public class Camioneta extends Vehiculo {
         this.pozos_atravesados = 0;
     }
 
-    public void atravesar(Obstaculo obstaculo) {
-        Efecto efectoAplicar = obstaculo.atravesar(this);
-        efectoAplicar.aplicar(this);
+    public Efecto atravesar(Obstaculo obstaculo, Efecto efecto) {
+        return obstaculo.atravesar(this, efecto);
     }
 
-    public void atravesar(Sorpresa sorpresa) {
-        Efecto efectoAplicar = sorpresa.atravesar(this);
-        efectoAplicar.aplicar(this);
+    public Efecto atravesar(Sorpresa sorpresa, Efecto efecto) {
+        return sorpresa.atravesar(this, efecto);
     }
 
     public boolean pasoLimitePozos() {

@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
 
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
+import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Math.IMath;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -7,14 +10,12 @@ import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.DisabledOnJre;
-import org.junit.jupiter.api.condition.EnabledOnJre;
-import org.junit.jupiter.api.condition.JRE;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class PoliciaTest {
+    String nombre = "Tomas";
     private int fila = 2;
     private int col = 2;
     private int cantidadMovimientosSiParan = 3;
@@ -29,9 +30,11 @@ public class PoliciaTest {
         IMath mathMock = mock(IMath.class);
         Obstaculo policia = new Policia(mathMock);
         Vehiculo moto = new Moto(ubicacionInicial);
+        Jugador jugador = new Jugador(nombre, moto);
+        Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomFallo);
-        moto.atravesar(policia);
-        assertTrue(moto.verificarMovimientos(cantidadMovimientosSiParan));
+        moto.atravesar(policia, efecto);
+        assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiParan));
     }
 
     @Test
@@ -39,9 +42,11 @@ public class PoliciaTest {
         IMath mathMock = mock(IMath.class);
         Obstaculo policia = new Policia(mathMock);
         Vehiculo moto = new Moto(ubicacionInicial);
+        Jugador jugador = new Jugador(nombre, moto);
+        Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomExito);
-        moto.atravesar(policia);
-        assertTrue(moto.verificarMovimientos(cantidadMovimientosSiNoParan));
+        moto.atravesar(policia, efecto);
+        assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
 
     @Test
@@ -49,9 +54,11 @@ public class PoliciaTest {
         IMath mathMock = mock(IMath.class);
         Obstaculo policia = new Policia(mathMock);
         Vehiculo auto = new Auto(ubicacionInicial);
+        Jugador jugador = new Jugador(nombre, auto);
+        Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomFallo);
-        auto.atravesar(policia);
-        assertTrue(auto.verificarMovimientos(cantidadMovimientosSiParan));
+        auto.atravesar(policia, efecto);
+        assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiParan));
     }
 
     @Test
@@ -59,9 +66,11 @@ public class PoliciaTest {
         IMath mathMock = mock(IMath.class);
         Obstaculo policia = new Policia(mathMock);
         Vehiculo auto = new Auto(ubicacionInicial);
+        Jugador jugador = new Jugador(nombre, auto);
+        Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomExito);
-        auto.atravesar(policia);
-        assertTrue(auto.verificarMovimientos(cantidadMovimientosSiNoParan));
+        auto.atravesar(policia, efecto);
+        assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
 
     @Test
@@ -69,9 +78,11 @@ public class PoliciaTest {
         IMath mathMock = mock(IMath.class);
         Obstaculo policia = new Policia(mathMock);
         Vehiculo camioneta = new Camioneta(ubicacionInicial);
+        Jugador jugador = new Jugador(nombre, camioneta);
+        Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomFallo);
-        camioneta.atravesar(policia);
-        assertTrue(camioneta.verificarMovimientos(cantidadMovimientosSiParan));
+        camioneta.atravesar(policia, efecto);
+        assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiParan));
     }
 
     @Test
@@ -79,8 +90,10 @@ public class PoliciaTest {
         IMath mathMock = mock(IMath.class);
         Obstaculo policia = new Policia(mathMock);
         Vehiculo camioneta = new Camioneta(ubicacionInicial);
+        Jugador jugador = new Jugador(nombre, camioneta);
+        Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomExito);
-        camioneta.atravesar(policia);
-        assertTrue(camioneta.verificarMovimientos(cantidadMovimientosSiNoParan));
+        camioneta.atravesar(policia, efecto);
+        assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
 }

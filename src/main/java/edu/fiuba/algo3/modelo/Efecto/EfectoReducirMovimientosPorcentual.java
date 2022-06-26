@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Efecto;
 
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.General.Jugador;
 
 public class EfectoReducirMovimientosPorcentual extends EfectoDecorador {
     private int porcentajeReduccion;
@@ -11,9 +11,9 @@ public class EfectoReducirMovimientosPorcentual extends EfectoDecorador {
     }
 
     @Override
-    public void aplicar(Vehiculo vehiculo) {
-        super.aplicar(vehiculo);
-        double reduccion = vehiculo.porcentajeMovimientos(this.porcentajeReduccion);
-        vehiculo.reducirMovimientos( (int) reduccion);
+    public void aplicar(Jugador jugador) {
+        super.aplicar(jugador);
+        double reduccion = jugador.porcentajeMovimientos(this.porcentajeReduccion);
+        jugador.reducirMovimientos( (int) reduccion);
     }
 }

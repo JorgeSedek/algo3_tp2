@@ -1,31 +1,34 @@
 package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 
 public class Jugador {
     private Vehiculo vehiculo;
     private final String nombre;
+    private int movimientos;
 
     public Jugador(String nombreJugador, Vehiculo vehiculoElegido){
         this.vehiculo = vehiculoElegido;
         this.nombre = nombreJugador;
+        this.movimientos = 0;
     }
 
-    public void incrementarMovimientos(int incremento){this.vehiculo.incrementarMovimientos(incremento);}
+    public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
 
-    public void disminuirMovimientos(int disminucion){this.vehiculo.reducirMovimientos(disminucion);}
-
-    public String obtenerNombre(){return this.nombre;}
+    public void reducirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
     public void moverVehiculo(Direccion direccion){
-        this.vehiculo.mover(direccion);
+        this.movimientos++;
+        Efecto efecto = this.vehiculo.mover(direccion);
+        efecto.aplicar(this);
     }
 
     // Se usa para tests
-    public boolean verificarMovimiento(int cantMovimientos){
-       return this.vehiculo.verificarMovimientos(cantMovimientos);
+    public boolean verificarMovimientos(int cantMovimientos){
+       return this.movimientos == cantMovimientos;
     }
 
     public void cambiarVehiculo(Vehiculo vehiculoNuevo){
@@ -42,24 +45,15 @@ public class Jugador {
         return new Puntaje(this);
     }
 
-    public Vehiculo obtenerVehiculo(){
-        return this.vehiculo;
+    public double porcentajeMovimientos(double porcentajeIncremento) {
+        return this.movimientos * porcentajeIncremento / 100;
     }
 
-    private String nombre(){
-       return this.nombre;
+    public String nombre() {
+        return this.nombre;
     }
 
-    private Vehiculo vehiculo(){
-        return this.vehiculo;
-    }
-
-    // Se usa para tests
-    public boolean equals(Jugador otroJugador){
-        return (this.nombre == otroJugador.nombre() & this.vehiculo == otroJugador.vehiculo());
-    }
-
-    public int obtenerMovimientos() {
-        return this.vehiculo.obtenerMovimientos();
+    public int movimientos() {
+        return this.movimientos;
     }
 }

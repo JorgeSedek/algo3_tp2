@@ -49,7 +49,6 @@ public class Entrega2Test {
         }
         // Realizo 6 movimientos
 
-        moto.atravesar(favorable);
 
         // Assert
         int movimientosEsperados = 10;
@@ -75,7 +74,6 @@ public class Entrega2Test {
         }
         // Realizo 12 movimientos
 
-        moto.atravesar(desfavorable);
 
         // Assert
         int movimientosEsperados = 15;
@@ -100,8 +98,6 @@ public class Entrega2Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        vehiculo.atravesar(cambioVehiculo);
-        jugador1.cambiarVehiculo(vehiculo.cambio());
 
         // Assert
         Vehiculo vehiculoEsperado = new Auto(ubicacion);
@@ -129,9 +125,6 @@ public class Entrega2Test {
         juego.moverVehiculo(new DireccionAbajo());
 
 
-       vehiculo.atravesar(cambioVehiculo);
-       jugador1.cambiarVehiculo(vehiculo.cambio());
-       jugador1.obtenerVehiculo().atravesar(piquete);
 
        // Assert
        int movimientosEsperados = 6;
@@ -161,9 +154,6 @@ public class Entrega2Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        for(int i=0; i<4; i++){
-            vehiculo.atravesar(pozo);
-        }
 
         // Assert
         int movimientosEsperados = 7;

@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.General.*;
 
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
@@ -37,9 +39,11 @@ public class Entrega1Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego juego = new Juego(jugadores);
         Obstaculo pozo = new Pozo();
+        Ubicacion ubicacionPozo = (new Ubicacion(fila, columna));
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
         int nuevaFila = 3;
         int nuevaColumna = 7;
-        Ubicacion nuevoUbicacion = (new Ubicacion(nuevaFila, nuevaColumna));
+        Ubicacion nuevoUbicacion = new Ubicacion(nuevaFila, nuevaColumna);
         int movimientosEsperados = 7;
 
         // Act
@@ -49,12 +53,11 @@ public class Entrega1Test {
         juego.moverVehiculo(new DireccionAbajo());
         Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPozo.asignarObstaculo(pozo);
-        moto.atravesar(casilleroConPozo);
 
         // Assert
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
         assertTrue(moto.verificarUbicacion(nuevoUbicacion));
-        assertTrue(jugador1.verificarMovimiento(movimientosEsperados));
+        assertTrue(jugador1.verificarMovimientos(movimientosEsperados));
 
     }
 
@@ -83,7 +86,6 @@ public class Entrega1Test {
 
         Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPozo.asignarObstaculo(pozo);
-        auto.atravesar(casilleroConPozo);
 
         // Assert
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
@@ -113,7 +115,6 @@ public class Entrega1Test {
 
         Casillero casilleroConPozo = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPozo.asignarObstaculo(pozo);
-        camioneta.atravesar(casilleroConPozo);
 
         // Assert
         assertTrue(camioneta.verificarUbicacion(nuevoUbicacion));
@@ -144,7 +145,6 @@ public class Entrega1Test {
 
         Casillero casilleroConPiquete = new Casillero(nuevaFila,nuevaColumna);
         casilleroConPiquete.asignarObstaculo(piquete);
-        moto.atravesar(casilleroConPiquete);
 
         // Assert
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
@@ -174,8 +174,6 @@ public class Entrega1Test {
         }
         juego.moverVehiculo(new DireccionAbajo());
 
-        moto.atravesar(pozo);
-        moto.atravesar(piquete);
 
         // Assert
         assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));

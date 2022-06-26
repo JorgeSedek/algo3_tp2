@@ -51,7 +51,7 @@ public class Juego {
 
     // Se usa para tests
     public boolean verificarMovJugadorActivo(int movimientosEsperados){
-        return (this.jugadorActivo.verificarMovimiento(movimientosEsperados));
+        return (this.jugadorActivo.verificarMovimientos(movimientosEsperados));
     }
 
     // Se usa para tests

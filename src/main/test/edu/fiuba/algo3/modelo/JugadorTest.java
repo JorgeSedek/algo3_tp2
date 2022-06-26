@@ -44,8 +44,8 @@ public class JugadorTest {
         Jugador jugador = new Jugador(nombre, auto);
         int movimentosIniciales = 0;
 
-        assertEquals(jugador.obtenerNombre(), nombre);
-        assertTrue(jugador.verificarMovimiento(movimentosIniciales));
+        assertEquals(jugador.nombre(), nombre);
+        assertTrue(jugador.verificarMovimientos(movimentosIniciales));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class JugadorTest {
 
         jugador.incrementarMovimientos(incremento);
 
-        assertTrue(jugador.verificarMovimiento(incremento));
+        assertTrue(jugador.verificarMovimientos(incremento));
     }
 
     @Test
@@ -70,9 +70,9 @@ public class JugadorTest {
         int totalMovimientos = incremento - reduccion;
 
         jugador.incrementarMovimientos(incremento);
-        jugador.disminuirMovimientos(reduccion);
+        jugador.reducirMovimientos(reduccion);
 
-        assertTrue(jugador.verificarMovimiento(totalMovimientos));
+        assertTrue(jugador.verificarMovimientos(totalMovimientos));
     }
 
 }

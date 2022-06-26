@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.SinObstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.SinSorpresa;
@@ -41,8 +43,10 @@ public class Casillero {
         return (this.ubicacion.equals(otraUbicacion));
     }
 
-    public void atravesar(Vehiculo vehiculo) {
-        vehiculo.atravesar(sorpresa);
-        vehiculo.atravesar(obstaculo);
+    public Efecto atravesar(Vehiculo vehiculo) {
+        Efecto efecto = new EfectoGeneral();
+        efecto = vehiculo.atravesar(sorpresa, efecto);
+        efecto = vehiculo.atravesar(obstaculo, efecto);
+        return efecto;
     }
 }

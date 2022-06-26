@@ -45,7 +45,7 @@ public class GeneralTest {
         juego.moverVehiculo(new DireccionDerecha());
 
         // Assert
-        assertTrue(auto.verificarMovimientos(4));
+        assertTrue(jugador1.verificarMovimientos(4));
 
     }
 
@@ -73,7 +73,7 @@ public class GeneralTest {
 
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
-        assertTrue(auto.verificarMovimientos(10));
+        assertTrue(jugador1.verificarMovimientos(10));
 
     }
 
@@ -97,7 +97,7 @@ public class GeneralTest {
 
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
-        assertTrue(auto.verificarMovimientos(15));
+        assertTrue(jugador1.verificarMovimientos(15));
 
     }
 
@@ -124,7 +124,7 @@ public class GeneralTest {
             juego.moverVehiculo(new DireccionDerecha());
         }
 
-        assertTrue(camioneta.verificarMovimientos(cantMovimientos));
+        assertTrue(jugador0.verificarMovimientos(cantMovimientos));
     }
 
     @Test
@@ -151,7 +151,7 @@ public class GeneralTest {
         }
 
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));
-        assertTrue(auto.verificarMovimientos(cantMovimientos));
+        assertTrue(jugador0.verificarMovimientos(cantMovimientos));
 
     }
 /*

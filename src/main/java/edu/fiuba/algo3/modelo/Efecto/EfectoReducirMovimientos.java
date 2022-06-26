@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Efecto;
 
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.General.Jugador;
 
 public class EfectoReducirMovimientos extends EfectoDecorador {
     private int reduccion;
@@ -11,8 +11,8 @@ public class EfectoReducirMovimientos extends EfectoDecorador {
     }
 
     @Override
-    public void aplicar(Vehiculo vehiculo) {
-        super.aplicar(vehiculo);
-        vehiculo.reducirMovimientos(this.reduccion);
+    public void aplicar(Jugador jugador) {
+        super.aplicar(jugador);
+        jugador.reducirMovimientos(this.reduccion);
     }
 }

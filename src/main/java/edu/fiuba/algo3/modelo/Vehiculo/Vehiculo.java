@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
@@ -10,52 +11,21 @@ import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 public abstract class Vehiculo {
     protected Ubicacion ubicacion;
-    protected int movimientos;
-    protected Vehiculo cambio;
 
     public Vehiculo(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
-        this.movimientos = 0;
     }
 
-    public abstract void atravesar(Obstaculo obstaculo);
+    public abstract Efecto atravesar(Obstaculo obstaculo, Efecto efecto);
 
-    public abstract void atravesar(Sorpresa sorpresa);
+    public abstract Efecto atravesar(Sorpresa sorpresa, Efecto efecto);
 
-    public void atravesar(Casillero casillero){
-        casillero.atravesar(this);
-    }
-
-    public double porcentajeMovimientos(double porcentaje) {
-        return this.movimientos * porcentaje / 100;
-    }
-
-    public void mover(Direccion direccion) {
-        this.movimientos++;
+    public Efecto mover(Direccion direccion) {
         direccion.mover(ubicacion);
         Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
-        this.atravesar(nuevoCasillero);
         direccion.mover(ubicacion);
-    }
-
-    public void incrementarMovimientos(int incremento){this.movimientos += incremento;}
-
-    public void reducirMovimientos(int disminucion){this.movimientos -= disminucion;}
-
-    // Metodo para tests
-    public boolean verificarMovimientos(int cantMovimientos){
-        return (this.movimientos == cantMovimientos);
-    }
-
-    public void establecerCambio(Vehiculo vehiculo){
-        this.cambio = vehiculo;
-    }
-    public Vehiculo cambio() {
-        return this.cambio;
-    }
-
-    public int obtenerMovimientos() {
-        return this.movimientos;
+        Efecto efecto = nuevoCasillero.atravesar(this);
+        return efecto;
     }
 
     public Ubicacion ubicacion() {

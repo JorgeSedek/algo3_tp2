@@ -23,29 +23,28 @@ public class Policia implements Obstaculo {
         this.random = null;
     }
 
-    public Efecto atravesar(Auto auto) {
+    public Efecto atravesar(Auto auto, Efecto efecto) {
         double probabilidadParo = 0.5;
         this.probabilidad = this.random.random();
-        return this.calcularEfecto(probabilidadParo, probabilidad);
+        return this.calcularEfecto(probabilidadParo, probabilidad, efecto);
     }
 
-    public Efecto atravesar(Camioneta camioneta) {
+    public Efecto atravesar(Camioneta camioneta, Efecto efecto) {
         double probabilidadParo = 0.3;
         this.probabilidad = this.random.random();
-        return this.calcularEfecto(probabilidadParo, probabilidad);
+        return this.calcularEfecto(probabilidadParo, probabilidad, efecto);
     }
 
-    public Efecto atravesar(Moto moto) {
+    public Efecto atravesar(Moto moto, Efecto efecto) {
         double probabilidadParo = 0.8;
         this.probabilidad = this.random.random();
-        return this.calcularEfecto(probabilidadParo, probabilidad) ;
+        return this.calcularEfecto(probabilidadParo, probabilidad, efecto) ;
     }
 
-    private Efecto calcularEfecto(double probabilidadParo, double probabilidad){
+    private Efecto calcularEfecto(double probabilidadParo, double probabilidad, Efecto efecto){
         if(probabilidad <= probabilidadParo) {
-            Efecto efecto = new EfectoGeneral();
             return new EfectoIncrementarMovimientos(efecto, incremento);
         }
-        return new EfectoGeneral();
+        return efecto;
     }
 }

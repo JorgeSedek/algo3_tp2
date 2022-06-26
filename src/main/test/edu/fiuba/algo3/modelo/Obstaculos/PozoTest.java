@@ -23,9 +23,8 @@ public class PozoTest {
 		Jugador jugador = new Jugador(nombre, auto);
 		int cantidadMovimientos = 3;
 
-		auto.atravesar(pozo);
 
-		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+		assertTrue(jugador.verificarMovimientos(cantidadMovimientos));
 	}
 	
 	@Test
@@ -36,9 +35,8 @@ public class PozoTest {
 		Jugador jugador = new Jugador(nombre, moto);
 		int cantidadMovimientos = 3;
 
-		moto.atravesar(pozo);
 
-		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+		assertTrue(jugador.verificarMovimientos(cantidadMovimientos));
 	}
 	
 	@Test
@@ -49,9 +47,8 @@ public class PozoTest {
 		Jugador jugador = new Jugador(nombre, camioneta);
 		int cantidadMovimientos = 0;
 
-		camioneta.atravesar(pozo);
 
-		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+		assertTrue(jugador.verificarMovimientos(cantidadMovimientos));
 	}
 
 	@Test
@@ -62,10 +59,7 @@ public class PozoTest {
 		Jugador jugador = new Jugador(nombre, camioneta);
 		int cantidadMovimientos = 3;
 
-		for(int i = 1; i <= 4; i++) {
-			camioneta.atravesar(pozo);
-		}
 
-		assertTrue(jugador.verificarMovimiento(cantidadMovimientos));
+		assertTrue(jugador.verificarMovimientos(cantidadMovimientos));
 	}
 }
