@@ -152,6 +152,35 @@ public class GeneralTest {
         assertTrue(jugador0.verificarMovimientos(cantMovimientos));
     }
 
+    @Test
+    public void unAutoPasaPorUnCasilleroQueTieneUnPozoYUnaSorpresaDesfavorable(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo auto = new Auto(ubicacion);
+        Jugador jugador = new Jugador(nombre, auto);
+        int movimientosEsperados = 13;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Sorpresa sorpresaDesfavorable = new Desfavorable();
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,17);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDesfavorable);
+        Pozo pozo = new Pozo();
+        Ubicacion ubicacionPozo = new Ubicacion(2,17);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
+
+        for(int i=0; i<8; i++){
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        }
+        //2-16 7 mov
+        //2-17 8 mov (se encuentra con la sorpresa y el obstaculo)
+        //2-18 (8 mov + 8 mov * 0.25 + 3) = 13
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));
+        assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+
 /*    @Test
     void UnaCamionetaPasaPorUnCambioDeVehiculoYJustoDespuesPorUnPiqueteDeberiaPoderPasarloYTener2Movimientos() {
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
