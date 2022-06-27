@@ -28,8 +28,8 @@ public abstract class Vehiculo {
 
     public abstract Efecto atravesar(Sorpresa sorpresa, Efecto efecto);
 
-    public Efecto atravesar(Meta meta, Efecto efectoInicial) {
-        return meta.atravesar(this, efectoInicial);
+    public Efecto atravesar(Meta meta, Efecto efecto) {
+        return meta.atravesar(this, efecto);
     }
 
     public Efecto mover(Direccion direccion) {
