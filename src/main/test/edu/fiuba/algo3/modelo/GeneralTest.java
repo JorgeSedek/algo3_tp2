@@ -14,6 +14,7 @@ import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
@@ -181,6 +182,78 @@ public class GeneralTest {
         // Notamos que primero se aplico la sorpresa y despues el obstaculo, sino los movimientos serian 15
 
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,20)));
+        assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+
+    @Test
+    public void unAutoIntentaPasarPorUnCasilleroQueTieneUnPiqueteNoDeberiaPoderPasar(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo auto = new Auto(ubicacion);
+        Jugador jugador = new Jugador(nombre, auto);
+        int movimientosEsperados = 9;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Piquete piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(2,19);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        for(int i=0; i<9; i++){
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        }
+
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));
+        assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+
+    @Test
+    public void unaCamionetaIntentaPasarPorUnCasilleroQueTieneUnPiqueteNoDeberiaPoderPasar(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador = new Jugador(nombre, camioneta);
+        int movimientosEsperados = 9;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Piquete piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(2,19);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        for(int i=0; i<9; i++){
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        }
+
+        assertTrue(camioneta.verificarUbicacion(new Ubicacion(2,18)));
+        assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+
+    @Test
+    public void unaMotoIntentaPasarPorUnCasilleroQueTieneUnPiqueteDeberiaPoderPasarYRecibirPenalizacion(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo moto = new Moto(ubicacion);
+        Jugador jugador = new Jugador(nombre, moto);
+        int movimientosEsperados = 11;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Piquete piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(2,19);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        for(int i=0; i<9; i++){
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        }
+
+        assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
     }
 
