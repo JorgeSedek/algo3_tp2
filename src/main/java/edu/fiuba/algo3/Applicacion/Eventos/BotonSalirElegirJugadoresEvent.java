@@ -1,0 +1,19 @@
+package edu.fiuba.algo3.Applicacion.Eventos;
+
+import edu.fiuba.algo3.Applicacion.App;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
+public class BotonSalirElegirJugadoresEvent implements EventHandler<ActionEvent> {
+
+    private App app;
+
+    public BotonSalirElegirJugadoresEvent(App app){
+        this.app = app;
+    }
+
+    public void handle(ActionEvent actionEvent){
+        this.app.start(this.app.getStage());
+    }
+
+}
