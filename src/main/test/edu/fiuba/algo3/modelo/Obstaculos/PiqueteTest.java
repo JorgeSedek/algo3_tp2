@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Obstaculos;
 
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -21,6 +23,11 @@ public class PiqueteTest {
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
+        Efecto efecto = new EfectoGeneral();
+
+        efecto = moto.atravesar(piquete, efecto);
+        efecto.aplicar(jugador);
+
         int cantidadMovimientos = 2;
 
         assertTrue(jugador.verificarMovimientos(cantidadMovimientos));
@@ -32,8 +39,12 @@ public class PiqueteTest {
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
-        int cantidadMovimientos = 0;
+        Efecto efecto = new EfectoGeneral();
 
+        efecto = auto.atravesar(piquete, efecto);
+        efecto.aplicar(jugador);
+
+        int cantidadMovimientos = 0;
 
         assertTrue(jugador.verificarMovimientos(cantidadMovimientos));
     }
@@ -44,8 +55,12 @@ public class PiqueteTest {
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador = new Jugador(nombre, camioneta);
-        int cantidadMovimientos = 0;
+        Efecto efecto = new EfectoGeneral();
 
+        efecto = camioneta.atravesar(piquete, efecto);
+        efecto.aplicar(jugador);
+
+        int cantidadMovimientos = 0;
 
         assertTrue(jugador.verificarMovimientos(cantidadMovimientos));
     }

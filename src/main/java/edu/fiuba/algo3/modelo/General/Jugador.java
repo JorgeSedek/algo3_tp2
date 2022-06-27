@@ -20,6 +20,10 @@ public class Jugador {
 
     public void reducirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
+    public double porcentajeMovimientos(double porcentaje) {
+        return this.movimientos * porcentaje / 100;
+    }
+
     public void moverVehiculo(Direccion direccion){
         this.movimientos++;
         Efecto efecto = this.vehiculo.mover(direccion);
@@ -27,8 +31,8 @@ public class Jugador {
     }
 
     // Se usa para tests
-    public boolean verificarMovimientos(int cantMovimientos){
-       return this.movimientos == cantMovimientos;
+    public boolean verificarMovimientos(int cantMovimientos) {
+        return this.movimientos == cantMovimientos;
     }
 
     public void cambiarVehiculo(Vehiculo vehiculoNuevo){
@@ -43,10 +47,6 @@ public class Jugador {
 
     public Puntaje obtenerPuntaje() {
         return new Puntaje(this);
-    }
-
-    public double porcentajeMovimientos(double porcentajeIncremento) {
-        return this.movimientos * porcentajeIncremento / 100;
     }
 
     public String nombre() {

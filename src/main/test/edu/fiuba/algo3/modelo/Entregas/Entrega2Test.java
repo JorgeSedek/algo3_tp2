@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Entregas;
 
-
 import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
+import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.*;
 
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
@@ -26,8 +26,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Entrega2Test {
     private String nombre = "Tomas";
-    private int fila = 1;
-    private int columna = 1;
+    private int fila = 2;
+    private int columna = 2;
     private int totalFilas = 20;
     private int totalColumnas = 20;
 
@@ -37,23 +37,24 @@ public class Entrega2Test {
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador1 = new Jugador(nombre, moto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
-
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
+
         Sorpresa favorable = new Favorable();
+        Ubicacion ubicacionFavorable = (new Ubicacion(13, 14));
+        Escenario.getInstance().agregarSorpresaEn(ubicacionFavorable, favorable);
 
         // Act
         for (int i = 0; i < 6; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
-            juego.moverVehiculo(new DireccionAbajo());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionAbajo());
         }
-        // Realizo 6 movimientos
-
+        // Realizo 12 movimientos
 
         // Assert
         int movimientosEsperados = 10;
 
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(jugador1.verificarMovimientos(movimientosEsperados));
     }
 
     @Test
@@ -62,23 +63,24 @@ public class Entrega2Test {
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador1 = new Jugador(nombre, moto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
-
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
+
         Sorpresa desfavorable = new Desfavorable();
+        Ubicacion ubicacionDesfavorable = (new Ubicacion(13, 14));
+        Escenario.getInstance().agregarSorpresaEn(ubicacionDesfavorable, desfavorable);
 
         // Act
         for (int i = 0; i < 6; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
-            juego.moverVehiculo(new DireccionAbajo());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionAbajo());
         }
         // Realizo 12 movimientos
-
 
         // Assert
         int movimientosEsperados = 15;
 
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(Juego.getInstance().verificarMovJugadorActivo(movimientosEsperados));
     }
 
     @Test
@@ -87,17 +89,18 @@ public class Entrega2Test {
         Vehiculo vehiculo = new Moto(ubicacion);
         Jugador jugador1 = new Jugador(nombre, vehiculo);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
-
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
+
         Sorpresa cambioVehiculo = new CambioVehiculo();
+        Ubicacion ubicacionCambioV = (new Ubicacion(2, 3));
+        Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
 
         // Act
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        juego.moverVehiculo(new DireccionAbajo());
-
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
 
         // Assert
         Vehiculo vehiculoEsperado = new Auto(ubicacion);
@@ -107,35 +110,35 @@ public class Entrega2Test {
 
    @Test
     public void UnaCamionetaSeEncuentraConSorpresaCambioDeVehiculoYUnPiqueteDeberiaPoderPasarElPiqueteYTener6Movimientos(){
-
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo vehiculo = new Camioneta(ubicacion);
         Jugador jugador1 = new Jugador(nombre, vehiculo);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
-
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
+
         Sorpresa cambioVehiculo = new CambioVehiculo();
+        Ubicacion ubicacionCambioV = (new Ubicacion(2, 3));
+        Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
+
         Obstaculo piquete = new Piquete();
+        Ubicacion ubicacionPiquete = (new Ubicacion(2, 5));
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
 
         // Act
         for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        juego.moverVehiculo(new DireccionAbajo());
-
-
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
 
        // Assert
        int movimientosEsperados = 6;
-
-       int fila = 3;
-       int columna = 7;
-
+       int fila = 4;
+       int columna = 8;
        Vehiculo vehiculoEsperado = new Moto((new Ubicacion(fila,columna)));
 
        assertTrue(jugador1.mismoVehiculo(vehiculoEsperado));
-       assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+       assertTrue(jugador1.verificarMovimientos(movimientosEsperados));
     }
     @Test
     public void UnaCamionetaSeMueve4VecesPorLaCiudadYSeEncuentra4VecesConPozoDeberiaTener7Movimientos(){
@@ -143,21 +146,22 @@ public class Entrega2Test {
         Vehiculo vehiculo = new Camioneta(ubicacion);
         Jugador jugador1 = new Jugador(nombre, vehiculo);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
-
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
+
         Obstaculo pozo = new Pozo();
+        Ubicacion ubicacionPozo = (new Ubicacion(2, 3));
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
 
         // Act
-        for (int i = 0; i < 3; i++) {
-            juego.moverVehiculo(new DireccionDerecha());
+        for (int i = 0; i < 2; i++) {
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionIzquierda());
         }
-        juego.moverVehiculo(new DireccionAbajo());
-
 
         // Assert
         int movimientosEsperados = 7;
 
-        assertTrue(juego.verificarMovJugadorActivo(movimientosEsperados));
+        assertTrue(jugador1.verificarMovimientos(movimientosEsperados));
     }
 }

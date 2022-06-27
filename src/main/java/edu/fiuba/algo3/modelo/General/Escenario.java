@@ -13,10 +13,7 @@ public class Escenario {
 	private int columnas;
 	private ColocadorItems colocador;
 	private ArrayList<Casillero> casilleros;
-
 	private static Escenario INSTANCE = null;
-
-	//private ArrayList<Calle> calle;
 
 	private Escenario(int filas, int columnas) {
 		this.filas = filas;

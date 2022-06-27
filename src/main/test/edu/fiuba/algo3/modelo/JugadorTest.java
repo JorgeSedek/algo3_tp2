@@ -14,30 +14,6 @@ public class JugadorTest {
     private int columna = 1;
 
     @Test
-    public void seComparanDosJUgadoresYsonElmismo(){
-        String nombre2 = nombre;
-        Ubicacion ubicacion = (new Ubicacion(fila, columna));
-        Vehiculo auto = new Auto(ubicacion);
-        Vehiculo auto2 = auto;
-        Jugador jugador = new Jugador(nombre, auto);
-        Jugador jugador2 = new Jugador(nombre2, auto2);
-
-        assertTrue(jugador.equals(jugador2));
-    }
-
-    @Test
-    public void seComparanDosJUgadoresYNosonElmismo(){
-        String nombre2 = "Jorge";
-        Ubicacion ubicacion = (new Ubicacion(fila, columna));
-        Vehiculo auto = new Auto(ubicacion);
-        Vehiculo auto2 = auto;
-        Jugador jugador = new Jugador(nombre, auto);
-        Jugador jugador2 = new Jugador(nombre2, auto2);
-
-        assertFalse(jugador.equals(jugador2));
-    }
-
-    @Test
     public void seCreaUnJugadorDeberiaDevolverElNombreYSusMovimientosCorrectamente(){
         Ubicacion ubicacion = (new Ubicacion(fila, columna));
         Vehiculo auto = new Auto(ubicacion);

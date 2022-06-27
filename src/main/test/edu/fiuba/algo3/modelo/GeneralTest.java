@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
@@ -13,7 +14,6 @@ import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
@@ -36,17 +36,17 @@ public class GeneralTest {
         Jugador jugador1 = new Jugador(nombre, auto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
-        // Act
         Pozo pozo = new Pozo();
         Ubicacion ubicacionPozo = new Ubicacion(2,3);
         Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
-        juego.moverVehiculo(new DireccionDerecha());
+
+        // Act
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
         // Assert
         assertTrue(jugador1.verificarMovimientos(4));
-
     }
 
     @Test
@@ -56,7 +56,7 @@ public class GeneralTest {
         Jugador jugador1 = new Jugador(nombre, auto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         // Act
         Sorpresa sorpresaFavorable = new Favorable();
@@ -65,7 +65,7 @@ public class GeneralTest {
 
 
         for (int i = 0; i < 12; i++) {
-            juego.moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
+            Juego.getInstance().moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
         }
 
         // Al momento de pasar por la sorpresa, tiene 11 movimientos, luego de aplicarse tiene 9
@@ -74,7 +74,6 @@ public class GeneralTest {
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
         assertTrue(jugador1.verificarMovimientos(10));
-
     }
 
     @Test
@@ -84,7 +83,7 @@ public class GeneralTest {
         Jugador jugador1 = new Jugador(nombre, auto);
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         // Act
         Sorpresa sorpresaDesfavorable = new Desfavorable();
@@ -92,13 +91,12 @@ public class GeneralTest {
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDesfavorable);
 
         for (int i = 0; i < 12; i++) {
-            juego.moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
+            Juego.getInstance().moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
         }
 
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
         assertTrue(jugador1.verificarMovimientos(15));
-
     }
 
     @Test
@@ -111,7 +109,7 @@ public class GeneralTest {
             {add(jugador0);}
         };
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         Sorpresa sorpresaDes = new Desfavorable();
         Ubicacion ubicacionSorpresa = new Ubicacion(2,15);
@@ -121,7 +119,7 @@ public class GeneralTest {
         Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
 
         for(int i=0; i<12; i++){
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
 
         assertTrue(jugador0.verificarMovimientos(cantMovimientos));
@@ -137,7 +135,7 @@ public class GeneralTest {
             {add(jugador0);}
         };
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
         Sorpresa sorpresaDes1 = new Desfavorable();
         Ubicacion ubicacionSorpresa1 = new Ubicacion(2,17);
@@ -147,70 +145,58 @@ public class GeneralTest {
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa2, sorpresaDes2);
 
         for(int i=0; i<8; i++){
-            juego.moverVehiculo(new DireccionDerecha());
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
 
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));
         assertTrue(jugador0.verificarMovimientos(cantMovimientos));
-
     }
-/*
+
+/*    @Test
+    void UnaCamionetaPasaPorUnCambioDeVehiculoYJustoDespuesPorUnPiqueteDeberiaPoderPasarloYTener2Movimientos() {
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, camioneta);
+        int cantMovimientos = 3;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador0);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Ubicacion ubicacionCambioV = new Ubicacion(2,3);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
+        Obstaculo piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(2,3);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
+
+        assertTrue(jugador0.verificarMovimientos(cantMovimientos));
+    }
+
     @Test
     public void SeAgregaUnCambioVehiculoYUnPozoYAutoPasaPorLosDos(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
-        Vehiculo vehiculo = new Auto(ubicacion);
-        Jugador jugador0 = new Jugador(nombre, vehiculo);
-        int cantMovimientos = 8;
+        Vehiculo auto = new Camioneta(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, auto);
+        int cantMovimientos = 3;
         List<Jugador> jugadores = new ArrayList<>(){
             {add(jugador0);}
         };
         Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
+        Juego.resetInstance(jugadores);
 
-        Sorpresa cambioTransp = new CambioVehiculo();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,3);
-        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, cambioTransp);
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Ubicacion ubicacionCambioV = new Ubicacion(2,3);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
         Obstaculo pozo = new Pozo();
-        Ubicacion ubicacionObstaculo = new Ubicacion(2,5);
-        Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
+        Ubicacion ubicacionPozo = new Ubicacion(2,3);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
 
-        for(int i=0; i<8; i++){
-            juego.moverVehiculo(new DireccionDerecha());
-        }
-        // Deberia ser 8 porque auto a cambiar a camioneta no le afecta el pozo
-        assertTrue(vehiculo.verificarUbicacion(new Ubicacion(2,10)));
-        assertTrue(vehiculo.verificarMovimientos(cantMovimientos));
-    }
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
-    @Test
-    public void SeAgregaUnCambioVehiculoYUnPozoYCamionetaPasaPorLosDos(){
-        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
-        Vehiculo vehiculo = new Camioneta(ubicacion);
-        Jugador jugador0 = new Jugador(nombre, vehiculo);
-        int cantMovimientos = 11;
-        List<Jugador> jugadores = new ArrayList<>(){
-            {add(jugador0);}
-        };
-        Escenario.resetInstance(totalFilas, totalColumnas);
-        Juego juego = new Juego(jugadores);
-
-        Sorpresa cambioTransp = new CambioVehiculo();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,3);
-        Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, cambioTransp);
-        Obstaculo pozo = new Pozo();
-        Ubicacion ubicacionObstaculo = new Ubicacion(2,5);
-        Escenario.getInstance().agregarObstaculoEn(ubicacionObstaculo, pozo);
-
-
-        for(int i=0; i<8; i++){
-            juego.moverVehiculo(new DireccionDerecha());
-        }
-        Vehiculo vehiculo1 = new Moto(vehiculo.ubicacion());
-
-        // Deberia ser 11 porque la camioneta se cambia a moto y moto al pasar por pozo se le suma 3 movimientos
-        assertTrue(vehiculo.verificarUbicacion(new Ubicacion(2,10)));
-        //assertTrue(vehiculo.verificarMovimientos(cantMovimientos));
-        assertTrue(jugador0.mismoVehiculo(vehiculo));
-    }
-*/
+        assertTrue(jugador0.verificarMovimientos(cantMovimientos));
+    }*/
 }

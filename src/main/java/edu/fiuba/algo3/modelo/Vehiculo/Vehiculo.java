@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Efecto.Efecto;
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
@@ -20,6 +21,10 @@ public abstract class Vehiculo {
 
     public abstract Efecto atravesar(Sorpresa sorpresa, Efecto efecto);
 
+    public void atravesar(Meta meta) {
+        meta.atravesar(this);
+    }
+
     public Efecto mover(Direccion direccion) {
         direccion.mover(ubicacion);
         Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
@@ -28,15 +33,11 @@ public abstract class Vehiculo {
         return efecto;
     }
 
-    public Ubicacion ubicacion() {
-        return this.ubicacion;
-    }
-
     public boolean verificarUbicacion(Ubicacion ubicacion) {
         return this.ubicacion.equals(ubicacion);
     }
 
-    public Casillero casillero(){
-        return new Casillero(ubicacion);
+    public Ubicacion ubicacion() {
+        return this.ubicacion;
     }
 }
