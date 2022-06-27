@@ -8,13 +8,13 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 public class Piquete implements Obstaculo {
     public Efecto atravesar(Auto auto, Efecto efecto) {
         // No deberia poder pasar
-        return new EfectoMoverAlrevez(new EfectoMoverMismaDireccion(efecto),auto);
+        return new EfectoMoverAlReves(new EfectoMoverMismaDireccion(efecto),auto);
 
     }
 
     public Efecto atravesar(Camioneta camioneta, Efecto efecto) {
         // No deberia poder pasar
-        return new EfectoMoverAlrevez(new EfectoMoverMismaDireccion(efecto),camioneta);
+        return new EfectoMoverAlReves(new EfectoMoverMismaDireccion(efecto),camioneta);
 
     }
 

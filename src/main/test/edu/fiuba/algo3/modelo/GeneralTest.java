@@ -179,7 +179,7 @@ public class GeneralTest {
         // 2-19 9 mov (se encuentra con la sorpresa y el obstaculo)
         // 2-20 (9 mov + 9 mov * 0.25 + 3) = 14
         // Notamos que primero se aplico la sorpresa y despues el obstaculo, sino los movimientos serian 15
-        
+
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,20)));
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
     }
