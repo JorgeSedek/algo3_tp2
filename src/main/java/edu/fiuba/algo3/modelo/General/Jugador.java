@@ -30,6 +30,10 @@ public class Jugador {
         efecto.aplicar(this);
     }
 
+    public void moverVehiculoSinItems(){
+        this.vehiculo.moverSinItems();
+    }
+
     // Se usa para tests
     public boolean verificarMovimientos(int cantMovimientos) {
         return this.movimientos == cantMovimientos;
@@ -55,5 +59,9 @@ public class Jugador {
 
     public int movimientos() {
         return this.movimientos;
+    }
+
+    public boolean verificarUbicacion(Ubicacion ubicacion){
+        return this.vehiculo.verificarUbicacion(ubicacion);
     }
 }
