@@ -47,7 +47,8 @@ public class Casillero {
         Efecto efecto = new EfectoGeneral();
         efecto = vehiculo.atravesar(sorpresa, efecto);
         efecto = vehiculo.atravesar(obstaculo, efecto);
-        //efecto = vehiculo.atravesar(meta, efecto);
+        efecto = vehiculo.atravesar(meta, efecto);
+
         return efecto;
     }
 }

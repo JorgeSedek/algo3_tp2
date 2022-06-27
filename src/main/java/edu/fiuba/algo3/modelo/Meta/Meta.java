@@ -4,5 +4,5 @@ import edu.fiuba.algo3.modelo.Efecto.Efecto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public interface Meta {
-    Efecto atravesar(Vehiculo vehiculo);
+    Efecto atravesar(Vehiculo vehiculo, Efecto efecto);
 }
