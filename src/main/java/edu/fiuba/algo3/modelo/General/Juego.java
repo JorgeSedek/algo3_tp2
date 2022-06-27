@@ -62,6 +62,7 @@ public class Juego {
     // con los puntajes ya ordenados)
     private void mostrarTopPuntuaciones() {
 
+        System.out.println();
     }
 
 

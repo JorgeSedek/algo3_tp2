@@ -37,8 +37,8 @@ public abstract class Vehiculo {
         direccion.mover(ubicacion);
         Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
         direccion.mover(ubicacion);
-        Vehiculo vehiculo = this;
-        Efecto efecto = nuevoCasillero.atravesar(vehiculo);
+        Efecto efecto = nuevoCasillero.atravesar(this);
+
         return efecto;
     }
 
