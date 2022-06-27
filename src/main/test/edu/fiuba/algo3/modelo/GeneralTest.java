@@ -157,7 +157,7 @@ public class GeneralTest {
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);
-        int movimientosEsperados = 13;
+        int movimientosEsperados = 14;
         List<Jugador> jugadores = new ArrayList<>(){
             {add(jugador);}
         };
@@ -165,19 +165,22 @@ public class GeneralTest {
         Juego.resetInstance(jugadores);
 
         Sorpresa sorpresaDesfavorable = new Desfavorable();
-        Ubicacion ubicacionSorpresa = new Ubicacion(2,17);
+        Ubicacion ubicacionSorpresa = new Ubicacion(2,19);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDesfavorable);
         Pozo pozo = new Pozo();
-        Ubicacion ubicacionPozo = new Ubicacion(2,17);
+        Ubicacion ubicacionPozo = new Ubicacion(2,19);
         Escenario.getInstance().agregarObstaculoEn(ubicacionPozo, pozo);
 
-        for(int i=0; i<8; i++){
+        for(int i=0; i<9; i++){
             Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
-        //2-16 7 mov
-        //2-17 8 mov (se encuentra con la sorpresa y el obstaculo)
-        //2-18 (8 mov + 8 mov * 0.25 + 3) = 13
-        assertTrue(auto.verificarUbicacion(new Ubicacion(2,18)));
+
+        // 2-18 8 mov
+        // 2-19 9 mov (se encuentra con la sorpresa y el obstaculo)
+        // 2-20 (9 mov + 9 mov * 0.25 + 3) = 14
+        // Notamos que primero se aplico la sorpresa y despues el obstaculo, sino los movimientos serian 15
+        
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,20)));
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
     }
 
