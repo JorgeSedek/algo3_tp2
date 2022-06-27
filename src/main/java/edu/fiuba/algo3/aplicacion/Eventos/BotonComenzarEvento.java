@@ -1,8 +1,7 @@
-package edu.fiuba.algo3.Applicacion.Eventos;
+package edu.fiuba.algo3.aplicacion.Eventos;
 
-import edu.fiuba.algo3.Applicacion.App;
+import edu.fiuba.algo3.aplicacion.App;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 
 public class BotonComenzarEvento implements EventHandler<ActionEvent> {

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Applicacion.Eventos;
+package edu.fiuba.algo3.aplicacion.Eventos;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
