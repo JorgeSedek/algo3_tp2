@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
-
+/*
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
@@ -40,3 +40,4 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
     }
 }
+*/
