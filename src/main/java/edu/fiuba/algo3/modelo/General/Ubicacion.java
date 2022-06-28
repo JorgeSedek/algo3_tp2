@@ -14,15 +14,21 @@ public class Ubicacion {
 	public boolean equals(Ubicacion ubicacion) {
 		return (ubicacion.fila == this.fila & ubicacion.columna == this.columna);
 	}
-	/*
-	public boolean hayEdificio(){
+
+	// Es una EntreCalle si su fila y su columna es impar
+	public boolean hayEntrecalle(){
 		return (this.fila % 2 == 0 & this.columna % 2 == 0);
 	}
-	*/
 
-	// Es una calle si su fila o su columna es impar
-	public boolean hayCalle() {
-		return (this.fila % 2 == 1 || this.columna % 2 == 1);
+
+	// Es un edificio si su fila y su columna es impar
+	public boolean hayEdificio() {
+		return (this.fila % 2 == 1 & this.columna % 2 == 1);
+	}
+
+	// Es una calle si no es un edificio y nos es una entrecalle
+	public boolean hayCalle(){
+		return !(this.hayEntrecalle() || this.hayEdificio());
 	}
 
 	public void mover(DireccionAbajo direccion) {
