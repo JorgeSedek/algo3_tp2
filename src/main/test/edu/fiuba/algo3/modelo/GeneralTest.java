@@ -289,7 +289,7 @@ public class GeneralTest {
         List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
         Puntaje puntajeJugador = puntajes.get(0);
 
-        assertTrue(puntajes.size() == 1);
+        assertEquals(puntajes.size(), 1);
         assertEquals(puntajeJugador.obtenerNombreJugador(), nombre);
         assertEquals(puntajeJugador.obtenerPuntuacion(), movimientosEsperados);
 

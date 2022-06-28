@@ -34,4 +34,38 @@ public class UbicacionTest {
 
         assertFalse(primeraUbicacion.equals(segundaUbicacion));
     }
+
+    @Test
+    public void seVerificaQueUnaUbicacionQueRepresentaUnaCalleSeaUnaCalle(){
+        int filaCalle = 2;
+        int columnaCalle = 1;
+        Ubicacion ubicacion = new Ubicacion(filaCalle, columnaCalle);
+
+        assertTrue(ubicacion.hayCalle());
+        assertFalse(ubicacion.hayEdificio());
+        assertFalse(ubicacion.hayEntrecalle());
+    }
+
+    @Test
+    public void seVerificaQueUnaUbicaiconQueRepresentaUnaEntrecalleSeaUnaEntrecalle(){
+        int filaEntrecalle = 2;
+        int columnaEntrecalle = 2;
+        Ubicacion ubicacion = new Ubicacion(filaEntrecalle, columnaEntrecalle);
+
+        assertTrue(ubicacion.hayEntrecalle());
+        assertFalse(ubicacion.hayEdificio());
+        assertFalse(ubicacion.hayCalle());
+    }
+
+    @Test
+    public void seVerificaQueUnaUbicaiconQueRepresentaUnEdificioSeaUnEdificio(){
+        int filaEdificio = 1;
+        int columnaEdificio = 1;
+        Ubicacion ubicacion = new Ubicacion(filaEdificio, columnaEdificio);
+
+        assertTrue(ubicacion.hayEdificio());
+        assertFalse(ubicacion.hayEntrecalle());
+        assertFalse(ubicacion.hayCalle());
+    }
+
 }
