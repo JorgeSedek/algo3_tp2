@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.aplicacion;
 
+import edu.fiuba.algo3.aplicacion.Eventos.BotonAceptarEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
@@ -96,7 +97,10 @@ public class App extends Application {
         choiceBox.getItems().add(3);
         //choiceBox.getItems().addAll(1,2,3);
 
-        aceptar.setOnAction(e -> getChoice(choiceBox));
+        //aceptar.setOnAction(e -> getChoice(choiceBox));
+
+        BotonAceptarEvento accept = new BotonAceptarEvento(this, choiceBox);
+        aceptar.setOnAction(accept);
 
         StackPane.setAlignment(choiceBox, Pos.CENTER);
         StackPane.setAlignment(aceptar, Pos.CENTER);
@@ -123,7 +127,7 @@ public class App extends Application {
 
 
 
-    private void getChoice(ChoiceBox<Integer> choiceBox) {
+    public void getChoice(ChoiceBox<Integer> choiceBox) {
         int cant_jugadores = choiceBox.getValue();
         System.out.println(cant_jugadores);
     }
