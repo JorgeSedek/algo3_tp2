@@ -296,7 +296,7 @@ public class GeneralTest {
     }
 
     @Test
-    void UnaCamionetaPasaPorUnCambioDeVehiculoYJustoDespuesPorUnPiqueteDeberiaPoderPasarloYTener2Movimientos() {
+    public void UnaCamionetaPasaPorUnCambioDeVehiculoYJustoDespuesPorUnPiqueteDeberiaPoderPasarloYTener2Movimientos() {
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador0 = new Jugador(nombre, camioneta);
