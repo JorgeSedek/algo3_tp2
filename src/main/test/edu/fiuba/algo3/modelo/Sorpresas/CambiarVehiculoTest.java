@@ -25,7 +25,7 @@ public class CambiarVehiculoTest {
         Jugador jugador = new Jugador(nombre, moto);
         Efecto efecto = new EfectoGeneral();
 
-        efecto = moto.atravesar(cambioVehiculo, efecto);
+        efecto = moto.atravesar(cambioVehiculo);
         efecto.aplicar(jugador);
 
         Vehiculo vehiculoEsperado = new Auto(ubicacion);
@@ -40,7 +40,7 @@ public class CambiarVehiculoTest {
         Jugador jugador = new Jugador(nombre, auto);
         Efecto efecto = new EfectoGeneral();
 
-        efecto = auto.atravesar(cambioVehiculo, efecto);
+        efecto = auto.atravesar(cambioVehiculo);
         efecto.aplicar(jugador);
 
         Vehiculo vehiculoEsperado = new Camioneta(ubicacion);
@@ -55,7 +55,7 @@ public class CambiarVehiculoTest {
         Jugador jugador = new Jugador(nombre, camioneta);
         Efecto efecto = new EfectoGeneral();
 
-        efecto = camioneta.atravesar(cambioVehiculo, efecto);
+        efecto = camioneta.atravesar(cambioVehiculo);
         efecto.aplicar(jugador);
 
         Vehiculo vehiculoEsperado = new Moto(ubicacion);

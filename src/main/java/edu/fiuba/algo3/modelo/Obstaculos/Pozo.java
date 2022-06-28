@@ -11,23 +11,24 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 public class Pozo implements Obstaculo {
     private int incremento = 3;
 
-    public Efecto atravesar(Auto auto, Efecto efecto) {
-        return this.calcularEfecto(efecto);
+    public Efecto atravesar(Auto auto) {
+        return this.calcularEfecto();
     }
 
-    public Efecto atravesar(Camioneta camioneta, Efecto efecto) {
+    public Efecto atravesar(Camioneta camioneta) {
         camioneta.atravezoPozo();
         if(camioneta.pasoLimitePozos()) {
-            return this.calcularEfecto(efecto);
+            return this.calcularEfecto();
         }
-        return efecto;
+        return new EfectoGeneral();
     }
 
-    public Efecto atravesar(Moto moto, Efecto efecto) {
-        return this.calcularEfecto(efecto);
+    public Efecto atravesar(Moto moto) {
+        return this.calcularEfecto();
     }
 
-    private Efecto calcularEfecto(Efecto efecto) {
+    private Efecto calcularEfecto() {
+        Efecto efecto = new EfectoGeneral();
         return new EfectoIncrementarMovimientos(efecto, incremento);
     }
 }

@@ -29,7 +29,7 @@ public class FavorableTest {
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 0.8);
 
         jugador.incrementarMovimientos(cantidadMovimientosHechos);
-        efecto = moto.atravesar(favorable, efecto);
+        efecto = moto.atravesar(favorable);
         efecto.aplicar(jugador);
 
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosEsperados));
@@ -47,7 +47,7 @@ public class FavorableTest {
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 0.8);
 
         jugador.incrementarMovimientos(cantidadMovimientosHechos);
-        efecto = auto.atravesar(favorable, efecto);
+        efecto = auto.atravesar(favorable);
         efecto.aplicar(jugador);
 
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosEsperados));
@@ -65,7 +65,7 @@ public class FavorableTest {
         int cantidadMovimientosEsperados = (int) (cantidadMovimientosHechos * 0.8);
 
         jugador.incrementarMovimientos(cantidadMovimientosHechos);
-        efecto = camioneta.atravesar(favorable, efecto);
+        efecto = camioneta.atravesar(favorable);
         efecto.aplicar(jugador);
 
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosEsperados));

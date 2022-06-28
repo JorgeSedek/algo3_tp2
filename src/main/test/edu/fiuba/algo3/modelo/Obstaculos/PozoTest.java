@@ -24,7 +24,7 @@ public class PozoTest {
 		Vehiculo auto = new Auto(ubicacion);
 		Jugador jugador = new Jugador(nombre, auto);
 		Efecto efecto = new EfectoGeneral();
-		efecto = auto.atravesar(pozo, efecto);
+		efecto = auto.atravesar(pozo);
 		efecto.aplicar(jugador);
 		int cantidadMovimientos = 3;
 
@@ -38,7 +38,7 @@ public class PozoTest {
 		Vehiculo moto = new Moto(ubicacion);
 		Jugador jugador = new Jugador(nombre, moto);
 		Efecto efecto = new EfectoGeneral();
-		efecto = moto.atravesar(pozo, efecto);
+		efecto = moto.atravesar(pozo);
 		efecto.aplicar(jugador);
 		int cantidadMovimientos = 3;
 
@@ -52,7 +52,7 @@ public class PozoTest {
 		Vehiculo camioneta = new Camioneta(ubicacion);
 		Jugador jugador = new Jugador(nombre, camioneta);
 		Efecto efecto = new EfectoGeneral();
-		efecto = camioneta.atravesar(pozo, efecto);
+		efecto = camioneta.atravesar(pozo);
 		efecto.aplicar(jugador);
 		int cantidadMovimientos = 0;
 
@@ -67,7 +67,7 @@ public class PozoTest {
 		Jugador jugador = new Jugador(nombre, camioneta);
 		Efecto efecto = new EfectoGeneral();
 		for (int i = 0; i < 4; i++) {
-			efecto = camioneta.atravesar(pozo, efecto);
+			efecto = camioneta.atravesar(pozo);
 		}
 		efecto.aplicar(jugador);
 		int cantidadMovimientos = 3;

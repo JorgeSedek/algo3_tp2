@@ -33,7 +33,7 @@ public class PoliciaTest {
         Jugador jugador = new Jugador(nombre, moto);
         Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomFallo);
-        efecto = moto.atravesar(policia, efecto);
+        efecto = moto.atravesar(policia);
         efecto.aplicar(jugador);
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiParan));
     }
@@ -46,7 +46,7 @@ public class PoliciaTest {
         Jugador jugador = new Jugador(nombre, moto);
         Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomExito);
-        efecto = moto.atravesar(policia, efecto);
+        efecto = moto.atravesar(policia);
         efecto.aplicar(jugador);
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
@@ -59,7 +59,7 @@ public class PoliciaTest {
         Jugador jugador = new Jugador(nombre, auto);
         Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomFallo);
-        efecto = auto.atravesar(policia, efecto);
+        efecto = auto.atravesar(policia);
         efecto.aplicar(jugador);
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiParan));
     }
@@ -72,7 +72,7 @@ public class PoliciaTest {
         Jugador jugador = new Jugador(nombre, auto);
         Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomExito);
-        efecto = auto.atravesar(policia, efecto);
+        efecto = auto.atravesar(policia);
         efecto.aplicar(jugador);
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiNoParan));
     }
@@ -85,7 +85,7 @@ public class PoliciaTest {
         Jugador jugador = new Jugador(nombre, camioneta);
         Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomFallo);
-        efecto = camioneta.atravesar(policia, efecto);
+        efecto = camioneta.atravesar(policia);
         efecto.aplicar(jugador);
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiParan));
     }
@@ -98,7 +98,7 @@ public class PoliciaTest {
         Jugador jugador = new Jugador(nombre, camioneta);
         Efecto efecto = new EfectoGeneral();
         when(mathMock.random()).thenReturn(randomExito);
-        efecto = camioneta.atravesar(policia, efecto);
+        efecto = camioneta.atravesar(policia);
         efecto.aplicar(jugador);
         assertTrue(jugador.verificarMovimientos(cantidadMovimientosSiNoParan));
     }

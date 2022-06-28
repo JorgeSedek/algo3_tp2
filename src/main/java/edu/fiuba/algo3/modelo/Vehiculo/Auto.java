@@ -10,12 +10,12 @@ public class Auto extends Vehiculo {
         super(ubicacion);
     }
 
-    public Efecto atravesar(Obstaculo obstaculo, Efecto efectoInicial) {
-        return obstaculo.atravesar(this, efectoInicial);
+    public Efecto atravesar(Obstaculo obstaculo) {
+        return obstaculo.atravesar(this);
     }
 
-    public Efecto atravesar(Sorpresa sorpresa, Efecto efectoInicial) {
-        return sorpresa.atravesar(this, efectoInicial);
+    public Efecto atravesar(Sorpresa sorpresa) {
+        return sorpresa.atravesar(this);
     }
 }
 

@@ -10,11 +10,11 @@ public class Moto extends Vehiculo {
         super(ubicacion);
     }
 
-    public Efecto atravesar(Obstaculo obstaculo, Efecto efecto) {
-        return obstaculo.atravesar(this, efecto);
+    public Efecto atravesar(Obstaculo obstaculo) {
+        return obstaculo.atravesar(this);
     }
 
-    public Efecto atravesar(Sorpresa sorpresa, Efecto efecto) {
-        return sorpresa.atravesar(this, efecto);
+    public Efecto atravesar(Sorpresa sorpresa) {
+        return sorpresa.atravesar(this);
     }
 }

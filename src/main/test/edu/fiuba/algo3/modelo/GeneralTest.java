@@ -257,28 +257,31 @@ public class GeneralTest {
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
     }
 
-/*    @Test
+    @Test
     void UnaCamionetaPasaPorUnCambioDeVehiculoYJustoDespuesPorUnPiqueteDeberiaPoderPasarloYTener2Movimientos() {
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo camioneta = new Camioneta(ubicacion);
         Jugador jugador0 = new Jugador(nombre, camioneta);
         int cantMovimientos = 3;
-        List<Jugador> jugadores = new ArrayList<>(){
-            {add(jugador0);}
+        List<Jugador> jugadores = new ArrayList<>() {
+            { add(jugador0);}
         };
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
         Sorpresa cambioVehiculo = new CambioVehiculo();
-        Ubicacion ubicacionCambioV = new Ubicacion(2,3);
+        Ubicacion ubicacionCambioV = new Ubicacion(2, 3);
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
         Obstaculo piquete = new Piquete();
-        Ubicacion ubicacionPiquete = new Ubicacion(2,3);
+        Ubicacion ubicacionPiquete = new Ubicacion(2, 3);
         Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
 
         Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
+        Ubicacion nuevaUbicacion = new Ubicacion(2,4);
+
         assertTrue(jugador0.verificarMovimientos(cantMovimientos));
+        assertTrue(jugador0.verificarUbicacion(nuevaUbicacion));
     }
 
     @Test
@@ -286,7 +289,7 @@ public class GeneralTest {
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo auto = new Camioneta(ubicacion);
         Jugador jugador0 = new Jugador(nombre, auto);
-        int cantMovimientos = 3;
+        int cantMovimientos = 4;
         List<Jugador> jugadores = new ArrayList<>(){
             {add(jugador0);}
         };
@@ -303,5 +306,5 @@ public class GeneralTest {
         Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
         assertTrue(jugador0.verificarMovimientos(cantMovimientos));
-    }*/
+    }
 }

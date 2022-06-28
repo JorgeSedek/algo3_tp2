@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class SinMeta implements Meta{
 
-    public Efecto atravesar(Vehiculo vehiculo, Efecto efecto) {
-        return efecto;
+    public Efecto atravesar(Vehiculo vehiculo) {
+        return new EfectoGeneral();
     }
 }

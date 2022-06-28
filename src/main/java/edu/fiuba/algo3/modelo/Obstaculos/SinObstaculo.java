@@ -7,15 +7,15 @@ import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class SinObstaculo implements Obstaculo{
-    public Efecto atravesar(Auto auto, Efecto efecto){
-        return efecto;
+    public Efecto atravesar(Auto auto){
+        return new EfectoGeneral();
     }
 
-    public Efecto atravesar(Camioneta camioneta, Efecto efecto){
-        return efecto;
+    public Efecto atravesar(Camioneta camioneta){
+        return new EfectoGeneral();
     }
 
-    public Efecto atravesar(Moto moto, Efecto efecto){
-        return efecto;
+    public Efecto atravesar(Moto moto){
+        return new EfectoGeneral();
     }
 }

@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.General;
 
-import edu.fiuba.algo3.modelo.Efecto.Efecto;
-import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.SinMeta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
@@ -43,12 +41,9 @@ public class Casillero {
         return (this.ubicacion.equals(otraUbicacion));
     }
 
-    public Efecto atravesar(Vehiculo vehiculo) {
-        Efecto efecto = new EfectoGeneral();
-        efecto = vehiculo.atravesar(sorpresa, efecto);
-        efecto = vehiculo.atravesar(obstaculo, efecto);
-        efecto = vehiculo.atravesar(meta, efecto);
-
-        return efecto;
+    public void atravesar(Jugador jugador) {
+        jugador.atravezar(sorpresa);
+        jugador.atravezar(obstaculo);
+        jugador.atravezar(meta);
     }
 }

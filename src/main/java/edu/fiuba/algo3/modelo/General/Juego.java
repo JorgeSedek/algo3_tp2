@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Efecto.Efecto;
 
 import java.util.List;
 

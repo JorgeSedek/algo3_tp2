@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Meta.Meta;
+import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 
@@ -26,12 +29,27 @@ public class Jugador {
 
     public void moverVehiculo(Direccion direccion){
         this.movimientos++;
-        Efecto efecto = this.vehiculo.mover(direccion);
+        Casillero casillero = this.vehiculo.mover(direccion);
+        casillero.atravesar(this);
+    }
+
+    public void atravezar(Sorpresa sorpresa) {
+        Efecto efecto = this.vehiculo.atravesar(sorpresa);
         efecto.aplicar(this);
     }
 
-    public void moverVehiculoSinItems(){
-        this.vehiculo.moverSinItems();
+    public void atravezar(Obstaculo obstaculo) {
+        Efecto efecto = this.vehiculo.atravesar(obstaculo);
+        efecto.aplicar(this);
+    }
+
+    public void atravezar(Meta meta) {
+        Efecto efecto = this.vehiculo.atravesar(meta);
+        efecto.aplicar(this);
+    }
+
+    public void moverVehiculoSentidoOpuesto(){
+        this.vehiculo.moverSentidoOpuesto();
     }
 
     // Se usa para tests

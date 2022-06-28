@@ -20,29 +20,24 @@ public abstract class Vehiculo {
         this.direccion = new DireccionDerecha();
     }
 
-    public void asignarDireccion(Direccion direccion){
+    public abstract Efecto atravesar(Obstaculo obstaculo);
+
+    public abstract Efecto atravesar(Sorpresa sorpresa);
+
+    public Efecto atravesar(Meta meta) {
+        return meta.atravesar(this);
+    }
+
+    public Casillero mover(Direccion direccion) {
         this.direccion = direccion;
-    }
-
-    public abstract Efecto atravesar(Obstaculo obstaculo, Efecto efecto);
-
-    public abstract Efecto atravesar(Sorpresa sorpresa, Efecto efecto);
-
-    public Efecto atravesar(Meta meta, Efecto efectoInicial) {
-        return meta.atravesar(this, efectoInicial);
-    }
-
-    public Efecto mover(Direccion direccion) {
-        this.asignarDireccion(direccion);
         direccion.mover(ubicacion);
         Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
         direccion.mover(ubicacion);
-        Efecto efecto = nuevoCasillero.atravesar(this);
-
-        return efecto;
+        return nuevoCasillero;
     }
 
-    public void moverSinItems(){
+    public void moverSentidoOpuesto(){
+        this.direccion.mover(ubicacion);
         this.direccion.mover(ubicacion);
     }
 
