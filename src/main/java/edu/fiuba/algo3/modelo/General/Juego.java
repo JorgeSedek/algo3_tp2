@@ -45,7 +45,7 @@ public class Juego {
 
     // Finaliza el juego, agrega la puntuacion del jugador y nos lleva a la pantalla de puntuaciones
     public void finalizar() {
-        this.agregarPuntuacion(jugadorActivo);
+        //this.agregarPuntuacion(jugadorActivo);
         this.mostrarTopPuntuaciones();
     }
 
@@ -61,8 +61,7 @@ public class Juego {
     // por ejemplo, 10 puntajes mas altos (o quiza que devuelva un array
     // con los puntajes ya ordenados)
     private void mostrarTopPuntuaciones() {
-
-        System.out.println();
+        System.out.println("Felicidades, llegaste a la meta!");
     }
 
 
