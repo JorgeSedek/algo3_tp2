@@ -13,16 +13,16 @@ public class ColocadorRandom implements ColocadorItems{
         for (int i = 0; i < casilleros.size(); i++) {
             Casillero casillero = casilleros.get(i);
             if (this.esCalle(casillero)) {
-                Obstaculo obstaculo = generarObstaculoAleatorio();
-                Sorpresa sorpresa = generarSorpresaAleatoria();
+                Obstaculo obstaculoRandom = generarObstaculoAleatorio();
+                Sorpresa sorpresaRandom = generarSorpresaAleatoria();
 
-                agregarObstaculoEn(casillero, obstaculo);
-                agregarSorpresaEn(casillero, sorpresa);
+                agregarObstaculoEn(casillero, obstaculoRandom);
+                agregarSorpresaEn(casillero, sorpresaRandom);
             }
         }
     }
 
-    // Para generar el escenario aleatorio (devuelve una sorpresa aleatoria)
+    // Para generar el escenario aleatorio (devuelve una sorpresa aleatoria, incluido el SinSorpresa)
     private Sorpresa generarSorpresaAleatoria() {
         ArrayList<Sorpresa> sorpresas = obtenerSorpresasPosibles();
         int indexRandom = new Random().nextInt(sorpresas.size()); // Un int entre 0 (incluyente) y size (excluyente)
@@ -30,7 +30,7 @@ public class ColocadorRandom implements ColocadorItems{
         return sorpresas.get(indexRandom);
     }
 
-    // Para generar el escenario aleatorio (devuelve un obstaculo aleatorio)
+    // Para generar el escenario aleatorio (devuelve un obstaculo aleatorio, incluido el SinObstaculo)
     private Obstaculo generarObstaculoAleatorio() {
         ArrayList<Obstaculo> obstaculos = obtenerObstaculosPosibles();
         int indexRandom = new Random().nextInt(obstaculos.size()); // Un int entre 0 (incluyente) y size (excluyente)

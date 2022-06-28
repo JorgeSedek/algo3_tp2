@@ -154,7 +154,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void unAutoPasaPorUnCasilleroQueTieneUnPozoYUnaSorpresaDesfavorable(){
+    public void unAutoPasaPorUnCasilleroQueTieneUnPozoYUnaSorpresaDesfavorableYSeAplicaPrimeroLaSorpresa(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador = new Jugador(nombre, auto);

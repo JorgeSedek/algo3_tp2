@@ -26,7 +26,7 @@ public class Ubicacion {
 		return (this.fila % 2 == 1 & this.columna % 2 == 1);
 	}
 
-	// Es una calle si no es un edificio y nos es una entrecalle
+	// Es una calle si no es un edificio y no es una entrecalle
 	public boolean hayCalle(){
 		return !(this.hayEntrecalle() || this.hayEdificio());
 	}
