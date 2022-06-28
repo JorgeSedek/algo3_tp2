@@ -15,7 +15,7 @@ public class Ubicacion {
 		return (ubicacion.fila == this.fila & ubicacion.columna == this.columna);
 	}
 
-	// Es una EntreCalle si su fila y su columna es impar
+	// Es una EntreCalle si su fila y su columna es par
 	public boolean hayEntrecalle(){
 		return (this.fila % 2 == 0 & this.columna % 2 == 0);
 	}
