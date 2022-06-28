@@ -29,6 +29,10 @@ public class Casillero {
         this.sorpresa = sorpresa;
     }
 
+    public void asignarMeta(Meta meta) {
+        this.meta = meta;
+    }
+
     public Ubicacion obtenerUbicacion(){
         return this.ubicacion;
     }

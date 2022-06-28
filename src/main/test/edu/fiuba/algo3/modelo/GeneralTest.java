@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
-import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.*;
+import edu.fiuba.algo3.modelo.Meta.Meta;
+import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
@@ -21,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GeneralTest {
@@ -255,6 +255,44 @@ public class GeneralTest {
 
         assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+
+    @Test
+    public void unaMotoPasaPorUnaMetaSeLlamaAlFinalizarDeJuegoYSeAgregaLaPuntuacionDelJugador(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo moto = new Moto(ubicacion);
+        Jugador jugador = new Jugador(nombre, moto);
+        int movimientosEsperados = 9;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Meta meta = new MetaFinal();
+        Ubicacion ubicacionMeta = new Ubicacion(2,19);
+        Escenario.getInstance().agregarMetaEn(ubicacionMeta, meta);
+
+        // Act
+        for(int i=0; i<8; i++){
+            Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 8 movimientos a la derecha
+        }
+
+        // Si se mueve una vez mas a la derecha, pasa por la meta
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
+
+        // Assert 1
+        assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
+        assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+
+        // Assert 2
+        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+        Puntaje puntajeJugador = puntajes.get(0);
+
+        assertTrue(puntajes.size() == 1);
+        assertEquals(puntajeJugador.obtenerNombreJugador(), nombre);
+        assertEquals(puntajeJugador.obtenerPuntuacion(), movimientosEsperados);
+
     }
 
     @Test

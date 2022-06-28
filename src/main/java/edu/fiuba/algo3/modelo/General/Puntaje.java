@@ -9,4 +9,13 @@ public class Puntaje {
         this.nombreJugador = jugador.nombre();
         this.puntuacion = jugador.movimientos();
     }
+
+    public String obtenerNombreJugador() {
+        return this.nombreJugador;
+    }
+
+    public int obtenerPuntuacion() {
+        return this.puntuacion;
+    }
+
 }
