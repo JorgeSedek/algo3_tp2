@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Juego {
@@ -15,6 +16,7 @@ public class Juego {
         this.jugadores = jugadores;
         this.numJugador = 0;
         this.jugadorActivo = jugadores.get(numJugador);
+        this.puntuaciones = new ArrayList<Puntaje>();
     }
 
     private synchronized static void createInstance(List<Jugador> jugadores) {
@@ -45,7 +47,7 @@ public class Juego {
 
     // Finaliza el juego, agrega la puntuacion del jugador y nos lleva a la pantalla de puntuaciones
     public void finalizar() {
-        //this.agregarPuntuacion(jugadorActivo);
+        this.agregarPuntuacion(jugadorActivo);
         this.mostrarTopPuntuaciones();
     }
 
@@ -57,11 +59,15 @@ public class Juego {
         // Metodo que ordene la lista de puntuaciones de menor a mayor
     }
 
+    public List<Puntaje> obtenerPuntajes() {
+        return puntuaciones;
+    }
+
     // Deberia llevarnos a la pantalla de puntuaciones, donde se muestran los
     // por ejemplo, 10 puntajes mas altos (o quiza que devuelva un array
     // con los puntajes ya ordenados)
     private void mostrarTopPuntuaciones() {
-        System.out.println("Felicidades, llegaste a la meta!");
+        System.out.println("Felicidades, llegaste a la meta!"); // Momentaneo
     }
 
 

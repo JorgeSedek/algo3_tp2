@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
-import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
@@ -261,7 +258,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void unaMotoPasaPorUnaMetaYSeLlamaAlFinalizarDeJuego(){
+    public void unaMotoPasaPorUnaMetaSeLlamaAlFinalizarDeJuegoYSeAgregaLaPuntuacionDelJugador(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo moto = new Moto(ubicacion);
         Jugador jugador = new Jugador(nombre, moto);
@@ -284,9 +281,18 @@ public class GeneralTest {
         // Si se mueve una vez mas a la derecha, pasa por la meta
         Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
-        // Assert
+        // Assert 1
         assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+
+        // Assert 2
+        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+        Puntaje puntajeJugador = puntajes.get(0);
+
+        assertTrue(puntajes.size() == 1);
+        assertEquals(puntajeJugador.obtenerNombreJugador(), nombre);
+        assertEquals(puntajeJugador.obtenerPuntuacion(), movimientosEsperados);
+
     }
 
 /*    @Test
