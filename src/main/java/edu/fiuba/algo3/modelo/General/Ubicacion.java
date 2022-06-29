@@ -59,11 +59,14 @@ public class Ubicacion {
 		}
 
 	}
-	/*
-	public Ubicacion copia(){
-		return new Ubicacion(this.fila,this.columna);
+
+	public int obtenerFila() {
+		return this.fila;
 	}
-	*/
+
+	public int obtenerColumna() {
+		return this.columna;
+	}
 
 
 }

@@ -4,4 +4,6 @@ import java.util.ArrayList;
 
 public interface ColocadorItems {
     public void agregarObstaculosYSorpresas(ArrayList<Casillero> casilleros);
+
+    void agregarMeta(ArrayList<Casillero> casilleros);
 }

@@ -95,10 +95,26 @@ public class Escenario {
 	}
 	*/
 
+	public int obtenerNumeroDeFilas() {
+		return this.filas;
+	}
+
+	public int obtenerNumeroDeColumnas() {
+		return this.columnas;
+	}
+
+
 	// Al llamar a este metodo, el escenario va a tener sorpresas y obstaculos segun su colocador
 	// Por ejemplo, si su colocador es ColocadorRandom, va a tener sorpresas y obstaculos random
 	public void agregarObstaculosYSorpresas() {
 		colocador.agregarObstaculosYSorpresas(casilleros);
+	}
+
+	// Al llamar a este metodo, el escenario va a tener una meta segun su colocador
+	// Por ejemplo, si su colocador es ColocadorRandom, va a tener una meta
+	// en alguno de los "casilleros calle" de la ultima columna
+	public void agregarMeta() {
+		colocador.agregarMeta(casilleros);
 	}
 
 	// Metodo para tests
