@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
+import edu.fiuba.algo3.modelo.Obstaculos.Policia;
 import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
@@ -256,7 +257,29 @@ public class GeneralTest {
         assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
     }
+/*
+    @Test
+    public void unaMotoPasaPorUnCasilleroQueTieneUnControlPolicial(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo moto = new Moto(ubicacion);
+        Jugador jugador = new Jugador(nombre, moto);
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
 
+        Policia policia = new Policia();
+        Ubicacion ubicacionPolicia = new Ubicacion(2,19);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPolicia, policia);
+
+        for(int i=0; i<9; i++){
+            Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        }
+
+        assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
+    }
+*/
     @Test
     public void unaMotoPasaPorUnaMetaSeLlamaAlFinalizarDeJuegoYSeAgregaLaPuntuacionDelJugador(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
