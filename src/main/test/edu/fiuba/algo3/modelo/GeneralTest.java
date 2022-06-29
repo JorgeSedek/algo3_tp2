@@ -257,7 +257,7 @@ public class GeneralTest {
         assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
     }
-/*
+
     @Test
     public void unaMotoPasaPorUnCasilleroQueTieneUnControlPolicial(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
@@ -273,13 +273,16 @@ public class GeneralTest {
         Ubicacion ubicacionPolicia = new Ubicacion(2,19);
         Escenario.getInstance().agregarObstaculoEn(ubicacionPolicia, policia);
 
+        // Act
         for(int i=0; i<9; i++){
             Juego.getInstance().moverVehiculo(new DireccionDerecha());
         }
 
+        // Assert (los movimientos van a ser 9 o 12 dependiendo la probabilidad)
         assertTrue(moto.verificarUbicacion(new Ubicacion(2,20)));
+        assertTrue(jugador.verificarMovimientos(9) || jugador.verificarMovimientos(12));
     }
-*/
+
     @Test
     public void unaMotoPasaPorUnaMetaSeLlamaAlFinalizarDeJuegoYSeAgregaLaPuntuacionDelJugador(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
