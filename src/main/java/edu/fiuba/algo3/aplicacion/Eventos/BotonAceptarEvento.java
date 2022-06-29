@@ -16,6 +16,6 @@ public class BotonAceptarEvento implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-        this.app.getChoice(this.choiceBox);
+        this.app.getChoice(this.choiceBox.getValue());
     }
 }
