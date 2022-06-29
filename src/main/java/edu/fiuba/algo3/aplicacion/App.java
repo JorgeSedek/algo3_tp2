@@ -183,7 +183,7 @@ public class App extends Application {
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
-    }
+    }*/
 
     public void elegirTamanioEscenario(){
         StackPane layout = new StackPane();
@@ -204,6 +204,9 @@ public class App extends Application {
 
         error.setText("");
 
+        BotonContinuarEvento botonContinuar = new BotonContinuarEvento(this, fila, columna, error);
+        continuar.setOnAction(botonContinuar);
+
         HBox contenedorBoton = new HBox(error, region1, continuar);
         contenedorBoton.setAlignment(Pos.CENTER);
         contenedorBoton.setSpacing(10);
@@ -220,12 +223,12 @@ public class App extends Application {
         layout.setPadding(new Insets(10));
 
         layout.setPrefHeight(100);
-        layout.setPrefWidth(100);
+        layout.setPrefWidth(500);
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
     }
-
+/*
     public void ingresarNombresYVehiculo(int cant_jugadores){
         StackPane layout = new StackPane();
         //Button  = new Button("Siguiente");
@@ -251,18 +254,12 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-/*
+
     public void setFilaYColumna(int fila, int columna) {
-        if(fila%2 == 0){
-            fila--;
-        }else if(columna%2 == 0){
-            columna --;
-        }
+        this.fila = fila*2 +1;
+        this.columna = columna*2 +1;
 
-        this.fila = fila;
-        this.columna = columna;
-
-    }*/
+    }
 
 
 }
