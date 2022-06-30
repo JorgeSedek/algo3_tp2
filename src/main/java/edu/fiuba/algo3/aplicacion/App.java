@@ -57,22 +57,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-    /*
-        Scene scene = new Scene(mostrarTablero());
-        stage.setScene(scene);
-        stage.show();
-    */
+        // Inicializacion
         this.stage = stage;
         jugadores = new ArrayList<>();
 
         stage.setTitle("Juego GPS");
         StackPane layout = new StackPane();
-        Label titulo = new Label();
         Label integrantes = new Label();
+        Label titulo = new Label();
 
         Button comenzar = new Button("Comenzar");
         Button salir = new Button("Salir");
 
+        // Propiedades y setters
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());
 
@@ -82,10 +79,8 @@ public class App extends Application {
         BotonComenzarEvento botonComenzarEvento = new BotonComenzarEvento(this);
         comenzar.setOnAction(botonComenzarEvento);
 
-
-        StackPane.setAlignment(comenzar, Pos.BOTTOM_LEFT);
-
         titulo.setText("GPS Juego - Algo3");
+
         integrantes.setText("Integrantes:\n" + "Cristian Martin Lin\n" + "Martin Alejo Polese\n" + "Tomas Nahuel Olivera\n" + "Jorge Sedek\n" );
 
         StackPane.setAlignment(titulo, Pos.TOP_CENTER);
@@ -98,26 +93,18 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
-        /*Image imagen = new Image("edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        layout.setBackground(new Background(imagenDeFondo));
-*/
+        //Image imagen = new Image("file:edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
+        //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        //layout.setBackground(new Background(imagenDeFondo));
+
+        //layout.setAlignment();
+
         layout.setPrefHeight(400);
         layout.setPrefWidth(500);
-        layout.getChildren().addAll(integrantes, titulo, contenedorPrincipal);
+        layout.getChildren().addAll(contenedorPrincipal, titulo, integrantes);
         layout.setPadding(new Insets(10));
 
-        //var scene = new Scene(layout);
-
-        var scene = new Scene(layout);
-
-        //scene.getStylesheets().add("file:src/main/java/edu/fiuba/algo3/aplicacion/css/inicio-fondo.css");
-        /*Background bi = new Background(new Image(new Image("gps-fondo.jpg"),
-        BackgroundRepeat.NO_REPEAT,
-        BackgroundRepeat.NO_REPEAT,
-        BackgroundPosition.CENTER,
-        new BackgroundSize(width, height, false, false, false, false)));*/
-        stage.setScene(scene);
+        stage.setScene(new Scene(layout));
         stage.show();
     }
 /*
