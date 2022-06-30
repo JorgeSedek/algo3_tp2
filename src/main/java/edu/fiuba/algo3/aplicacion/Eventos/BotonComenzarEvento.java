@@ -13,6 +13,6 @@ public class BotonComenzarEvento implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent arg0){
-        this.app.elegirCantidadJugadores();
+        this.app.elegirTamanioEscenario();
     }
 }
