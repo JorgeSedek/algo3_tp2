@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Efecto.Efecto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ public class Juego {
     private List<Jugador> jugadores;
     private Jugador jugadorActivo;
     private int numJugador;
+
     private List<Puntaje> puntuaciones;
     private static Juego INSTANCE = null;
 
@@ -39,16 +41,19 @@ public class Juego {
     }
 
     public void cambiarJugador(){
-        this.numJugador++;
-        if(numJugador >= jugadores.size()) {
-            this.numJugador = 0;
+        if(jugadores.size() > 0) {
+            this.numJugador++;
+            if (numJugador >= jugadores.size()) {
+                this.numJugador = 0;
+            }
+            this.jugadorActivo = jugadores.get(numJugador);
         }
-        this.jugadorActivo = jugadores.get(numJugador);
     }
 
     // Finaliza el juego, agrega la puntuacion del jugador y nos lleva a la pantalla de puntuaciones
     public void finalizar() {
         this.agregarPuntuacion(jugadorActivo);
+        this.jugadores.remove(jugadorActivo);
         this.mostrarTopPuntuaciones();
     }
 
@@ -68,7 +73,10 @@ public class Juego {
     // por ejemplo, 10 puntajes mas altos (o quiza que devuelva un array
     // con los puntajes ya ordenados)
     private void mostrarTopPuntuaciones() {
-        System.out.println("Felicidades, llegaste a la meta!"); // Momentaneo
+        System.out.println("Felicidades, llegaste a la meta!");
+        System.out.println( this.obtenerPuntajes().get(numJugador).obtenerNombreJugador()+": "+this.obtenerPuntajes().get(numJugador).obtenerPuntuacion()+" puntos.");
+
+        // Momentaneo
     }
 
 
@@ -76,6 +84,7 @@ public class Juego {
     public boolean verificarMovJugadorActivo(int movimientosEsperados){
         return (this.jugadorActivo.verificarMovimientos(movimientosEsperados));
     }
+
 
     // Se usa para tests
     public boolean verificarAtributosNoNulos(){
@@ -90,4 +99,10 @@ public class Juego {
     public boolean verificarUbicacionJugadorActivo(Ubicacion ubicacion){
         return jugadorActivo.verificarUbicacion(ubicacion);
     }
+
+    public boolean verificarVehiculoJugadorActivo(Vehiculo vehiculo){
+        return jugadorActivo.mismoVehiculo(vehiculo);
+    }
+
+
 }
