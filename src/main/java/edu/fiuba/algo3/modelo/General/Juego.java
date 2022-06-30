@@ -86,4 +86,8 @@ public class Juego {
     public boolean verificarJugadorActivo(Jugador jugador) {
         return this.jugadorActivo == jugador;
     }
+
+    public boolean verificarUbicacionJugadorActivo(Ubicacion ubicacion){
+        return jugadorActivo.verificarUbicacion(ubicacion);
+    }
 }
