@@ -16,12 +16,17 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -153,9 +158,9 @@ public class App extends Application {
 
     public void mostrarTablero(){
         StackPane layout = new StackPane();
-        layout.getChildren().add(mostrarTableroView());
-        Scene scene = new Scene(layout);
-        stage.setScene(scene);
+        layout.getChildren().addAll(mostrarTableroView(), mostrarVehiculoView());
+
+        stage.setScene(new Scene(layout));
         stage.show();
     }
 
@@ -176,6 +181,64 @@ public class App extends Application {
 
             }
         }
+
+        return root;
+    }
+/*
+    public class VistaRobot {
+
+        private Robot robot;
+        Canvas canvas;
+
+        public VistaRobot(Robot robot, Canvas canvas) {
+            this.robot = robot;
+            this.canvas = canvas;
+        }
+
+        public void dibujar() {
+            this.dibujarFormas();
+        }
+
+        private void dibujarFormas() {
+            this.clean();
+            canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+            canvas.getGraphicsContext2D().fillOval(robot.getPosicion().getX() + 230, robot.getPosicion().getY() + 110, robot.RADIO, robot.RADIO);
+        }
+
+        public void clean() {
+
+            canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+            canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+        }
+
+        public void update() {
+            this.dibujar();
+        }
+
+    }
+*/
+    public Parent mostrarVehiculoView(){
+        Pane root = new Pane();
+
+        Circle circulo = new Circle();
+        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
+        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
+        circulo.setFill(Color.LIGHTBLUE);
+        circulo.setRadius(10);
+        /*
+        Canvas canvas = new Canvas();
+
+        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
+
+        canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+
+        canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+        canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
+        //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
+        */
+
+        root.getChildren().add(circulo);
 
         return root;
     }
