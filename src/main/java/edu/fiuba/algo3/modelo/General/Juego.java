@@ -52,7 +52,7 @@ public class Juego {
 
     // Finaliza el juego, agrega la puntuacion del jugador y nos lleva a la pantalla de puntuaciones
     public void finalizar() {
-        System.out.println("Felicidades, llegaste a la meta!");
+        System.out.println("Felicidades " + this.jugadorActivo.nombre() + ", llegaste a la meta!");
         this.agregarPuntuacion(jugadorActivo);
         this.jugadores.remove(jugadorActivo);
         if(this.jugadores.size() == 0) {
@@ -105,6 +105,4 @@ public class Juego {
     public boolean verificarVehiculoJugadorActivo(Vehiculo vehiculo){
         return jugadorActivo.mismoVehiculo(vehiculo);
     }
-
-
 }
