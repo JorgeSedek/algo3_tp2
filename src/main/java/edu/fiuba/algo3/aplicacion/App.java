@@ -155,7 +155,7 @@ public class App extends Application {
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
     }
-
+/*
     public void mostrarTablero(){
         StackPane layout = new StackPane();
         layout.getChildren().addAll(mostrarTableroView(), mostrarVehiculoView());
@@ -163,7 +163,8 @@ public class App extends Application {
         stage.setScene(new Scene(layout));
         stage.show();
     }
-
+*/
+    /*
     public Parent mostrarTableroView(){
         int filas = this.filas;
         int columnas = this.columnas;
@@ -184,7 +185,7 @@ public class App extends Application {
 
         return root;
     }
-/*
+
     public class VistaRobot {
 
         private Robot robot;
@@ -217,6 +218,7 @@ public class App extends Application {
 
     }
 */
+    /*
     public Parent mostrarVehiculoView(){
         Pane root = new Pane();
 
@@ -225,31 +227,31 @@ public class App extends Application {
         circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
         circulo.setFill(Color.LIGHTBLUE);
         circulo.setRadius(10);
-        /*
-        Canvas canvas = new Canvas();
 
-        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
+        //Canvas canvas = new Canvas();
 
-        canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
-        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+        //root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
 
-        canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
-        canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
+        //canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+        //canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+
+        //canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+        //canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
         //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
-        */
 
-        root.getChildren().add(circulo);
 
-        return root;
+        //root.getChildren().add(circulo);
+
+        //return root;
     }
-/*
+
     public void getChoice(int cant_jugadores) {
         System.out.println(cant_jugadores);
         Random rand = new Random();
         int random = rand.nextInt(this.columna) + 1;
         System.out.println(random);
-    }*/
-
+    }
+*/
     public void agregarJugadores(){
         StackPane layout = new StackPane();
         Label pedirNombre = new Label();
