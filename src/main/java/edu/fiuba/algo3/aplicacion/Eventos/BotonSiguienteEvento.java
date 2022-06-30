@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
-/*
+
 import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -29,13 +29,14 @@ public class BotonSiguienteEvento implements EventHandler<ActionEvent> {
         this.choiceBox = choiceBox;
         this.nombre = texto;
         this.label = error;
+        this.fila = fila;
     }
 
     public void handle(ActionEvent actionEvent){
 
         Random rand = new Random();
-        int random = rand.nextInt(this.fila) + 1;
-        Ubicacion ubicacion = new Ubicacion(random, 1);
+        //int random = rand.nextInt(this.fila) + 1;
+        Ubicacion ubicacion = new Ubicacion(2, 2);
 
         if(this.choiceBox.getValue() == "Moto"){
             this.vehiculo = new Moto(ubicacion);
@@ -54,4 +55,3 @@ public class BotonSiguienteEvento implements EventHandler<ActionEvent> {
     }
 
 }
-*/

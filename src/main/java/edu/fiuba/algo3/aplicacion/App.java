@@ -6,6 +6,10 @@ import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -38,6 +42,7 @@ public class App extends Application {
     private int fila;
     private int columna;
 
+    private int cantidad;
     private double width = 500;
     private double height = 500;
 
@@ -95,7 +100,6 @@ public class App extends Application {
         layout.getChildren().addAll(integrantes, titulo, contenedorPrincipal);
         layout.setPadding(new Insets(10));
 
-
         //var scene = new Scene(layout);
         //scene.getStylesheets().add("css/pantalla_inicio_fondo.css");
 
@@ -122,9 +126,7 @@ public class App extends Application {
 
         ChoiceBox<Integer> choiceBox = new ChoiceBox<>();
 
-        choiceBox.getItems().add(1);
-        choiceBox.getItems().add(2);
-        choiceBox.getItems().add(3);
+        choiceBox.getItems().addAll(1,2,3);
 
         BotonAceptarEvento accept = new BotonAceptarEvento(this, choiceBox);
         aceptar.setOnAction(accept);
@@ -185,7 +187,7 @@ public class App extends Application {
         int random = rand.nextInt(this.columna) + 1;
         System.out.println(random);
     }*/
-/*
+
     public void agregarJugadores(){
         StackPane layout = new StackPane();
         Label pedirNombre = new Label();
@@ -235,7 +237,7 @@ public class App extends Application {
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
-    }*/
+    }
 
     public void elegirTamanioEscenario(){
         StackPane layout = new StackPane();
@@ -286,8 +288,13 @@ public class App extends Application {
             agregarJugadores();
         }*/
 
-        comenzarJuego();
-
+        this.cantidad = cant_jugadores;
+        if(cant_jugadores > 0){
+            agregarJugadores();
+            this.cantidad --;
+        }else{
+            comenzarJuego();
+        }
     }
 
     public void comenzarJuego(){
@@ -305,10 +312,27 @@ public class App extends Application {
         this.stage.setScene(scene);
     }
 
-    /*public void guardarJugadores(String nombre, Vehiculo vehiculo){
+    public void guardarJugadores(String nombre, Vehiculo vehiculo){
         Jugador jugador = new Jugador(nombre, vehiculo);
         this.jugadores.add(jugador);
-    }*/
+        this.probarAlgo(jugador);
+        this.ingresarNombresYVehiculo(this.cantidad);
+    }
+
+    public void probarAlgo(Jugador jugador){
+        Ubicacion u = new Ubicacion(2,2);
+        Vehiculo moto = new Moto(u);
+        Vehiculo auto = new Auto(u);
+        Vehiculo camion = new Camioneta(u);
+
+        if(jugador.mismoVehiculo(moto)){
+            System.out.println("SIUUU MOTO");
+        }else if(jugador.mismoVehiculo(auto)){
+            System.out.println("SIUUU AUTO");
+        }else if(jugador.mismoVehiculo(camion)){
+            System.out.println("SIUUU CAMIONETA");
+        }
+    }
 
     public Stage getStage(){
         return this.stage;
