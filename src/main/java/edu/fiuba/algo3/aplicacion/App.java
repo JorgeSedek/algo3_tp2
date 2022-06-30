@@ -22,6 +22,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -37,6 +38,8 @@ public class App extends Application {
 
     private Stage stage;
     private Juego juego;
+
+    private Pane root = new Pane();
     private List<Jugador> jugadores;
 
     private int fila;
@@ -95,18 +98,21 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
+        /*Image imagen = new Image("edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        layout.setBackground(new Background(imagenDeFondo));
+*/
         layout.setPrefHeight(400);
         layout.setPrefWidth(500);
         layout.getChildren().addAll(integrantes, titulo, contenedorPrincipal);
         layout.setPadding(new Insets(10));
 
         //var scene = new Scene(layout);
-        //scene.getStylesheets().add("css/pantalla_inicio_fondo.css");
 
         var scene = new Scene(layout);
-        //scene.getStylesheets().add("src/main/java/edu/fiuba/algo3/aplicacion/css/inicio-fondo.css");
 
-        /*Background bi = new Background(new BackgroundImage(new Image("gps-fondo.jpg"),
+        //scene.getStylesheets().add("file:src/main/java/edu/fiuba/algo3/aplicacion/css/inicio-fondo.css");
+        /*Background bi = new Background(new Image(new Image("gps-fondo.jpg"),
         BackgroundRepeat.NO_REPEAT,
         BackgroundRepeat.NO_REPEAT,
         BackgroundPosition.CENTER,
@@ -114,7 +120,19 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
+/*
+    private void addBackground() {
+        ImageView imageView = new ImageView(new Image(getClass().getResource("src/main/java/edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png").toExternalForm()));
+        imageView.setFitWidth(this.width);
+        imageView.setFitHeight(this.height);
 
+        root.getChildren().add(imageView);
+    }
+
+    private Parent createContent() {
+        addBackground();
+        return root;
+    }*/
 
     public void elegirCantidadJugadores(){
         StackPane layout = new StackPane();
