@@ -26,8 +26,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GeneralTest {
     private String nombre = "Martin";
-    private int totalFilas = 40;
-    private int totalColumnas = 40;
+    private int totalFilas = 20;
+    private int totalColumnas = 20;
     private int filaInicial = 2;
     private int columnaInicial = 2;
 

@@ -17,8 +17,8 @@ public class Escenario {
 	private static Escenario INSTANCE = null;
 
 	private Escenario(int filas, int columnas) {
-		this.filas = filas;
-		this.columnas = columnas;
+		this.filas = filas * 2 + 1;
+		this.columnas = columnas * 2 + 1;
 		this.casilleros = new ArrayList<>();
 		this.llenarConCasilleros();
 		this.colocador = new ColocadorVacio();

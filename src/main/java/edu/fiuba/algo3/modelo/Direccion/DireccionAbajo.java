@@ -4,7 +4,11 @@ import edu.fiuba.algo3.modelo.General.Ubicacion;
 
 public class DireccionAbajo implements Direccion{
     public void mover(Ubicacion ubicacion){
-        ubicacion.mover(this);
+        if(!ubicacion.voyAChocarBorde(this)) {
+            ubicacion.mover(this);
+        } else {
+            ubicacion.mover(new DireccionArriba());
+        }
     }
 
     public Direccion direccionOpuesta(){
