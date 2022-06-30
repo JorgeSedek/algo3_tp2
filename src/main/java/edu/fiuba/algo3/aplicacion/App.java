@@ -141,7 +141,7 @@ public class App extends Application {
 
     private Parent mostrarTablero(){
         int filas = 5;
-        int columnas = 9;
+        int columnas = 7;
         Pane root = new Pane();
         root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
         root.getChildren().addAll(casillerosView);
