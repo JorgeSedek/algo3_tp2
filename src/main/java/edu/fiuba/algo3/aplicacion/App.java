@@ -24,6 +24,7 @@ import javafx.stage.StageStyle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * JavaFX App
@@ -151,9 +152,16 @@ public class App extends Application {
         this.stage.setScene(scene);
     }
 
-    private Parent mostrarTablero(){
-        int filas = 5;
-        int columnas = 7;
+    public void mostrarTablero(){
+        Scene scene = new Scene(mostrarTableroView());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public Parent mostrarTableroView(){
+        int filas = this.fila;
+        int columnas = this.columna;
+
         Pane root = new Pane();
         root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
         root.getChildren().addAll(casillerosView);
@@ -170,10 +178,13 @@ public class App extends Application {
 
         return root;
     }
-
+/*
     public void getChoice(int cant_jugadores) {
         System.out.println(cant_jugadores);
-    }
+        Random rand = new Random();
+        int random = rand.nextInt(this.columna) + 1;
+        System.out.println(random);
+    }*/
 /*
     public void agregarJugadores(){
         StackPane layout = new StackPane();
@@ -195,8 +206,8 @@ public class App extends Application {
 
         error.setText("");
 
-        //BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error);
-        //siguiente.setOnAction(botonSiguiente);
+        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, this.fila);
+        siguiente.setOnAction(botonSiguiente);
 
         VBox contenedorNombre = new VBox(pedirNombre, nombreJugador);
         contenedorNombre.setAlignment(Pos.CENTER);
@@ -220,7 +231,7 @@ public class App extends Application {
         layout.setPadding(new Insets(10));
 
         layout.setPrefHeight(100);
-        layout.setPrefWidth(100);
+        layout.setPrefWidth(500);
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
@@ -269,23 +280,34 @@ public class App extends Application {
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
     }
-/*
-    public void ingresarNombresYVehiculo(int cant_jugadores){
-        StackPane layout = new StackPane();
-        //Button  = new Button("Siguiente");
 
-        for(int i=0; i<cant_jugadores; i++){
+    public void ingresarNombresYVehiculo(int cant_jugadores){
+        /*for(int i=0; i<cant_jugadores; i++){
             agregarJugadores();
-        }
+        }*/
+
+        comenzarJuego();
+
+    }
+
+    public void comenzarJuego(){
+        StackPane layout = new StackPane();
+        Button jugar = new Button("Jugar");
+
+        BotonJugarEvento botonJugar = new BotonJugarEvento(this);
+        jugar.setOnAction(botonJugar);
+
+        layout.getChildren().add(jugar);
+        layout.setPrefHeight(100);
+        layout.setPrefWidth(100);
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
-    }*/
+    }
 
-    /*
-    public void guardarJugadores(String nombre, Vehiculo vehiculo){
+    /*public void guardarJugadores(String nombre, Vehiculo vehiculo){
         Jugador jugador = new Jugador(nombre, vehiculo);
-        jugadores.add(jugador);
+        this.jugadores.add(jugador);
     }*/
 
     public Stage getStage(){
