@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.aplicacion;
 
-import edu.fiuba.algo3.aplicacion.Eventos.BotonAceptarEvento;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
+import edu.fiuba.algo3.aplicacion.Eventos.*;
+import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -30,10 +30,21 @@ public class App extends Application {
     private List<Jugador> jugadores;
 
     private double width = 500;
-    private double height = 400;
+    private double height = 500;
+
+    public static final int MEDIDA_CASILLERO = 50;
+
+    private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
+
+    private Group casillerosView = new Group();
 
     @Override
     public void start(Stage stage) {
+
+        Scene scene = new Scene(mostrarTablero());
+        stage.setScene(scene);
+        stage.show();
+
         this.stage = stage;
 
         stage.setTitle("Juego GPS");
@@ -49,9 +60,12 @@ public class App extends Application {
 
         BotonSalirEvento botonSalirEvento = new BotonSalirEvento();
         salir.setOnAction(botonSalirEvento);
-
+/*
         BotonComenzarEvento botonComenzarEvento = new BotonComenzarEvento(this);
         comenzar.setOnAction(botonComenzarEvento);
+
+
+ */
 
         titulo.setText("GPS Juego - Algo3");
         integrantes.setText("Integrantes:\n" + "Cristian Martin Lin\n" + "Martin Alejo Polese\n" + "Tomas Nahuel Olivera\n" + "Jorge Sedek\n" );
@@ -71,7 +85,7 @@ public class App extends Application {
         layout.getChildren().addAll(integrantes, titulo, contenedorPrincipal);
         layout.setPadding(new Insets(10));
 
-        var scene = new Scene(layout);
+        //var scene = new Scene(layout);
         //scene.getStylesheets().add("css/pantalla_inicio_fondo.css");
         /*Background bi = new Background(new BackgroundImage(new Image("gps-fondo.jpg"),
         BackgroundRepeat.NO_REPEAT,
@@ -125,6 +139,25 @@ public class App extends Application {
         this.stage.setScene(scene);
     }
 
+    private Parent mostrarTablero(){
+        int filas = 5;
+        int columnas = 7;
+        Pane root = new Pane();
+        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
+        root.getChildren().addAll(casillerosView);
+
+        for (int y = 0; y < columnas; y = y + 2) {
+            for (int x = 0; x < filas; x = x + 2) {
+                CasilleroView casillero = new CasilleroView( x, y);
+                tableroView[x][y] = casillero;
+
+                casillerosView.getChildren().add(casillero);
+
+            }
+        }
+
+        return root;
+    }
 
 
     public void getChoice(ChoiceBox<Integer> choiceBox) {
