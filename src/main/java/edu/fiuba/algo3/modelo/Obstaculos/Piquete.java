@@ -9,13 +9,11 @@ public class Piquete implements Obstaculo {
     public Efecto atravesar(Auto auto) {
         Efecto efecto = new EfectoGeneral();
         return new EfectoMoverAlReves(efecto, auto);
-
     }
 
     public Efecto atravesar(Camioneta camioneta) {
         Efecto efecto = new EfectoGeneral();
         return new EfectoMoverAlReves(efecto, camioneta);
-
     }
 
     public Efecto atravesar(Moto moto) {

@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.modelo.Colocador.ColocadorItems;
+import edu.fiuba.algo3.modelo.Colocador.ColocadorRandom;
+import edu.fiuba.algo3.modelo.Colocador.ColocadorVacio;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
@@ -54,8 +57,7 @@ public class Escenario {
 
 	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
 		List<Casillero> casillerosFiltrados = casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)).collect(Collectors.toList());
-		int primerElemento = 0;
-		return casillerosFiltrados.get(primerElemento);
+		return casillerosFiltrados.get(0);
 	}
 
 	public boolean filaDentroDeLimites(int fila){

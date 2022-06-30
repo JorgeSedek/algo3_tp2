@@ -1,5 +1,8 @@
-package edu.fiuba.algo3.modelo.General;
+package edu.fiuba.algo3.modelo.Colocador;
 
+import edu.fiuba.algo3.modelo.General.Casillero;
+import edu.fiuba.algo3.modelo.General.Escenario;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.*;
