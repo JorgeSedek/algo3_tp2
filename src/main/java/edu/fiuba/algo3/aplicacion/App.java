@@ -4,7 +4,6 @@ import edu.fiuba.algo3.aplicacion.Eventos.*;
 
 import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 
-import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -22,14 +21,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * JavaFX App
@@ -37,13 +33,10 @@ import java.util.Random;
 public class App extends Application {
 
     private Stage stage;
-    private Juego juego;
-
-    private Pane root = new Pane();
     private List<Jugador> jugadores;
 
-    private int fila;
-    private int columna;
+    private int filas;
+    private int columnas;
 
     private int cantidad;
     private double width = 500;
@@ -93,17 +86,16 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
-        //Image imagen = new Image("file:edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
-        //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        //layout.setBackground(new Background(imagenDeFondo));
-
-        //layout.setAlignment();
+        Image imagen = new Image("file:edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        layout.setBackground(new Background(imagenDeFondo));
 
         layout.setPrefHeight(400);
         layout.setPrefWidth(500);
         layout.getChildren().addAll(contenedorPrincipal, titulo, integrantes);
         layout.setPadding(new Insets(10));
 
+        // Stage
         stage.setScene(new Scene(layout));
         stage.show();
     }
@@ -160,14 +152,16 @@ public class App extends Application {
     }
 
     public void mostrarTablero(){
-        Scene scene = new Scene(mostrarTableroView());
+        StackPane layout = new StackPane();
+        layout.getChildren().add(mostrarTableroView());
+        Scene scene = new Scene(layout);
         stage.setScene(scene);
         stage.show();
     }
 
     public Parent mostrarTableroView(){
-        int filas = this.fila;
-        int columnas = this.columna;
+        int filas = this.filas;
+        int columnas = this.columnas;
 
         Pane root = new Pane();
         root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
@@ -208,12 +202,12 @@ public class App extends Application {
         pedirNombre.setText("Ingrese el nombre del jugador");
         pedirNombre.setAlignment(Pos.CENTER);
 
-        pedirVehiculo.setText("Eliga un vehiculo para el jugador");
+        pedirVehiculo.setText("Elija un vehiculo para el jugador");
         pedirVehiculo.setAlignment(Pos.CENTER);
 
         error.setText("");
 
-        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, this.fila);
+        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, this.filas);
         siguiente.setOnAction(botonSiguiente);
 
         VBox contenedorNombre = new VBox(pedirNombre, nombreJugador);
@@ -255,7 +249,7 @@ public class App extends Application {
 
         pedirFila.setText("Ingrese la cantidad de entre calles por fila");
         pedirFila.setAlignment(Pos.CENTER);
-        pedirColumna.setText("Pedir la cantidad de entre calles por columna");
+        pedirColumna.setText("Ingrese la cantidad de entre calles por columna");
         pedirColumna.setAlignment(Pos.CENTER);
 
         Region region1 = new Region();
@@ -298,10 +292,10 @@ public class App extends Application {
             agregarJugadores();
             this.cantidad --;
         }else{
-            comenzarJuego();
+            this.mostrarTablero();
         }
     }
-
+/*
     public void comenzarJuego(){
         StackPane layout = new StackPane();
         Button jugar = new Button("Jugar");
@@ -316,14 +310,14 @@ public class App extends Application {
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
     }
-
+*/
     public void guardarJugadores(String nombre, Vehiculo vehiculo){
         Jugador jugador = new Jugador(nombre, vehiculo);
         this.jugadores.add(jugador);
-        this.probarAlgo(jugador);
+        //this.probarAlgo(jugador);
         this.ingresarNombresYVehiculo(this.cantidad);
     }
-
+/*
     public void probarAlgo(Jugador jugador){
         Ubicacion u = new Ubicacion(2,2);
         Vehiculo moto = new Moto(u);
@@ -338,7 +332,7 @@ public class App extends Application {
             System.out.println("SIUUU CAMIONETA");
         }
     }
-
+*/
     public Stage getStage(){
         return this.stage;
     }
@@ -348,10 +342,9 @@ public class App extends Application {
     }
 
     public void setFilaYColumna(int fila, int columna) {
-        this.fila = fila*2 +1;
-        this.columna = columna*2 +1;
+        this.filas = fila*2 +1;
+        this.columnas = columna*2 +1;
 
     }
-
 
 }
