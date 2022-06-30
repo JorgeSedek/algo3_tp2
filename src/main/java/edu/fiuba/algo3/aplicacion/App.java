@@ -4,7 +4,6 @@ import edu.fiuba.algo3.aplicacion.Eventos.*;
 
 import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 
-import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -17,18 +16,21 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * JavaFX App
@@ -36,11 +38,10 @@ import java.util.Random;
 public class App extends Application {
 
     private Stage stage;
-    private Juego juego;
     private List<Jugador> jugadores;
 
-    private int fila;
-    private int columna;
+    private int filas;
+    private int columnas;
 
     private int cantidad;
     private double width = 500;
@@ -54,22 +55,19 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-    /*
-        Scene scene = new Scene(mostrarTablero());
-        stage.setScene(scene);
-        stage.show();
-    */
+        // Inicializacion
         this.stage = stage;
         jugadores = new ArrayList<>();
 
         stage.setTitle("Juego GPS");
         StackPane layout = new StackPane();
-        Label titulo = new Label();
         Label integrantes = new Label();
+        Label titulo = new Label();
 
         Button comenzar = new Button("Comenzar");
         Button salir = new Button("Salir");
 
+        // Propiedades y setters
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());
 
@@ -79,10 +77,8 @@ public class App extends Application {
         BotonComenzarEvento botonComenzarEvento = new BotonComenzarEvento(this);
         comenzar.setOnAction(botonComenzarEvento);
 
-
-        StackPane.setAlignment(comenzar, Pos.BOTTOM_LEFT);
-
         titulo.setText("GPS Juego - Algo3");
+
         integrantes.setText("Integrantes:\n" + "Cristian Martin Lin\n" + "Martin Alejo Polese\n" + "Tomas Nahuel Olivera\n" + "Jorge Sedek\n" );
 
         StackPane.setAlignment(titulo, Pos.TOP_CENTER);
@@ -95,26 +91,32 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
+        Image imagen = new Image("file:edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        layout.setBackground(new Background(imagenDeFondo));
+
         layout.setPrefHeight(400);
         layout.setPrefWidth(500);
-        layout.getChildren().addAll(integrantes, titulo, contenedorPrincipal);
+        layout.getChildren().addAll(contenedorPrincipal, titulo, integrantes);
         layout.setPadding(new Insets(10));
 
-        //var scene = new Scene(layout);
-        //scene.getStylesheets().add("css/pantalla_inicio_fondo.css");
-
-        var scene = new Scene(layout);
-        //scene.getStylesheets().add("src/main/java/edu/fiuba/algo3/aplicacion/css/inicio-fondo.css");
-
-        /*Background bi = new Background(new BackgroundImage(new Image("gps-fondo.jpg"),
-        BackgroundRepeat.NO_REPEAT,
-        BackgroundRepeat.NO_REPEAT,
-        BackgroundPosition.CENTER,
-        new BackgroundSize(width, height, false, false, false, false)));*/
-        stage.setScene(scene);
+        // Stage
+        stage.setScene(new Scene(layout));
         stage.show();
     }
+/*
+    private void addBackground() {
+        ImageView imageView = new ImageView(new Image(getClass().getResource("src/main/java/edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png").toExternalForm()));
+        imageView.setFitWidth(this.width);
+        imageView.setFitHeight(this.height);
 
+        root.getChildren().add(imageView);
+    }
+
+    private Parent createContent() {
+        addBackground();
+        return root;
+    }*/
 
     public void elegirCantidadJugadores(){
         StackPane layout = new StackPane();
@@ -155,14 +157,16 @@ public class App extends Application {
     }
 
     public void mostrarTablero(){
-        Scene scene = new Scene(mostrarTableroView());
-        stage.setScene(scene);
+        StackPane layout = new StackPane();
+        layout.getChildren().addAll(mostrarTableroView(), mostrarVehiculoView());
+
+        stage.setScene(new Scene(layout));
         stage.show();
     }
 
     public Parent mostrarTableroView(){
-        int filas = this.fila;
-        int columnas = this.columna;
+        int filas = this.filas;
+        int columnas = this.columnas;
 
         Pane root = new Pane();
         root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
@@ -177,6 +181,64 @@ public class App extends Application {
 
             }
         }
+
+        return root;
+    }
+/*
+    public class VistaRobot {
+
+        private Robot robot;
+        Canvas canvas;
+
+        public VistaRobot(Robot robot, Canvas canvas) {
+            this.robot = robot;
+            this.canvas = canvas;
+        }
+
+        public void dibujar() {
+            this.dibujarFormas();
+        }
+
+        private void dibujarFormas() {
+            this.clean();
+            canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+            canvas.getGraphicsContext2D().fillOval(robot.getPosicion().getX() + 230, robot.getPosicion().getY() + 110, robot.RADIO, robot.RADIO);
+        }
+
+        public void clean() {
+
+            canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+            canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+        }
+
+        public void update() {
+            this.dibujar();
+        }
+
+    }
+*/
+    public Parent mostrarVehiculoView(){
+        Pane root = new Pane();
+
+        Circle circulo = new Circle();
+        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
+        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
+        circulo.setFill(Color.LIGHTBLUE);
+        circulo.setRadius(10);
+        /*
+        Canvas canvas = new Canvas();
+
+        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
+
+        canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+
+        canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+        canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
+        //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
+        */
+
+        root.getChildren().add(circulo);
 
         return root;
     }
@@ -203,12 +265,12 @@ public class App extends Application {
         pedirNombre.setText("Ingrese el nombre del jugador");
         pedirNombre.setAlignment(Pos.CENTER);
 
-        pedirVehiculo.setText("Eliga un vehiculo para el jugador");
+        pedirVehiculo.setText("Elija un vehiculo para el jugador");
         pedirVehiculo.setAlignment(Pos.CENTER);
 
         error.setText("");
 
-        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, this.fila);
+        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, this.filas);
         siguiente.setOnAction(botonSiguiente);
 
         VBox contenedorNombre = new VBox(pedirNombre, nombreJugador);
@@ -250,7 +312,7 @@ public class App extends Application {
 
         pedirFila.setText("Ingrese la cantidad de entre calles por fila");
         pedirFila.setAlignment(Pos.CENTER);
-        pedirColumna.setText("Pedir la cantidad de entre calles por columna");
+        pedirColumna.setText("Ingrese la cantidad de entre calles por columna");
         pedirColumna.setAlignment(Pos.CENTER);
 
         Region region1 = new Region();
@@ -293,10 +355,10 @@ public class App extends Application {
             agregarJugadores();
             this.cantidad --;
         }else{
-            comenzarJuego();
+            this.mostrarTablero();
         }
     }
-
+/*
     public void comenzarJuego(){
         StackPane layout = new StackPane();
         Button jugar = new Button("Jugar");
@@ -311,14 +373,14 @@ public class App extends Application {
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
     }
-
+*/
     public void guardarJugadores(String nombre, Vehiculo vehiculo){
         Jugador jugador = new Jugador(nombre, vehiculo);
         this.jugadores.add(jugador);
-        this.probarAlgo(jugador);
+        //this.probarAlgo(jugador);
         this.ingresarNombresYVehiculo(this.cantidad);
     }
-
+/*
     public void probarAlgo(Jugador jugador){
         Ubicacion u = new Ubicacion(2,2);
         Vehiculo moto = new Moto(u);
@@ -333,7 +395,7 @@ public class App extends Application {
             System.out.println("SIUUU CAMIONETA");
         }
     }
-
+*/
     public Stage getStage(){
         return this.stage;
     }
@@ -343,10 +405,9 @@ public class App extends Application {
     }
 
     public void setFilaYColumna(int fila, int columna) {
-        this.fila = fila*2 +1;
-        this.columna = columna*2 +1;
+        this.filas = fila*2 +1;
+        this.columnas = columna*2 +1;
 
     }
-
 
 }

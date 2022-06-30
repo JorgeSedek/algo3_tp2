@@ -33,9 +33,6 @@ public class BotonSiguienteEvento implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-
-        Random rand = new Random();
-        //int random = rand.nextInt(this.fila) + 1;
         Ubicacion ubicacion = new Ubicacion(2, 2);
 
         if(this.choiceBox.getValue() == "Moto"){
