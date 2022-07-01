@@ -310,7 +310,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void unAutoHaceVariosMovimientosYPasaPorUnCambioDeVehiculoYUnPiqueteNoDeberiaPoderPasar(){
+    public void unAutoHaceVariosMovimientosYPasaPorUnCambioDeVehiculoYUnPiqueteDeberiaCambiarseACamionetaYNoPoderPasar(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador0 = new Jugador(nombre, auto);
@@ -341,6 +341,40 @@ public class GeneralTest {
         assertTrue(jugador0.verificarMovimientos(cantMovimientos));
         assertTrue(jugador0.mismoVehiculo(new Camioneta(ubicacionEsperada)));
     }
+
+    @Test
+    public void unaMotoHaceVariosMovimientosYPasaPorUnCambioDeVehiculoYUnPiqueteDeberiaCambiarseAAutoYNoPoderPasar(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo moto = new Moto(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, moto);
+        int cantMovimientos = 4;
+        Ubicacion ubicacionEsperada = new Ubicacion(4,2);
+        List<Jugador> jugadores = new ArrayList<>() {
+            { add(jugador0);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Sorpresa cambioVehiculo = new CambioVehiculo();
+        Ubicacion ubicacionCambioV = new Ubicacion(3, 2);
+        Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
+
+        Obstaculo piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(3, 2);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        // Act
+        Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
+        Juego.getInstance().moverVehiculo(new DireccionIzquierda()); // Hasta aca la ubicacion es (4,2)
+        Juego.getInstance().moverVehiculo(new DireccionArriba()); // Se deberia encontrar con cambio de vehiculo y piquete
+
+        // Assert
+        assertTrue(jugador0.verificarUbicacion(ubicacionEsperada));
+        assertTrue(jugador0.verificarMovimientos(cantMovimientos));
+        assertTrue(jugador0.mismoVehiculo(new Auto(ubicacionEsperada)));
+    }
+
     @Test
     public void unaMotoPasaPorUnaMetaSeLlamaAlFinalizarDeJuegoYSeAgregaLaPuntuacionDelJugador(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
