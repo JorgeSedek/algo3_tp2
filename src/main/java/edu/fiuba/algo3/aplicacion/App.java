@@ -91,7 +91,7 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
+        Image imagen = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/imagen.png");
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         layout.setBackground(new Background(imagenDeFondo));
 
