@@ -315,6 +315,7 @@ public class GeneralTest {
         Vehiculo auto = new Auto(ubicacion);
         Jugador jugador0 = new Jugador(nombre, auto);
         int cantMovimientos = 4;
+        Ubicacion ubicacionEsperada = new Ubicacion(2,4);
         List<Jugador> jugadores = new ArrayList<>() {
             { add(jugador0);}
         };
@@ -329,21 +330,16 @@ public class GeneralTest {
         Ubicacion ubicacionPiquete = new Ubicacion(2, 3);
         Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
 
+        // Act
         Juego.getInstance().moverVehiculo(new DireccionAbajo());
-        assertTrue(jugador0.verificarUbicacion(new Ubicacion(4,2)));
-
         Juego.getInstance().moverVehiculo(new DireccionDerecha());
-        assertTrue(jugador0.verificarUbicacion(new Ubicacion(4,4)));
+        Juego.getInstance().moverVehiculo(new DireccionArriba()); // Hasta aca la ubicacion es (2,4)
+        Juego.getInstance().moverVehiculo(new DireccionIzquierda()); // Se deberia encontrar con cambio de vehiculo y piquete
 
-        Juego.getInstance().moverVehiculo(new DireccionArriba());
-        assertTrue(jugador0.verificarUbicacion(new Ubicacion(2,4)));
-
-        Juego.getInstance().moverVehiculo(new DireccionIzquierda());
-        assertTrue(jugador0.verificarUbicacion(new Ubicacion(2,2))); // ERROR (NO DEBERIA PASAR, DEBERIA QUEDARSE EN LA 2,4 PORQUE 4X4 NO PASAN)
-        //Ubicacion nuevaUbicacion = new Ubicacion(2,4);
-
-        //assertTrue(jugador0.verificarMovimientos(cantMovimientos));
-        //assertTrue(jugador0.verificarUbicacion(nuevaUbicacion));
+        // Assert
+        assertTrue(jugador0.verificarUbicacion(ubicacionEsperada));
+        assertTrue(jugador0.verificarMovimientos(cantMovimientos));
+        assertTrue(jugador0.mismoVehiculo(new Camioneta(ubicacionEsperada)));
     }
     @Test
     public void unaMotoPasaPorUnaMetaSeLlamaAlFinalizarDeJuegoYSeAgregaLaPuntuacionDelJugador(){

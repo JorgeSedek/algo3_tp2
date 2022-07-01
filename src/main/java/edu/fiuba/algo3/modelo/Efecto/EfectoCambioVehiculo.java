@@ -12,16 +12,19 @@ public class EfectoCambioVehiculo extends EfectoDecorador {
     public EfectoCambioVehiculo(Efecto efecto, Auto auto) {
         super(efecto);
         this.vehiculoNuevo = new Camioneta(auto.obtenerUbicacion());
+        this.vehiculoNuevo.asignarDireccion(auto.obtenerDireccion());
     }
 
     public EfectoCambioVehiculo(Efecto efecto, Camioneta camioneta) {
         super(efecto);
         this.vehiculoNuevo = new Moto(camioneta.obtenerUbicacion());
+        this.vehiculoNuevo.asignarDireccion(camioneta.obtenerDireccion());
     }
 
     public EfectoCambioVehiculo(Efecto efecto, Moto moto) {
         super(efecto);
         this.vehiculoNuevo = new Auto(moto.obtenerUbicacion());
+        this.vehiculoNuevo.asignarDireccion(moto.obtenerDireccion());
     }
 
     public void aplicar(Jugador jugador) {
