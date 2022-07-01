@@ -45,11 +45,12 @@ public abstract class Vehiculo {
         this.direccion= this.direccion.direccionOpuesta();
     }
 
+    // Se usa para tests
     public boolean verificarUbicacion(Ubicacion ubicacion) {
         return this.ubicacion.equals(ubicacion);
     }
 
-    public Ubicacion ubicacion() {
+    public Ubicacion obtenerUbicacion() {
         return this.ubicacion;
     }
 }

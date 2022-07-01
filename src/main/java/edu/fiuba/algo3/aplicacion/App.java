@@ -221,8 +221,8 @@ public class App extends Application {
         Pane root = new Pane();
 
         Circle circulo = new Circle();
-        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
-        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
+        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
+        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
         circulo.setFill(Color.LIGHTBLUE);
         circulo.setRadius(10);
         /*

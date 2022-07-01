@@ -97,9 +97,11 @@ public class Escenario {
 	}
 	*/
 
+	/*
 	public int obtenerNumeroDeFilas() {
 		return this.filas;
 	}
+	*/
 
 	public int obtenerNumeroDeColumnas() {
 		return this.columnas;
