@@ -219,62 +219,75 @@ public class App extends Application {
 
     }
 */
-    public Parent mostrarVehiculoView(){
-        Pane root = new Pane();
+public Parent mostrarVehiculoView(){
+    Pane root = new Pane();
 
-        String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoDerecha.png";
-        String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
-        String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
-        String pozoPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
-        String piquetePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/piquete.png";
+        /* Los path y los seteos tienen que ir en cada una de las clases View
+        los puse aca para encontrar las medidas de las imagenes y ver como ubicarlas
+         */
 
-        String favorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/favorable.png";
+    String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoDerecha.png";
+    String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
+    String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
+    String pozoPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
+    String piquetePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/piquete.png";
 
-
-
-        ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,60, 50, false, false));
-        ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,60, 50, false, false));
-
-      //  ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
-        ImageView piqueteView = new ImageView(new Image(piquetePath,20, 30, false, false));
-        ImageView favorableView = new ImageView(new Image(favorablePath,20, 30, false, false));
-
-        ImageView piqueteView2 = new ImageView(new Image(piquetePath,20, 30, false, false));
-        ImageView favorableView2 = new ImageView(new Image(favorablePath,20, 30, false, false));
-
-        ImageView piqueteView3 = new ImageView(new Image(piquetePath,20, 30, false, false));
-        ImageView favorableView3 = new ImageView(new Image(favorablePath,20, 30, false, false));
+    String favorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/favorable.png";
+    String desfavorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/desfavorable.png";
 
 
-        autoDerechaView1.setLayoutX(50);
-        autoDerechaView1.setLayoutY(50);
 
-        autoDerechaView2.setLayoutX(150);
-        autoDerechaView2.setLayoutY(50);
+    ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,60, 50, false, false));
+    ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,60, 50, false, false));
 
-     //   pozoView.setLayoutX(200);
-     //   pozoView.setLayoutY(50);
+    //  ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
+    ImageView piqueteView = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView = new ImageView(new Image(favorablePath,20, 30, false, false));
 
-        //para mover piquete y favorable de un casillero a otro se suma 100
-        // la separacion entre los 2 es de 25 en el eje x
+    ImageView piqueteView2 = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView2 = new ImageView(new Image(favorablePath,20, 30, false, false));
 
-        piqueteView.setLayoutX(50);
-        piqueteView.setLayoutY(105);
+    ImageView piqueteView3 = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView3 = new ImageView(new Image(favorablePath,20, 30, false, false));
 
-        favorableView.setLayoutX(75);
-        favorableView.setLayoutY(105);
+    ImageView desfavorableView = new ImageView(new Image(desfavorablePath,20, 30, false, false));
+    ImageView piqueteView4 = new ImageView(new Image(piquetePath,20, 30, false, false));
 
-        piqueteView2.setLayoutX(50);
-        piqueteView2.setLayoutY(205);
+    autoDerechaView1.setLayoutX(50);
+    autoDerechaView1.setLayoutY(50);
 
-        favorableView2.setLayoutX(75);
-        favorableView2.setLayoutY(205);
+    autoDerechaView2.setLayoutX(150);
+    autoDerechaView2.setLayoutY(50);
 
-        piqueteView3.setLayoutX(150);
-        piqueteView3.setLayoutY(105);
+    //   pozoView.setLayoutX(200);
+    //   pozoView.setLayoutY(50);
 
-        favorableView3.setLayoutX(175);
-        favorableView3.setLayoutY(105);
+    //para mover piquete y favorable de un casillero a otro se suma 100
+    // la separacion entre los 2 es de 25 en el eje x
+
+    piqueteView.setLayoutX(50);
+    piqueteView.setLayoutY(105);
+
+    favorableView.setLayoutX(75);
+    favorableView.setLayoutY(105);
+
+    piqueteView2.setLayoutX(50);
+    piqueteView2.setLayoutY(205);
+
+    favorableView2.setLayoutX(75);
+    favorableView2.setLayoutY(205);
+
+    piqueteView3.setLayoutX(150);
+    piqueteView3.setLayoutY(105);
+
+    favorableView3.setLayoutX(175);
+    favorableView3.setLayoutY(105);
+
+    piqueteView4.setLayoutX(250);
+    piqueteView4.setLayoutY(105);
+
+    desfavorableView.setLayoutX(275);
+    desfavorableView.setLayoutY(105);
 /*
         autoAbajoView.setLayoutX(50);
         autoAbajoView.setLayoutY(150);
@@ -304,21 +317,23 @@ public class App extends Application {
         //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
         */
 
-   //     root.getChildren().add(circulo);
+    //     root.getChildren().add(circulo);
 
-      //  root.getChildren().add(autoArribaView);
-        // root.getChildren().add(autoAbajoView);
-        root.getChildren().add(piqueteView);
-        root.getChildren().add(piqueteView2);
-        root.getChildren().add(piqueteView3);
-     //   root.getChildren().add(pozoView);
-        root.getChildren().add(favorableView);
-        root.getChildren().add(favorableView2);
-        root.getChildren().add(favorableView3);
-        root.getChildren().add(autoDerechaView1);
-        root.getChildren().add(autoDerechaView2);
-        return root;
-    }
+    //  root.getChildren().add(autoArribaView);
+    // root.getChildren().add(autoAbajoView);
+    root.getChildren().add(piqueteView);
+    root.getChildren().add(piqueteView2);
+    root.getChildren().add(piqueteView3);
+    root.getChildren().add(piqueteView4);
+    //   root.getChildren().add(pozoView);
+    root.getChildren().add(desfavorableView);
+    root.getChildren().add(favorableView);
+    root.getChildren().add(favorableView2);
+    root.getChildren().add(favorableView3);
+    root.getChildren().add(autoDerechaView1);
+    root.getChildren().add(autoDerechaView2);
+    return root;
+}
 /*
     public void getChoice(int cant_jugadores) {
         System.out.println(cant_jugadores);
