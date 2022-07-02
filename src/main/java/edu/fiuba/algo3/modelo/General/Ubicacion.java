@@ -67,11 +67,11 @@ public class Ubicacion {
 		return !escenario.columnaDentroDeLimites(columna - 1);
 	}
 
-	/*
+
 	public int obtenerFila() {
 		return this.fila;
 	}
-	*/
+
 	public int obtenerColumna() {
 		return this.columna;
 	}

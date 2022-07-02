@@ -49,4 +49,12 @@ public class Casillero {
         jugador.atravezar(obstaculo);
         jugador.atravezar(meta);
     }
+
+    public Obstaculo obtenerObstaculo(){
+        return this.obstaculo;
+    }
+
+    public Sorpresa obtenerSorpresa(){
+        return this.sorpresa;
+    }
 }
