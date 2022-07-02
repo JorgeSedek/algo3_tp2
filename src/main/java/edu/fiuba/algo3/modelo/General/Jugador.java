@@ -23,8 +23,8 @@ public class Jugador {
 
     public void reducirMovimientos(int disminucion){this.movimientos -= disminucion;}
 
-    public double porcentajeMovimientos(double porcentaje) {
-        return this.movimientos * porcentaje / 100;
+    public void aplicarPorcentajeMovimientos(double porcentaje) {
+        this.movimientos = (int) (movimientos * porcentaje / 100);
     }
 
     public void moverVehiculo(Direccion direccion){

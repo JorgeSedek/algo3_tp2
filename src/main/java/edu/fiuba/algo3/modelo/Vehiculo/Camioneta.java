@@ -7,12 +7,12 @@ import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 public class Camioneta extends Vehiculo {
     private int pozos_atravesados;
-    private int maximoPozosAtravezadosGratis;
+    private final int MAXIMOPOZOSATRAVEZADOSGRATIS;
 
     public Camioneta(Ubicacion ubicacion) {
         super(ubicacion);
         this.pozos_atravesados = 0;
-        this.maximoPozosAtravezadosGratis = 3;
+        this.MAXIMOPOZOSATRAVEZADOSGRATIS = 3;
     }
 
     public Efecto atravesar(Obstaculo obstaculo) {
@@ -24,10 +24,7 @@ public class Camioneta extends Vehiculo {
     }
 
     public boolean pasoLimitePozos() {
-        return this.pozos_atravesados > maximoPozosAtravezadosGratis;
-    }
-
-    public void atravezoPozo() {
         this.pozos_atravesados++;
+        return this.pozos_atravesados > MAXIMOPOZOSATRAVEZADOSGRATIS;
     }
 }
