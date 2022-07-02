@@ -228,13 +228,23 @@ public class App extends Application {
         String pozoPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
         String piquetePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/piquete.png";
 
+        String favorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/favorable.png";
+
+
+
         ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,60, 50, false, false));
         ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,60, 50, false, false));
 
-        ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
+      //  ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
         ImageView piqueteView = new ImageView(new Image(piquetePath,20, 30, false, false));
-      //  ImageView autoAbajoView = new ImageView(new Image(imagenPathAbajo,60, 50, false, false));
-     //   ImageView autoArribaView = new ImageView(new Image(imagenPathArriba,60, 50, false, false));
+        ImageView favorableView = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+        ImageView piqueteView2 = new ImageView(new Image(piquetePath,20, 30, false, false));
+        ImageView favorableView2 = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+        ImageView piqueteView3 = new ImageView(new Image(piquetePath,20, 30, false, false));
+        ImageView favorableView3 = new ImageView(new Image(favorablePath,20, 30, false, false));
+
 
         autoDerechaView1.setLayoutX(50);
         autoDerechaView1.setLayoutY(50);
@@ -242,11 +252,29 @@ public class App extends Application {
         autoDerechaView2.setLayoutX(150);
         autoDerechaView2.setLayoutY(50);
 
-        pozoView.setLayoutX(200);
-        pozoView.setLayoutY(50);
+     //   pozoView.setLayoutX(200);
+     //   pozoView.setLayoutY(50);
+
+        //para mover piquete y favorable de un casillero a otro se suma 100
+        // la separacion entre los 2 es de 25 en el eje x
 
         piqueteView.setLayoutX(50);
-        piqueteView.setLayoutY(100);
+        piqueteView.setLayoutY(105);
+
+        favorableView.setLayoutX(75);
+        favorableView.setLayoutY(105);
+
+        piqueteView2.setLayoutX(50);
+        piqueteView2.setLayoutY(205);
+
+        favorableView2.setLayoutX(75);
+        favorableView2.setLayoutY(205);
+
+        piqueteView3.setLayoutX(150);
+        piqueteView3.setLayoutY(105);
+
+        favorableView3.setLayoutX(175);
+        favorableView3.setLayoutY(105);
 /*
         autoAbajoView.setLayoutX(50);
         autoAbajoView.setLayoutY(150);
@@ -281,7 +309,12 @@ public class App extends Application {
       //  root.getChildren().add(autoArribaView);
         // root.getChildren().add(autoAbajoView);
         root.getChildren().add(piqueteView);
-        root.getChildren().add(pozoView);
+        root.getChildren().add(piqueteView2);
+        root.getChildren().add(piqueteView3);
+     //   root.getChildren().add(pozoView);
+        root.getChildren().add(favorableView);
+        root.getChildren().add(favorableView2);
+        root.getChildren().add(favorableView3);
         root.getChildren().add(autoDerechaView1);
         root.getChildren().add(autoDerechaView2);
         return root;
