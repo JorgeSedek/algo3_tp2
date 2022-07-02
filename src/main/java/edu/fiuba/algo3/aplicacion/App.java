@@ -2,6 +2,7 @@ package edu.fiuba.algo3.aplicacion;
 
 import edu.fiuba.algo3.aplicacion.Eventos.*;
 
+import edu.fiuba.algo3.aplicacion.Vista.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 
 import edu.fiuba.algo3.modelo.General.Jugador;
@@ -22,6 +23,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -91,8 +93,8 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:edu/fiuba/algo3/aplicacion/css/imagenes/imagen.png");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        Image imagen = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/gpsChallenge.png");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         layout.setBackground(new Background(imagenDeFondo));
 
         layout.setPrefHeight(400);
@@ -155,7 +157,7 @@ public class App extends Application {
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
     }
-/*
+
     public void mostrarTablero(){
         StackPane layout = new StackPane();
         layout.getChildren().addAll(mostrarTableroView(), mostrarVehiculoView());
@@ -163,8 +165,7 @@ public class App extends Application {
         stage.setScene(new Scene(layout));
         stage.show();
     }
-*/
-    /*
+
     public Parent mostrarTableroView(){
         int filas = this.filas;
         int columnas = this.columnas;
@@ -185,7 +186,7 @@ public class App extends Application {
 
         return root;
     }
-
+/*
     public class VistaRobot {
 
         private Robot robot;
@@ -218,40 +219,129 @@ public class App extends Application {
 
     }
 */
-    /*
-    public Parent mostrarVehiculoView(){
-        Pane root = new Pane();
+public Parent mostrarVehiculoView(){
+    Pane root = new Pane();
 
+        /* Los path y los seteos tienen que ir en cada una de las clases View
+        los puse aca para encontrar las medidas de las imagenes y ver como ubicarlas
+         */
+
+    String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
+    String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
+    String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
+    String pozoPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
+    String piquetePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/piquete.png";
+
+    String favorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/favorable.png";
+    String desfavorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/desfavorable.png";
+
+
+
+    ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,40, 30, false, false));
+    ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,40, 30, false, false));
+
+    //  ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
+    ImageView piqueteView = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+    ImageView piqueteView2 = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView2 = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+    ImageView piqueteView3 = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView3 = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+    ImageView desfavorableView = new ImageView(new Image(desfavorablePath,20, 30, false, false));
+    ImageView piqueteView4 = new ImageView(new Image(piquetePath,20, 30, false, false));
+
+    autoDerechaView1.setLayoutX(50);
+    autoDerechaView1.setLayoutY(60);
+
+    autoDerechaView2.setLayoutX(150);
+    autoDerechaView2.setLayoutY(60);
+
+    //   pozoView.setLayoutX(200);
+    //   pozoView.setLayoutY(50);
+
+    //para mover piquete y favorable de un casillero a otro se suma 100
+    // la separacion entre los 2 es de 25 en el eje x
+
+    piqueteView.setLayoutX(50);
+    piqueteView.setLayoutY(105);
+
+    favorableView.setLayoutX(75);
+    favorableView.setLayoutY(105);
+
+    piqueteView2.setLayoutX(50);
+    piqueteView2.setLayoutY(205);
+
+    favorableView2.setLayoutX(75);
+    favorableView2.setLayoutY(205);
+
+    piqueteView3.setLayoutX(150);
+    piqueteView3.setLayoutY(105);
+
+    favorableView3.setLayoutX(175);
+    favorableView3.setLayoutY(105);
+
+    piqueteView4.setLayoutX(250);
+    piqueteView4.setLayoutY(105);
+
+    desfavorableView.setLayoutX(275);
+    desfavorableView.setLayoutY(105);
+/*
+        autoAbajoView.setLayoutX(50);
+        autoAbajoView.setLayoutY(150);
+
+        autoArribaView.setLayoutX(150);
+        autoArribaView.setLayoutY(150);
+
+ */
+/*
         Circle circulo = new Circle();
-        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
-        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO (ESTA SERIA LA INICIAL PARA UN TABLERO 4X4)
+        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
+        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
         circulo.setFill(Color.LIGHTBLUE);
         circulo.setRadius(10);
 
-        //Canvas canvas = new Canvas();
+ */
+        /*
+        Canvas canvas = new Canvas();
 
-        //root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
+        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
 
-        //canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
-        //canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+        canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
 
-        //canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
-        //canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
+        canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+        canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
         //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
+        */
 
+    //     root.getChildren().add(circulo);
 
-        //root.getChildren().add(circulo);
-
-        //return root;
-    }
-
+    //  root.getChildren().add(autoArribaView);
+    // root.getChildren().add(autoAbajoView);
+    root.getChildren().add(piqueteView);
+    root.getChildren().add(piqueteView2);
+    root.getChildren().add(piqueteView3);
+    root.getChildren().add(piqueteView4);
+    //   root.getChildren().add(pozoView);
+    root.getChildren().add(desfavorableView);
+    root.getChildren().add(favorableView);
+    root.getChildren().add(favorableView2);
+    root.getChildren().add(favorableView3);
+    root.getChildren().add(autoDerechaView1);
+    root.getChildren().add(autoDerechaView2);
+    return root;
+}
+/*
     public void getChoice(int cant_jugadores) {
         System.out.println(cant_jugadores);
         Random rand = new Random();
         int random = rand.nextInt(this.columna) + 1;
         System.out.println(random);
-    }
-*/
+    }*/
+
     public void agregarJugadores(){
         StackPane layout = new StackPane();
         Label pedirNombre = new Label();

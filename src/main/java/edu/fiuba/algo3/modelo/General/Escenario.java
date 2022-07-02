@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.modelo.Colocador.ColocadorItems;
+import edu.fiuba.algo3.modelo.Colocador.ColocadorRandom;
+import edu.fiuba.algo3.modelo.Colocador.ColocadorVacio;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
@@ -17,8 +20,8 @@ public class Escenario {
 	private static Escenario INSTANCE = null;
 
 	private Escenario(int filas, int columnas) {
-		this.filas = filas;
-		this.columnas = columnas;
+		this.filas = filas * 2 + 1;
+		this.columnas = columnas * 2 + 1;
 		this.casilleros = new ArrayList<>();
 		this.llenarConCasilleros();
 		this.colocador = new ColocadorVacio();
@@ -54,8 +57,7 @@ public class Escenario {
 
 	public Casillero buscarCasilleroEn(Ubicacion ubicacion){
 		List<Casillero> casillerosFiltrados = casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)).collect(Collectors.toList());
-		int primerElemento = 0;
-		return casillerosFiltrados.get(primerElemento);
+		return casillerosFiltrados.get(0);
 	}
 
 	public boolean filaDentroDeLimites(int fila){
@@ -95,9 +97,11 @@ public class Escenario {
 	}
 	*/
 
+	/*
 	public int obtenerNumeroDeFilas() {
 		return this.filas;
 	}
+	*/
 
 	public int obtenerNumeroDeColumnas() {
 		return this.columnas;

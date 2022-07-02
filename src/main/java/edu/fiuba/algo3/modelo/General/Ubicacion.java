@@ -32,41 +32,50 @@ public class Ubicacion {
 	}
 
 	public void mover(DireccionAbajo direccion) {
-		Escenario escenario = Escenario.getInstance();
-		if (escenario.filaDentroDeLimites(fila)) {
 			this.fila += 1;
-		}
 	}
 
 	public void mover(DireccionDerecha direccion) {
-		Escenario escenario = Escenario.getInstance();
-		if (escenario.columnaDentroDeLimites(columna)) {
 			this.columna += 1;
-		}
 	}
 
 	public void mover(DireccionArriba direccion) {
-		Escenario escenario = Escenario.getInstance();
-		if (escenario.filaDentroDeLimites(fila)) {
 			this.fila -= 1;
-		}
 	}
 
 	public void mover(DireccionIzquierda direccion) {
-		Escenario escenario = Escenario.getInstance();
-		if (escenario.columnaDentroDeLimites(columna)) {
 			this.columna -= 1;
-		}
-
 	}
 
+	public boolean voyAChocarBorde(DireccionArriba direccionArriba) {
+		Escenario escenario = Escenario.getInstance();
+		return !escenario.filaDentroDeLimites(fila - 1);
+	}
+
+	public boolean voyAChocarBorde(DireccionDerecha direccionDerecha) {
+		Escenario escenario = Escenario.getInstance();
+		return !escenario.columnaDentroDeLimites(columna + 1);
+	}
+
+	public boolean voyAChocarBorde(DireccionAbajo direccionAbajo) {
+		Escenario escenario = Escenario.getInstance();
+		return !escenario.filaDentroDeLimites(fila + 1);
+	}
+
+	public boolean voyAChocarBorde(DireccionIzquierda direccionIzquierda) {
+		Escenario escenario = Escenario.getInstance();
+		return !escenario.columnaDentroDeLimites(columna - 1);
+	}
+
+	/*
 	public int obtenerFila() {
 		return this.fila;
 	}
-
+	*/
 	public int obtenerColumna() {
 		return this.columna;
 	}
+
 
 
 }

@@ -49,7 +49,7 @@ public class EscenarioRandom {
         List<Jugador> jugadores = new ArrayList<>() {{ add(jugador1); }};
 
         // Reseteo el escenario y el juego
-        Escenario.resetInstance(3, 3); // De esta manera la meta solo puede estar en un unico lugar (2,3)
+        Escenario.resetInstance(1, 1); // De esta manera la meta solo puede estar en un unico lugar (2,3)
         Juego.resetInstance(jugadores);
 
         // Le agrego una meta al escenario (se agrega de forma random, pero por el tamaño va a estar en (2,3)

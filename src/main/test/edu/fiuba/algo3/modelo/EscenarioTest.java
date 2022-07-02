@@ -28,16 +28,14 @@ public class EscenarioTest {
     }
 	@Test
 	public void elEscenarioSeReseteoCorrectamente() {
-		int filasEsperadas = 6;
-		int columnasEsperadas = 6;
-		Escenario.resetInstance(filasEsperadas, columnasEsperadas);
+		Escenario.resetInstance(filas, columnas);
 
-		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(filasEsperadas));
-		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(columnasEsperadas));
+		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(9));
+		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(9));
 
 		Escenario.resetInstance(filas, columnas);
-		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(filas));
-		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(columnas));
+		assertTrue(Escenario.getInstance().verificarNumeroDeFilas(9));
+		assertTrue(Escenario.getInstance().verificarNumeroDeColumnas(9));
 	}
 
 	@Test
