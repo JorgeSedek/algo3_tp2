@@ -20,7 +20,6 @@ public class Ubicacion {
 		return (this.fila % 2 == 0 & this.columna % 2 == 0);
 	}
 
-
 	// Es un edificio si su fila y su columna es impar
 	public boolean hayEdificio() {
 		return (this.fila % 2 == 1 & this.columna % 2 == 1);
@@ -32,41 +31,40 @@ public class Ubicacion {
 	}
 
 	public void mover(DireccionAbajo direccion) {
-			this.fila += 1;
+			this.fila++;
 	}
 
 	public void mover(DireccionDerecha direccion) {
-			this.columna += 1;
+			this.columna++;
 	}
 
 	public void mover(DireccionArriba direccion) {
-			this.fila -= 1;
+			this.fila--;
 	}
 
 	public void mover(DireccionIzquierda direccion) {
-			this.columna -= 1;
+			this.columna--;
 	}
 
 	public boolean voyAChocarBorde(DireccionArriba direccionArriba) {
-		Escenario escenario = Escenario.getInstance();
-		return !escenario.filaDentroDeLimites(fila - 1);
+		return Escenario.getInstance().excedeLimites(fila - 1, columna);
 	}
 
 	public boolean voyAChocarBorde(DireccionDerecha direccionDerecha) {
-		Escenario escenario = Escenario.getInstance();
-		return !escenario.columnaDentroDeLimites(columna + 1);
+		return Escenario.getInstance().excedeLimites(fila, columna + 1);
 	}
 
 	public boolean voyAChocarBorde(DireccionAbajo direccionAbajo) {
-		Escenario escenario = Escenario.getInstance();
-		return !escenario.filaDentroDeLimites(fila + 1);
+		return Escenario.getInstance().excedeLimites(fila + 1, columna);
 	}
 
 	public boolean voyAChocarBorde(DireccionIzquierda direccionIzquierda) {
-		Escenario escenario = Escenario.getInstance();
-		return !escenario.columnaDentroDeLimites(columna - 1);
+		return Escenario.getInstance().excedeLimites(fila, columna - 1);
 	}
 
+	public boolean podesTenerMeta() {
+		return Escenario.getInstance().correspondeMeta(this.columna);
+	}
 
 	public int obtenerFila() {
 		return this.fila;
@@ -75,7 +73,4 @@ public class Ubicacion {
 	public int obtenerColumna() {
 		return this.columna;
 	}
-
-
-
 }

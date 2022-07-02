@@ -1,21 +1,20 @@
 package edu.fiuba.algo3.modelo.General;
 
 public class Puntaje {
-    private String nombreJugador;
+    private final String NOMBREJUGADOR;
 
-    private int puntuacion;
+    private final int PUNTUACION;
 
     public Puntaje(Jugador jugador){
-        this.nombreJugador = jugador.nombre();
-        this.puntuacion = jugador.movimientos();
+        this.NOMBREJUGADOR = jugador.nombre();
+        this.PUNTUACION = jugador.movimientos();
     }
 
     public String obtenerNombreJugador() {
-        return this.nombreJugador;
+        return this.NOMBREJUGADOR;
     }
 
     public int obtenerPuntuacion() {
-        return this.puntuacion;
+        return this.PUNTUACION;
     }
-
 }

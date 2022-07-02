@@ -8,8 +8,6 @@ import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class Desfavorable implements Sorpresa {
-    private int porcentajeIncremento = 25;
-
     public Efecto atravesar(Auto auto) {
         return this.calcularEfecto();
     }
@@ -24,6 +22,7 @@ public class Desfavorable implements Sorpresa {
 
     private Efecto calcularEfecto() {
         Efecto efecto = new EfectoGeneral();
+        int porcentajeIncremento = 25;
         return new EfectoIncrementarMovimientosPorcentual(efecto, porcentajeIncremento);
     }
 }

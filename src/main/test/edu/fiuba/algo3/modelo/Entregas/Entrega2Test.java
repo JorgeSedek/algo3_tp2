@@ -52,7 +52,7 @@ public class Entrega2Test {
         // Realizo 12 movimientos
 
         // Assert
-        int movimientosEsperados = 10;
+        int movimientosEsperados = 9;
 
         assertTrue(jugador1.verificarMovimientos(movimientosEsperados));
     }
