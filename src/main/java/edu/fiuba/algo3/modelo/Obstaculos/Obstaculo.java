@@ -12,4 +12,6 @@ public interface Obstaculo {
     Efecto atravesar(Camioneta camioneta);
 
     Efecto atravesar(Moto moto);
+
+
 }

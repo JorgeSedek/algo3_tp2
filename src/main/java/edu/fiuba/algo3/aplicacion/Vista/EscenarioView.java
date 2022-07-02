@@ -15,7 +15,7 @@ import javafx.scene.layout.StackPane;
 
 import java.util.List;
 import java.util.stream.Collectors;
-/*
+
 public class EscenarioView {
 
     private App app;
@@ -53,6 +53,7 @@ public class EscenarioView {
 
                 casillerosView.getChildren().add(casillero);
 
+
             }
         }
 
@@ -61,7 +62,7 @@ public class EscenarioView {
 
 
 }
-*/
+
 /*
     Del modelo.
 

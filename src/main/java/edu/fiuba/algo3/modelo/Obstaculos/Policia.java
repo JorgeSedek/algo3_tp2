@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class Policia implements Obstaculo {
+
     private int incremento = 3;
     private double probabilidad;
 

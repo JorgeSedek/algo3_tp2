@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class Piquete implements Obstaculo {
+    private static final String nombre = "piquete";
     public Efecto atravesar(Auto auto) {
         Efecto efecto = new EfectoGeneral();
         return new EfectoMoverAlReves(efecto, auto);

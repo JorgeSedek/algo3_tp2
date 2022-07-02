@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 
 public class Pozo implements Obstaculo {
+
     private int incremento = 3;
 
     public Efecto atravesar(Auto auto) {
