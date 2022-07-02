@@ -2,6 +2,7 @@ package edu.fiuba.algo3.aplicacion;
 
 import edu.fiuba.algo3.aplicacion.Eventos.*;
 
+import edu.fiuba.algo3.aplicacion.Vista.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 
 import edu.fiuba.algo3.modelo.General.Jugador;
@@ -22,6 +23,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -220,11 +222,47 @@ public class App extends Application {
     public Parent mostrarVehiculoView(){
         Pane root = new Pane();
 
+        String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoDerecha.png";
+        String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
+        String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
+        String pozoPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
+        String piquetePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/piquete.png";
+
+        ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,60, 50, false, false));
+        ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,60, 50, false, false));
+
+        ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
+        ImageView piqueteView = new ImageView(new Image(piquetePath,20, 30, false, false));
+      //  ImageView autoAbajoView = new ImageView(new Image(imagenPathAbajo,60, 50, false, false));
+     //   ImageView autoArribaView = new ImageView(new Image(imagenPathArriba,60, 50, false, false));
+
+        autoDerechaView1.setLayoutX(50);
+        autoDerechaView1.setLayoutY(50);
+
+        autoDerechaView2.setLayoutX(150);
+        autoDerechaView2.setLayoutY(50);
+
+        pozoView.setLayoutX(200);
+        pozoView.setLayoutY(50);
+
+        piqueteView.setLayoutX(50);
+        piqueteView.setLayoutY(100);
+/*
+        autoAbajoView.setLayoutX(50);
+        autoAbajoView.setLayoutY(150);
+
+        autoArribaView.setLayoutX(150);
+        autoArribaView.setLayoutY(150);
+
+ */
+/*
         Circle circulo = new Circle();
         circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
         circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
         circulo.setFill(Color.LIGHTBLUE);
         circulo.setRadius(10);
+
+ */
         /*
         Canvas canvas = new Canvas();
 
@@ -238,8 +276,14 @@ public class App extends Application {
         //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
         */
 
-        root.getChildren().add(circulo);
+   //     root.getChildren().add(circulo);
 
+      //  root.getChildren().add(autoArribaView);
+        // root.getChildren().add(autoAbajoView);
+        root.getChildren().add(piqueteView);
+        root.getChildren().add(pozoView);
+        root.getChildren().add(autoDerechaView1);
+        root.getChildren().add(autoDerechaView2);
         return root;
     }
 /*
