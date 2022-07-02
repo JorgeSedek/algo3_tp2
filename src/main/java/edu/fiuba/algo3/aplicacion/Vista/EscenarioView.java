@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 public class EscenarioView {
 
     private App app;
-    private double width = 1100;
-    private double height = 1100;
+    private double width = 1100;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 1100;//  Es muy grande cambiarlo a 900 o 1000
     private int filas = 11;
     private int columnas = 11;
     private Group casillerosView = new Group();
