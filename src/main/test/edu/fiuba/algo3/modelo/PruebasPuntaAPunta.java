@@ -237,8 +237,6 @@ public class PruebasPuntaAPunta {
         assertTrue(Juego.getInstance().verificarMovJugadorActivo(movEsperados2));
         assertTrue(Juego.getInstance().verificarUbicacionJugadorActivo(ubicacionJugador2));
         Juego.getInstance().moverVehiculo(new DireccionAbajo());
-
-
     }
 
     @Test
