@@ -29,10 +29,10 @@ public class CasilleroView extends Group{
     public void dibujarCasillero(float fila, float columna, Casillero casillero){
         float tamanioEnX = (float)width/(float)filas;
         float tamanioEnY = (float)height/(float)columnas;
-        /*
-        Obstaculo obstaculo = casillero.obtenerObstaculo();
+
+        Piquete obstaculo = (Piquete) casillero.obtenerObstaculo();
        creadorObstaculosView.crear(obstaculo ,casillero);
-       */
+
 
 
 
