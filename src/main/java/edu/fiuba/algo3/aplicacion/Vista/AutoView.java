@@ -12,12 +12,14 @@ public class AutoView {
 
     protected Auto auto;
     protected Image imagenAuto;
+    public static final int ANCHO_AUTO = 40;
+    public static final int ALTO_AUTO = 30;
 
     protected String imagenPath ;
 
     public AutoView(Auto auto){
         this.auto = auto;
-        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoDerecha.png";
+        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
     }
 /*
     public mostrarAuto(Stage primaryStage){
