@@ -5,8 +5,15 @@ import edu.fiuba.algo3.aplicacion.Eventos.*;
 import edu.fiuba.algo3.aplicacion.Vista.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 
+import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
+import edu.fiuba.algo3.modelo.General.Casillero;
+
+//import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
+import edu.fiuba.algo3.modelo.General.Escenario;
+
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -46,14 +53,16 @@ public class App extends Application {
     private int columnas;
 
     private int cantidad;
-    private double width = 500;
-    private double height = 500;
+    private double width = 1100;
+    private double height = 1100;
 
     public static final int MEDIDA_CASILLERO = 50;
 
     private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
 
     private Group casillerosView = new Group();
+    //private EscenarioView escanarioView;
+    private Escenario escenario;
 
     @Override
     public void start(Stage stage) {
@@ -104,6 +113,7 @@ public class App extends Application {
 
         // Stage
         stage.setScene(new Scene(layout));
+        stage.setResizable(false);
         stage.show();
     }
 /*
@@ -157,7 +167,7 @@ public class App extends Application {
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
     }
-
+/*
     public void mostrarTablero(){
         StackPane layout = new StackPane();
         layout.getChildren().addAll(mostrarTableroView(), mostrarVehiculoView());
@@ -186,6 +196,8 @@ public class App extends Application {
 
         return root;
     }
+
+*/
 /*
     public class VistaRobot {
 
@@ -219,6 +231,7 @@ public class App extends Application {
 
     }
 */
+
 public Parent mostrarVehiculoView(){
     Pane root = new Pane();
 
@@ -253,18 +266,29 @@ public Parent mostrarVehiculoView(){
     ImageView desfavorableView = new ImageView(new Image(desfavorablePath,20, 30, false, false));
     ImageView piqueteView4 = new ImageView(new Image(piquetePath,20, 30, false, false));
 
+    Piquete piquete = new Piquete();
+    Auto auto = new Auto(new Ubicacion(2,2));
+    AutoView autoView = new AutoView(auto);
+
+    Casillero casillero = new Casillero(2,3);
+    casillero.asignarObstaculo(piquete);
+
+    PiqueteView obstaculoView = new PiqueteView(casillero) ;
+    /*
     autoDerechaView1.setLayoutX(50);
     autoDerechaView1.setLayoutY(60);
 
     autoDerechaView2.setLayoutX(150);
     autoDerechaView2.setLayoutY(60);
 
+     */
+
     //   pozoView.setLayoutX(200);
     //   pozoView.setLayoutY(50);
 
     //para mover piquete y favorable de un casillero a otro se suma 100
     // la separacion entre los 2 es de 25 en el eje x
-
+/*
     piqueteView.setLayoutX(50);
     piqueteView.setLayoutY(105);
 
@@ -288,6 +312,8 @@ public Parent mostrarVehiculoView(){
 
     desfavorableView.setLayoutX(275);
     desfavorableView.setLayoutY(105);
+
+ */
 /*
         autoAbajoView.setLayoutX(50);
         autoAbajoView.setLayoutY(150);
@@ -321,6 +347,7 @@ public Parent mostrarVehiculoView(){
 
     //  root.getChildren().add(autoArribaView);
     // root.getChildren().add(autoAbajoView);
+    /*
     root.getChildren().add(piqueteView);
     root.getChildren().add(piqueteView2);
     root.getChildren().add(piqueteView3);
@@ -332,8 +359,14 @@ public Parent mostrarVehiculoView(){
     root.getChildren().add(favorableView3);
     root.getChildren().add(autoDerechaView1);
     root.getChildren().add(autoDerechaView2);
+
+     */
+
+    root.getChildren().add(autoView.dibujar());
+    root.getChildren().add(obstaculoView.dibujar());
     return root;
 }
+
 /*
     public void getChoice(int cant_jugadores) {
         System.out.println(cant_jugadores);
@@ -447,7 +480,8 @@ public Parent mostrarVehiculoView(){
             agregarJugadores();
             this.cantidad --;
         }else{
-            this.mostrarTablero();
+            //this.escanarioView = new EscenarioView(this, escenario);
+            //escanarioView.mostrarTablero();
         }
     }
 /*
@@ -497,9 +531,9 @@ public Parent mostrarVehiculoView(){
     }
 
     public void setFilaYColumna(int fila, int columna) {
-        this.filas = fila*2 +1;
-        this.columnas = columna*2 +1;
-
+        this.filas = 11;
+        this.columnas = 11;
+        escenario.resetInstance(5,5);
     }
 
 }

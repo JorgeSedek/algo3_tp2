@@ -53,4 +53,12 @@ public class Casillero {
     public boolean hayCalle() {
         return this.UBICACION.hayCalle();
     }
+
+    public Obstaculo obtenerObstaculo(){
+        return this.obstaculo;
+    }
+
+    public Sorpresa obtenerSorpresa(){
+        return this.sorpresa;
+    }
 }

@@ -65,4 +65,12 @@ public class Ubicacion {
 	public boolean podesTenerMeta() {
 		return Escenario.getInstance().correspondeMeta(this.columna);
 	}
+
+	public int obtenerFila() {
+		return this.fila;
+	}
+
+	public int obtenerColumna() {
+		return this.columna;
+	}
 }

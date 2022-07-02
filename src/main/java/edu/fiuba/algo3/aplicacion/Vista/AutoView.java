@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class AutoView {
 
     protected Auto auto;
-    protected Image imagenAuto;
+    protected ImageView imagenAuto;
     public static final int ANCHO_AUTO = 40;
     public static final int ALTO_AUTO = 30;
 
@@ -20,35 +20,12 @@ public class AutoView {
     public AutoView(Auto auto){
         this.auto = auto;
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
-    }
-/*
-    public mostrarAuto(Stage primaryStage){
-        ImageView imageView = new ImageView(new Image(this.imagenPath,50, 50, false, false));
-
-        // stack pane
-        TilePane tilePane = new TilePane();
-
-        // add ImageView to the tile pane
-        tilePane.getChildren().add(imageView);
-
-        //set up scene
-        Scene scene = new Scene(tilePane, 450, 300);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        this.imagenAuto = new ImageView(new Image(imagenPath,ANCHO_AUTO, ALTO_AUTO, false, false));
     }
 
-    public Button obtenerBoton(int ancho, int largo){
-        Button btn = new Button();
-        btn.setGraphic(new ImageView(new Image(this.imagenPath,ancho, largo, false, false)));
-        return btn;
+    public ImageView dibujar(){
+        imagenAuto.setLayoutX((auto.obtenerUbicacion().obtenerFila() - 2 ) * 100 + 50);
+        imagenAuto.setLayoutY((auto.obtenerUbicacion().obtenerColumna() - 2) * 100 + 57);
+        return imagenAuto;
     }
-
-    public Image obtenerImagen(int ancho, int largo){
-        return new Image(this.imagenPath,ancho, largo, false, false);
-    }
-
-    public Auto obtenerAuto(){
-        return this.auto;
-    }
-*/
 }
