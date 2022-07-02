@@ -226,7 +226,7 @@ public Parent mostrarVehiculoView(){
         los puse aca para encontrar las medidas de las imagenes y ver como ubicarlas
          */
 
-    String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoDerecha.png";
+    String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
     String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
     String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
     String pozoPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
@@ -237,8 +237,8 @@ public Parent mostrarVehiculoView(){
 
 
 
-    ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,60, 50, false, false));
-    ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,60, 50, false, false));
+    ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,40, 30, false, false));
+    ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,40, 30, false, false));
 
     //  ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
     ImageView piqueteView = new ImageView(new Image(piquetePath,20, 30, false, false));
@@ -254,10 +254,10 @@ public Parent mostrarVehiculoView(){
     ImageView piqueteView4 = new ImageView(new Image(piquetePath,20, 30, false, false));
 
     autoDerechaView1.setLayoutX(50);
-    autoDerechaView1.setLayoutY(50);
+    autoDerechaView1.setLayoutY(60);
 
     autoDerechaView2.setLayoutX(150);
-    autoDerechaView2.setLayoutY(50);
+    autoDerechaView2.setLayoutY(60);
 
     //   pozoView.setLayoutX(200);
     //   pozoView.setLayoutY(50);
