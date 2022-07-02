@@ -107,7 +107,9 @@ public class PruebasPuntaAPunta {
         int movEsperados1 = 0;
         int movEsperados2 = 0;
         assertTrue(Juego.getInstance().verificarMovJugadorActivo(movEsperados1));
+        System.out.println("Jugador 1 | Nombre: " + jugador1.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador1.movimientos());
         Juego.getInstance().moverVehiculo(new DireccionAbajo());
+        System.out.println("Jugador 1 | Nombre: " + jugador1.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador1.movimientos());
         movEsperados1 = 3;
         filaInicial = 4;
         columnaInicial = 2;
@@ -115,7 +117,9 @@ public class PruebasPuntaAPunta {
 
         assertTrue(Juego.getInstance().verificarJugadorActivo(jugador2));
         assertTrue(Juego.getInstance().verificarMovJugadorActivo(movEsperados2));
+        System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Camioneta | Movimientos: " + jugador2.movimientos());
         Juego.getInstance().moverVehiculo(new DireccionAbajo());
+        System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Camioneta | Movimientos: " + jugador2.movimientos());
         movEsperados2 = 1;
 
         filaInicialJugador2 = 2;
@@ -135,7 +139,9 @@ public class PruebasPuntaAPunta {
         assertTrue(Juego.getInstance().verificarJugadorActivo(jugador2));
         assertTrue(Juego.getInstance().verificarMovJugadorActivo(movEsperados2));
         assertTrue(Juego.getInstance().verificarUbicacionJugadorActivo(ubicacionJugador2));
+        System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Camioneta | Movimientos: " + jugador2.movimientos());
         Juego.getInstance().moverVehiculo(new DireccionDerecha());
+        System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Camioneta | Movimientos: " + jugador2.movimientos());
         movEsperados2 = 2;
         filaInicialJugador2 = 2;
         columnaInicialJugador2 = 6;

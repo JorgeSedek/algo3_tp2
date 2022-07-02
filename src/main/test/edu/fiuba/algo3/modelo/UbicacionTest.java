@@ -47,6 +47,17 @@ public class UbicacionTest {
     }
 
     @Test
+    public void seVerificaQueOtraUnaUbicacionQueRepresentaUnaCalleSeaUnaCalle(){
+        int filaCalle = 3;
+        int columnaCalle = 2;
+        Ubicacion ubicacion = new Ubicacion(filaCalle, columnaCalle);
+
+        assertTrue(ubicacion.hayCalle());
+        assertFalse(ubicacion.hayEdificio());
+        assertFalse(ubicacion.hayEntrecalle());
+    }
+
+    @Test
     public void seVerificaQueUnaUbicaiconQueRepresentaUnaEntrecalleSeaUnaEntrecalle(){
         int filaEntrecalle = 2;
         int columnaEntrecalle = 2;

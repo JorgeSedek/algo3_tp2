@@ -64,7 +64,7 @@ public class Jugador {
     // Se usa para tests
     public boolean mismoVehiculo(Vehiculo vehiculo) {
         // TODO cambiar la comparación
-        return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarUbicacion(vehiculo.ubicacion()));
+        return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarUbicacion(vehiculo.obtenerUbicacion()));
     }
 
     public Puntaje obtenerPuntaje() {
