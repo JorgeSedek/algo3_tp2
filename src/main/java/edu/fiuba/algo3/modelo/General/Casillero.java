@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.modelo.General;
 
+import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.ObstaculoView;
+import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.SinMeta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
+import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Obstaculos.SinObstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.SinSorpresa;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
@@ -60,5 +63,9 @@ public class Casillero {
 
     public Sorpresa obtenerSorpresa(){
         return this.sorpresa;
+    }
+
+    public Ubicacion obtenerUbicacion(){
+        return this.UBICACION;
     }
 }
