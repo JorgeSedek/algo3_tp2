@@ -5,7 +5,7 @@ import edu.fiuba.algo3.aplicacion.Eventos.*;
 import edu.fiuba.algo3.aplicacion.Vista.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
 
-import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
+//import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
@@ -56,7 +56,7 @@ public class App extends Application {
     private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
 
     private Group casillerosView = new Group();
-    private EscenarioView escanarioView;
+    //private EscenarioView escanarioView;
     private Escenario escenario;
 
     @Override
@@ -340,8 +340,8 @@ public class App extends Application {
             agregarJugadores();
             this.cantidad --;
         }else{
-            this.escanarioView = new EscenarioView(this, escenario);
-            escanarioView.mostrarTablero();
+            //this.escanarioView = new EscenarioView(this, escenario);
+            //escanarioView.mostrarTablero();
         }
     }
 /*

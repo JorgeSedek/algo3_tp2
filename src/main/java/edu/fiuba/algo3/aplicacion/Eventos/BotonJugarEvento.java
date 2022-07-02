@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
-
+/*
 import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import javafx.application.Application;
@@ -18,3 +18,4 @@ public class BotonJugarEvento implements EventHandler<ActionEvent> {
         this.escenarioView.mostrarTablero();
     }
 }
+*/
