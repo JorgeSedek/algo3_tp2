@@ -17,6 +17,11 @@ public class EscenarioTest {
 	}
 
 	@Test
+	public void obtengoLaInstanciaDeEscenarioYNoEsNull() {
+		assertNotNull(Escenario.getInstance());
+	}
+
+	@Test
     public void alResetearEscenarioYaNoEsElMismoEscenario() {
 		Escenario.resetInstance(filas, columnas);
 
@@ -41,11 +46,9 @@ public class EscenarioTest {
 	@Test
 	public void EscenarioDevuelveElCasilleroBuscadoPorUbicacion() {
 		Escenario.resetInstance(filas, columnas);
-
-		Escenario primerEscenario = Escenario.getInstance();
 		int fila = 2;
 		int columna = 2;
-		Casillero casilleroBuscado = primerEscenario.buscarCasilleroEn(new Ubicacion(fila,columna));
+		Casillero casilleroBuscado = Escenario.getInstance().buscarCasilleroEn(new Ubicacion(fila,columna));
 		int otraFila = 3;
 		int otraColumna = 3;
 

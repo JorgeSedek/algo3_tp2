@@ -7,28 +7,28 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 public class EfectoCambioVehiculo extends EfectoDecorador {
-    private Vehiculo vehiculoNuevo;
+    private final Vehiculo VEHICULONUEVO;
 
     public EfectoCambioVehiculo(Efecto efecto, Auto auto) {
         super(efecto);
-        this.vehiculoNuevo = new Camioneta(auto.obtenerUbicacion());
-        this.vehiculoNuevo.asignarDireccion(auto.obtenerDireccion());
+        VEHICULONUEVO = new Camioneta(auto.obtenerUbicacion());
+        VEHICULONUEVO.asignarDireccion(auto.obtenerDireccion());
     }
 
     public EfectoCambioVehiculo(Efecto efecto, Camioneta camioneta) {
         super(efecto);
-        this.vehiculoNuevo = new Moto(camioneta.obtenerUbicacion());
-        this.vehiculoNuevo.asignarDireccion(camioneta.obtenerDireccion());
+        VEHICULONUEVO = new Moto(camioneta.obtenerUbicacion());
+        VEHICULONUEVO.asignarDireccion(camioneta.obtenerDireccion());
     }
 
     public EfectoCambioVehiculo(Efecto efecto, Moto moto) {
         super(efecto);
-        this.vehiculoNuevo = new Auto(moto.obtenerUbicacion());
-        this.vehiculoNuevo.asignarDireccion(moto.obtenerDireccion());
+        VEHICULONUEVO = new Auto(moto.obtenerUbicacion());
+        VEHICULONUEVO.asignarDireccion(moto.obtenerDireccion());
     }
 
     public void aplicar(Jugador jugador) {
         super.aplicar(jugador);
-        jugador.cambiarVehiculo(vehiculoNuevo);
+        jugador.cambiarVehiculo(VEHICULONUEVO);
     }
 }

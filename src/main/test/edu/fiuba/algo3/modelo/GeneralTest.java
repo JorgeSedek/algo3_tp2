@@ -73,12 +73,11 @@ public class GeneralTest {
             Juego.getInstance().moverVehiculo(new DireccionDerecha()); // Me muevo 12 veces a la derecha
         }
 
-        // Al momento de pasar por la sorpresa, tiene 11 movimientos, luego de aplicarse tiene 9
-        // y por ultimo se mueve una vez mas a la derecha, teniendo 10 movimientos
+        // Al momento de pasar por la sorpresa, tiene 12 movimientos, luego de aplicarse tiene 9
 
         // Assert
         assertTrue(auto.verificarUbicacion(new Ubicacion(2,26)));
-        assertTrue(jugador1.verificarMovimientos(10));
+        assertTrue(jugador1.verificarMovimientos(9));
     }
 
     @Test

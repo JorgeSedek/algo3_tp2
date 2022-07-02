@@ -285,7 +285,7 @@ public class PruebasPuntaAPunta {
         Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 2,4 Jugador 2
         movEsperadosJugador2 += 3;
         assertTrue(jugador2.verificarMovimientos(movEsperadosJugador2));
-        System.out.println(jugador1.nombre() + " | (2,2) -> (2,4) recibe cambio de vehiculo y pasa por piquete");
+        System.out.println(jugador2.nombre() + " | (2,2) -> (2,4) recibe cambio de vehiculo y pasa por piquete");
         System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador2.movimientos());
 
         Juego.getInstance().moverVehiculo(new DireccionAbajo()); // 4,2 Jugador 1
@@ -297,7 +297,7 @@ public class PruebasPuntaAPunta {
         Juego.getInstance().moverVehiculo(new DireccionAbajo()); // 4,4 Jugador 2
         movEsperadosJugador2 += 4;
         assertTrue(jugador2.verificarMovimientos(movEsperadosJugador2));
-        System.out.println(jugador1.nombre() + " | (2,4) -> (4,4) pasa por un pozo");
+        System.out.println(jugador2.nombre() + " | (2,4) -> (4,4) pasa por un pozo");
         System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador2.movimientos());
 
         Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 4,4 Jugador 1
@@ -309,7 +309,7 @@ public class PruebasPuntaAPunta {
         Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 4,6 Jugador 2
         movEsperadosJugador2 += 4;
         assertTrue(jugador2.verificarMovimientos(movEsperadosJugador2));
-        System.out.println(jugador1.nombre() + " | (4,4) -> (4,6) pasa por un control policial y lo detienen");
+        System.out.println(jugador2.nombre() + " | (4,4) -> (4,6) pasa por un control policial y lo detienen");
         System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador2.movimientos());
 
         Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 4,6 Jugador 1
@@ -321,7 +321,7 @@ public class PruebasPuntaAPunta {
         Juego.getInstance().moverVehiculo(new DireccionAbajo()); // 6,6 Jugador 2
         movEsperadosJugador2 += 1;
         assertTrue(jugador2.verificarMovimientos(movEsperadosJugador2));
-        System.out.println(jugador1.nombre() + " | (4,6) -> (6,6)");
+        System.out.println(jugador2.nombre() + " | (4,6) -> (6,6)");
         System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador2.movimientos());
 
         Juego.getInstance().moverVehiculo(new DireccionAbajo()); // 6,6 Jugador 1
@@ -332,28 +332,28 @@ public class PruebasPuntaAPunta {
 
         Juego.getInstance().moverVehiculo(new DireccionAbajo()); // 8,6 Jugador 2
         movEsperadosJugador2++;
-        movEsperadosJugador2 =  movEsperadosJugador2 - (movEsperadosJugador2 * 20 / 100);
+        movEsperadosJugador2 = (int) (movEsperadosJugador2 * 0.8);
         assertTrue(jugador2.verificarMovimientos(movEsperadosJugador2));
-        System.out.println(jugador1.nombre() + " | (6,6) -> (8,6) pasa por una sorpresa favorable");
+        System.out.println(jugador2.nombre() + " | (6,6) -> (8,6) pasa por una sorpresa favorable");
         System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador2.movimientos());
 
         Juego.getInstance().moverVehiculo(new DireccionAbajo()); // 8,6 Jugador 1
         movEsperadosJugador1++;
-        movEsperadosJugador1 =  movEsperadosJugador1 - (movEsperadosJugador1 * 20 / 100);
+        movEsperadosJugador1 = (int) (movEsperadosJugador1 * 0.8);
         assertTrue(jugador1.verificarMovimientos(movEsperadosJugador1));
         System.out.println(jugador1.nombre() + " | (6,6) -> (8,6) pasa por una sorpresa favorable");
         System.out.println("Jugador 1 | Nombre: " + jugador1.nombre() + " | Vehiculo: Auto | Movimientos: " + jugador1.movimientos());
 
         Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 8,8 Jugador 2
         movEsperadosJugador2++;
-        movEsperadosJugador2 =  movEsperadosJugador2 + (movEsperadosJugador2 * 25 / 100);
+        movEsperadosJugador2 = (int) (movEsperadosJugador2 * 1.25);
         assertTrue(jugador2.verificarMovimientos(movEsperadosJugador2));
-        System.out.println(jugador1.nombre() + " | (8,6) -> (8,8) pasa por una sorpresa desfavorable");
+        System.out.println(jugador2.nombre() + " | (8,6) -> (8,8) pasa por una sorpresa desfavorable");
         System.out.println("Jugador 2 | Nombre: " + jugador2.nombre() + " | Vehiculo: Moto | Movimientos: " + jugador2.movimientos());
 
         Juego.getInstance().moverVehiculo(new DireccionDerecha()); // 8,8 Jugador 1
         movEsperadosJugador1++;
-        movEsperadosJugador1 =  movEsperadosJugador1 + (movEsperadosJugador1 * 25 / 100);
+        movEsperadosJugador1 = (int) (movEsperadosJugador1 * 1.25);
         assertTrue(jugador1.verificarMovimientos(movEsperadosJugador1));
         System.out.println(jugador1.nombre() + " | (8,6) -> (8,8) pasa por una sorpresa desfavorable");
         System.out.println("Jugador 1 | Nombre: " + jugador1.nombre() + " | Vehiculo: Auto | Movimientos: " + jugador1.movimientos());
