@@ -25,24 +25,24 @@ public class CreadorObstaculosView {
     }
     */
 
-    public ObstaculoView crear(Obstaculo obstaculo, Casillero casillero) {
+    public ObstaculoView crear(Obstaculo obstaculo, Casillero casillero, double alto, double ancho) {
         if (obstaculo instanceof Piquete) {
-            PiqueteView piqueteView = new PiqueteView(casillero);
+            PiqueteView piqueteView = new PiqueteView(casillero,alto, ancho);
             return piqueteView;
         }
 
         if (obstaculo instanceof Pozo) {
-            PozoView pozoView = new PozoView(casillero);
+            PozoView pozoView = new PozoView(casillero, alto, ancho);
             return pozoView;
         }
 
         if (obstaculo instanceof Policia) {
-            PoliciaView policiaView = new PoliciaView(casillero);
+            PoliciaView policiaView = new PoliciaView(casillero, alto, ancho);
             return policiaView;
         }
 
         else /* (obstaculo instanceof SinObstaculo) */{
-            SinObstaculoView sinObstaculoView = new SinObstaculoView(casillero);
+            SinObstaculoView sinObstaculoView = new SinObstaculoView(casillero, alto, ancho);
             return sinObstaculoView;
         }
     }

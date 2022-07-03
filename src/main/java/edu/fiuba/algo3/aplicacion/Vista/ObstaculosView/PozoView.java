@@ -9,21 +9,23 @@ public class PozoView extends ObstaculoView{
     protected Casillero casillero;
     protected Pozo pozo;
     protected ImageView imagenPozo;
-    public static final int ANCHO_POZO = 20;
-    public static final int ALTO_POZO = 30;
+    public double ANCHO_POZO;
+    public double ALTO_POZO;
 
     protected String imagenPath ;
 
-    public PozoView(Casillero casillero){
+    public PozoView(Casillero casillero, double alto, double ancho){
+        this.ANCHO_POZO = alto;
+        this.ALTO_POZO = ancho;
         this.casillero = casillero;
         this.pozo = (Pozo) casillero.obtenerObstaculo();
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
-        this.imagenPozo = new ImageView(new Image(imagenPath,ANCHO_POZO, ALTO_POZO, false, false));
+        this.imagenPozo = new ImageView(new Image(imagenPath,ANCHO_POZO*0.6, ALTO_POZO*0.6, false, false));
     }
 
     public ImageView dibujar(){
-        imagenPozo.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * 50 + 50);
-        imagenPozo.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * 50 + 50);
+        imagenPozo.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POZO + ANCHO_POZO*1.2);
+        imagenPozo.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POZO + ALTO_POZO*1.2);
         return imagenPozo;
     }
 }

@@ -33,14 +33,14 @@ public class CasilleroView extends Pane {
     }
 
     public void dibujarCasillero(float fila, float columna, Casillero casillero, Pane root){
-        float tamanioEnX = (float)width/(float)filas;
-        float tamanioEnY = (float)height/(float)columnas;
+        double alto = width/(double)filas;
+        double ancho = height/(double)columnas;
 
         Obstaculo obstaculo = casillero.obtenerObstaculo();
         Sorpresa sorpresa = casillero.obtenerSorpresa();
 
-        ObstaculoView obstaculoView = creadorObstaculosView.crear(obstaculo, casillero);
-        SorpresaView sorpresaView = creadorSorpresasView.crear(sorpresa, casillero);
+        ObstaculoView obstaculoView = creadorObstaculosView.crear(obstaculo, casillero, alto, ancho);
+        SorpresaView sorpresaView = creadorSorpresasView.crear(sorpresa, casillero, alto, ancho);
 
         root.getChildren().addAll(obstaculoView.dibujar(), sorpresaView.dibujar());
 

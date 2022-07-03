@@ -11,19 +11,21 @@ public class SorpresaView {
     private Casillero casillero;
     private Sorpresa sorpresa;
     private ImageView imagenSorpresa;
-    public static final int ANCHO_SORPRESA = 20;
-    public static final int ALTO_SORPRESA = 30;
+    public static double ANCHO_SORPRESA;
+    public static double ALTO_SORPRESA;
     protected String imagenPath ;
 
-    public SorpresaView(Casillero casillero) {
+    public SorpresaView(Casillero casillero, double alto, double ancho) {
+        this.ANCHO_SORPRESA = ancho;
+        this.ALTO_SORPRESA = alto;
         this.casillero = casillero;
         this.sorpresa = casillero.obtenerSorpresa();
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/sorpresa.png";
-        this.imagenSorpresa = new ImageView(new Image(imagenPath, ANCHO_SORPRESA, ALTO_SORPRESA, false, false));
+        this.imagenSorpresa = new ImageView(new Image(imagenPath, ANCHO_SORPRESA * 0.6, ALTO_SORPRESA * 0.6, false, false));
     }
     public ImageView dibujar() {
-        imagenSorpresa.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2) * 50 + 50);
-        imagenSorpresa.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * 50 + 50);
+        imagenSorpresa.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2) * ANCHO_SORPRESA + ANCHO_SORPRESA * 1.2);
+        imagenSorpresa.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_SORPRESA + ALTO_SORPRESA * 1.2);
         return imagenSorpresa;
     }
 }
