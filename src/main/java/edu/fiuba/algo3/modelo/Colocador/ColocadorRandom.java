@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Colocador;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Math.IMath;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
@@ -46,6 +47,11 @@ public class ColocadorRandom implements ColocadorItems{
 
         casilleroFinal.asignarSorpresa(new SinSorpresa());
         casilleroFinal.asignarObstaculo(new SinObstaculo());
+
+        Ubicacion ubicacion = casilleroFinal.obtenerUbicacion();
+        Obstaculo obstaculoFinal = casilleroFinal.obtenerObstaculo();
+        System.out.println("En el casillero final la meta es: " + obstaculoFinal.getClass());
+        System.out.println("La meta esta en la fila: " + ubicacion.obtenerFila() + " y columna: " + ubicacion.obtenerColumna());
 
         agregarMetaEn(casilleroFinal, new MetaFinal());
     }

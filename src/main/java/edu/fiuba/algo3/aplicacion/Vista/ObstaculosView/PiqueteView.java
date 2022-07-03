@@ -20,12 +20,12 @@ public class PiqueteView extends ObstaculoView{
         this.casillero = casillero;
         this.piquete = (Piquete) casillero.obtenerObstaculo();
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/piquete.png";
-        this.imagenPiquete = new ImageView(new Image(imagenPath,ANCHO_PIQUETE*0.6, ALTO_PIQUETE*0.6, false, false));
+        this.imagenPiquete = new ImageView(new Image(imagenPath,ANCHO_PIQUETE*0.3, ALTO_PIQUETE*0.3, false, false));
     }
 
     public ImageView dibujar(){
-        imagenPiquete.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_PIQUETE + ANCHO_PIQUETE*1.2);
-        imagenPiquete.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_PIQUETE + ALTO_PIQUETE*1.2);
+        imagenPiquete.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_PIQUETE + ANCHO_PIQUETE*1.5);
+        imagenPiquete.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_PIQUETE + ALTO_PIQUETE*1.5);
         return imagenPiquete;
     }
 }

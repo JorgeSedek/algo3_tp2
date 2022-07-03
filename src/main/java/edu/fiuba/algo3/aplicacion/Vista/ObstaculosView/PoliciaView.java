@@ -22,12 +22,12 @@ public class PoliciaView extends ObstaculoView{
         this.casillero = casillero;
         this.policia = (Policia) casillero.obtenerObstaculo();
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/policiaIcono.png";
-        this.imagenPolicia = new ImageView(new Image(imagenPath,ANCHO_POLICIA*0.6, ALTO_POLICIA*0.6, false, false));
+        this.imagenPolicia = new ImageView(new Image(imagenPath,ANCHO_POLICIA*0.3, ALTO_POLICIA*0.3, false, false));
     }
 
     public ImageView dibujar(){
-        imagenPolicia.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POLICIA + ANCHO_POLICIA*1.2);
-        imagenPolicia.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POLICIA + ALTO_POLICIA*1.2);
+        imagenPolicia.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POLICIA + ANCHO_POLICIA*1.5);
+        imagenPolicia.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POLICIA + ALTO_POLICIA*1.5);
         return imagenPolicia;
     }
 }

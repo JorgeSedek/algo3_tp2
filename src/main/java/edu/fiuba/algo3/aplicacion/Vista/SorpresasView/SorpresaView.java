@@ -29,7 +29,7 @@ public class SorpresaView {
             this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/sorpresa.png";
         }
 
-        this.imagenSorpresa = new ImageView(new Image(imagenPath, ANCHO_SORPRESA * 0.6, ALTO_SORPRESA * 0.6, false, false));
+        this.imagenSorpresa = new ImageView(new Image(imagenPath, ANCHO_SORPRESA * 0.3, ALTO_SORPRESA * 0.3, false, false));
     }
     public ImageView dibujar() {
         imagenSorpresa.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2) * ANCHO_SORPRESA + ANCHO_SORPRESA * 1.2);
