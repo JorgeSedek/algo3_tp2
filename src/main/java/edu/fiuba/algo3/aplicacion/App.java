@@ -130,7 +130,7 @@ public class App extends Application {
 
         // Stage
         stage.setScene(new Scene(layout));
-        stage.setResizable(false);
+     //   stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
     }

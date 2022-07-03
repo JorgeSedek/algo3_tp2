@@ -77,14 +77,15 @@ public class EscenarioView {
 
         Auto auto = new Auto(new Ubicacion(2,2));
         Moto moto = new Moto(new Ubicacion(4,2));
-        Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
+        Camioneta camioneta = new Camioneta(new Ubicacion(2,2));
+        Camioneta camioneta2 = new Camioneta(new Ubicacion(2,4));
         AutoView autoView = new AutoView(auto,root);
         MotoView motoView = new MotoView(moto,root);
         CamionetaView camionetaView = new CamionetaView(camioneta,root);
 
-        autoView.dibujar();
-     //   camionetaView.dibujar();
-      //  motoView.dibujar();
+       // autoView.dibujar();
+        camionetaView.dibujar();
+       // motoView.dibujar();
 
 
         /*

@@ -31,7 +31,7 @@ public class CamionetaView implements VehiculoView{
 
     public void posicionarImagen(){
         imagenCamioneta.setLayoutX((camioneta.obtenerUbicacion().obtenerFila() - 2 ) * 100 + 50);
-        imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerColumna() - 2) * 100 + 50);
+        imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerColumna() - 1) * 100 + 50);
 
     }
 
