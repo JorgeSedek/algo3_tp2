@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class PiqueteView implements ObstaculoView{
+public class PiqueteView extends ObstaculoView{
     protected Casillero casillero;
     protected Piquete piquete;
     protected ImageView imagenPiquete;
