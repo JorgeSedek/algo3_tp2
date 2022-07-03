@@ -26,10 +26,8 @@ public class EscenarioView {
 
     private App app;
     private Stage stage;
-    private double width = 1000;// Es muy grande cambiarlo a 900 o 1000
-    private double height = 1000;//  Es muy grande cambiarlo a 900 o 1000
-    private int filas = 11;
-    private int columnas = 11;
+    private double width = 600;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 600;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
     private Escenario escenario;
 
@@ -51,20 +49,19 @@ public class EscenarioView {
     }
 
     public Parent mostrarTableroView(){
-        int filas = this.filas;
-        int columnas = this.columnas;
+        int filas = Escenario.getInstance().obtenerFilas();
+        int columnas = Escenario.getInstance().obtenerColumnas();
 
         Pane root = new Pane();
 
         for (int x = 1; x <= columnas; x++){
             for (int y = 1; y <= filas; y++){
                 Ubicacion ubicacion = new Ubicacion(x,y);
-                CasilleroView casillero = new CasilleroView(this.filas, this.columnas, this.height, this.width);
+                CasilleroView casillero = new CasilleroView(this.height, this.width);
                 if (ubicacion.hayCalle()) {
-                    casillero.dibujarCasillero(x, y, Escenario.getInstance().buscarCasilleroEn(ubicacion), root);
+                    casillero.dibujarCasillero(Escenario.getInstance().buscarCasilleroEn(ubicacion), root);
                 }
 
-                //Escenario.getInstance().agregarObstaculoEn(new U);
                 if (ubicacion.hayEdificio()) {
                     EdificioView edificioView = new EdificioView(x, y, height, width, filas, columnas);
                     root.getChildren().add(edificioView);
