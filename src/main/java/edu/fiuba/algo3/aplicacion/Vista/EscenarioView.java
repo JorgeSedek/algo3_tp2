@@ -4,6 +4,7 @@ import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,7 +36,7 @@ public class EscenarioView {
     }
 
     public void mostrarTablero(){
-        Pane layout = new Pane();
+        StackPane layout = new StackPane();
         layout.getChildren().addAll(mostrarTableroView());
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);

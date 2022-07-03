@@ -224,14 +224,14 @@ public class App extends Application {
 
     }
 */
-
+/*
 public Parent mostrarVehiculoView(){
     Pane root = new Pane();
 
         /* Los path y los seteos tienen que ir en cada una de las clases View
         los puse aca para encontrar las medidas de las imagenes y ver como ubicarlas
          */
-
+/*
     String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
     String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
     String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
@@ -354,7 +354,7 @@ public Parent mostrarVehiculoView(){
     root.getChildren().add(autoDerechaView2);
 
      */
-
+/*
     root.getChildren().add(autoView.dibujar());
     root.getChildren().add(obstaculoView.dibujar());
     return root;

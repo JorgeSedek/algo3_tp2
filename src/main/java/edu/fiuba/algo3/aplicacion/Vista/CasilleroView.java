@@ -31,11 +31,11 @@ public class CasilleroView extends Pane {
     }
 
     public void dibujarCasillero(float fila, float columna, Casillero casillero, Pane root){
-        float tamanioEnX = (float)width/(float)filas;
-        float tamanioEnY = (float)height/(float)columnas;
+        double alto = width/(double)filas;
+        double ancho = height/(double)columnas;
 
         Obstaculo obstaculo = casillero.obtenerObstaculo();
-        ObstaculoView obstaculoView = creadorObstaculosView.crear(obstaculo, casillero);
+        ObstaculoView obstaculoView = creadorObstaculosView.crear(obstaculo, casillero, alto, ancho);
         root.getChildren().add(obstaculoView.dibujar());
 
     }
