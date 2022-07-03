@@ -5,11 +5,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class EdificioView extends Rectangle{
-        public static final int ANCHO_EDIFICIO = 50;
-        public static final int ALTO_EDIFICIO = 50;
+        public double ANCHO_EDIFICIO;
+        public double ALTO_EDIFICIO;
 
-        public EdificioView(float x, float y) {
-            setWidth(ANCHO_EDIFICIO) ;
+        public EdificioView(float x, float y, double height, double width, int filas, int columnas) {
+
+            ANCHO_EDIFICIO = height/(double)filas;
+            ALTO_EDIFICIO =  width/(double)columnas;
+
+            setWidth(ANCHO_EDIFICIO);
             setHeight(ALTO_EDIFICIO);
 
             relocate(x * ANCHO_EDIFICIO - ANCHO_EDIFICIO, y * ALTO_EDIFICIO - ALTO_EDIFICIO);
