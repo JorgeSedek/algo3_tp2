@@ -532,7 +532,8 @@ public Parent mostrarVehiculoView(){
     public void setFilaYColumna(int fila, int columna) {
         this.filas = 11;
         this.columnas = 11;
-        escenario.resetInstance(5,5);
+        Escenario.resetInstance(5,5);
+        Escenario.getInstance().agregarObjetosRandom();
     }
 
 }
