@@ -86,6 +86,13 @@ public class App extends Application {
         salirPantallaCompleta.defaultButtonProperty().bind(salirPantallaCompleta.focusedProperty());
         salirPantallaCompleta.setOnAction( btnSalirPantallaCompleta);
 */
+        //Hace algo cuando cerras la ventana
+        //podria aparecer una ventana de despedida
+        /*
+        stage.setOnCloseRequest(e -> {
+            System.out.println("cerrando pantalla");
+        });
+        */
         // Propiedades y setters
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());
