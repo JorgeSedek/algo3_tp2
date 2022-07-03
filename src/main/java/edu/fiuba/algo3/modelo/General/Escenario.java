@@ -18,8 +18,8 @@ public class Escenario {
 	private static Escenario INSTANCE = null;
 
 	private Escenario(int filas, int columnas) {
-		// se multiplica por 2 y se suma 1 para que dados cualquier
-		// fila y columna se cree un escenario idéntico al pedido
+		// Se multiplica por 2 y se suma 1 para que dados cualquier
+		// fila y columna se cree un escenario identico al pedido
 		this.FILAS = filas * 2 + 1;
 		this.COLUMNAS = columnas * 2 + 1;
 		this.CASILLEROS = new ArrayList<>();
@@ -82,6 +82,17 @@ public class Escenario {
 		ColocadorItems colocador = new ColocadorRandom(new Random());
 		colocador.agregarObjetosAEscenario(CASILLEROS);
 	}
+
+	// Metodo util para la interfaz
+	public int obtenerFilas() {
+		return this.FILAS;
+	}
+
+	// Metodo util para la interfaz
+	public int obtenerColumnas() {
+		return this.COLUMNAS;
+	}
+
 
 	// Metodos para tests
 	public boolean verificarNumeroDeFilas(int filas) {
