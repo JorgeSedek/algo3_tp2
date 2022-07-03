@@ -9,60 +9,40 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
-
-    private Escenario escenario;
-    private Juego juego;
     private Direccion direccion;
-    private VehiculoView vehiculo;
+
+    private VehiculoView vehiculoView;
 
     public ControladorTecladoEvento(){
-        //this.escenario = escenario;
-        //this.juego = juego;
     }
 
     public void handle(KeyEvent keyEvent){
         try {
-            if(keyEvent.getCode() == KeyCode.A){
-                //Algo
-                DireccionIzquierda direccion = new DireccionIzquierda();
-
+            if (keyEvent.getCode() == KeyCode.A) {
+                direccion = new DireccionIzquierda();
                 Juego.getInstance().moverVehiculo(direccion);
-                //vehiculo.actualizar(float pixelX, float pixelY);
-
             }
 
-            if(keyEvent.getCode() == KeyCode.S){
-                //Algo
-                DireccionAbajo direccion = new DireccionAbajo();
-
+            if (keyEvent.getCode() == KeyCode.S) {
+                direccion = new DireccionAbajo();
                 Juego.getInstance().moverVehiculo(direccion);
-              //  vehiculo.actualizar(float pixelX, float pixelY);
 
             }
-            if(keyEvent.getCode() == KeyCode.D){
-                DireccionDerecha direccion = new DireccionDerecha();
-
-                //Algo
+            if (keyEvent.getCode() == KeyCode.D) {
+                direccion = new DireccionDerecha();
                 Juego.getInstance().moverVehiculo(direccion);
-               // vehiculo.actualizar(float pixelX, float pixelY);
-
-
             }
 
-            if(keyEvent.getCode() == KeyCode.W){
-                DireccionArriba direccion = new DireccionArriba();
-
-                //Algo
-                Juego.getInstance().moverVehiculo(direccion);
-              //  vehiculo.actualizar(float pixelX, float pixelY);
-                //vehiculo.actualizar(direccion);
-
+            if (keyEvent.getCode() == KeyCode.W) {
+                direccion = new DireccionArriba();
+                Juego.getInstance().moverVehiculo(new DireccionArriba());
             }
-            //Juego.getInstance().moverVehiculo(direccion);
-            vehiculo.actualizar(direccion);
-            vehiculo.dibujar();
+
+            vehiculoView.actualizar(direccion);
+            vehiculoView.dibujar();
             keyEvent.consume();
-        }catch (Exception ignored){
+
+        } catch (Exception ignored) {
             //Excepcion de no se puede mover
         }
 

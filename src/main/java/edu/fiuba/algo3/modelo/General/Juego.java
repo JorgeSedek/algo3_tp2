@@ -35,6 +35,7 @@ public class Juego {
     }
 
     public void moverVehiculo(Direccion direccion){
+        System.out.println("Se mueve el vehiculo en la direccion: " + direccion.getClass()); //TODO SACAR, ES PARA DEBUGEAR EL MOVIMIENTO DEL VEHICULO
         this.jugadorActivo.moverVehiculo(direccion);
         this.cambiarJugador();
     }
