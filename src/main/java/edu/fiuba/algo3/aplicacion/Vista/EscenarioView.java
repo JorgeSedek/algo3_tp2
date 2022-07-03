@@ -45,7 +45,7 @@ public class EscenarioView {
         CasilleroView casillero = new CasilleroView(this.filas, this.columnas, this.height, this.width);
 
         Pane root = new Pane();
-
+        /*
         for (int x = 0; x < filas; x++) {
             for (int y = 0; y < columnas; y++) {
                 Ubicacion ubicacion = new Ubicacion(x,y);
@@ -63,7 +63,7 @@ public class EscenarioView {
 
             }
         }
-
+        */
         return root;
     }
 
