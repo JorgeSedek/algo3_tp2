@@ -35,8 +35,8 @@ public class AutoView implements VehiculoView{
     }
 
     public void posicionarImagen(){
-        imagenAuto.setLayoutX((auto.obtenerUbicacion().obtenerFila() - 2 ) * 100 + 50);
-        imagenAuto.setLayoutY((auto.obtenerUbicacion().obtenerColumna() - 2) * 100 + 50);
+        imagenAuto.setLayoutY((auto.obtenerUbicacion().obtenerFila() - 2 ) * 50 + 50);
+        imagenAuto.setLayoutX((auto.obtenerUbicacion().obtenerColumna() - 2) * 50 + 50);
 
     }
 

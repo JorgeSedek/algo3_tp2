@@ -34,8 +34,8 @@ public class MotoView implements VehiculoView{
     }
 
     public void posicionarImagen(){
-        imagenMoto.setLayoutX((moto.obtenerUbicacion().obtenerFila() - 2 ) * 100 + 50);
-        imagenMoto.setLayoutY((moto.obtenerUbicacion().obtenerColumna() - 2) * 100 + 50);
+        imagenMoto.setLayoutY((moto.obtenerUbicacion().obtenerFila() - 2 ) * 50 + 50);
+        imagenMoto.setLayoutX((moto.obtenerUbicacion().obtenerColumna() - 2) * 50 + 50);
 
     }
 }
