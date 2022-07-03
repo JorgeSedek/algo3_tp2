@@ -63,6 +63,10 @@ public class Casillero {
         return this.sorpresa;
     }
 
+    public Meta obtenerMeta(){
+        return this.meta;
+    }
+
     public Ubicacion obtenerUbicacion(){
         return this.UBICACION;
     }
