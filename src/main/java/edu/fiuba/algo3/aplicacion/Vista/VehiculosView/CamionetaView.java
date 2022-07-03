@@ -37,8 +37,7 @@ public class CamionetaView implements VehiculoView{
 
     }
 
-    public void actualizar(Direccion direccion){
-        camioneta.mover(direccion);
+    public void actualizar(){
         this.posicionarImagen();
 
     }

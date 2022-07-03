@@ -38,7 +38,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
                 Juego.getInstance().moverVehiculo(new DireccionArriba());
             }
 
-            vehiculoView.actualizar(direccion);
+            vehiculoView.actualizar();
             vehiculoView.dibujar();
             keyEvent.consume();
 

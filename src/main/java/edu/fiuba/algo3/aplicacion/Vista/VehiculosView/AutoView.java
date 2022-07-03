@@ -40,8 +40,7 @@ public class AutoView implements VehiculoView{
 
     }
 
-    public void actualizar(Direccion direccion){
-        auto.mover(direccion);
+    public void actualizar(){
         this.posicionarImagen();
 
     }
