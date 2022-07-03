@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 public class EscenarioView {
 
     private App app;
-    private double width = 1100;
-    private double height = 1100;
+    private double width = 1100;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 1100;//  Es muy grande cambiarlo a 900 o 1000
     private int filas = 11;
     private int columnas = 11;
     private Group casillerosView = new Group();
@@ -50,7 +50,11 @@ public class EscenarioView {
             for (int y = 0; y < columnas; y++) {
                 Ubicacion ubicacion = new Ubicacion(x,y);
                 casillero.dibujarCasillero(x, y, this.escenario.buscarCasilleroEn(ubicacion));
+                if (ubicacion.hayEdificio()) {
+                    EdificioView edificioView = new EdificioView(x, y);
+                    root.getChildren().add(edificioView);
 
+                }
                 casillerosView.getChildren().add(casillero);
 
 
