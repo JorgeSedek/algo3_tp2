@@ -28,8 +28,8 @@ public class SinObstaculoView extends ObstaculoView{
     }
 
     public ImageView dibujar(){
-        imagenSinObstaculo.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_SIN_OBSTACULO + ANCHO_SIN_OBSTACULO*1.5);
-        imagenSinObstaculo.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_SIN_OBSTACULO + ALTO_SIN_OBSTACULO*1.5);
+        imagenSinObstaculo.setLayoutY((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_SIN_OBSTACULO + ANCHO_SIN_OBSTACULO*1.5);
+        imagenSinObstaculo.setLayoutX((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_SIN_OBSTACULO + ALTO_SIN_OBSTACULO*1.5);
         return imagenSinObstaculo;
     }
 }

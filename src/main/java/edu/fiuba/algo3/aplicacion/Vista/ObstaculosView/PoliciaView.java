@@ -26,8 +26,8 @@ public class PoliciaView extends ObstaculoView{
     }
 
     public ImageView dibujar(){
-        imagenPolicia.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POLICIA + ANCHO_POLICIA*1.5);
-        imagenPolicia.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POLICIA + ALTO_POLICIA*1.5);
+        imagenPolicia.setLayoutY((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POLICIA + ANCHO_POLICIA*1.5);
+        imagenPolicia.setLayoutX((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POLICIA + ALTO_POLICIA*1.5);
         return imagenPolicia;
     }
 }

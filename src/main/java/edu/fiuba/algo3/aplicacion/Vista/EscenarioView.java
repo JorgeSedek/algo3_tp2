@@ -24,8 +24,8 @@ public class EscenarioView {
     private Stage stage;
     private double width = 1000;// Es muy grande cambiarlo a 900 o 1000
     private double height = 1000;//  Es muy grande cambiarlo a 900 o 1000
-    private int filas = 7;
-    private int columnas = 7;
+    private int filas = 11;
+    private int columnas = 11;
     private Group casillerosView = new Group();
     private Escenario escenario;
 
@@ -52,8 +52,8 @@ public class EscenarioView {
 
         Pane root = new Pane();
 
-        for (int x = 1; x <= filas; x++) {
-            for (int y = 1; y <= columnas; y++) {
+        for (int x = 1; x <= columnas; x++){
+            for (int y = 1; y <= filas; y++){
                 Ubicacion ubicacion = new Ubicacion(x,y);
                 CasilleroView casillero = new CasilleroView(this.filas, this.columnas, this.height, this.width);
                 if (ubicacion.hayCalle()) {

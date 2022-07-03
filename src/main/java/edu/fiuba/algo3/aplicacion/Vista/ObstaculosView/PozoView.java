@@ -24,8 +24,8 @@ public class PozoView extends ObstaculoView{
     }
 
     public ImageView dibujar(){
-        imagenPozo.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POZO + ANCHO_POZO*1.5);
-        imagenPozo.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POZO + ALTO_POZO*1.5);
+        imagenPozo.setLayoutY((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POZO + ANCHO_POZO*1.5);
+        imagenPozo.setLayoutX((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POZO + ALTO_POZO*1.5);
         return imagenPozo;
     }
 }

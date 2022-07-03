@@ -24,8 +24,8 @@ public class PiqueteView extends ObstaculoView{
     }
 
     public ImageView dibujar(){
-        imagenPiquete.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_PIQUETE + ANCHO_PIQUETE*1.5);
-        imagenPiquete.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_PIQUETE + ALTO_PIQUETE*1.5);
+        imagenPiquete.setLayoutY((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_PIQUETE + ANCHO_PIQUETE*1.5);
+        imagenPiquete.setLayoutX((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_PIQUETE + ALTO_PIQUETE*1.5);
         return imagenPiquete;
     }
 }
