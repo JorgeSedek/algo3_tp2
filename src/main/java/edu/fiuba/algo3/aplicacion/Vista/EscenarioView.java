@@ -37,6 +37,8 @@ public class EscenarioView {
     public void mostrarTablero(){
         Pane layout = new Pane();
         layout.getChildren().addAll(mostrarTableroView());
+        layout.setPrefHeight(height);
+        layout.setPrefWidth(width);
 
         stage.setScene(new Scene(layout));
         stage.show();
@@ -58,7 +60,7 @@ public class EscenarioView {
 
                 //Escenario.getInstance().agregarObstaculoEn(new U);
                 if (ubicacion.hayEdificio()) {
-                    EdificioView edificioView = new EdificioView(x, y);
+                    EdificioView edificioView = new EdificioView(x, y, height, width, filas, columnas);
                     root.getChildren().add(edificioView);
 
                 }
