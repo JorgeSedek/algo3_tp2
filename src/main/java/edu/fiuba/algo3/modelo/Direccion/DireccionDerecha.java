@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Direccion;
 
-import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Logger;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 

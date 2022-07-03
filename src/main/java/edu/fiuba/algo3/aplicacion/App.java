@@ -2,8 +2,7 @@ package edu.fiuba.algo3.aplicacion;
 
 import edu.fiuba.algo3.aplicacion.Eventos.*;
 
-import edu.fiuba.algo3.aplicacion.Vista.AutoView;
-import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
+import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
@@ -20,7 +19,6 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -47,14 +45,14 @@ public class App extends Application {
     private int columnas;
 
     private int cantidad;
-    private double width = 1100;
-    private double height = 1100;
+    //private double width = 1100;
+    //private double height = 1100;
 
-    public static final int MEDIDA_CASILLERO = 50;
+    //public static final int MEDIDA_CASILLERO = 50;
 
-    private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
+    //private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
 
-    private Group casillerosView = new Group();
+    //private Group casillerosView = new Group();
     //private EscenarioView escanarioView;
     private Escenario escenario;
     private EscenarioView escenarioView;
@@ -109,6 +107,7 @@ public class App extends Application {
         // Stage
         stage.setScene(new Scene(layout));
         stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
     }
 /*
@@ -161,6 +160,7 @@ public class App extends Application {
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
+        this.stage.centerOnScreen();
     }
 /*
     public void mostrarTablero(){
@@ -226,14 +226,14 @@ public class App extends Application {
 
     }
 */
-
+/*
 public Parent mostrarVehiculoView(){
     Pane root = new Pane();
 
         /* Los path y los seteos tienen que ir en cada una de las clases View
         los puse aca para encontrar las medidas de las imagenes y ver como ubicarlas
          */
-
+/*
     String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
     String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
     String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
@@ -356,7 +356,7 @@ public Parent mostrarVehiculoView(){
     root.getChildren().add(autoDerechaView2);
 
      */
-
+/*
     root.getChildren().add(autoView.dibujar());
     root.getChildren().add(obstaculoView.dibujar());
     return root;
@@ -419,6 +419,7 @@ public Parent mostrarVehiculoView(){
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
+        this.stage.centerOnScreen();
     }
 
     public void elegirTamanioEscenario(){
@@ -463,6 +464,7 @@ public Parent mostrarVehiculoView(){
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
+        this.stage.centerOnScreen();
     }
 
     public void ingresarNombresYVehiculo(int cant_jugadores){
@@ -476,9 +478,13 @@ public Parent mostrarVehiculoView(){
             this.cantidad --;
         }else{
 
-            Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
-            this.escenarioView = new EscenarioView(this, Escenario.getInstance());
+            this.escenarioView = new EscenarioView(this, escenario, this.stage);
             escenarioView.mostrarTablero();
+
+            //Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
+            //this.escenarioView = new EscenarioView(this, Escenario.getInstance());
+            //escenarioView.mostrarTablero();
+
         }
     }
 /*
@@ -530,7 +536,8 @@ public Parent mostrarVehiculoView(){
     public void setFilaYColumna(int fila, int columna) {
         this.filas = 11;
         this.columnas = 11;
-        escenario.resetInstance(5,5);
+        Escenario.resetInstance(3,3);
+        Escenario.getInstance().agregarObjetosRandom();
     }
 
 }

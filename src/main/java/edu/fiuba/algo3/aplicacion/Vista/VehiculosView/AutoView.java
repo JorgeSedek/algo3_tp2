@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.aplicacion.Vista;
+package edu.fiuba.algo3.aplicacion.Vista.VehiculosView;
 
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import javafx.scene.Scene;

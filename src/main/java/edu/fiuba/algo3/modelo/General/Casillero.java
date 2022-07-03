@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.General;
 
-import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.ObstaculoView;
-import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.SinMeta;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;

@@ -6,26 +6,28 @@ import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class PoliciaView {
+public class PoliciaView extends ObstaculoView{
 
     protected Casillero casillero;
     protected Policia policia;
     protected ImageView imagenPolicia;
-    public static final int ANCHO_POLICIA = 20;
-    public static final int ALTO_POLICIA = 30;
+    public double ANCHO_POLICIA;
+    public double ALTO_POLICIA;
 
     protected String imagenPath ;
 
-    public PoliciaView(Casillero casillero){
+    public PoliciaView(Casillero casillero, double alto, double ancho){
+        this.ANCHO_POLICIA = alto;
+        this.ALTO_POLICIA = ancho;
         this.casillero = casillero;
         this.policia = (Policia) casillero.obtenerObstaculo();
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/policiaIcono.png";
-        this.imagenPolicia = new ImageView(new Image(imagenPath,ANCHO_POLICIA, ALTO_POLICIA, false, false));
+        this.imagenPolicia = new ImageView(new Image(imagenPath,ANCHO_POLICIA*0.3, ALTO_POLICIA*0.3, false, false));
     }
 
     public ImageView dibujar(){
-        imagenPolicia.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * 50 + 50);
-        imagenPolicia.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * 50 + 50);
+        imagenPolicia.setLayoutX((casillero.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_POLICIA + ANCHO_POLICIA*1.5);
+        imagenPolicia.setLayoutY((casillero.obtenerUbicacion().obtenerColumna() - 2) * ALTO_POLICIA + ALTO_POLICIA*1.5);
         return imagenPolicia;
     }
 }

@@ -12,7 +12,6 @@ import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
-import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -40,7 +39,7 @@ public class Entrega2Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa favorable = new Favorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa favorable = new Favorable();
         Ubicacion ubicacionFavorable = (new Ubicacion(13, 14));
         Escenario.getInstance().agregarSorpresaEn(ubicacionFavorable, favorable);
 
@@ -66,7 +65,7 @@ public class Entrega2Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa desfavorable = new Desfavorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa desfavorable = new Desfavorable();
         Ubicacion ubicacionDesfavorable = (new Ubicacion(13, 14));
         Escenario.getInstance().agregarSorpresaEn(ubicacionDesfavorable, desfavorable);
 
@@ -92,7 +91,7 @@ public class Entrega2Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa cambioVehiculo = new CambioVehiculo();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa cambioVehiculo = new CambioVehiculo();
         Ubicacion ubicacionCambioV = (new Ubicacion(2, 3));
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
 
@@ -117,7 +116,7 @@ public class Entrega2Test {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa cambioVehiculo = new CambioVehiculo();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa cambioVehiculo = new CambioVehiculo();
         Ubicacion ubicacionCambioV = (new Ubicacion(2, 3));
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
 
