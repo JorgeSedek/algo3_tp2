@@ -30,12 +30,14 @@ public class CasilleroView extends Pane {
         this.creadorObstaculosView = new CreadorObstaculosView();
     }
 
-    public void dibujarCasillero(float fila, float columna, Casillero casillero){
+    public void dibujarCasillero(float fila, float columna, Casillero casillero, Pane root){
         float tamanioEnX = (float)width/(float)filas;
         float tamanioEnY = (float)height/(float)columnas;
 
         Obstaculo obstaculo = casillero.obtenerObstaculo();
-        creadorObstaculosView.crear(obstaculo, casillero);
+        ObstaculoView obstaculoView = creadorObstaculosView.crear(obstaculo, casillero);
+        root.getChildren().add(obstaculoView.dibujar());
+
     }
 
 }

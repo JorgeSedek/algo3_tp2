@@ -25,21 +25,25 @@ public class CreadorObstaculosView {
     }
     */
 
-    public void crear(Obstaculo obstaculo, Casillero casillero) {
+    public ObstaculoView crear(Obstaculo obstaculo, Casillero casillero) {
         if (obstaculo instanceof Piquete) {
             PiqueteView piqueteView = new PiqueteView(casillero);
+            return piqueteView;
         }
 
         if (obstaculo instanceof Pozo) {
             PozoView pozoView = new PozoView(casillero);
+            return pozoView;
         }
 
         if (obstaculo instanceof Policia) {
             PoliciaView policiaView = new PoliciaView(casillero);
+            return policiaView;
         }
 
-        if (obstaculo instanceof SinObstaculo) {
+        else /* (obstaculo instanceof SinObstaculo) */{
             SinObstaculoView sinObstaculoView = new SinObstaculoView(casillero);
+            return sinObstaculoView;
         }
     }
 

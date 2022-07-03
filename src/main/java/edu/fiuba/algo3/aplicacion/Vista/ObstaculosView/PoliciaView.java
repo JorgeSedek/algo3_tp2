@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class PoliciaView {
+public class PoliciaView extends ObstaculoView{
 
     protected Casillero casillero;
     protected Policia policia;

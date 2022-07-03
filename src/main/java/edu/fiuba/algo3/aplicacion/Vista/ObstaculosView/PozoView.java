@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class PozoView {
+public class PozoView extends ObstaculoView{
     protected Casillero casillero;
     protected Pozo pozo;
     protected ImageView imagenPozo;

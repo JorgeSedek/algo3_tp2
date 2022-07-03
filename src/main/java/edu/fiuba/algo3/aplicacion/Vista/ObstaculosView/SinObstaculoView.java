@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.Obstaculos.SinObstaculo;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class SinObstaculoView {
+public class SinObstaculoView extends ObstaculoView{
 
 
     protected Casillero casillero;
