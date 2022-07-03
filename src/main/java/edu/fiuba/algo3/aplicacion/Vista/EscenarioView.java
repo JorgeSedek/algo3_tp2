@@ -57,9 +57,9 @@ public class EscenarioView {
         for (int x = 1; x <= columnas; x++){
             for (int y = 1; y <= filas; y++){
                 Ubicacion ubicacion = new Ubicacion(x,y);
-                CasilleroView casillero = new CasilleroView(this.height, this.width);
+                CasilleroView casillero = new CasilleroView(filas, columnas, this.height, this.width);
                 if (ubicacion.hayCalle()) {
-                    casillero.dibujarCasillero(Escenario.getInstance().buscarCasilleroEn(ubicacion), root);
+                    casillero.dibujarCasillero(x, y, Escenario.getInstance().buscarCasilleroEn(ubicacion), root);
                 }
 
                 if (ubicacion.hayEdificio()) {
