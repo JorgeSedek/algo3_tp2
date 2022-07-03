@@ -1,16 +1,15 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
- import edu.fiuba.algo3.aplicacion.App;
  //import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.CreadorObstaculosView;
  import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.CreadorObstaculosView;
  import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.ObstaculoView;
+ import edu.fiuba.algo3.aplicacion.Vista.SorpresasView.CreadorSorpresasView;
+ import edu.fiuba.algo3.aplicacion.Vista.SorpresasView.SorpresaView;
  import edu.fiuba.algo3.modelo.General.Casillero;
  import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
  import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
+ import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
  import javafx.scene.layout.Pane;
- import javafx.scene.paint.Color;
- import javafx.scene.Group;
- import javafx.scene.shape.Rectangle;
 
 public class CasilleroView extends Pane {
 
@@ -20,6 +19,8 @@ public class CasilleroView extends Pane {
     private double width;
     private CreadorObstaculosView creadorObstaculosView;
 
+    private CreadorSorpresasView creadorSorpresasView;
+
     private Obstaculo obstaculo;
 
     public CasilleroView(int filas, int columnas, double height, double width) {
@@ -28,6 +29,7 @@ public class CasilleroView extends Pane {
         this.height = height;
         this.width = width;
         this.creadorObstaculosView = new CreadorObstaculosView();
+        this.creadorSorpresasView = new CreadorSorpresasView();
     }
 
     public void dibujarCasillero(float fila, float columna, Casillero casillero, Pane root){
@@ -35,8 +37,12 @@ public class CasilleroView extends Pane {
         float tamanioEnY = (float)height/(float)columnas;
 
         Obstaculo obstaculo = casillero.obtenerObstaculo();
+        Sorpresa sorpresa = casillero.obtenerSorpresa();
+
         ObstaculoView obstaculoView = creadorObstaculosView.crear(obstaculo, casillero);
-        root.getChildren().add(obstaculoView.dibujar());
+        SorpresaView sorpresaView = creadorSorpresasView.crear(sorpresa, casillero);
+
+        root.getChildren().addAll(obstaculoView.dibujar(), sorpresaView.dibujar());
 
     }
 

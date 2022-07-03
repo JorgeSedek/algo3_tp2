@@ -4,8 +4,6 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionAbajo;
 import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
-import edu.fiuba.algo3.modelo.Efecto.Efecto;
-import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.General.*;
 
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;

@@ -14,7 +14,6 @@ import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
-import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -64,7 +63,7 @@ public class GeneralTest {
         Juego.resetInstance(jugadores);
 
         // Act
-        Sorpresa sorpresaFavorable = new Favorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa sorpresaFavorable = new Favorable();
         Ubicacion ubicacionSorpresa = new Ubicacion(2,25);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaFavorable);
 
@@ -90,7 +89,7 @@ public class GeneralTest {
         Juego.resetInstance(jugadores);
 
         // Act
-        Sorpresa sorpresaDesfavorable = new Desfavorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa sorpresaDesfavorable = new Desfavorable();
         Ubicacion ubicacionSorpresa = new Ubicacion(2,25);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDesfavorable);
 
@@ -115,7 +114,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa sorpresaDes = new Desfavorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa sorpresaDes = new Desfavorable();
         Ubicacion ubicacionSorpresa = new Ubicacion(2,15);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDes);
         Obstaculo pozo = new Pozo();
@@ -141,10 +140,10 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa sorpresaDes1 = new Desfavorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa sorpresaDes1 = new Desfavorable();
         Ubicacion ubicacionSorpresa1 = new Ubicacion(2,17);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa1, sorpresaDes1);
-        Sorpresa sorpresaDes2 = new Desfavorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa sorpresaDes2 = new Desfavorable();
         Ubicacion ubicacionSorpresa2 = new Ubicacion(2,13);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa2, sorpresaDes2);
 
@@ -168,7 +167,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa sorpresaDesfavorable = new Desfavorable();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa sorpresaDesfavorable = new Desfavorable();
         Ubicacion ubicacionSorpresa = new Ubicacion(2,19);
         Escenario.getInstance().agregarSorpresaEn(ubicacionSorpresa, sorpresaDesfavorable);
         Pozo pozo = new Pozo();
@@ -321,7 +320,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa cambioVehiculo = new CambioVehiculo();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa cambioVehiculo = new CambioVehiculo();
         Ubicacion ubicacionCambioV = new Ubicacion(2, 3);
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
 
@@ -354,7 +353,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa cambioVehiculo = new CambioVehiculo();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa cambioVehiculo = new CambioVehiculo();
         Ubicacion ubicacionCambioV = new Ubicacion(3, 2);
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
 
@@ -424,7 +423,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa cambioVehiculo = new CambioVehiculo();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa cambioVehiculo = new CambioVehiculo();
         Ubicacion ubicacionCambioV = new Ubicacion(2, 3);
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
         Obstaculo piquete = new Piquete();
@@ -451,7 +450,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa cambioVehiculo = new CambioVehiculo();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa cambioVehiculo = new CambioVehiculo();
         Ubicacion ubicacionCambioV = new Ubicacion(3, 2);
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
 
@@ -484,7 +483,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Sorpresa cambioVehiculo = new CambioVehiculo();
+        edu.fiuba.algo3.modelo.Sorpresas.Sorpresa cambioVehiculo = new CambioVehiculo();
         Ubicacion ubicacionCambioV = new Ubicacion(2,3);
         Escenario.getInstance().agregarSorpresaEn(ubicacionCambioV, cambioVehiculo);
         Obstaculo pozo = new Pozo();
