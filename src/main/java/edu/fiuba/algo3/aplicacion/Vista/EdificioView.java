@@ -12,7 +12,7 @@ public class EdificioView extends Rectangle{
             setWidth(ANCHO_EDIFICIO) ;
             setHeight(ALTO_EDIFICIO);
 
-            relocate(x * ANCHO_EDIFICIO, y * ALTO_EDIFICIO);
+            relocate(x * ANCHO_EDIFICIO - ANCHO_EDIFICIO, y * ALTO_EDIFICIO - ALTO_EDIFICIO);
             setFill(Color.valueOf("#008080"));
         }
     }
