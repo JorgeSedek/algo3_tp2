@@ -2,8 +2,7 @@ package edu.fiuba.algo3.aplicacion;
 
 import edu.fiuba.algo3.aplicacion.Eventos.*;
 
-import edu.fiuba.algo3.aplicacion.Vista.AutoView;
-import edu.fiuba.algo3.aplicacion.Vista.CasilleroView;
+import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
@@ -20,7 +19,6 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
