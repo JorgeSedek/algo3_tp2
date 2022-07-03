@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,37 +20,39 @@ import java.util.stream.Collectors;
 public class EscenarioView {
 
     private App app;
-    private double width = 1100;// Es muy grande cambiarlo a 900 o 1000
-    private double height = 1100;//  Es muy grande cambiarlo a 900 o 1000
+    private Stage stage;
+    private double width = 1000;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 1000;//  Es muy grande cambiarlo a 900 o 1000
     private int filas = 11;
     private int columnas = 11;
     private Group casillerosView = new Group();
     private Escenario escenario;
 
-    public EscenarioView(App app, Escenario escenario){
+    public EscenarioView(App app, Escenario escenario, Stage stage){
         this.app = app;
         this.escenario = escenario;
+        this.stage = stage;
     }
 
     public void mostrarTablero(){
-        StackPane layout = new StackPane();
+        Pane layout = new Pane();
         layout.getChildren().addAll(mostrarTableroView());
 
-        this.app.getStage().setScene(new Scene(layout));
-        this.app.getStage().show();
+        stage.setScene(new Scene(layout));
+        stage.show();
     }
 
     public Parent mostrarTableroView(){
         int filas = this.filas;
         int columnas = this.columnas;
-        CasilleroView casillero = new CasilleroView(this.filas, this.columnas, this.height, this.width);
 
         Pane root = new Pane();
-        /*
+
         for (int x = 0; x < filas; x++) {
             for (int y = 0; y < columnas; y++) {
                 Ubicacion ubicacion = new Ubicacion(x,y);
-                casillero.dibujarCasillero(x, y, this.escenario.buscarCasilleroEn(ubicacion));
+                CasilleroView casillero = new CasilleroView(this.filas, this.columnas, this.height, this.width);
+                //casillero.dibujarCasillero(x, y, this.escenario.buscarCasilleroEn(ubicacion));
 
                 if (ubicacion.hayEdificio()) {
                     EdificioView edificioView = new EdificioView(x, y);
@@ -63,7 +66,7 @@ public class EscenarioView {
 
             }
         }
-        */
+
         return root;
     }
 

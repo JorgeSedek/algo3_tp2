@@ -47,15 +47,15 @@ public class App extends Application {
     private int columnas;
 
     private int cantidad;
-    private double width = 1100;
-    private double height = 1100;
+    //private double width = 1100;
+    //private double height = 1100;
 
-    public static final int MEDIDA_CASILLERO = 50;
+    //public static final int MEDIDA_CASILLERO = 50;
 
-    private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
+    //private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
 
-    private Group casillerosView = new Group();
-    private EscenarioView escanarioView;
+    //private Group casillerosView = new Group();
+    //private EscenarioView escanarioView;
     private Escenario escenario;
     private EscenarioView escenarioView;
 
@@ -476,15 +476,12 @@ public Parent mostrarVehiculoView(){
             this.cantidad --;
         }else{
 
-
-            this.escanarioView = new EscenarioView(this, escenario);
-            escanarioView.mostrarTablero();
-
-
-
-            Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
-            this.escenarioView = new EscenarioView(this, Escenario.getInstance());
+            this.escenarioView = new EscenarioView(this, escenario, this.stage);
             escenarioView.mostrarTablero();
+
+            //Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
+            //this.escenarioView = new EscenarioView(this, Escenario.getInstance());
+            //escenarioView.mostrarTablero();
 
         }
     }
