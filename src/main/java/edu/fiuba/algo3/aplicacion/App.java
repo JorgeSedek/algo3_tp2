@@ -93,6 +93,8 @@ public class App extends Application {
             System.out.println("cerrando pantalla");
         });
         */
+
+
         // Propiedades y setters
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());

@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class CreadorVehiculosView {
+    /*
 
     public void crear(Auto auto, Pane root) {
         AutoView autoView = new AutoView(auto);

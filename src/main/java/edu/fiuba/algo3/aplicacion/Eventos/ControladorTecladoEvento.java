@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
-/*
-import edu.fiuba.algo3.modelo.Direccion.Direccion;
+
+import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
+import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
 import javafx.event.EventHandler;
@@ -20,33 +21,52 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     }
 
     public void handle(KeyEvent keyEvent){
-
+/*
         try {
             if(keyEvent.getCode() == KeyCode.A){
                 //Algo
-                Juego.getInstance().moverVehiculo(new DireccionIzquierda());
-                vehiculo.actualizar(float pixelX, float pixelY);
+                DireccionIzquierda direccion = new DireccionIzquierda();
+                /*
+                Juego.getInstance().moverVehiculo(direccion);
+              //  vehiculo.actualizar(float pixelX, float pixelY);
+
             }
+
             if(keyEvent.getCode() == KeyCode.S){
                 //Algo
-                Juego.getInstance().moverVehiculo(new DireccionAbajo());
-                vehiculo.actualizar(float pixelX, float pixelY);
+                DireccionAbajo direccion = new DireccionAbajo();
+
+                Juego.getInstance().moverVehiculo(direccion);
+              //  vehiculo.actualizar(float pixelX, float pixelY);
+
             }
             if(keyEvent.getCode() == KeyCode.D){
+                DireccionDerecha direccion = new DireccionDerecha();
+
                 //Algo
-                Juego.getInstance().moverVehiculo(new DireccionDerecha());
-                vehiculo.actualizar(float pixelX, float pixelY);
+                Juego.getInstance().moverVehiculo(direccion);
+               // vehiculo.actualizar(float pixelX, float pixelY);
+
+
             }
+
             if(keyEvent.getCode() == KeyCode.W){
+                DireccionArriba direccion = new DireccionArriba();
+
                 //Algo
-                Juego.getInstance().moverVehiculo(new DireccionArriba());
-                vehiculo.actualizar(float pixelX, float pixelY);
+                Juego.getInstance().moverVehiculo(direccion);
+              //  vehiculo.actualizar(float pixelX, float pixelY);
+                vehiculo.actualizar(direccion);
+
             }
+            Juego.getInstance().moverVehiculo(direccion);
+            vehiculo.actualizar(direccion);
+            vehiculo.dibujar();
             keyEvent.consume();
         }catch (Exception ignored){
             //Excepcion de no se puede mover
         }
-
-    }
-}
 */
+    }
+
+}
