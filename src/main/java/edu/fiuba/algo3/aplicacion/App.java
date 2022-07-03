@@ -16,8 +16,6 @@ import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -25,7 +23,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -33,10 +30,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -64,6 +57,7 @@ public class App extends Application {
     private Group casillerosView = new Group();
     private EscenarioView escanarioView;
     private Escenario escenario;
+    private EscenarioView escenarioView;
 
     @Override
     public void start(Stage stage) {
@@ -482,9 +476,15 @@ public Parent mostrarVehiculoView(){
             this.cantidad --;
         }else{
 
+
             this.escanarioView = new EscenarioView(this, escenario);
             escanarioView.mostrarTablero();
 
+
+
+            Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
+            this.escenarioView = new EscenarioView(this, Escenario.getInstance());
+            escenarioView.mostrarTablero();
 
         }
     }

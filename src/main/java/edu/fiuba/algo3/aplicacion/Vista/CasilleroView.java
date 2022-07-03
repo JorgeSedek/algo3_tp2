@@ -33,7 +33,8 @@ public class CasilleroView extends Group{
         float tamanioEnX = (float)width/(float)filas;
         float tamanioEnY = (float)height/(float)columnas;
 
-
+        Obstaculo obstaculo = casillero.obtenerObstaculo();
+        creadorObstaculosView.crear(obstaculo, casillero);
     }
 
 }
