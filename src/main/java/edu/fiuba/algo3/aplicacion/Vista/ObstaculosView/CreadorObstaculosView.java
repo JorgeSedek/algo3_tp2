@@ -9,15 +9,9 @@ public class CreadorObstaculosView {
         PiqueteView piqueteView = new PiqueteView(casillero);
     }
 
-   public void crear(Piquete piquete, Casillero casillero){
-        PiqueteView piqueteView = new PiqueteView(casillero);
-
-   }
-
     public void crear(Pozo pozo, Casillero casillero) {
         PiqueteView piqueteView = new PiqueteView(casillero);
     }
-
     public void crear(Policia policia, Casillero casillero) {
         PiqueteView piqueteView = new PiqueteView(casillero);
     }
@@ -25,8 +19,8 @@ public class CreadorObstaculosView {
     public void crear(SinObstaculo sinObstaculo, Casillero casillero) {
         PiqueteView piqueteView = new PiqueteView(casillero);
     }
-
     */
+
     public void crear(Obstaculo obstaculo, Casillero casillero) {
         if (obstaculo instanceof Piquete) {
             PiqueteView piqueteView = new PiqueteView(casillero);
@@ -46,4 +40,5 @@ public class CreadorObstaculosView {
 
          */
     }
+
 }

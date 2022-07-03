@@ -35,7 +35,6 @@ public class CasilleroView extends Group{
 
         Obstaculo obstaculo = casillero.obtenerObstaculo();
         creadorObstaculosView.crear(obstaculo, casillero);
-
     }
 
 }
