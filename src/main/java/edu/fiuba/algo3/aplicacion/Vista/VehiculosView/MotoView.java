@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class MotoView {
+public class MotoView implements VehiculoView{
     protected Moto moto;
     protected ImageView imagenMoto;
     public static final int ANCHO_MOTO= 40;
@@ -15,7 +15,7 @@ public class MotoView {
 
     public MotoView(Moto moto){
         this.moto = moto;
-        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
+        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/motoImagenes/motoIcono.png";
         this.imagenMoto= new ImageView(new Image(imagenPath,ANCHO_MOTO, ALTO_MOTO, false, false));
     }
 

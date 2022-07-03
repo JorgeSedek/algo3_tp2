@@ -1,9 +1,13 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
 import edu.fiuba.algo3.aplicacion.App;
+import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CreadorVehiculosView;
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -70,8 +74,18 @@ public class EscenarioView {
                 casillerosView.getChildren().add(casillero);
             }
         }
+/*
+        Auto auto = new Auto(new Ubicacion(2,2));
+        Moto moto = new Moto(new Ubicacion(4,2));
+        Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
+        CreadorVehiculosView creador = new CreadorVehiculosView();
 
+        creador.crear(auto, root);
+        creador.crear(moto, root);
+        creador.crear(camioneta, root);
+*/
         return root;
+
     }
 
 

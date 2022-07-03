@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
-public class AutoView {
+public class AutoView implements VehiculoView{
 
     protected Auto auto;
     protected ImageView imagenAuto;
