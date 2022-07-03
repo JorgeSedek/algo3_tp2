@@ -42,6 +42,7 @@ public class EscenarioView {
         layout.setPrefWidth(width);
 
         stage.setScene(new Scene(layout));
+        stage.centerOnScreen();
         stage.show();
     }
 

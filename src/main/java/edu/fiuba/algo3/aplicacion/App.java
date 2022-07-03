@@ -107,6 +107,7 @@ public class App extends Application {
         // Stage
         stage.setScene(new Scene(layout));
         stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
     }
 /*
@@ -159,6 +160,7 @@ public class App extends Application {
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
+        this.stage.centerOnScreen();
     }
 /*
     public void mostrarTablero(){
@@ -417,6 +419,7 @@ public Parent mostrarVehiculoView(){
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
+        this.stage.centerOnScreen();
     }
 
     public void elegirTamanioEscenario(){
@@ -461,6 +464,7 @@ public Parent mostrarVehiculoView(){
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
+        this.stage.centerOnScreen();
     }
 
     public void ingresarNombresYVehiculo(int cant_jugadores){
