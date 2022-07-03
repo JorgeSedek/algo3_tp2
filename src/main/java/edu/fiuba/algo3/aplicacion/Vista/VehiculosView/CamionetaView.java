@@ -12,7 +12,7 @@ public class CamionetaView implements VehiculoView{
     protected Pane root;
     protected ImageView imagenCamioneta;
     public static final int ANCHO_CAMIONETA= 40;
-    public static final int ALTO_CAMIONETA = 30;
+    public static final int ALTO_CAMIONETA = 40;
 
     protected String imagenPath ;
 
@@ -31,8 +31,8 @@ public class CamionetaView implements VehiculoView{
 
     public void posicionarImagen(){
 
-        imagenCamioneta.setLayoutX((camioneta.obtenerUbicacion().obtenerFila() - 2 ) * 100 + 50);
-        imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerColumna() - 1) * 100 + 50);
+        imagenCamioneta.setLayoutX((camioneta.obtenerUbicacion().obtenerFila() - 3 ) * 50 + 110);
+        imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerColumna() - 3) * 50 + 110 );
 
 
     }
