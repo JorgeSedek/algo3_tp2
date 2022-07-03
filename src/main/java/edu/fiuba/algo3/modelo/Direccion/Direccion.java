@@ -7,4 +7,6 @@ public interface Direccion {
     void mover(Ubicacion ubicacion);
 
     Direccion direccionOpuesta();
+
+    String asString();
 }

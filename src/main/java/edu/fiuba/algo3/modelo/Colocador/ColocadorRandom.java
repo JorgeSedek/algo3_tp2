@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Colocador;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.Math.IMath;
+import edu.fiuba.algo3.modelo.Math.Random;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.*;
@@ -21,7 +22,7 @@ public class ColocadorRandom implements ColocadorItems{
     private final ArrayList<Obstaculo> OBSTACULOS = new ArrayList<>() {{
         add(new SinObstaculo());
         add(new Piquete());
-        add(new Policia());
+        add(new Policia(new Random()));
         add(new Pozo());
     }};
 

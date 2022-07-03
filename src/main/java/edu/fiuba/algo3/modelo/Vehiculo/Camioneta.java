@@ -23,6 +23,10 @@ public class Camioneta extends Vehiculo {
         return sorpresa.atravesar(this);
     }
 
+    public String asString() {
+        return "Camioneta";
+    }
+
     public boolean pasoLimitePozos() {
         this.pozos_atravesados++;
         return this.pozos_atravesados > MAXIMOPOZOSATRAVEZADOSGRATIS;

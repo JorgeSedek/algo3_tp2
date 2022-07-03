@@ -42,7 +42,7 @@ public abstract class Vehiculo {
     }
 
     public void cambiarDireccionContraria(){
-        this.direccion= this.direccion.direccionOpuesta();
+        this.direccion = this.direccion.direccionOpuesta();
     }
 
     public void asignarDireccion(Direccion direccion) {
@@ -61,4 +61,6 @@ public abstract class Vehiculo {
     public Ubicacion obtenerUbicacion() {
         return this.ubicacion;
     }
+
+    public abstract String asString();
 }

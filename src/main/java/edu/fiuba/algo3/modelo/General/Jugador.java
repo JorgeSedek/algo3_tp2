@@ -28,6 +28,11 @@ public class Jugador {
     }
 
     public void moverVehiculo(Direccion direccion){
+        Logger.getInstance().imprimir("--------------------------------------------------------------------");
+        Logger.getInstance().imprimir("Turno de: " + this.nombre);
+        Logger.getInstance().imprimir("Vehiculo: " + this.vehiculo.asString());
+        Logger.getInstance().imprimir("Movimientos: " + this.movimientos);
+        Logger.getInstance().imprimir("Te moves para " + direccion.asString());
         this.movimientos++;
         Casillero casillero = this.vehiculo.mover(direccion);
         casillero.atravesar(this);

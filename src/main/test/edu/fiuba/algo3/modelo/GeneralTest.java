@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.*;
+import edu.fiuba.algo3.modelo.Math.Random;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
@@ -271,7 +272,7 @@ public class GeneralTest {
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
 
-        Policia policia = new Policia();
+        Policia policia = new Policia(new Random());
         Ubicacion ubicacionPolicia = new Ubicacion(2,19);
         Escenario.getInstance().agregarObstaculoEn(ubicacionPolicia, policia);
 

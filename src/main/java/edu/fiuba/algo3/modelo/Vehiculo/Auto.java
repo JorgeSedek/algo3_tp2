@@ -17,5 +17,9 @@ public class Auto extends Vehiculo {
     public Efecto atravesar(Sorpresa sorpresa) {
         return sorpresa.atravesar(this);
     }
+
+    public String asString() {
+        return "Auto";
+    }
 }
 

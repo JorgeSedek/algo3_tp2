@@ -50,7 +50,7 @@ public class Juego {
     }
 
     public void finalizar() {
-        System.out.println("Felicidades " + this.jugadorActivo.nombre() + ", llegaste a la meta!");
+        Logger.getInstance().imprimir("¡Felicidades " + this.jugadorActivo.nombre() + ", llegaste a la meta!");
         this.agregarPuntuacion(jugadorActivo);
         this.JUGADORES.remove(jugadorActivo);
         if(this.JUGADORES.size() == 0) {
@@ -68,11 +68,13 @@ public class Juego {
     }
 
     private void mostrarTopPuntuaciones() {
-        System.out.println("Tabla de puntuaciones");
+        Logger.getInstance().imprimir("--------------------------------------------------------------------");
+        Logger.getInstance().imprimir("Tabla de puntuaciones");
         Collections.sort(PUNTUACIONES, new OrdenarPorMovimientos());
         for(Puntaje puntaje : this.PUNTUACIONES) {
-            System.out.println(puntaje.obtenerNombreJugador() + ' ' + puntaje.obtenerPuntuacion());
+            Logger.getInstance().imprimir(puntaje.obtenerNombreJugador() + ' ' + puntaje.obtenerPuntuacion());
         }
+        Logger.getInstance().imprimir("¡Felicidades " + PUNTUACIONES.get(0).obtenerNombreJugador() + ", ganaste!");
     }
 
     // Metodos para tests
