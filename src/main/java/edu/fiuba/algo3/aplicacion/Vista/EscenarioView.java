@@ -32,11 +32,9 @@ public class EscenarioView {
     private double width = 600;// Es muy grande cambiarlo a 900 o 1000
     private double height = 600;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
-    private Escenario escenario;
 
-    public EscenarioView(App app, Escenario escenario, Stage stage){
+    public EscenarioView(App app, Stage stage){
         this.app = app;
-        this.escenario = escenario;
         this.stage = stage;
     }
 
@@ -76,11 +74,12 @@ public class EscenarioView {
         }
 
         Auto auto = new Auto(new Ubicacion(2,2));
-        Moto moto = new Moto(new Ubicacion(4,2));
-        Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
+
+        //Moto moto = new Moto(new Ubicacion(4,2));
+        //Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
         AutoView autoView = new AutoView(auto,root);
-        MotoView motoView = new MotoView(moto,root);
-        CamionetaView camionetaView = new CamionetaView(camioneta,root);
+        //MotoView motoView = new MotoView(moto,root);
+        //CamionetaView camionetaView = new CamionetaView(camioneta,root);
 
         autoView.dibujar();
      //   camionetaView.dibujar();

@@ -15,20 +15,19 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     private Direccion direccion;
     private VehiculoView vehiculo;
 
-    public ControladorTecladoEvento(Juego juego, Escenario escenario){
-        this.escenario = escenario;
-        this.juego = juego;
+    public ControladorTecladoEvento(){
+        //this.escenario = escenario;
+        //this.juego = juego;
     }
 
     public void handle(KeyEvent keyEvent){
-/*
         try {
             if(keyEvent.getCode() == KeyCode.A){
                 //Algo
                 DireccionIzquierda direccion = new DireccionIzquierda();
-                /*
+
                 Juego.getInstance().moverVehiculo(direccion);
-              //  vehiculo.actualizar(float pixelX, float pixelY);
+                //vehiculo.actualizar(float pixelX, float pixelY);
 
             }
 
@@ -56,17 +55,17 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
                 //Algo
                 Juego.getInstance().moverVehiculo(direccion);
               //  vehiculo.actualizar(float pixelX, float pixelY);
-                vehiculo.actualizar(direccion);
+                //vehiculo.actualizar(direccion);
 
             }
-            Juego.getInstance().moverVehiculo(direccion);
+            //Juego.getInstance().moverVehiculo(direccion);
             vehiculo.actualizar(direccion);
             vehiculo.dibujar();
             keyEvent.consume();
         }catch (Exception ignored){
             //Excepcion de no se puede mover
         }
-*/
+
     }
 
 }

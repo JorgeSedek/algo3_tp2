@@ -507,8 +507,9 @@ public Parent mostrarVehiculoView(){
             this.cantidad --;
         }else{
 
-            this.escenarioView = new EscenarioView(this, escenario, this.stage);
+            this.escenarioView = new EscenarioView(this, this.stage);
             escenarioView.mostrarTablero();
+            this.getStage().getScene().setOnKeyPressed(new ControladorTecladoEvento());
 
             //Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
             //this.escenarioView = new EscenarioView(this, Escenario.getInstance());
