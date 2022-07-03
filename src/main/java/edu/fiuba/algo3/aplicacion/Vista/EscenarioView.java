@@ -71,7 +71,7 @@ public class EscenarioView {
                 casillerosView.getChildren().add(casillero);
             }
         }
-/*
+
         Auto auto = new Auto(new Ubicacion(2,2));
         Moto moto = new Moto(new Ubicacion(4,2));
         Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
@@ -80,7 +80,7 @@ public class EscenarioView {
         creador.crear(auto, root);
         creador.crear(moto, root);
         creador.crear(camioneta, root);
-*/
+
         return root;
 
     }
