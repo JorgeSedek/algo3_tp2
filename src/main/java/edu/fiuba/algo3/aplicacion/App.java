@@ -17,6 +17,8 @@ import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -63,6 +65,9 @@ public class App extends Application {
         this.stage = stage;
         jugadores = new ArrayList<>();
 
+
+
+
         stage.setTitle("Juego GPS");
         StackPane layout = new StackPane();
         Label integrantes = new Label();
@@ -71,6 +76,16 @@ public class App extends Application {
         Button comenzar = new Button("Comenzar");
         Button salir = new Button("Salir");
 
+        //Pantalla completa
+/*
+        stage.setFullScreen(true);
+        stage.setFullScreenExitHint("Para salir de pantalla completa, presiona ESC");
+        //esta parte no funciona
+        Button salirPantallaCompleta = new Button("Salir Pantalla completa");
+        BotonSalirPantallaCompleta  btnSalirPantallaCompleta = new BotonSalirPantallaCompleta(this);
+        salirPantallaCompleta.defaultButtonProperty().bind(salirPantallaCompleta.focusedProperty());
+        salirPantallaCompleta.setOnAction( btnSalirPantallaCompleta);
+*/
         // Propiedades y setters
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());
@@ -123,6 +138,11 @@ public class App extends Application {
         addBackground();
         return root;
     }*/
+
+    public void salirPantallaCompleta(){
+        this.stage.setFullScreen(false);
+    }
+
 
     public void elegirCantidadJugadores(){
         StackPane layout = new StackPane();
