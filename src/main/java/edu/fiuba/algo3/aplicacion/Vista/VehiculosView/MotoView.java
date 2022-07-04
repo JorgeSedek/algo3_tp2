@@ -11,15 +11,17 @@ public class MotoView implements VehiculoView{
     protected Moto moto;
     protected Pane root;
     protected ImageView imagenMoto;
-    public static final int ANCHO_MOTO= 40;
-    public static final int ALTO_MOTO = 30;
+    public double ANCHO_MOTO;
+    public double ALTO_MOTO;
 
     protected String imagenPath ;
 
-    public MotoView(Moto moto, Pane root){
+    public MotoView(Moto moto, Pane root, double alto, double ancho){
+        ANCHO_MOTO = ancho;
+        ALTO_MOTO = alto;
         this.moto = moto;
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/motoImagenes/motoIcono.png";
-        this.imagenMoto= new ImageView(new Image(imagenPath,ANCHO_MOTO, ALTO_MOTO, false, false));
+        this.imagenMoto= new ImageView(new Image(imagenPath,ANCHO_MOTO*0.6, ALTO_MOTO*0.6, false, false));
         this.root = root;
     }
 
@@ -33,8 +35,8 @@ public class MotoView implements VehiculoView{
     }
 
     public void posicionarImagen(){
-        imagenMoto.setLayoutY((moto.obtenerUbicacion().obtenerFila() - 2 ) * 50 + 50);
-        imagenMoto.setLayoutX((moto.obtenerUbicacion().obtenerColumna() - 2) * 50 + 50);
+        imagenMoto.setLayoutY((moto.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_MOTO + ANCHO_MOTO*1.2);
+        imagenMoto.setLayoutX((moto.obtenerUbicacion().obtenerColumna() - 2) * ALTO_MOTO + ALTO_MOTO*1.2);
 
     }
 }

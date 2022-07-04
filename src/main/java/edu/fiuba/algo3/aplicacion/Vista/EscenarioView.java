@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -39,7 +40,7 @@ public class EscenarioView {
     }
 
     public void mostrarTablero(){
-        StackPane layout = new StackPane();
+        BorderPane layout = new BorderPane();
         actualizarJugador();
 
         layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
@@ -137,19 +138,25 @@ public class EscenarioView {
 
         Pane root = new Pane();
 
+        int filas = Escenario.getInstance().obtenerFilas();
+        int columnas = Escenario.getInstance().obtenerColumnas();
+
+        double alto = width/(double)filas;
+        double ancho = height/(double)columnas;
+
         Vehiculo vehiculo =  jugador.obtenerVehiculo();
         if (vehiculo instanceof Auto ){
-            AutoView autoView4 = new AutoView((Auto) vehiculo,root);
+            AutoView autoView4 = new AutoView((Auto) vehiculo,root, alto, ancho);
             autoView4.dibujar();
         }
 
         if (vehiculo instanceof Moto) {
-            MotoView motoView4 = new MotoView((Moto) vehiculo, root);
+            MotoView motoView4 = new MotoView((Moto) vehiculo, root, alto, ancho);
             motoView4.dibujar();
         }
 
         else{
-            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root);
+            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
             camionetaView4.dibujar();
         }
 

@@ -17,15 +17,17 @@ public class AutoView implements VehiculoView{
     protected Auto auto;
     protected ImageView imagenAuto;
     protected Pane root;
-    public static final int ANCHO_AUTO = 40;
-    public static final int ALTO_AUTO = 30;
+    public double ANCHO_AUTO;
+    public double ALTO_AUTO;
 
     protected String imagenPath ;
 
-    public AutoView(Auto auto, Pane root){
+    public AutoView(Auto auto, Pane root, double alto, double ancho){
+        ANCHO_AUTO = ancho;
+        ALTO_AUTO = alto;
         this.auto = auto;
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
-        this.imagenAuto = new ImageView(new Image(imagenPath,ANCHO_AUTO, ALTO_AUTO, false, false));
+        this.imagenAuto = new ImageView(new Image(imagenPath,ANCHO_AUTO*0.6, ALTO_AUTO*0.6, false, false));
         this.root= root;
     }
 
@@ -35,8 +37,8 @@ public class AutoView implements VehiculoView{
     }
 
     public void posicionarImagen(){
-        imagenAuto.setLayoutY((auto.obtenerUbicacion().obtenerFila() - 2 ) * 50 + 50);
-        imagenAuto.setLayoutX((auto.obtenerUbicacion().obtenerColumna() - 2) * 50 + 50);
+        imagenAuto.setLayoutY((auto.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_AUTO + ANCHO_AUTO*1.2);
+        imagenAuto.setLayoutX((auto.obtenerUbicacion().obtenerColumna() - 2) * ALTO_AUTO + ALTO_AUTO*1.2);
 
     }
 
