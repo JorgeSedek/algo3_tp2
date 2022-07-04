@@ -38,26 +38,6 @@ public class AutoView implements VehiculoView{
 
     public void dibujar(){
         this.posicionarImagen();
-
-
-
-
-        // pivot point = center of rect
-     //   Rotate rotate = new Rotate(0, 50, 50);
-          Translate translate = new Translate();
-          translate.setX(60);
-
-
-        // rotate first, then move
-        imagenAuto.getTransforms().addAll(translate);
-       // 300d
-        Timeline timeline = new Timeline(
-                //new KeyFrame(Duration.ZERO, new KeyValue(translate.xProperty(), 0d)),
-               new KeyFrame(Duration.seconds(2), new KeyValue(translate.yProperty(), 300d)));
-
-       // timeline.setCycleCount(Animation.INDEFINITE);
-
-          timeline.play();
         root.getChildren().add(imagenAuto);
     }
 

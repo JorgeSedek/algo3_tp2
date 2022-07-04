@@ -31,7 +31,6 @@ public class MotoView implements VehiculoView{
     }
     public void actualizar(){
        this.posicionarImagen();
-
     }
 
     public void posicionarImagen(){

@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 public class BotonCamionetaEvento implements EventHandler<ActionEvent> {
 
     private App app;
-    private ChoiceBox<String> choiceBox;
+
     private TextField nombre;
     private int fila;
     private Label label;
