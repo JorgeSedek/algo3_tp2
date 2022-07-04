@@ -4,6 +4,8 @@ import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
 import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
+import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;

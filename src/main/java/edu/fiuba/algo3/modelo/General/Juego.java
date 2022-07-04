@@ -98,4 +98,11 @@ public class Juego {
     public boolean verificarVehiculoJugadorActivo(Vehiculo vehiculo){
         return jugadorActivo.mismoVehiculo(vehiculo);
     }
+
+    public Jugador obtenerJugadorActivo(){
+        return this.jugadorActivo;
+    }
+
 }
+
+

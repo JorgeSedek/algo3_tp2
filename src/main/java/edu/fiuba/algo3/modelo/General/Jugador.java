@@ -76,6 +76,10 @@ public class Jugador {
         return new Puntaje(this);
     }
 
+    public Vehiculo obtenerVehiculo(){
+        return this.vehiculo;
+    }
+
     public String nombre() {
         return this.nombre;
     }

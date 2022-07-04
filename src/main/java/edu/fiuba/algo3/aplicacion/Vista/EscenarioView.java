@@ -5,12 +5,11 @@ import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CreadorVehiculosView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.MotoView;
-import edu.fiuba.algo3.modelo.General.Casillero;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -83,7 +82,8 @@ public class EscenarioView {
         CamionetaView camionetaView = new CamionetaView(camioneta,root);
         CamionetaView camionetaView2 = new CamionetaView(camioneta2,root);
 
-
+        Jugador jugador1 = Juego.getInstance().obtenerJugadorActivo();
+        Vehiculo vehiculo1 =  jugador1.obtenerVehiculo();
         //Moto moto = new Moto(new Ubicacion(4,2));
         //Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
         //MotoView motoView = new MotoView(moto,root);
