@@ -121,7 +121,7 @@ public class App extends Application {
 
         // Stage
         stage.setScene(new Scene(layout));
-       // stage.setResizable(false);
+        //stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
     }
@@ -564,8 +564,13 @@ public Parent mostrarVehiculoView(){
             Juego.resetInstance(this.jugadores);
             this.escenarioView = new EscenarioView(this, this.stage);
 
+
             escenarioView.mostrarTablero();
-            this.getStage().getScene().setOnKeyPressed(new ControladorTecladoEvento(escenarioView));
+            //while(Juego.getInstance().hayJugadoresActivos() == false){
+
+            //}
+            //this.getStage().getScene().setOnKeyPressed(new ControladorTecladoEvento(escenarioView));
+
 
             //Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
             //this.escenarioView = new EscenarioView(this, Escenario.getInstance());

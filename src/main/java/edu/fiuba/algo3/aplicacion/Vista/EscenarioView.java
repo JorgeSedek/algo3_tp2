@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
 import edu.fiuba.algo3.aplicacion.App;
+import edu.fiuba.algo3.aplicacion.Eventos.ControladorTecladoEvento;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CreadorVehiculosView;
@@ -47,9 +48,11 @@ public class EscenarioView {
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);
         //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
+        //layout.setOnKeyPressed(new ControladorTecladoEvento(this));
 
         stage.setScene(new Scene(layout));
-        stage.centerOnScreen();
+        stage.getScene().setOnKeyPressed(new ControladorTecladoEvento(this));
+        //stage.centerOnScreen();
         stage.show();
     }
 
@@ -135,7 +138,7 @@ public class EscenarioView {
         this.jugador = Juego.getInstance().obtenerJugadorActivo();
     }
 
-   public Parent dibujarVehiculo(){
+    public Parent dibujarVehiculo(){
        int filas = Escenario.getInstance().obtenerFilas();
        int columnas = Escenario.getInstance().obtenerColumnas();
 
@@ -189,7 +192,7 @@ public class EscenarioView {
 
        return root;
 
-   }
+    }
 
 
     public void actualizar(){
