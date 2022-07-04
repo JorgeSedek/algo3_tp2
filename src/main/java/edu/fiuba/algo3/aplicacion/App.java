@@ -120,6 +120,8 @@ public class App extends Application {
         layout.setPadding(new Insets(10));
 
         // Stage
+        Image icon = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/icon.png");
+        stage.getIcons().add(icon);
         stage.setScene(new Scene(layout));
         //stage.setResizable(false);
         stage.centerOnScreen();
