@@ -24,7 +24,7 @@ public class BotonSiguienteEvento implements EventHandler<ActionEvent> {
 
     private Vehiculo vehiculo;
 
-    public BotonSiguienteEvento(App app, ChoiceBox<String> choiceBox, TextField texto, Label error, int fila){
+    public BotonSiguienteEvento(App app, ChoiceBox<String> choiceBox, TextField texto, Label error){
         this.app = app;
         this.choiceBox = choiceBox;
         this.nombre = texto;

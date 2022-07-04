@@ -28,8 +28,8 @@ public class EscenarioView {
 
     private App app;
     private Stage stage;
-    private double width = 600;// Es muy grande cambiarlo a 900 o 1000
-    private double height = 600;//  Es muy grande cambiarlo a 900 o 1000
+    private double width = 700;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 700;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
 
     public EscenarioView(App app, Stage stage){
@@ -42,6 +42,7 @@ public class EscenarioView {
         layout.getChildren().addAll(mostrarTableroView());
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);
+        //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
 
         stage.setScene(new Scene(layout));
         stage.centerOnScreen();
