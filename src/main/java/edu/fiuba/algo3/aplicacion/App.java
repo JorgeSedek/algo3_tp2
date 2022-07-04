@@ -39,11 +39,12 @@ public class App extends Application {
 
     private Stage stage;
     private List<Jugador> jugadores;
+    private int cantidad;
 
     private int filas;
+
     private int columnas;
 
-    private int cantidad;
     //private double width = 1100;
     //private double height = 1100;
 
@@ -53,7 +54,6 @@ public class App extends Application {
 
     //private Group casillerosView = new Group();
     //private EscenarioView escanarioView;
-    private Escenario escenario;
     private EscenarioView escenarioView;
 
     @Override
@@ -61,9 +61,6 @@ public class App extends Application {
         // Inicializacion
         this.stage = stage;
         jugadores = new ArrayList<>();
-
-
-
 
         stage.setTitle("Juego GPS");
         StackPane layout = new StackPane();
@@ -127,7 +124,6 @@ public class App extends Application {
 
         // Stage
         stage.setScene(new Scene(layout));
-     //   stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
     }
@@ -189,47 +185,6 @@ public class App extends Application {
         this.stage.centerOnScreen();
     }
 
-
-/*
-        Circle circulo = new Circle();
-        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
-        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
-        circulo.setFill(Color.LIGHTBLUE);
-        circulo.setRadius(10);
-
- */
-        /*
-        Canvas canvas = new Canvas();
-
-        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
-
-        canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
-        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
-
-        canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
-        canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
-        //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
-        */
-
-    //     root.getChildren().add(circulo);
-
-    //  root.getChildren().add(autoArribaView);
-    // root.getChildren().add(autoAbajoView);
-    /*
-    root.getChildren().add(piqueteView);
-    root.getChildren().add(piqueteView2);
-    root.getChildren().add(piqueteView3);
-    root.getChildren().add(piqueteView4);
-    //   root.getChildren().add(pozoView);
-    root.getChildren().add(desfavorableView);
-    root.getChildren().add(favorableView);
-    root.getChildren().add(favorableView2);
-    root.getChildren().add(favorableView3);
-    root.getChildren().add(autoDerechaView1);
-    root.getChildren().add(autoDerechaView2);
-
-     */
-
 /*
     public void getChoice(int cant_jugadores) {
         System.out.println(cant_jugadores);
@@ -258,7 +213,7 @@ public class App extends Application {
 
         error.setText("");
 
-        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, this.filas);
+        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, filas);
         siguiente.setOnAction(botonSiguiente);
 
         VBox contenedorNombre = new VBox(pedirNombre, nombreJugador);
