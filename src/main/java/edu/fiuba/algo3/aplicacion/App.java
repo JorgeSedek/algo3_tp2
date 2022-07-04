@@ -485,11 +485,21 @@ public Parent mostrarVehiculoView(){
                 + " * Cambio de Vehículo: Si es una moto, la convierte en auto. Un auto lo convierte en una Camioneta. Una camioneta la convierte en moto.\n\n"
                 + "Las sorpresas figuran en el mapa como un regalo y no se sabrá que es hasta que el vehículo la accione."
         );
+
         textArea.setEditable(false);
         textArea.setPrefHeight(200);
         textArea.setPrefWidth(800);
 
-        layout.getChildren().add(textArea);
+        Button salir = new Button("Atras");
+        BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this);
+        salir.setOnAction(botonSalir);
+        salir.defaultButtonProperty().bind(salir.focusedProperty());
+
+        VBox vbox = new VBox(textArea, salir);
+        vbox.setSpacing(30);
+        vbox.setAlignment(Pos.CENTER);
+
+        layout.getChildren().add(vbox);
         layout.setPrefHeight(400);
         layout.setPrefWidth(800);
 
