@@ -6,10 +6,12 @@ import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
-import edu.fiuba.algo3.modelo.General.*;
+import edu.fiuba.algo3.modelo.General.Casillero;
 
-//import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
+import edu.fiuba.algo3.modelo.General.Escenario;
 
+import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
@@ -40,11 +42,6 @@ public class App extends Application {
     private Stage stage;
     private List<Jugador> jugadores;
     private int cantidad;
-
-    private int filas;
-
-    private int columnas;
-
     //private double width = 1100;
     //private double height = 1100;
 
@@ -54,6 +51,7 @@ public class App extends Application {
 
     //private Group casillerosView = new Group();
     //private EscenarioView escanarioView;
+    private Escenario escenario;
     private EscenarioView escenarioView;
 
     @Override
@@ -61,6 +59,9 @@ public class App extends Application {
         // Inicializacion
         this.stage = stage;
         jugadores = new ArrayList<>();
+
+
+
 
         stage.setTitle("Juego GPS");
         StackPane layout = new StackPane();
@@ -124,6 +125,7 @@ public class App extends Application {
 
         // Stage
         stage.setScene(new Scene(layout));
+        stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
     }
@@ -184,6 +186,205 @@ public class App extends Application {
         this.stage.setScene(scene);
         this.stage.centerOnScreen();
     }
+/*
+    public void mostrarTablero(){
+        StackPane layout = new StackPane();
+        layout.getChildren().addAll(mostrarTableroView(), mostrarVehiculoView());
+
+        stage.setScene(new Scene(layout));
+        stage.show();
+    }
+
+    public Parent mostrarTableroView(){
+        int filas = this.filas;
+        int columnas = this.columnas;
+
+        Pane root = new Pane();
+        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
+        root.getChildren().addAll(casillerosView);
+
+        for (int y = 0; y < columnas; y = y + 2) {
+            for (int x = 0; x < filas; x = x + 2) {
+                CasilleroView casillero = new CasilleroView( x, y);
+                tableroView[x][y] = casillero;
+
+                casillerosView.getChildren().add(casillero);
+
+            }
+        }
+
+        return root;
+    }
+
+*/
+/*
+    public class VistaRobot {
+
+        private Robot robot;
+        Canvas canvas;
+
+        public VistaRobot(Robot robot, Canvas canvas) {
+            this.robot = robot;
+            this.canvas = canvas;
+        }
+
+        public void dibujar() {
+            this.dibujarFormas();
+        }
+
+        private void dibujarFormas() {
+            this.clean();
+            canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+            canvas.getGraphicsContext2D().fillOval(robot.getPosicion().getX() + 230, robot.getPosicion().getY() + 110, robot.RADIO, robot.RADIO);
+        }
+
+        public void clean() {
+
+            canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+            canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+        }
+
+        public void update() {
+            this.dibujar();
+        }
+
+    }
+*/
+/*
+public Parent mostrarVehiculoView(){
+    Pane root = new Pane();
+
+        /* Los path y los seteos tienen que ir en cada una de las clases View
+        los puse aca para encontrar las medidas de las imagenes y ver como ubicarlas
+         */
+/*
+    String imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/auto2dDerecha.png";
+    String imagenPathAbajo = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoAbajo.png";
+    String imagenPathArriba = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/autoImagenes/autoArriba.png";
+    String pozoPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/pozo.png";
+    String piquetePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/piquete.png";
+
+    String favorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/favorable.png";
+    String desfavorablePath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/desfavorable.png";
+
+
+
+    ImageView autoDerechaView1 = new ImageView(new Image(imagenPath,40, 30, false, false));
+    ImageView autoDerechaView2 = new ImageView(new Image(imagenPath,40, 30, false, false));
+
+    //  ImageView pozoView = new ImageView(new Image(pozoPath,60, 50, false, false));
+    ImageView piqueteView = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+    ImageView piqueteView2 = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView2 = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+    ImageView piqueteView3 = new ImageView(new Image(piquetePath,20, 30, false, false));
+    ImageView favorableView3 = new ImageView(new Image(favorablePath,20, 30, false, false));
+
+    ImageView desfavorableView = new ImageView(new Image(desfavorablePath,20, 30, false, false));
+    ImageView piqueteView4 = new ImageView(new Image(piquetePath,20, 30, false, false));
+
+    Piquete piquete = new Piquete();
+    Auto auto = new Auto(new Ubicacion(2,2));
+    AutoView autoView = new AutoView(auto);
+
+    Casillero casillero = new Casillero(2,3);
+    casillero.asignarObstaculo(piquete);
+
+    PiqueteView obstaculoView = new PiqueteView(casillero) ;
+    /*
+    autoDerechaView1.setLayoutX(50);
+    autoDerechaView1.setLayoutY(60);
+
+    autoDerechaView2.setLayoutX(150);
+    autoDerechaView2.setLayoutY(60);
+
+     */
+
+    //   pozoView.setLayoutX(200);
+    //   pozoView.setLayoutY(50);
+
+    //para mover piquete y favorable de un casillero a otro se suma 100
+    // la separacion entre los 2 es de 25 en el eje x
+/*
+    piqueteView.setLayoutX(50);
+    piqueteView.setLayoutY(105);
+
+    favorableView.setLayoutX(75);
+    favorableView.setLayoutY(105);
+
+    piqueteView2.setLayoutX(50);
+    piqueteView2.setLayoutY(205);
+
+    favorableView2.setLayoutX(75);
+    favorableView2.setLayoutY(205);
+
+    piqueteView3.setLayoutX(150);
+    piqueteView3.setLayoutY(105);
+
+    favorableView3.setLayoutX(175);
+    favorableView3.setLayoutY(105);
+
+    piqueteView4.setLayoutX(250);
+    piqueteView4.setLayoutY(105);
+
+    desfavorableView.setLayoutX(275);
+    desfavorableView.setLayoutY(105);
+
+ */
+/*
+        autoAbajoView.setLayoutX(50);
+        autoAbajoView.setLayoutY(150);
+
+        autoArribaView.setLayoutX(150);
+        autoArribaView.setLayoutY(150);
+
+ */
+/*
+        Circle circulo = new Circle();
+        circulo.setCenterX(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
+        circulo.setCenterY(75); // DEBERIA SER EN FUNCION DE LA UBICACION DEL VEHICULO
+        circulo.setFill(Color.LIGHTBLUE);
+        circulo.setRadius(10);
+
+ */
+        /*
+        Canvas canvas = new Canvas();
+
+        root.setPrefSize(filas * MEDIDA_CASILLERO - (1 - (filas % 2)) * MEDIDA_CASILLERO , columnas * MEDIDA_CASILLERO - (1 - (columnas % 2)) * MEDIDA_CASILLERO);
+
+        canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
+        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+
+        canvas.getGraphicsContext2D().setFill(Color.DARKBLUE);
+        canvas.getGraphicsContext2D().fillOval(230, 110, 40, 40);
+        //canvas.getGraphicsContext2D().fillOval(vehiculo.getPosicion().getX() + 230, vehiculo.getPosicion().getY() + 110, vehiculo.RADIO, vehiculo.RADIO);
+        */
+
+    //     root.getChildren().add(circulo);
+
+    //  root.getChildren().add(autoArribaView);
+    // root.getChildren().add(autoAbajoView);
+    /*
+    root.getChildren().add(piqueteView);
+    root.getChildren().add(piqueteView2);
+    root.getChildren().add(piqueteView3);
+    root.getChildren().add(piqueteView4);
+    //   root.getChildren().add(pozoView);
+    root.getChildren().add(desfavorableView);
+    root.getChildren().add(favorableView);
+    root.getChildren().add(favorableView2);
+    root.getChildren().add(favorableView3);
+    root.getChildren().add(autoDerechaView1);
+    root.getChildren().add(autoDerechaView2);
+
+     */
+/*
+    root.getChildren().add(autoView.dibujar());
+    root.getChildren().add(obstaculoView.dibujar());
+    return root;
+}
 
 /*
     public void getChoice(int cant_jugadores) {
@@ -213,7 +414,7 @@ public class App extends Application {
 
         error.setText("");
 
-        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error, filas);
+        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error);
         siguiente.setOnAction(botonSiguiente);
 
         VBox contenedorNombre = new VBox(pedirNombre, nombreJugador);
@@ -234,8 +435,15 @@ public class App extends Application {
         contenedor.setAlignment(Pos.CENTER);
         contenedor.setSpacing(10);
 
-        layout.getChildren().add(contenedor);
+        Button salir = new Button("Salir");
+        BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this);
+        salir.setOnAction(botonSalir);
+        salir.defaultButtonProperty().bind(salir.focusedProperty());
+
+        layout.getChildren().addAll(contenedor, salir);
         layout.setPadding(new Insets(10));
+
+        StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
 
         layout.setPrefHeight(100);
         layout.setPrefWidth(500);
@@ -247,43 +455,38 @@ public class App extends Application {
 
     public void elegirTamanioEscenario(){
         StackPane layout = new StackPane();
-        Label pedirFila = new Label();
-        Label pedirColumna = new Label();
-        Label error = new Label();
-        TextField fila = new TextField();
-        TextField columna = new TextField();
-        Button continuar = new Button("Continuar");
+        Label pedirTamanio = new Label();
+        Button Grande = new Button("Grande");
+        Button Chico = new Button("Chico");
 
-        pedirFila.setText("Ingrese la cantidad de entre calles por fila");
-        pedirFila.setAlignment(Pos.CENTER);
-        pedirColumna.setText("Ingrese la cantidad de entre calles por columna");
-        pedirColumna.setAlignment(Pos.CENTER);
 
-        Region region1 = new Region();
-        HBox.setHgrow(region1, Priority.ALWAYS);
+        pedirTamanio.setText("Elija la medida del escenario");
+        pedirTamanio.setAlignment(Pos.CENTER);
 
-        error.setText("");
+        BotonEscenarioGrandeEvento botonEscenarioGrandeEvento = new BotonEscenarioGrandeEvento(this);
+        Grande.setOnAction(botonEscenarioGrandeEvento);
 
-        BotonContinuarEvento botonContinuar = new BotonContinuarEvento(this, fila, columna, error);
-        continuar.setOnAction(botonContinuar);
+        BotonEscenarioChicoEvento botonEscenarioChicoEvento = new BotonEscenarioChicoEvento(this);
+        Chico.setOnAction(botonEscenarioChicoEvento);
 
-        HBox contenedorBoton = new HBox(error, region1, continuar);
+        HBox contenedorBoton = new HBox(Chico, Grande);
         contenedorBoton.setAlignment(Pos.CENTER);
         contenedorBoton.setSpacing(10);
 
-        VBox contenedorDatos = new VBox(pedirFila, fila, pedirColumna, columna);
-        contenedorDatos.setAlignment(Pos.CENTER);
-        contenedorDatos.setSpacing(10);
-
-        VBox contenedor = new VBox(contenedorDatos, contenedorBoton);
+        VBox contenedor = new VBox(pedirTamanio, contenedorBoton);
         contenedor.setAlignment(Pos.CENTER);
         contenedor.setSpacing(10);
 
-        layout.getChildren().add(contenedor);
-        layout.setPadding(new Insets(10));
+        Button salir = new Button("Salir");
+        BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this);
+        salir.setOnAction(botonSalir);
+        salir.defaultButtonProperty().bind(salir.focusedProperty());
 
-        layout.setPrefHeight(100);
-        layout.setPrefWidth(500);
+        layout.getChildren().addAll(contenedor, salir);
+        layout.setPadding(new Insets(10));
+        layout.setPrefHeight(200);
+        layout.setPrefWidth(400);
+        StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
 
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
@@ -291,15 +494,23 @@ public class App extends Application {
     }
 
     public void ingresarNombresYVehiculo(int cant_jugadores){
+        /*for(int i=0; i<cant_jugadores; i++){
+            agregarJugadores();
+        }*/
+
         this.cantidad = cant_jugadores;
         if(cant_jugadores > 0){
             agregarJugadores();
             this.cantidad --;
         }else{
-            Juego.resetInstance(this.jugadores);
+
             this.escenarioView = new EscenarioView(this, this.stage);
             escenarioView.mostrarTablero();
-            this.getStage().getScene().setOnKeyPressed(new ControladorTecladoEvento());
+
+            //Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
+            //this.escenarioView = new EscenarioView(this, Escenario.getInstance());
+            //escenarioView.mostrarTablero();
+
         }
     }
 /*
@@ -349,9 +560,7 @@ public class App extends Application {
     }
 
     public void setFilaYColumna(int fila, int columna) {
-        this.filas = 11;
-        this.columnas = 11;
-        Escenario.resetInstance(5,5);
+        Escenario.resetInstance(fila,columna);
         Escenario.getInstance().agregarObjetosRandom();
     }
 
