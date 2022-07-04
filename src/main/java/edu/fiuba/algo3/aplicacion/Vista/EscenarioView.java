@@ -48,6 +48,8 @@ public class EscenarioView {
         stage.show();
     }
 
+
+
     public Parent mostrarTableroView(){
         int filas = Escenario.getInstance().obtenerFilas();
         int columnas = Escenario.getInstance().obtenerColumnas();
@@ -71,7 +73,7 @@ public class EscenarioView {
                 casillerosView.getChildren().add(casillero);
             }
         }
-
+/*
         Auto auto = new Auto(new Ubicacion(2,2));
 
         Moto moto = new Moto(new Ubicacion(4,2));
@@ -81,7 +83,7 @@ public class EscenarioView {
         MotoView motoView = new MotoView(moto,root);
         CamionetaView camionetaView = new CamionetaView(camioneta,root);
         CamionetaView camionetaView2 = new CamionetaView(camioneta2,root);
-
+*/
         Jugador jugador1 = Juego.getInstance().obtenerJugadorActivo();
         Vehiculo vehiculo1 =  jugador1.obtenerVehiculo();
         if (vehiculo1 instanceof Auto ){

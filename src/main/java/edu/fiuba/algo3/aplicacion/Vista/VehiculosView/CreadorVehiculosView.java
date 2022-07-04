@@ -14,14 +14,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 public class CreadorVehiculosView {
-    /*
 
-    public void crear(Auto auto, Pane root) {
+/*
+    public AutoView crear(Auto auto, Pane root) {
         AutoView autoView = new AutoView(auto);
         root.getChildren().add(autoView.dibujar());
     }
 
-    public void crear(Camioneta camioneta, Pane root) {
+    public CamionetaView crear(Camioneta camioneta, Pane root) {
         CamionetaView camionetaView = new CamionetaView(camioneta);
         root.getChildren().add(camionetaView.dibujar());
     }
