@@ -13,10 +13,11 @@ public class CamionetaView implements VehiculoView{
     protected Camioneta camioneta;
     protected Pane root;
     protected ImageView imagenCamioneta;
+
     public double ANCHO_CAMIONETA;
     public double ALTO_CAMIONETA;
 
-    int cantVeces;
+
 
 
 
@@ -27,9 +28,9 @@ public class CamionetaView implements VehiculoView{
         ALTO_CAMIONETA = alto;
         this.camioneta = camioneta;
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/camionetaImagenes/camionetaIcono.png";
-        this.imagenCamioneta = new ImageView(new Image(imagenPath,ANCHO_CAMIONETA*0.6, ALTO_CAMIONETA*0.6, false, false));
+        this.imagenCamioneta = new ImageView(new Image(imagenPath,ANCHO_CAMIONETA*0.6, ALTO_CAMIONETA*0.6, false, false));;
         this.root = root;
-        this.cantVeces = 0;
+
 
     }
 
@@ -41,18 +42,7 @@ public class CamionetaView implements VehiculoView{
 
     }
 
-
-    public void moverDerecha(){
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(1000), imagenCamioneta);
-        //translateTransition.setInterpolator(Interpolator.LINEAR);
-      //  translateTransition.setByX(100); // aca
-     //   translateTransition.setByY(0); // aca
-
-
-        translateTransition.setCycleCount(1);
-        translateTransition.play();
-
-    }
+/*
 
     public void mover(){
 
@@ -77,15 +67,18 @@ public class CamionetaView implements VehiculoView{
 
 
             }
+            else{
+
+            }
 
 
             translateTransition.setCycleCount(1);
             translateTransition.play();
+
         }
 
 
-
-
+*/
 
 
 
@@ -97,8 +90,9 @@ public class CamionetaView implements VehiculoView{
         imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_CAMIONETA + ANCHO_CAMIONETA*1.2);
         imagenCamioneta.setLayoutX((camioneta.obtenerUbicacion().obtenerColumna() - 2) * ALTO_CAMIONETA + ALTO_CAMIONETA*1.2);
 
-
     }
+
+
 
     public void actualizar(){
         this.posicionarImagen();

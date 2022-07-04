@@ -5,6 +5,7 @@ import edu.fiuba.algo3.aplicacion.Eventos.ControladorTecladoEvento;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.MotoView;
+import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
 import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
@@ -25,6 +26,8 @@ public class EscenarioView {
     private double height = 700;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
     private Jugador jugador;
+
+    private VehiculoView vehiculoView;
 
     public EscenarioView(App app, Stage stage){
         this.app = app;
@@ -119,7 +122,7 @@ public class EscenarioView {
        if (vehiculo instanceof Camioneta){
 
            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
-        //   camionetaView4.posicionarImagen();
+         //  camionetaView4.posicionarImagen();
            camionetaView4.dibujar();
         //   camionetaView4.mover();
        }

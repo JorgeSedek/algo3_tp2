@@ -7,5 +7,5 @@ public interface VehiculoView {
     void dibujar();
     void actualizar();
 
-    void moverDerecha();
+
 }
