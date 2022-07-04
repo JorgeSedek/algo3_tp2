@@ -3,9 +3,11 @@ package edu.fiuba.algo3.aplicacion.Vista.VehiculosView;
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 public class CamionetaView implements VehiculoView{
     protected Camioneta camioneta;
@@ -27,6 +29,14 @@ public class CamionetaView implements VehiculoView{
 
     public void dibujar(){
         this.posicionarImagen();
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(1000), imagenCamioneta);
+        //translateTransition.setInterpolator(Interpolator.LINEAR);
+        translateTransition.setByX(100);
+        translateTransition.setByY(0);
+        translateTransition.setCycleCount(1);
+        translateTransition.play();
+
+
         root.getChildren().add(imagenCamioneta);
 
     }
