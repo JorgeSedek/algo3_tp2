@@ -84,7 +84,21 @@ public class EscenarioView {
 
         Jugador jugador1 = Juego.getInstance().obtenerJugadorActivo();
         Vehiculo vehiculo1 =  jugador1.obtenerVehiculo();
-        //Moto moto = new Moto(new Ubicacion(4,2));
+        if (vehiculo1 instanceof Auto ){
+            AutoView autoView3 = new AutoView((Auto) vehiculo1,root);
+            autoView3.dibujar();
+        }
+
+        if (vehiculo1 instanceof Moto) {
+            MotoView motoView3 = new MotoView((Moto) vehiculo1, root);
+            motoView3.dibujar();
+        }
+
+        else{
+            CamionetaView camionetaView3 = new CamionetaView((Camioneta) vehiculo1, root);
+            camionetaView3.dibujar();
+        }
+            //Moto moto = new Moto(new Ubicacion(4,2));
         //Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
         //MotoView motoView = new MotoView(moto,root);
         //CamionetaView camionetaView = new CamionetaView(camioneta,root);
