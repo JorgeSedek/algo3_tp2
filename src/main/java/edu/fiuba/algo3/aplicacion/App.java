@@ -145,75 +145,7 @@ public class App extends Application {
         int random = rand.nextInt(this.columna) + 1;
         System.out.println(random);
     }*/
-/*
-    public void agregarJugadores(){
-        StackPane layout = new StackPane();
-        Label pedirNombre = new Label();
-        Label pedirVehiculo = new Label();
-        Label error = new Label();
-        TextField nombreJugador = new TextField();
 
-        Button moto = new Button("Moto");
-        Button auto = new Button("Auto");
-        Button camioneta = new Button("Camioneta");
-
-        pedirNombre.setText("Ingrese el nombre del jugador");
-        pedirNombre.setAlignment(Pos.CENTER);
-
-        pedirVehiculo.setText("Elija un vehiculo para el jugador");
-        pedirVehiculo.setAlignment(Pos.CENTER);
-
-        error.setText("");
-
-        BotonMotoEvento botonMotoEvento = new BotonMotoEvento(this, nombreJugador, error, );
-        moto.setOnAction(botonMotoEvento);
-
-        BotonAutoEvento botonAutoEvento = new BotonAutoEvento(this, nombreJugador, error, );
-        auto.setOnAction(botonAutoEvento);
-
-        BotonCamionetaEvento botonCamionetaEvento = new BotonCamionetaEvento(this, nombreJugador, error);
-        camioneta.setOnAction(botonCamionetaEvento);
-
-        VBox contenedorNombre = new VBox(pedirNombre, nombreJugador);
-        contenedorNombre.setAlignment(Pos.CENTER);
-        contenedorNombre.setSpacing(10);
-
-        HBox contenedorBotones = new HBox(moto, auto, camioneta);
-        contenedorBotones.setAlignment(Pos.CENTER);
-        contenedorBotones.setSpacing(10);
-
-        VBox contenedorVehiculo = new VBox(pedirVehiculo, contenedorBotones);
-        contenedorVehiculo.setAlignment(Pos.CENTER);
-        contenedorVehiculo.setSpacing(10);
-
-        Button salir = new Button("Salir");
-        BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this);
-        salir.setOnAction(botonSalir);
-        salir.defaultButtonProperty().bind(salir.focusedProperty());
-
-        Region region1 = new Region();
-        HBox.setHgrow(region1, Priority.ALWAYS);
-
-        HBox contenedorBoton = new HBox(salir, error, region1);
-        contenedorBoton.setSpacing(0);
-        contenedorBoton.setAlignment(Pos.BOTTOM_LEFT);
-
-        VBox contenedor = new VBox(contenedorNombre, contenedorVehiculo, contenedorBoton);
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setSpacing(10);
-
-
-        layout.getChildren().addAll(contenedor);
-        layout.setPadding(new Insets(10));
-
-        layout.setPrefHeight(100);
-        layout.setPrefWidth(500);
-
-        Scene scene = new Scene(layout);
-        this.stage.setScene(scene);
-        this.stage.centerOnScreen();
-    }
-*/
     public void leerInstrucciones() {
         StackPane layout = new StackPane();
         TextArea textArea = new TextArea(
@@ -267,63 +199,6 @@ public class App extends Application {
 
     }
 
-    /*
-    public void elegirTamanioEscenario(){
-        StackPane layout = new StackPane();
-        Label pedirTamanio = new Label();
-        Button Grande = new Button("Grande");
-        Button Chico = new Button("Chico");
-
-
-        pedirTamanio.setText("Elija la medida del escenario");
-        pedirTamanio.setAlignment(Pos.CENTER);
-
-        BotonEscenarioGrandeEvento botonEscenarioGrandeEvento = new BotonEscenarioGrandeEvento(this);
-        Grande.setOnAction(botonEscenarioGrandeEvento);
-
-        BotonEscenarioChicoEvento botonEscenarioChicoEvento = new BotonEscenarioChicoEvento(this);
-        Chico.setOnAction(botonEscenarioChicoEvento);
-
-        HBox contenedorBoton = new HBox(Chico, Grande);
-        contenedorBoton.setAlignment(Pos.CENTER);
-        contenedorBoton.setSpacing(10);
-
-        VBox contenedor = new VBox(pedirTamanio, contenedorBoton);
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setSpacing(10);
-
-        Button salir = new Button("Salir");
-        BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this);
-        salir.setOnAction(botonSalir);
-        salir.defaultButtonProperty().bind(salir.focusedProperty());
-
-        layout.getChildren().addAll(contenedor, salir);
-        layout.setPadding(new Insets(10));
-        layout.setPrefHeight(200);
-        layout.setPrefWidth(400);
-        StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
-
-        Scene scene = new Scene(layout);
-        this.stage.setScene(scene);
-        this.stage.centerOnScreen();
-    }
-    */
-/*
-    public void ingresarNombresYVehiculo(int cant_jugadores){
-
-        this.cantidad = cant_jugadores;
-        if(cant_jugadores > 0){
-            agregarJugadores();
-            this.cantidad --;
-        }else{
-            Juego.resetInstance(this.jugadores);
-            this.escenarioView = new EscenarioView(this, this.stage);
-
-            escenarioView.mostrarTablero();
-        }
-    }
-
- */
 /*
     public void comenzarJuego(){
         StackPane layout = new StackPane();
@@ -340,15 +215,7 @@ public class App extends Application {
         this.stage.setScene(scene);
     }
 */
-    /*
-    public void guardarJugadores(String nombre, Vehiculo vehiculo){
-        Jugador jugador = new Jugador(nombre, vehiculo);
-        this.jugadores.add(jugador);
-        //this.probarAlgo(jugador);
-        this.ingresarNombresYVehiculo(this.cantidad);
-    }
 
-     */
 /*
     public void probarAlgo(Jugador jugador){
         Ubicacion u = new Ubicacion(2,2);
