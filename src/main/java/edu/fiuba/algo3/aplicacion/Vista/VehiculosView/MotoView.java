@@ -38,4 +38,11 @@ public class MotoView implements VehiculoView{
         imagenMoto.setLayoutX((moto.obtenerUbicacion().obtenerColumna() - 2) * ALTO_MOTO + ALTO_MOTO*1.2);
 
     }
+
+
+    public void moverDerecha(){
+
+    }
 }
+
+

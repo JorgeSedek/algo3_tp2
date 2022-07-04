@@ -51,4 +51,9 @@ public class AutoView implements VehiculoView{
         this.posicionarImagen();
 
     }
+
+    public void moverDerecha(){
+
+    }
+
 }

@@ -42,14 +42,13 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         if (keyEvent.getCode() == KeyCode.D) {
             direccion = new DireccionDerecha();
             Juego.getInstance().moverVehiculo(direccion);
+
         }
         if (keyEvent.getCode() == KeyCode.W) {
             direccion = new DireccionArriba();
             Juego.getInstance().moverVehiculo(new DireccionArriba());
         }
 
-        //vehiculoView.actualizar();
-        //vehiculoView.dibujar();
         escenarioView.actualizar();
         keyEvent.consume();
 

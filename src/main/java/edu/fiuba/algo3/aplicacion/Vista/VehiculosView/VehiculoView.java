@@ -6,4 +6,6 @@ import javafx.scene.image.ImageView;
 public interface VehiculoView {
     void dibujar();
     void actualizar();
+
+    void moverDerecha();
 }

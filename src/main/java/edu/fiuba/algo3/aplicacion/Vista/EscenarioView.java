@@ -79,54 +79,7 @@ public class EscenarioView {
             }
         }
         actualizarJugador();
-/*
-        Auto auto = new Auto(new Ubicacion(2,2));
 
-        Moto moto = new Moto(new Ubicacion(4,2));
-        Camioneta camioneta = new Camioneta(new Ubicacion(2,2));
-        Camioneta camioneta2 = new Camioneta(new Ubicacion(4,2));
-        AutoView autoView = new AutoView(auto,root);
-        MotoView motoView = new MotoView(moto,root);
-        CamionetaView camionetaView = new CamionetaView(camioneta,root);
-        CamionetaView camionetaView2 = new CamionetaView(camioneta2,root);
-*/
-/*
-       Vehiculo vehiculo =  jugador.obtenerVehiculo();
-        if (vehiculo instanceof Auto ){
-            AutoView autoView3 = new AutoView((Auto) vehiculo,root);
-            autoView3.dibujar();
-        }
-
-        if (vehiculo instanceof Moto) {
-            MotoView motoView3 = new MotoView((Moto) vehiculo, root);
-            motoView3.dibujar();
-        }
-
-        if (vehiculo instanceof Camioneta){
-            CamionetaView camionetaView3 = new CamionetaView((Camioneta) vehiculo, root);
-            camionetaView3.dibujar();
-        }
-        */
-
-            //Moto moto = new Moto(new Ubicacion(4,2));
-        //Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
-        //MotoView motoView = new MotoView(moto,root);
-        //CamionetaView camionetaView = new CamionetaView(camioneta,root);
-
-
-       // autoView.dibujar();
-      //  camionetaView.dibujar();
-    //    camionetaView2.dibujar();
-       // motoView.dibujar();
-
-
-        /*
-        CreadorVehiculosView creador = new CreadorVehiculosView();
-
-        creador.crear(auto, root);
-        creador.crear(moto, root);
-        creador.crear(camioneta, root);
-*/
         return root;
 
     }
@@ -164,8 +117,11 @@ public class EscenarioView {
        }
 
        if (vehiculo instanceof Camioneta){
+
            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
+        //   camionetaView4.posicionarImagen();
            camionetaView4.dibujar();
+        //   camionetaView4.mover();
        }
 /*
         int filas = Escenario.getInstance().obtenerFilas();

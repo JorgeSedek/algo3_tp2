@@ -16,6 +16,8 @@ public class CamionetaView implements VehiculoView{
     public double ANCHO_CAMIONETA;
     public double ALTO_CAMIONETA;
 
+    int cantVeces;
+
 
 
     protected String imagenPath ;
@@ -26,53 +28,61 @@ public class CamionetaView implements VehiculoView{
         this.camioneta = camioneta;
         this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/camionetaImagenes/camionetaIcono.png";
         this.imagenCamioneta = new ImageView(new Image(imagenPath,ANCHO_CAMIONETA*0.6, ALTO_CAMIONETA*0.6, false, false));
-      //  this.posicionarImagen();
         this.root = root;
+        this.cantVeces = 0;
 
     }
 
+
     public void dibujar(){
+
         this.posicionarImagen();
-/*
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(10000), imagenCamioneta);
+        root.getChildren().add(imagenCamioneta);
+
+    }
+
+
+    public void moverDerecha(){
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(1000), imagenCamioneta);
         //translateTransition.setInterpolator(Interpolator.LINEAR);
-        int posicionX = 0;
-        int posicionY = 0;
-        Direccion direccion = camioneta.obtenerDireccion();
+      //  translateTransition.setByX(100); // aca
+     //   translateTransition.setByY(0); // aca
 
-        if (direccion instanceof DireccionArriba){
-                    posicionX = -100;
-                    posicionY = 0;
-        }
-
-        if (direccion instanceof DireccionAbajo){
-            posicionX = 100;
-            posicionY = 0;
-
-        }
-
-        if (direccion instanceof DireccionDerecha){
-            posicionX = 0;
-            posicionY = 100;
-
-        }
-
-        if (direccion instanceof DireccionIzquierda){
-            posicionX = 0;
-            posicionY = -100;
-
-        }
-
-        translateTransition.setByX(posicionX); // aca
-        translateTransition.setByY(posicionY);
 
         translateTransition.setCycleCount(1);
         translateTransition.play();
 
-*/
-        root.getChildren().add(imagenCamioneta);
-
     }
+
+    public void mover(){
+
+            Direccion direccion = camioneta.obtenerDireccion();
+            TranslateTransition translateTransition = new TranslateTransition(Duration.millis(1000), imagenCamioneta);
+
+            if (direccion instanceof DireccionArriba) {
+                translateTransition.setByY(-100);
+            }
+
+            if (direccion instanceof DireccionAbajo) {
+                translateTransition.setByY(100);
+            }
+
+            if (direccion instanceof DireccionDerecha) {
+                translateTransition.setByX(100);
+
+            }
+
+            if (direccion instanceof DireccionIzquierda) {
+                translateTransition.setByX(-100);
+
+
+            }
+
+
+            translateTransition.setCycleCount(1);
+            translateTransition.play();
+        }
+
 
 
 
