@@ -18,13 +18,11 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -56,9 +54,6 @@ public class App extends Application {
         this.stage = stage;
         jugadores = new ArrayList<>();
 
-
-
-
         stage.setTitle("Juego GPS");
         StackPane layout = new StackPane();
         Label integrantes = new Label();
@@ -66,6 +61,7 @@ public class App extends Application {
 
         Button comenzar = new Button("Comenzar");
         Button salir = new Button("Salir");
+        Button instrucciones = new Button("Instrucciones");
 
         //Pantalla completa
 /*
@@ -89,12 +85,16 @@ public class App extends Application {
         // Propiedades y setters
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());
+        instrucciones.defaultButtonProperty().bind(instrucciones.focusedProperty());
 
         BotonSalirEvento botonSalirEvento = new BotonSalirEvento();
         salir.setOnAction(botonSalirEvento);
 
         BotonComenzarEvento botonComenzarEvento = new BotonComenzarEvento(this);
         comenzar.setOnAction(botonComenzarEvento);
+
+        BotonInstruccionesEvento botonInstruccionesEvento = new BotonInstruccionesEvento(this);
+        instrucciones.setOnAction(botonInstruccionesEvento);
 
         titulo.setText("GPS Juego - Algo3");
 
@@ -103,7 +103,7 @@ public class App extends Application {
         StackPane.setAlignment(titulo, Pos.TOP_CENTER);
         StackPane.setAlignment(integrantes, Pos.BOTTOM_LEFT);
 
-        HBox botonera = new HBox(comenzar, salir);
+        HBox botonera = new HBox(comenzar, instrucciones, salir);
         botonera.setAlignment(Pos.CENTER);
         botonera.setSpacing(10);
 
@@ -456,6 +456,49 @@ public Parent mostrarVehiculoView(){
         Scene scene = new Scene(layout);
         this.stage.setScene(scene);
         this.stage.centerOnScreen();
+    }
+
+    public void leerInstrucciones() {
+        StackPane layout = new StackPane();
+        TextArea textArea = new TextArea(
+                "Gameplay\n\n"
+                + "GPS es un juego de estrategia por turnos.\n"
+                + "El escenario es una ciudad y el objetivo, guiar un vehículo a la meta en la menor cantidad de movimientos posibles.\n"
+                + "El juego se jugará por turnos, y en cada turno el usuario decide hacia cual de las 4 esquinas posibles avanzará.\n\n"
+
+                + "Vehiculos\n\n"
+                + "El jugador podrá optar por tres diferentes tipos de vehículos:\n"
+                + " * Moto\n"
+                + " * Auto\n"
+                + " * Camioneta\n\n"
+
+                + "Obstáculos\n\n"
+                + "Al atravesar una cuadra el jugador se podrá encontrar con alguno de los siguientes obstáculos:\n"
+                + " * Pozo: Le suma 3 movimientos de penalización a autos y motos. Para una 4x4 penaliza en 2 movimientos luego de atravesar 3 pozos.\n"
+                + " * Piquete: Autos y Camionetas deben pegar la vuelta, no pueden pasar. Las motos pueden pasar con una penalización de 2 movimientos.\n"
+                + " * Control Policial: Para todos los vehículos la penalización es de 3 movimientos, pero la probabilidad de que sea aplicada depende del vehículo.\n\n"
+
+                + "Sorpresas\n\n"
+                + "También se podrán encontrar diferentes tipos de sorpresas:\n"
+                + " * Favorable: Resta el 20% de los movimientos hechos.\n"
+                + " * Desfavorable: Suma el 25% de los movimientos hechos.\n"
+                + " * Cambio de Vehículo: Si es una moto, la convierte en auto. Un auto lo convierte en una Camioneta. Una camioneta la convierte en moto.\n\n"
+                + "Las sorpresas figuran en el mapa como un regalo y no se sabrá que es hasta que el vehículo la accione."
+        );
+        textArea.setEditable(false);
+        textArea.setPrefHeight(200);
+        textArea.setPrefWidth(800);
+
+        layout.getChildren().add(textArea);
+        layout.setPrefHeight(400);
+        layout.setPrefWidth(800);
+
+        Scene scene = new Scene(layout);
+        this.getStage().setResizable(false);
+        this.getStage().centerOnScreen();
+        this.getStage().setScene(scene);
+
+
     }
 
     public void elegirTamanioEscenario(){
