@@ -6,8 +6,12 @@ import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     private Direccion direccion;
@@ -20,36 +24,41 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     }
 
     public void handle(KeyEvent keyEvent){
-        try {
-            if (keyEvent.getCode() == KeyCode.A) {
-                direccion = new DireccionIzquierda();
-                Juego.getInstance().moverVehiculo(direccion);
-            }
+        if (keyEvent.getCode() == KeyCode.A) {
 
-            if (keyEvent.getCode() == KeyCode.S) {
-                direccion = new DireccionAbajo();
-                Juego.getInstance().moverVehiculo(direccion);
+            direccion = new DireccionIzquierda();
+            Juego.getInstance().moverVehiculo(direccion);
+        }
+        if (keyEvent.getCode() == KeyCode.S) {
+            direccion = new DireccionAbajo();
+            Juego.getInstance().moverVehiculo(direccion);
 
-            }
-            if (keyEvent.getCode() == KeyCode.D) {
-                direccion = new DireccionDerecha();
-                Juego.getInstance().moverVehiculo(direccion);
-            }
-
-            if (keyEvent.getCode() == KeyCode.W) {
-                direccion = new DireccionArriba();
-                Juego.getInstance().moverVehiculo(new DireccionArriba());
-            }
-
-            //vehiculoView.actualizar();
-            //vehiculoView.dibujar();
-            escenarioView.actualizar();
-            keyEvent.consume();
-
-        } catch (Exception ignored) {
-            //Excepcion de no se puede mover
+        }
+        if (keyEvent.getCode() == KeyCode.D) {
+            direccion = new DireccionDerecha();
+            Juego.getInstance().moverVehiculo(direccion);
+        }
+        if (keyEvent.getCode() == KeyCode.W) {
+            direccion = new DireccionArriba();
+            Juego.getInstance().moverVehiculo(new DireccionArriba());
         }
 
+        //vehiculoView.actualizar();
+        //vehiculoView.dibujar();
+        escenarioView.actualizar();
+        keyEvent.consume();
+
+        if (!Juego.getInstance().hayJugadoresActivos()) {
+            StackPane puntuaciones = new StackPane();
+            puntuaciones.getChildren().add(new VBox());
+            Scene escenaPuntuaciones = new Scene(puntuaciones);
+
+            Stage stageEscenarioView = escenarioView.obtenerStage();
+            stageEscenarioView.setScene(escenaPuntuaciones);
+            stageEscenarioView.show();
+        }
     }
 
+
 }
+

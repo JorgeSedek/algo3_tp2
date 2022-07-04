@@ -61,8 +61,9 @@ public class Juego {
         System.out.println("Jugadores se eliminan de la lista");
     }
 
+    // Devuelve true si hay jugadores activos
     public boolean hayJugadoresActivos(){
-        return (this.JUGADORES.size() == 0);
+        return !(this.JUGADORES.size() == 0);
     }
 
     private void agregarPuntuacion(Jugador jugador) {

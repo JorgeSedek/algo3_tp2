@@ -564,18 +564,7 @@ public Parent mostrarVehiculoView(){
             Juego.resetInstance(this.jugadores);
             this.escenarioView = new EscenarioView(this, this.stage);
 
-
             escenarioView.mostrarTablero();
-            //while(Juego.getInstance().hayJugadoresActivos() == false){
-
-            //}
-            //this.getStage().getScene().setOnKeyPressed(new ControladorTecladoEvento(escenarioView));
-
-
-            //Escenario.resetInstance(11,11); // Deberia ser en funcion del input del usuario u opcion
-            //this.escenarioView = new EscenarioView(this, Escenario.getInstance());
-            //escenarioView.mostrarTablero();
-
         }
     }
 /*

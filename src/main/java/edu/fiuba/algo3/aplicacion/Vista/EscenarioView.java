@@ -56,7 +56,9 @@ public class EscenarioView {
         stage.show();
     }
 
-
+    public Stage obtenerStage() {
+        return this.stage;
+    }
 
     public Parent mostrarTableroView(){
         int filas = Escenario.getInstance().obtenerFilas();
@@ -150,6 +152,10 @@ public class EscenarioView {
 
        Pane root = new Pane();
 
+       // Quiza quitar este if
+       if (jugador == null) {
+           return root;
+       }
 
        Vehiculo vehiculo =  jugador.obtenerVehiculo();
        if (vehiculo instanceof Auto ){
