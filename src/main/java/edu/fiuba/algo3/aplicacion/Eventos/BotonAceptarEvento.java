@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
 import edu.fiuba.algo3.aplicacion.App;
+import edu.fiuba.algo3.aplicacion.Vista.PantallaElegirVehiculoYJugadorView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ChoiceBox;
@@ -16,6 +17,7 @@ public class BotonAceptarEvento implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-        this.app.ingresarNombresYVehiculo(this.choiceBox.getValue());
+        PantallaElegirVehiculoYJugadorView pantallaElegirVehiculoYJugadorView = new PantallaElegirVehiculoYJugadorView(this.app,this.app.getEscenarioView());
+        pantallaElegirVehiculoYJugadorView.ingresarNombresYVehiculo(this.choiceBox.getValue());
     }
 }

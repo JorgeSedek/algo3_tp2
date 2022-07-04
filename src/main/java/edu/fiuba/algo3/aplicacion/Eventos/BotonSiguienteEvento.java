@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
-
+/*
 import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -52,3 +52,4 @@ public class BotonSiguienteEvento implements EventHandler<ActionEvent> {
     }
 
 }
+*/

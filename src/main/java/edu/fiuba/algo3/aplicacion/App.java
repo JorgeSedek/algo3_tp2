@@ -138,45 +138,6 @@ public class App extends Application {
     }
 
 
-    public void elegirCantidadJugadores(){
-        StackPane layout = new StackPane();
-        Button aceptar = new Button("Aceptar");
-        Label pedirCantJugadores = new Label();
-
-        pedirCantJugadores.setText("Seleccione la cantidad de jugadores: ");
-        StackPane.setAlignment(pedirCantJugadores, Pos.TOP_CENTER);
-
-        ChoiceBox<Integer> choiceBox = new ChoiceBox<>();
-
-        choiceBox.getItems().addAll(1,2,3);
-
-        BotonAceptarEvento accept = new BotonAceptarEvento(this, choiceBox);
-        aceptar.setOnAction(accept);
-
-        StackPane.setAlignment(choiceBox, Pos.CENTER);
-        StackPane.setAlignment(aceptar, Pos.CENTER);
-
-        VBox contenedor = new VBox(pedirCantJugadores, choiceBox, aceptar);
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setSpacing(10);
-
-        Button salir = new Button("Salir");
-        BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this);
-        salir.setOnAction(botonSalir);
-        salir.defaultButtonProperty().bind(salir.focusedProperty());
-
-        layout.getChildren().addAll(contenedor, salir);
-        layout.setPadding(new Insets(10));
-
-        StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
-        layout.setPrefHeight(400);
-        layout.setPrefWidth(500);
-
-        Scene scene = new Scene(layout);
-        this.stage.setScene(scene);
-        this.stage.centerOnScreen();
-    }
-
 /*
     public void getChoice(int cant_jugadores) {
         System.out.println(cant_jugadores);
@@ -184,7 +145,7 @@ public class App extends Application {
         int random = rand.nextInt(this.columna) + 1;
         System.out.println(random);
     }*/
-
+/*
     public void agregarJugadores(){
         StackPane layout = new StackPane();
         Label pedirNombre = new Label();
@@ -204,10 +165,10 @@ public class App extends Application {
 
         error.setText("");
 
-        BotonMotoEvento botonMotoEvento = new BotonMotoEvento(this, nombreJugador, error);
+        BotonMotoEvento botonMotoEvento = new BotonMotoEvento(this, nombreJugador, error, );
         moto.setOnAction(botonMotoEvento);
 
-        BotonAutoEvento botonAutoEvento = new BotonAutoEvento(this, nombreJugador, error);
+        BotonAutoEvento botonAutoEvento = new BotonAutoEvento(this, nombreJugador, error, );
         auto.setOnAction(botonAutoEvento);
 
         BotonCamionetaEvento botonCamionetaEvento = new BotonCamionetaEvento(this, nombreJugador, error);
@@ -252,7 +213,7 @@ public class App extends Application {
         this.stage.setScene(scene);
         this.stage.centerOnScreen();
     }
-
+*/
     public void leerInstrucciones() {
         StackPane layout = new StackPane();
         TextArea textArea = new TextArea(
@@ -347,11 +308,8 @@ public class App extends Application {
         this.stage.centerOnScreen();
     }
     */
-
+/*
     public void ingresarNombresYVehiculo(int cant_jugadores){
-        /*for(int i=0; i<cant_jugadores; i++){
-            agregarJugadores();
-        }*/
 
         this.cantidad = cant_jugadores;
         if(cant_jugadores > 0){
@@ -364,6 +322,8 @@ public class App extends Application {
             escenarioView.mostrarTablero();
         }
     }
+
+ */
 /*
     public void comenzarJuego(){
         StackPane layout = new StackPane();
@@ -380,12 +340,15 @@ public class App extends Application {
         this.stage.setScene(scene);
     }
 */
+    /*
     public void guardarJugadores(String nombre, Vehiculo vehiculo){
         Jugador jugador = new Jugador(nombre, vehiculo);
         this.jugadores.add(jugador);
         //this.probarAlgo(jugador);
         this.ingresarNombresYVehiculo(this.cantidad);
     }
+
+     */
 /*
     public void probarAlgo(Jugador jugador){
         Ubicacion u = new Ubicacion(2,2);
@@ -404,6 +367,15 @@ public class App extends Application {
 */
     public Stage getStage(){
         return this.stage;
+    }
+
+    public EscenarioView getEscenarioView(){
+        return this.escenarioView;
+    }
+
+    public List<Jugador> getJugadores(){
+
+        return this.jugadores;
     }
 
     public static void main(String[] args) {

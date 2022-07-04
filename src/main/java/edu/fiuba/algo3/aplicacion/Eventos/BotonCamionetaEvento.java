@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
 import edu.fiuba.algo3.aplicacion.App;
+import edu.fiuba.algo3.aplicacion.Vista.PantallaElegirVehiculoYJugadorView;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
@@ -17,11 +18,12 @@ public class BotonCamionetaEvento implements EventHandler<ActionEvent> {
     private TextField nombre;
     private int fila;
     private Label label;
-
+    private PantallaElegirVehiculoYJugadorView pantalla;
     private Vehiculo vehiculo;
 
-    public BotonCamionetaEvento(App app, TextField texto, Label error){
+    public BotonCamionetaEvento(App app, TextField texto, Label error, PantallaElegirVehiculoYJugadorView pantalla){
         this.app = app;
+        this.pantalla = pantalla;
         this.nombre = texto;
         this.label = error;
     }
@@ -33,7 +35,7 @@ public class BotonCamionetaEvento implements EventHandler<ActionEvent> {
         if (this.nombre.getText().trim().equals("")) {
             this.label.setText("Debe ingresar un nombre");
         }else{
-            this.app.guardarJugadores(nombre.getText(), this.vehiculo);
+            this.pantalla.guardarJugadores(nombre.getText(), this.vehiculo);
         }
 
     }
