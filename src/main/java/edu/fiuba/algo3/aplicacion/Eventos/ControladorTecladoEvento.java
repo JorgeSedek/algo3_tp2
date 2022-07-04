@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
@@ -50,11 +51,11 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
         if (!Juego.getInstance().hayJugadoresActivos()) {
             StackPane puntuaciones = new StackPane();
-            puntuaciones.getChildren().add(new VBox());
-            Scene escenaPuntuaciones = new Scene(puntuaciones);
+            VBox vbox = new VBox(new TextArea("PUNTUACIONES:"));
+            puntuaciones.getChildren().add(vbox);
 
-            Stage stageEscenarioView = escenarioView.obtenerApp().getStage();
-            stageEscenarioView.setScene(escenaPuntuaciones);
+            Stage stageEscenarioView = escenarioView.obtenerStage();
+            stageEscenarioView.setScene(new Scene(puntuaciones));
             stageEscenarioView.show();
         }
     }
