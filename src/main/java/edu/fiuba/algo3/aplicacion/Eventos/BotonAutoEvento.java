@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 public class BotonAutoEvento implements EventHandler<ActionEvent> {
 
     private App app;
-    private ChoiceBox<String> choiceBox;
     private TextField nombre;
     private int fila;
     private Label label;
@@ -27,7 +26,7 @@ public class BotonAutoEvento implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-        Ubicacion ubicacion = new Ubicacion(2, 2);
+        Ubicacion ubicacion = new Ubicacion(4, 4);
         this.vehiculo = new Auto(ubicacion);
 
         if (this.nombre.getText().trim().equals("")) {

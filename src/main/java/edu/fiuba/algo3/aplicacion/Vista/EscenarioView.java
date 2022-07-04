@@ -41,7 +41,7 @@ public class EscenarioView {
 
     public void mostrarTablero(){
         BorderPane layout = new BorderPane();
-        actualizarJugador();
+        //actualizarJugador();
 
         layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
         layout.setPrefHeight(height);
@@ -78,6 +78,7 @@ public class EscenarioView {
                 casillerosView.getChildren().add(casillero);
             }
         }
+        actualizarJugador();
 /*
         Auto auto = new Auto(new Ubicacion(2,2));
 
@@ -192,7 +193,8 @@ public class EscenarioView {
 
 
     public void actualizar(){
-        //dibujarPosicionNueva();
+        mostrarTablero();
+        //dibujarVehiculo();
     }
 
 }
