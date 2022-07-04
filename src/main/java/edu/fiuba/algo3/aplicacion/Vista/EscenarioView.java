@@ -4,27 +4,18 @@ import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Eventos.ControladorTecladoEvento;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
-import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CreadorVehiculosView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.MotoView;
 import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class EscenarioView {
 
@@ -58,6 +49,10 @@ public class EscenarioView {
 
     public Stage obtenerStage() {
         return this.stage;
+    }
+
+    public App obtenerApp() {
+        return this.app;
     }
 
     public Parent mostrarTableroView(){

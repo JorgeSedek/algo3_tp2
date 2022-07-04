@@ -53,12 +53,11 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
             puntuaciones.getChildren().add(new VBox());
             Scene escenaPuntuaciones = new Scene(puntuaciones);
 
-            Stage stageEscenarioView = escenarioView.obtenerStage();
+            Stage stageEscenarioView = escenarioView.obtenerApp().getStage();
             stageEscenarioView.setScene(escenaPuntuaciones);
             stageEscenarioView.show();
         }
     }
-
 
 }
 

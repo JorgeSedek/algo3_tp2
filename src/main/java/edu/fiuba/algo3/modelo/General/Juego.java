@@ -35,6 +35,10 @@ public class Juego {
     }
 
     public void moverVehiculo(Direccion direccion){
+        if (jugadorActivo == null) {
+            System.out.println("No quedan jugadores activos, no se realiza movimiento");
+            return;
+        }
         System.out.println("Se mueve el vehiculo en la direccion: " + direccion.getClass()); //TODO SACAR, ES PARA DEBUGEAR EL MOVIMIENTO DEL VEHICULO
         this.jugadorActivo.moverVehiculo(direccion);
         this.cambiarJugador();
@@ -58,7 +62,6 @@ public class Juego {
             this.jugadorActivo = null;
             this.mostrarTopPuntuaciones();
         }
-        System.out.println("Jugadores se eliminan de la lista");
     }
 
     // Devuelve true si hay jugadores activos
