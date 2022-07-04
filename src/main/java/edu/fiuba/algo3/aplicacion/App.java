@@ -511,6 +511,7 @@ public Parent mostrarVehiculoView(){
             Juego.resetInstance(this.jugadores);
             this.escenarioView = new EscenarioView(this, this.stage);
             escenarioView.mostrarTablero();
+            this.getStage().getScene().setOnKeyPressed(new ControladorTecladoEvento());
 
             this.getStage().getScene().setOnKeyPressed(new ControladorTecladoEvento());
 

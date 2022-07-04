@@ -57,6 +57,7 @@ public class Juego {
         if(this.JUGADORES.size() == 0) {
             this.mostrarTopPuntuaciones();
         }
+        System.out.println("Jugadores se eliminan de la lista");
     }
 
     private void agregarPuntuacion(Jugador jugador) {

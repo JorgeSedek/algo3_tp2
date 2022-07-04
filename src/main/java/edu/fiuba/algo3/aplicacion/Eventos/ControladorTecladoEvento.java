@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
+import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
 import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Escenario;
@@ -12,6 +13,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     private Direccion direccion;
 
     private VehiculoView vehiculoView;
+    private EscenarioView escenarioView;
 
     public ControladorTecladoEvento(){
     }

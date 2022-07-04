@@ -42,7 +42,7 @@ public class EscenarioView {
         StackPane layout = new StackPane();
         actualizarJugador();
 
-        layout.getChildren().addAll(mostrarTableroView());//, dibujarVehiculo());
+        layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);
         //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
