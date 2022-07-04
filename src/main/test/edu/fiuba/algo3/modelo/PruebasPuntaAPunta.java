@@ -132,8 +132,6 @@ public class PruebasPuntaAPunta {
 
         Juego.getInstance().moverVehiculo(new DireccionDerecha()); // FIN Jugador 1
 
-        Juego.getInstance().moverVehiculo(new DireccionDerecha());
-
         Logger.getInstance().desactivar();
     }
 
