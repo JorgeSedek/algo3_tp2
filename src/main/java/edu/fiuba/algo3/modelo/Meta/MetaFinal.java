@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 public class MetaFinal implements Meta{
     public Efecto atravesar(Vehiculo vehiculo) {
         Efecto efecto = new EfectoGeneral();
+        System.out.println("Llego a la meta");
         return new EfectoFinalizarJuego(efecto);
     }
 }

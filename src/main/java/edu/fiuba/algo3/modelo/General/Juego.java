@@ -55,8 +55,10 @@ public class Juego {
         this.agregarPuntuacion(jugadorActivo);
         this.JUGADORES.remove(jugadorActivo);
         if(this.JUGADORES.size() == 0) {
+            this.jugadorActivo = null;
             this.mostrarTopPuntuaciones();
         }
+        System.out.println("Jugadores se eliminan de la lista");
     }
 
     private void agregarPuntuacion(Jugador jugador) {
