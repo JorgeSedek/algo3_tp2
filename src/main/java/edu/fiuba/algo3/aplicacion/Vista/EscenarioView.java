@@ -91,8 +91,8 @@ public class EscenarioView {
 
 
        // autoView.dibujar();
-        camionetaView.dibujar();
-        camionetaView2.dibujar();
+      //  camionetaView.dibujar();
+    //    camionetaView2.dibujar();
        // motoView.dibujar();
 
 
