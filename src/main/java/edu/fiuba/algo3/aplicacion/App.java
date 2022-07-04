@@ -36,15 +36,7 @@ public class App extends Application {
     private Stage stage;
     private List<Jugador> jugadores;
     private int cantidad;
-    //private double width = 1100;
-    //private double height = 1100;
 
-    //public static final int MEDIDA_CASILLERO = 50;
-
-    //private CasilleroView[][] tableroView = new CasilleroView[(int) width][(int) height];
-
-    //private Group casillerosView = new Group();
-    //private EscenarioView escanarioView;
     private Escenario escenario;
     private EscenarioView escenarioView;
 
@@ -314,6 +306,7 @@ public class App extends Application {
 
     }
 
+    /*
     public void elegirTamanioEscenario(){
         StackPane layout = new StackPane();
         Label pedirTamanio = new Label();
@@ -353,6 +346,7 @@ public class App extends Application {
         this.stage.setScene(scene);
         this.stage.centerOnScreen();
     }
+    */
 
     public void ingresarNombresYVehiculo(int cant_jugadores){
         /*for(int i=0; i<cant_jugadores; i++){
