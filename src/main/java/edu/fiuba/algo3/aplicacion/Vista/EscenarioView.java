@@ -31,6 +31,7 @@ public class EscenarioView {
     private double width = 700;// Es muy grande cambiarlo a 900 o 1000
     private double height = 700;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
+    private Jugador jugador;
 
     public EscenarioView(App app, Stage stage){
         this.app = app;
@@ -39,7 +40,9 @@ public class EscenarioView {
 
     public void mostrarTablero(){
         StackPane layout = new StackPane();
-        layout.getChildren().addAll(mostrarTableroView());
+        actualizarJugador();
+
+        layout.getChildren().addAll(mostrarTableroView());//, dibujarVehiculo());
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);
         //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
@@ -85,22 +88,22 @@ public class EscenarioView {
         CamionetaView camionetaView = new CamionetaView(camioneta,root);
         CamionetaView camionetaView2 = new CamionetaView(camioneta2,root);
 */
-        Jugador jugador1 = Juego.getInstance().obtenerJugadorActivo();
-        Vehiculo vehiculo1 =  jugador1.obtenerVehiculo();
-        if (vehiculo1 instanceof Auto ){
-            AutoView autoView3 = new AutoView((Auto) vehiculo1,root);
+
+        /*Vehiculo vehiculo =  jugador.obtenerVehiculo();
+        if (vehiculo instanceof Auto ){
+            AutoView autoView3 = new AutoView((Auto) vehiculo,root);
             autoView3.dibujar();
         }
 
-        if (vehiculo1 instanceof Moto) {
-            MotoView motoView3 = new MotoView((Moto) vehiculo1, root);
+        if (vehiculo instanceof Moto) {
+            MotoView motoView3 = new MotoView((Moto) vehiculo, root);
             motoView3.dibujar();
         }
 
         else{
-            CamionetaView camionetaView3 = new CamionetaView((Camioneta) vehiculo1, root);
+            CamionetaView camionetaView3 = new CamionetaView((Camioneta) vehiculo, root);
             camionetaView3.dibujar();
-        }
+        }*/
             //Moto moto = new Moto(new Ubicacion(4,2));
         //Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
         //MotoView motoView = new MotoView(moto,root);
@@ -124,6 +127,38 @@ public class EscenarioView {
 
     }
 
+    public void actualizarJugador(){
+        this.jugador = Juego.getInstance().obtenerJugadorActivo();
+    }
+/*
+    public Parent dibujarVehiculo(){
+        //Borre la imagen en la posicion anterior y agrege un boton para siguiente
+        //boton siguiente llama a mostrarTablero();
+
+        Pane root = new Pane();
+
+        Vehiculo vehiculo =  jugador.obtenerVehiculo();
+        if (vehiculo instanceof Auto ){
+            AutoView autoView3 = new AutoView((Auto) vehiculo,root);
+            autoView3.dibujar();
+        }
+
+        if (vehiculo instanceof Moto) {
+            MotoView motoView3 = new MotoView((Moto) vehiculo, root);
+            motoView3.dibujar();
+        }
+
+        else{
+            CamionetaView camionetaView3 = new CamionetaView((Camioneta) vehiculo, root);
+            camionetaView3.dibujar();
+        }
+
+        return root;
+    }
+*/
+    public void actualizar(){
+        //dibujarPosicionNueva();
+    }
 
 }
 

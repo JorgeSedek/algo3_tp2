@@ -27,7 +27,7 @@ public class MotoView implements VehiculoView{
         this.posicionarImagen();
         root.getChildren().add(imagenMoto);
     }
-   public void actualizar(){
+    public void actualizar(){
        this.posicionarImagen();
 
     }
