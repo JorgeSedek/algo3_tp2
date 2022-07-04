@@ -41,7 +41,7 @@ public class EscenarioView {
 
     public void mostrarTablero(){
         BorderPane layout = new BorderPane();
-        actualizarJugador();
+        //actualizarJugador();
 
         layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
         layout.setPrefHeight(height);
@@ -78,6 +78,7 @@ public class EscenarioView {
                 casillerosView.getChildren().add(casillero);
             }
         }
+        actualizarJugador();
 /*
         Auto auto = new Auto(new Ubicacion(2,2));
 
@@ -89,8 +90,8 @@ public class EscenarioView {
         CamionetaView camionetaView = new CamionetaView(camioneta,root);
         CamionetaView camionetaView2 = new CamionetaView(camioneta2,root);
 */
-
-        /*Vehiculo vehiculo =  jugador.obtenerVehiculo();
+/*
+       Vehiculo vehiculo =  jugador.obtenerVehiculo();
         if (vehiculo instanceof Auto ){
             AutoView autoView3 = new AutoView((Auto) vehiculo,root);
             autoView3.dibujar();
@@ -101,10 +102,12 @@ public class EscenarioView {
             motoView3.dibujar();
         }
 
-        else{
+        if (vehiculo instanceof Camioneta){
             CamionetaView camionetaView3 = new CamionetaView((Camioneta) vehiculo, root);
             camionetaView3.dibujar();
-        }*/
+        }
+        */
+
             //Moto moto = new Moto(new Ubicacion(4,2));
         //Camioneta camioneta = new Camioneta(new Ubicacion(2,4));
         //MotoView motoView = new MotoView(moto,root);
@@ -132,12 +135,35 @@ public class EscenarioView {
         this.jugador = Juego.getInstance().obtenerJugadorActivo();
     }
 
-    public Parent dibujarVehiculo(){
-        //Borre la imagen en la posicion anterior y agrege un boton para siguiente
-        //boton siguiente llama a mostrarTablero();
+   public Parent dibujarVehiculo(){
+       int filas = Escenario.getInstance().obtenerFilas();
+       int columnas = Escenario.getInstance().obtenerColumnas();
 
-        Pane root = new Pane();
+       double alto = width/(double)filas;
+       double ancho = height/(double)columnas;
 
+       //Borre la imagen en la posicion anterior y agrege un boton para siguiente
+       //boton siguiente llama a mostrarTablero();
+
+       Pane root = new Pane();
+
+
+       Vehiculo vehiculo =  jugador.obtenerVehiculo();
+       if (vehiculo instanceof Auto ){
+           AutoView autoView4 = new AutoView((Auto) vehiculo,root,alto,ancho);
+           autoView4.dibujar();
+       }
+
+       if (vehiculo instanceof Moto) {
+           MotoView motoView4 = new MotoView((Moto) vehiculo, root,alto,ancho);
+           motoView4.dibujar();
+       }
+
+       if (vehiculo instanceof Camioneta){
+           CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
+           camionetaView4.dibujar();
+       }
+/*
         int filas = Escenario.getInstance().obtenerFilas();
         int columnas = Escenario.getInstance().obtenerColumnas();
 
@@ -159,12 +185,16 @@ public class EscenarioView {
             CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
             camionetaView4.dibujar();
         }
+*/
 
-        return root;
-    }
+       return root;
+
+   }
+
 
     public void actualizar(){
-        //dibujarPosicionNueva();
+        mostrarTablero();
+        //dibujarVehiculo();
     }
 
 }

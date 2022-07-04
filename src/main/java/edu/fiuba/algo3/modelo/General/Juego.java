@@ -61,6 +61,10 @@ public class Juego {
         System.out.println("Jugadores se eliminan de la lista");
     }
 
+    public boolean hayJugadoresActivos(){
+        return (this.JUGADORES.size() == 0);
+    }
+
     private void agregarPuntuacion(Jugador jugador) {
         Puntaje puntaje = jugador.obtenerPuntaje();
         PUNTUACIONES.add(puntaje);

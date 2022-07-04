@@ -15,7 +15,8 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     private VehiculoView vehiculoView;
     private EscenarioView escenarioView;
 
-    public ControladorTecladoEvento(){
+    public ControladorTecladoEvento(EscenarioView escenarioView){
+        this.escenarioView = escenarioView;
     }
 
     public void handle(KeyEvent keyEvent){
@@ -40,8 +41,9 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
                 Juego.getInstance().moverVehiculo(new DireccionArriba());
             }
 
-            vehiculoView.actualizar();
+            //vehiculoView.actualizar();
             //vehiculoView.dibujar();
+            escenarioView.actualizar();
             keyEvent.consume();
 
         } catch (Exception ignored) {
