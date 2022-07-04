@@ -130,7 +130,7 @@ public class EscenarioView {
     public void actualizarJugador(){
         this.jugador = Juego.getInstance().obtenerJugadorActivo();
     }
-/*
+
     public Parent dibujarVehiculo(){
         //Borre la imagen en la posicion anterior y agrege un boton para siguiente
         //boton siguiente llama a mostrarTablero();
@@ -139,23 +139,23 @@ public class EscenarioView {
 
         Vehiculo vehiculo =  jugador.obtenerVehiculo();
         if (vehiculo instanceof Auto ){
-            AutoView autoView3 = new AutoView((Auto) vehiculo,root);
-            autoView3.dibujar();
+            AutoView autoView4 = new AutoView((Auto) vehiculo,root);
+            autoView4.dibujar();
         }
 
         if (vehiculo instanceof Moto) {
-            MotoView motoView3 = new MotoView((Moto) vehiculo, root);
-            motoView3.dibujar();
+            MotoView motoView4 = new MotoView((Moto) vehiculo, root);
+            motoView4.dibujar();
         }
 
         else{
-            CamionetaView camionetaView3 = new CamionetaView((Camioneta) vehiculo, root);
-            camionetaView3.dibujar();
+            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root);
+            camionetaView4.dibujar();
         }
 
         return root;
     }
-*/
+
     public void actualizar(){
         //dibujarPosicionNueva();
     }
