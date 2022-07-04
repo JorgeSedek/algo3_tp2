@@ -39,7 +39,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
             }
 
             vehiculoView.actualizar();
-            vehiculoView.dibujar();
+            //vehiculoView.dibujar();
             keyEvent.consume();
 
         } catch (Exception ignored) {

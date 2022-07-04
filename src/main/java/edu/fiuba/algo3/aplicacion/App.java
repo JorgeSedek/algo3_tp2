@@ -396,11 +396,10 @@ public Parent mostrarVehiculoView(){
         Label pedirVehiculo = new Label();
         Label error = new Label();
         TextField nombreJugador = new TextField();
-        Button siguiente = new Button("Siguiente");
 
-        ChoiceBox<String> choiceBox1 = new ChoiceBox<>();
-        choiceBox1.getItems().addAll("Moto", "Auto", "Camioneta");
-        choiceBox1.setValue("Moto");
+        Button moto = new Button("Moto");
+        Button auto = new Button("Auto");
+        Button camioneta = new Button("Camioneta");
 
         pedirNombre.setText("Ingrese el nombre del jugador");
         pedirNombre.setAlignment(Pos.CENTER);
@@ -410,36 +409,46 @@ public Parent mostrarVehiculoView(){
 
         error.setText("");
 
-        BotonSiguienteEvento botonSiguiente = new BotonSiguienteEvento(this, choiceBox1, nombreJugador, error);
-        siguiente.setOnAction(botonSiguiente);
+        BotonMotoEvento botonMotoEvento = new BotonMotoEvento(this, nombreJugador, error);
+        moto.setOnAction(botonMotoEvento);
+
+        BotonAutoEvento botonAutoEvento = new BotonAutoEvento(this, nombreJugador, error);
+        auto.setOnAction(botonAutoEvento);
+
+        BotonCamionetaEvento botonCamionetaEvento = new BotonCamionetaEvento(this, nombreJugador, error);
+        camioneta.setOnAction(botonCamionetaEvento);
 
         VBox contenedorNombre = new VBox(pedirNombre, nombreJugador);
         contenedorNombre.setAlignment(Pos.CENTER);
         contenedorNombre.setSpacing(10);
 
-        VBox contenedorVehiculo = new VBox(pedirVehiculo, choiceBox1);
+        HBox contenedorBotones = new HBox(moto, auto, camioneta);
+        contenedorBotones.setAlignment(Pos.CENTER);
+        contenedorBotones.setSpacing(10);
+
+        VBox contenedorVehiculo = new VBox(pedirVehiculo, contenedorBotones);
         contenedorVehiculo.setAlignment(Pos.CENTER);
         contenedorVehiculo.setSpacing(10);
-
-        Region region1 = new Region();
-        HBox.setHgrow(region1, Priority.ALWAYS);
-
-        HBox contenedorBoton = new HBox(error, region1, siguiente);
-        contenedorBoton.setSpacing(0);
-
-        VBox contenedor = new VBox(contenedorNombre, contenedorVehiculo, contenedorBoton);
-        contenedor.setAlignment(Pos.CENTER);
-        contenedor.setSpacing(10);
 
         Button salir = new Button("Salir");
         BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this);
         salir.setOnAction(botonSalir);
         salir.defaultButtonProperty().bind(salir.focusedProperty());
 
-        layout.getChildren().addAll(contenedor, salir);
-        layout.setPadding(new Insets(10));
+        Region region1 = new Region();
+        HBox.setHgrow(region1, Priority.ALWAYS);
 
-        StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
+        HBox contenedorBoton = new HBox(salir, error, region1);
+        contenedorBoton.setSpacing(0);
+        contenedorBoton.setAlignment(Pos.BOTTOM_LEFT);
+
+        VBox contenedor = new VBox(contenedorNombre, contenedorVehiculo, contenedorBoton);
+        contenedor.setAlignment(Pos.CENTER);
+        contenedor.setSpacing(10);
+
+
+        layout.getChildren().addAll(contenedor);
+        layout.setPadding(new Insets(10));
 
         layout.setPrefHeight(100);
         layout.setPrefWidth(500);
