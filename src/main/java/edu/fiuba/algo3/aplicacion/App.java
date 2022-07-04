@@ -6,12 +6,8 @@ import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
-import edu.fiuba.algo3.modelo.General.Casillero;
+import edu.fiuba.algo3.modelo.General.*;
 
-import edu.fiuba.algo3.modelo.General.Escenario;
-
-import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
@@ -125,7 +121,7 @@ public class App extends Application {
 
         // Stage
         stage.setScene(new Scene(layout));
-        stage.setResizable(false);
+       // stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
     }
@@ -503,7 +499,7 @@ public Parent mostrarVehiculoView(){
             agregarJugadores();
             this.cantidad --;
         }else{
-
+            Juego.resetInstance(this.jugadores);
             this.escenarioView = new EscenarioView(this, this.stage);
             escenarioView.mostrarTablero();
 
