@@ -44,16 +44,19 @@ public class JuegoView extends BorderPane {
     }
 
     private void setAbajo() {
-        TextArea etiqueta = new TextArea();
-        etiqueta.setText(Logger.getInstance().escribir());
-        etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
+        TextArea notificaciones = new TextArea();
+        notificaciones.setEditable(false);
+        notificaciones.setText(Logger.getInstance().escribir());
+        notificaciones.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
+        notificaciones.setPrefHeight(1500);
+        notificaciones.setId("notificaciones");
 
-        VBox contenedorConsola = new VBox(etiqueta);
+        VBox contenedorConsola = new VBox(notificaciones);
         contenedorConsola.setPrefWidth(300);
-        contenedorConsola.setPrefHeight(1000);
+        contenedorConsola.setPrefHeight(1500);
         contenedorConsola.setSpacing(10);
         contenedorConsola.setPadding(new Insets(15));
-        contenedorConsola.setStyle("-fx-background-color: black");
+        contenedorConsola.setStyle("-fx-background-color: black:");
 
         this.setRight(contenedorConsola);
     }

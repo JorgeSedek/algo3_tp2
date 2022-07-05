@@ -6,7 +6,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -19,10 +18,8 @@ public class InstruccionesView {
     }
 
     public void leerInstrucciones() {
-
         Stage ventana = new Stage();
 
-        StackPane layout = new StackPane();
         TextArea textArea = new TextArea(
                 "Gameplay\n\n"
                         + "GPS es un juego de estrategia por turnos.\n"
@@ -50,7 +47,7 @@ public class InstruccionesView {
         );
 
         textArea.setEditable(false);
-        textArea.setPrefHeight(200);
+        textArea.setPrefHeight(800);
         textArea.setPrefWidth(800);
 
         Button salir = new Button("Atras");
@@ -59,19 +56,14 @@ public class InstruccionesView {
         salir.defaultButtonProperty().bind(salir.focusedProperty());
 
         VBox vbox = new VBox(textArea, salir);
-        vbox.setSpacing(30);
+        vbox.setSpacing(10);
         vbox.setAlignment(Pos.CENTER);
 
-        //layout.getChildren().add(vbox);
-        //layout.setPrefHeight(400);
-        //layout.setPrefWidth(800);
-
-        Scene instrucciones = new Scene(vbox,800, 400);
+        Scene instrucciones = new Scene(vbox,1500, 1000);
         instrucciones.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         ventana.setTitle("INSTRUCCIONES");
         ventana.setScene(instrucciones);
         ventana.show();
         ventana.setAlwaysOnTop(true);
-
     }
 }
