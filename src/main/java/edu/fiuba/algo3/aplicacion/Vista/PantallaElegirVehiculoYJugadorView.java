@@ -7,6 +7,7 @@ import edu.fiuba.algo3.aplicacion.Eventos.BotonMotoEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.Logger;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -37,6 +38,7 @@ public class PantallaElegirVehiculoYJugadorView {
             this.cantidad --;
         }else{
             //Juego.resetInstance(this.jugadores);
+            Logger.getInstance().activar();
             Juego.resetInstance(this.app.getJugadores());
             this.escenarioView = new EscenarioView(this.app, this.app.getStage());
 

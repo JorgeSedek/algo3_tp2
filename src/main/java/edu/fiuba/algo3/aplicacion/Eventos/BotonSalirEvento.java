@@ -20,7 +20,9 @@ public class BotonSalirEvento implements EventHandler<ActionEvent> {
         Label mensaje = new Label();
         Button aceptar = new Button("Aceptar");
         Button cancelar = new Button("Cancelar");
+
         HBox botonera = new HBox(aceptar,cancelar);
+        botonera.setSpacing(20);
         VBox contenedor = new VBox();
 
         mensaje.setText("¿Esta seguro que desea salir?");

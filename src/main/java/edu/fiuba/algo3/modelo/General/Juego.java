@@ -39,7 +39,7 @@ public class Juego {
             System.out.println("No quedan jugadores activos, no se realiza movimiento");
             return;
         }
-        System.out.println("Se mueve el vehiculo en la direccion: " + direccion.getClass()); //TODO SACAR, ES PARA DEBUGEAR EL MOVIMIENTO DEL VEHICULO
+        //System.out.println("Se mueve el vehiculo en la direccion: " + direccion.getClass()); //TODO SACAR, ES PARA DEBUGEAR EL MOVIMIENTO DEL VEHICULO
         this.jugadorActivo.moverVehiculo(direccion);
         this.cambiarJugador();
     }
