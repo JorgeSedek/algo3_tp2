@@ -73,7 +73,5 @@ public class InstruccionesView {
         ventana.show();
         ventana.setAlwaysOnTop(true);
 
-
-
     }
 }

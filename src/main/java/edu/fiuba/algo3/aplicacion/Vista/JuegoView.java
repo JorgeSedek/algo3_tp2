@@ -47,13 +47,13 @@ public class JuegoView extends BorderPane {
         etiqueta.setTextFill(Color.WHITE);
 
         VBox contenedorConsola = new VBox(etiqueta);
-        contenedorConsola.setPrefWidth(1000);
-        contenedorConsola.setPrefHeight(200);
+        contenedorConsola.setPrefWidth(300);
+        contenedorConsola.setPrefHeight(1000);
         contenedorConsola.setSpacing(10);
         contenedorConsola.setPadding(new Insets(15));
         contenedorConsola.setStyle("-fx-background-color: black");
 
-        this.setBottom(contenedorConsola);
+        this.setRight(contenedorConsola);
     }
 
     private void setCentro() {
@@ -73,7 +73,7 @@ public class JuegoView extends BorderPane {
         VBox contenedorMovimientos = new VBox(movimientos, moverArr, moverDer, moverIzq, moverAbj);
         contenedorMovimientos.setSpacing(10);
         contenedorMovimientos.setPrefHeight(800);
-        contenedorMovimientos.setPrefWidth(200);
+        contenedorMovimientos.setPrefWidth(364);
 
         this.setLeft(contenedorMovimientos);
     }

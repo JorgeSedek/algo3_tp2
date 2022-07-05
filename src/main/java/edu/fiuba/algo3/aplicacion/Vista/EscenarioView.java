@@ -24,8 +24,8 @@ public class EscenarioView {
 
     private App app;
     private Stage stage;
-    private double width = 800;// Es muy grande cambiarlo a 900 o 1000
-    private double height = 800;//  Es muy grande cambiarlo a 900 o 1000
+    private double width = 1042;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 1042;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
     private Jugador jugador;
 
