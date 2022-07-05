@@ -1,0 +1,27 @@
+.root {
+    -fx-background-image: url("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/fondo.jpg");
+    -fx-background-size: cover;
+    -fx-color: #FEFEFD;
+    -fx-text-inner-color: #000000;
+    -fx-font-size: 30pt;
+}
+
+.button{
+    -fx-padding: 20px 20px;
+    -fx-outline: none;
+    -fx-border-insets: 50px;
+    -fx-background-insets: 50px;
+    -fx-border-color: #837D3C;
+    -fx-border-width: 5px;
+    -fx-background-color: #837D3C;
+    -fx-text-fill: #000000;
+}
+
+.button:hover {
+    -fx-border-color: #000000;
+}
+
+.label {
+    -fx-text-fill: #000000;
+}
+

@@ -1,28 +1,18 @@
 package edu.fiuba.algo3.aplicacion;
 
 import edu.fiuba.algo3.aplicacion.Eventos.*;
-
-import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
-
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
-import edu.fiuba.algo3.aplicacion.Vista.ObstaculosView.PiqueteView;
-import edu.fiuba.algo3.modelo.General.*;
-
-import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
-import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.General.Escenario;
+import edu.fiuba.algo3.modelo.General.Juego;
+import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -110,19 +100,22 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/gpsChallenge.png");
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        layout.setBackground(new Background(imagenDeFondo));
+        //Image imagen = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/gpsChallenge.png");
+        //BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        //layout.setBackground(new Background(imagenDeFondo));
 
         layout.setPrefHeight(400);
         layout.setPrefWidth(500);
         layout.getChildren().addAll(contenedorPrincipal, titulo, integrantes);
         layout.setPadding(new Insets(10));
+        //layout.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
 
         // Stage
         Image icon = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/icon.png");
         stage.getIcons().add(icon);
-        stage.setScene(new Scene(layout));
+        Scene scene = new Scene(layout);
+        scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
+        stage.setScene(scene);
         //stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
@@ -181,6 +174,7 @@ public class App extends Application {
         layout.setPrefWidth(500);
 
         Scene scene = new Scene(layout);
+        scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.stage.setScene(scene);
         this.stage.centerOnScreen();
     }
@@ -257,6 +251,7 @@ public class App extends Application {
         layout.setPrefWidth(500);
 
         Scene scene = new Scene(layout);
+        scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.stage.setScene(scene);
         this.stage.centerOnScreen();
     }
@@ -307,6 +302,7 @@ public class App extends Application {
         layout.setPrefWidth(800);
 
         Scene scene = new Scene(layout);
+        scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.getStage().setResizable(false);
         this.getStage().centerOnScreen();
         this.getStage().setScene(scene);
@@ -350,6 +346,7 @@ public class App extends Application {
         StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
 
         Scene scene = new Scene(layout);
+        scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.stage.setScene(scene);
         this.stage.centerOnScreen();
     }
