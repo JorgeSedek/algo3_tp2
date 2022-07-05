@@ -16,6 +16,12 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 public class EscenarioView {
@@ -39,7 +45,7 @@ public class EscenarioView {
         Pane layout = new Pane();
         //actualizarJugador();
 
-        layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
+        layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo(), dibujarCirculoRojo());
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);
         layout.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
@@ -90,6 +96,8 @@ public class EscenarioView {
                 casillerosView.getChildren().add(casillero);
             }
         }
+
+
         actualizarJugador();
 
         return root;
@@ -167,6 +175,47 @@ public class EscenarioView {
     public void actualizar(){
         mostrarTablero();
         //dibujarVehiculo();
+    }
+
+    public Parent dibujarCirculoRojo(){
+        Pane root = new Pane();
+        StackPane layout = new StackPane();
+
+        double radio = (width/(double)Escenario.getInstance().obtenerFilas()) * 2;
+
+        Circle circle = new Circle(200, 200, radio, Color.RED);
+        circle.setOpacity(0.1);
+        //circle.setFill(this.mostrarTablero());
+
+        Rectangle rectanglea = new Rectangle(width, height, Color.BLACK);
+
+        //Rectangle rectangle = new Rectangle(width, height);
+        //rectanglea.subtract(rectanglea, circle);
+        Shape algo = Shape.subtract(rectanglea, circle);
+
+        //Shape shape = new Shape();
+        //shape.intersect(rectangle, circle);
+
+        layout.getChildren().addAll(algo);
+        root.getChildren().add(layout);
+        return root;
+    }
+
+    public Parent dibujarCirculoRojo1(){
+        Pane root = new Pane();
+
+
+        /*Graphics2D g2d = (Graphics2D) g;
+        Area a = new Area(new Rectangle(50, 50, 100, 100));
+        a.subtract(new Area(new Ellipse2D.Double(75, 75, 50, 50)));
+        g2d.fill(a);*/
+
+        Rectangle rectangle = new Rectangle(width, height, Color.BLACK);
+
+
+
+        root.getChildren().add(rectangle);
+        return root;
     }
 
 }
