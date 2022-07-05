@@ -9,8 +9,8 @@
 .button{
     -fx-padding: 20px 20px;
     -fx-outline: none;
-    -fx-border-insets: 50px;
-    -fx-background-insets: 50px;
+    -fx-border-insets: 30px;
+    -fx-background-insets: 30px;
     -fx-border-color: #837D3C;
     -fx-border-width: 5px;
     -fx-background-color: #837D3C;
