@@ -10,12 +10,19 @@ public class Piquete implements Obstaculo {
     public Efecto atravesar(Auto auto) {
         Logger.getInstance().imprimir("No podes atravezar el piquete, volves a tu posición anterior");
         Efecto efecto = new EfectoGeneral();
+
         return new EfectoMoverAlReves(efecto, auto);
     }
 
     public Efecto atravesar(Camioneta camioneta) {
         Logger.getInstance().imprimir("No podes atravezar el piquete, volves a tu posición anterior");
         Efecto efecto = new EfectoGeneral();
+
+        /*
+        camioneta.obtenerUbicacion().voyAChocarBorde(camioneta.obtenerDireccion());
+        if voy a chocar contra el borde:
+            return efectoGeneral
+        */
         return new EfectoMoverAlReves(efecto, camioneta);
     }
 
