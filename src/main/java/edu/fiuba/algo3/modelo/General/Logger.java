@@ -27,9 +27,10 @@ public class Logger {
         this.activo = false;
     }
 
-    public void imprimir(String string) {
+    public String imprimir(String string) {
         if(activo) {
             System.out.println(string);
         }
+        return string;
     }
 }
