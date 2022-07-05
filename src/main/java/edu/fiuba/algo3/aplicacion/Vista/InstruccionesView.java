@@ -67,8 +67,8 @@ public class InstruccionesView {
         //layout.setPrefWidth(800);
 
         Scene instrucciones = new Scene(vbox,800, 400);
-
-        ventana.setTitle("¿Esta Seguro?");
+        instrucciones.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
+        ventana.setTitle("INSTRUCCIONES");
         ventana.setScene(instrucciones);
         ventana.show();
         ventana.setAlwaysOnTop(true);
