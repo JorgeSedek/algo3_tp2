@@ -48,6 +48,7 @@ public class EscenarioView {
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         stage.setScene(scene);
         stage.getScene().setOnKeyPressed(new ControladorTecladoEvento(this));
+        stage.centerOnScreen();
         //stage.centerOnScreen();
         stage.show();
     }

@@ -1,18 +1,22 @@
 package edu.fiuba.algo3.aplicacion;
 
-import edu.fiuba.algo3.aplicacion.Eventos.*;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -37,8 +41,8 @@ public class App extends Application {
 
         stage.setTitle("Juego GPS");
         StackPane layout = new StackPane();
-        Label integrantes = new Label();
-        Label titulo = new Label();
+        Label integrantes = new Label("Integrantes:\n" + "Cristian Martin Lin\n" + "Martin Alejo Polese\n" + "Tomas Nahuel Olivera\n" + "Jorge Sedek\n");
+        Label titulo = new Label("GPS Juego - Algo3");
 
         Button comenzar = new Button("Comenzar");
         Button salir = new Button("Salir");
@@ -58,10 +62,6 @@ public class App extends Application {
         BotonInstruccionesEvento botonInstruccionesEvento = new BotonInstruccionesEvento(this);
         instrucciones.setOnAction(botonInstruccionesEvento);
 
-        titulo.setText("GPS Juego - Algo3");
-
-        integrantes.setText("Integrantes:\n" + "Cristian Martin Lin\n" + "Martin Alejo Polese\n" + "Tomas Nahuel Olivera\n" + "Jorge Sedek\n" );
-
         StackPane.setAlignment(titulo, Pos.TOP_CENTER);
         StackPane.setAlignment(integrantes, Pos.BOTTOM_LEFT);
 
@@ -72,10 +72,9 @@ public class App extends Application {
         VBox contenedorPrincipal = new VBox(botonera);
         contenedorPrincipal.setAlignment(Pos.CENTER);
 
-        layout.setPrefHeight(400);
-        layout.setPrefWidth(500);
+        layout.setPrefHeight(1080);
+        layout.setPrefWidth(1920);
         layout.getChildren().addAll(contenedorPrincipal, titulo, integrantes);
-        layout.setPadding(new Insets(10));
 
         // Stage
         Image icon = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/icon.png");
