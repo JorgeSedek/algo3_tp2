@@ -1,17 +1,15 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
 import edu.fiuba.algo3.aplicacion.App;
-import edu.fiuba.algo3.aplicacion.Eventos.ControladorTecladoEvento;
+import edu.fiuba.algo3.modelo.General.Logger;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
 
 public class JuegoView extends BorderPane {
 
@@ -41,10 +39,9 @@ public class JuegoView extends BorderPane {
     }
 
     private void setAbajo() {
-        Label etiqueta = new Label();
-        etiqueta.setText("consola...");
+        TextArea etiqueta = new TextArea();
+        etiqueta.setText(Logger.getInstance().escribir());
         etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
-        etiqueta.setTextFill(Color.WHITE);
 
         VBox contenedorConsola = new VBox(etiqueta);
         contenedorConsola.setPrefWidth(1000);

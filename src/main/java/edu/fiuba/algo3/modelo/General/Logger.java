@@ -4,8 +4,11 @@ public class Logger {
     private boolean activo;
     private static Logger INSTANCE = null;
 
+    private String acumulacion;
+
     private Logger() {
         this.activo = false;
+        this.acumulacion = "";
     }
 
     private synchronized static void createInstance() {
@@ -27,10 +30,14 @@ public class Logger {
         this.activo = false;
     }
 
-    public String imprimir(String string) {
+    public void imprimir(String string) {
         if(activo) {
             System.out.println(string);
+            this.acumulacion += "\n" + string;
         }
-        return string;
+    }
+
+    public String escribir() {
+        return acumulacion;
     }
 }
