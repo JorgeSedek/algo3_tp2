@@ -2,6 +2,7 @@ package edu.fiuba.algo3.aplicacion.Eventos;
 
 import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Vista.PantallaInicioView.PantallaElegirVehiculoYJugadorView;
+import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
@@ -9,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import java.util.Random;
 
 public class BotonMotoEvento implements EventHandler<ActionEvent> {
 
@@ -28,7 +31,14 @@ public class BotonMotoEvento implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent actionEvent){
-        Ubicacion ubicacion = new Ubicacion(2, 2);
+        Random rand = new Random();
+        int random = rand.nextInt(Escenario.getInstance().obtenerFilas()) + 1;
+        while(random %2 != 0){
+            random = rand.nextInt(Escenario.getInstance().obtenerFilas()) + 1;
+        }
+        System.out.println(random);
+        Ubicacion ubicacion = new Ubicacion(random, 2);
+
         this.vehiculo = new Moto(ubicacion);
 
         if (this.nombre.getText().trim().equals("")) {

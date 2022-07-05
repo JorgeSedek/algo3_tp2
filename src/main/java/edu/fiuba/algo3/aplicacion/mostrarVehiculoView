@@ -5,6 +5,24 @@
        }
 
 
+
+        BotonMovDerechaEvento botonMovDerechaEvento = new BotonMovDerechaEvento(escenarioView, this);
+        moverDer.setOnAction(botonMovDerechaEvento);
+
+        BotonMovIzquierdaEvento botonMovIzquierdaEvento = new BotonMovIzquierdaEvento(escenarioView, this);
+        moverIzq.setOnAction(botonMovIzquierdaEvento);
+
+        BotonMovAbajoEvento botonMovAbajoEvento = new BotonMovAbajoEvento(escenarioView, this);
+        moverAbj.setOnAction(botonMovAbajoEvento);
+
+        BotonMovArribaEvento botonMovArribaEvento = new BotonMovArribaEvento(escenarioView, this);
+        moverArr.setOnAction(botonMovArribaEvento);
+
+
+
+
+
+
    public Parent mostrarVehiculoView(){
         Pane root = new Pane();
 
