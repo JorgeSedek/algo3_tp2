@@ -44,13 +44,18 @@ public class JuegoView extends BorderPane {
 
     private void setConsola() {
         TextArea notificaciones = new TextArea();
+        notificaciones.setScrollTop(Double.MIN_VALUE);
+        notificaciones.setScrollLeft(Double.MAX_VALUE);
+
         notificaciones.setEditable(false);
-        notificaciones.setText(Logger.getInstance().escribir());
+        notificaciones.appendText(Logger.getInstance().escribir());
         notificaciones.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
+        notificaciones.setStyle("-fx-text-fill: white");
         notificaciones.setPrefHeight(1500);
         notificaciones.setId("notificaciones");
 
         VBox contenedorConsola = new VBox(notificaciones);
+        //contenedorConsola.setOnScrollFinished();
         contenedorConsola.setPrefWidth(450);
         contenedorConsola.setPrefHeight(1500);
         contenedorConsola.setSpacing(10);
