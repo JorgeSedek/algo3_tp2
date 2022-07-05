@@ -11,7 +11,6 @@ public class EfectoMoverAlReves extends EfectoDecorador {
     }
     public void aplicar(Jugador jugador) {
         super.aplicar(jugador);
-
         jugador.moverVehiculoSentidoOpuesto();
     }
 }
