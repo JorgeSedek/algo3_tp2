@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
 import edu.fiuba.algo3.aplicacion.App;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonMovAbajoEvento;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonMovArribaEvento;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonMovDerechaEvento;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonMovIzquierdaEvento;
 import edu.fiuba.algo3.modelo.General.Logger;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -16,8 +20,9 @@ public class JuegoView extends BorderPane {
     private App app;
     private EscenarioView escenarioView;
 
-    public JuegoView(App app){
+    public JuegoView(App app, EscenarioView escenarioView){
         this.app = app;
+        this.escenarioView = escenarioView;
         //this.mostrarPantallaJuego();
     }
 
@@ -66,6 +71,18 @@ public class JuegoView extends BorderPane {
         Button moverIzq = new Button("Izquierda");
         Button moverArr = new Button("Arriba");
         Button moverAbj = new Button("Abajo");
+
+        BotonMovDerechaEvento botonMovDerechaEvento = new BotonMovDerechaEvento(escenarioView, this);
+        moverDer.setOnAction(botonMovDerechaEvento);
+
+        BotonMovIzquierdaEvento botonMovIzquierdaEvento = new BotonMovIzquierdaEvento(escenarioView, this);
+        moverIzq.setOnAction(botonMovIzquierdaEvento);
+
+        BotonMovAbajoEvento botonMovAbajoEvento = new BotonMovAbajoEvento(escenarioView, this);
+        moverAbj.setOnAction(botonMovAbajoEvento);
+
+        BotonMovArribaEvento botonMovArribaEvento = new BotonMovArribaEvento(escenarioView, this);
+        moverArr.setOnAction(botonMovArribaEvento);
 
         VBox contenedorMovimientos = new VBox(movimientos, moverArr, moverDer, moverIzq, moverAbj);
         contenedorMovimientos.setSpacing(10);
