@@ -85,6 +85,7 @@ public class App extends Application {
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         stage.setScene(scene);
         stage.setFullScreen(true);
+        stage.setFullScreenExitHint("Para salir de pantalla completa presione ESC");
         stage.centerOnScreen();
         stage.show();
     }

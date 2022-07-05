@@ -26,7 +26,7 @@ public class PantallaElegirEscenarioView {
         Label pedirTamanio = new Label();
         Button Grande = new Button("Grande");
         Button Chico = new Button("Chico");
-
+        this.app.getStage().setFullScreenExitHint("");
 
         pedirTamanio.setText("Elija la medida del escenario");
         pedirTamanio.setAlignment(Pos.CENTER);
@@ -60,6 +60,7 @@ public class PantallaElegirEscenarioView {
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.app.getStage().setScene(scene);
         this.app.getStage().setFullScreen(true);
+        this.app.getStage().setFullScreenExitHint("");
         this.app.getStage().centerOnScreen();
     }
 

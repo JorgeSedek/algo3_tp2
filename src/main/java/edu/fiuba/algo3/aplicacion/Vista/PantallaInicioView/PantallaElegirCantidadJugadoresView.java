@@ -58,6 +58,7 @@ public class PantallaElegirCantidadJugadoresView {
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.app.getStage().setScene(scene);
         this.app.getStage().setFullScreen(true);
+        this.app.getStage().setFullScreenExitHint("");
         this.app.getStage().centerOnScreen();
     }
 
