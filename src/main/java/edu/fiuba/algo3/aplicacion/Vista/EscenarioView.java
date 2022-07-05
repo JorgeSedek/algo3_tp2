@@ -32,7 +32,6 @@ public class EscenarioView {
     private Jugador jugador;
     private Casillero meta;
 
-    private VehiculoView vehiculoView;
 
     public EscenarioView(App app, Stage stage){
         this.app = app;

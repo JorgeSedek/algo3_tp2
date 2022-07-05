@@ -92,4 +92,8 @@ public class Jugador {
     public boolean verificarUbicacion(Ubicacion ubicacion){
         return this.vehiculo.verificarUbicacion(ubicacion);
     }
+
+    public boolean movimientosPar() {
+        return this.movimientos % 2 == 0;
+    }
 }

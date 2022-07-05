@@ -20,7 +20,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,11 +84,23 @@ public class App extends Application {
         Scene scene = new Scene(layout);
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         stage.setScene(scene);
+        //music();
         stage.setFullScreen(true);
         stage.setFullScreenExitHint("Para salir de pantalla completa presione ESC");
         stage.centerOnScreen();
         stage.show();
     }
+
+    /*
+    public void music() {
+		String s = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/Sonido/Initial D - Deja Vu.mp3";
+		Media h = new Media(Paths.get(s).toUri().toString());
+		mediaPlayer = new MediaPlayer(h);
+		mediaPlayer.play();
+
+	}
+
+    */
 
     public Stage getStage(){
         return this.stage;
