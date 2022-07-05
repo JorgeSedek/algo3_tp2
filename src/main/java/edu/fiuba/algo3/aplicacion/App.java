@@ -20,6 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,11 +90,6 @@ public class App extends Application {
         stage.centerOnScreen();
         stage.show();
     }
-
-    public void salirPantallaCompleta(){
-        this.stage.setFullScreen(false);
-    }
-
 
     public Stage getStage(){
         return this.stage;
