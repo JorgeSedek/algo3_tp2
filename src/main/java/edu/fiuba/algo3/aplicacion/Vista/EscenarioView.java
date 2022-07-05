@@ -5,6 +5,7 @@ import edu.fiuba.algo3.aplicacion.Eventos.ControladorTecladoEvento;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.MotoView;
+import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
 import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
@@ -26,6 +27,8 @@ public class EscenarioView {
     private Group casillerosView = new Group();
     private Jugador jugador;
 
+    private VehiculoView vehiculoView;
+
     public EscenarioView(App app, Stage stage){
         this.app = app;
         this.stage = stage;
@@ -41,7 +44,9 @@ public class EscenarioView {
         //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
         //layout.setOnKeyPressed(new ControladorTecladoEvento(this));
 
-        stage.setScene(new Scene(layout));
+        Scene scene = new Scene(layout);
+        scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
+        stage.setScene(scene);
         stage.getScene().setOnKeyPressed(new ControladorTecladoEvento(this));
         //stage.centerOnScreen();
         stage.show();
@@ -119,7 +124,7 @@ public class EscenarioView {
        if (vehiculo instanceof Camioneta){
 
            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
-        //   camionetaView4.posicionarImagen();
+         //  camionetaView4.posicionarImagen();
            camionetaView4.dibujar();
         //   camionetaView4.mover();
        }

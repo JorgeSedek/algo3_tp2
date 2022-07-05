@@ -14,10 +14,12 @@ import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 
 public abstract class Vehiculo {
     protected Ubicacion ubicacion;
+  //  protected Ubicacion ubicacionAnterior;
     protected Direccion direccion;
 
     public Vehiculo(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
+      //  this.ubicacionAnterior = ubicacion;
         this.direccion = new DireccionVacia();
     }
 
@@ -30,6 +32,7 @@ public abstract class Vehiculo {
     }
 
     public Casillero mover(Direccion direccion) {
+     //   this.ubicacionAnterior = this.ubicacion;
         this.direccion = direccion;
         direccion.mover(ubicacion);
         Casillero nuevoCasillero = Escenario.getInstance().buscarCasilleroEn(ubicacion);
@@ -62,6 +65,7 @@ public abstract class Vehiculo {
     public Ubicacion obtenerUbicacion() {
         return this.ubicacion;
     }
+   // public Ubicacion obtenerUbicacionAnterior(){return this.ubicacionAnterior;}
 
     public abstract String asString();
 }
