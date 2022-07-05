@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
+import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
+import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
 import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Escenario;
@@ -23,9 +25,11 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
     private VehiculoView vehiculoView;
     private EscenarioView escenarioView;
+    private JuegoView juegoView;
 
-    public ControladorTecladoEvento(EscenarioView escenarioView){
+    public ControladorTecladoEvento(EscenarioView escenarioView, JuegoView juegoView){
         this.escenarioView = escenarioView;
+        this.juegoView = juegoView;
     }
 
     public void handle(KeyEvent keyEvent){
@@ -50,6 +54,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         }
 
         escenarioView.actualizar();
+        juegoView.actualizar();
         keyEvent.consume();
 
         // Entra a este if cuando se termina el juego
@@ -65,6 +70,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
             Stage stageEscenarioView = escenarioView.obtenerStage();
             stageEscenarioView.setScene(new Scene(puntuaciones));
+            stageEscenarioView.setFullScreen(true);
             stageEscenarioView.show();
         }
     }

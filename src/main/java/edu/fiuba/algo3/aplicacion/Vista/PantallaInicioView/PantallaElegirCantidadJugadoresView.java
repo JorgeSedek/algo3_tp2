@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.aplicacion.Vista;
+package edu.fiuba.algo3.aplicacion.Vista.PantallaInicioView;
 
 import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonAceptarEvento;
@@ -51,12 +51,13 @@ public class PantallaElegirCantidadJugadoresView {
         layout.setPadding(new Insets(10));
 
         StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
-        layout.setPrefHeight(400);
-        layout.setPrefWidth(500);
+        layout.setPrefHeight(1080);
+        layout.setPrefWidth(1920);
 
         Scene scene = new Scene(layout);
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.app.getStage().setScene(scene);
+        this.app.getStage().setFullScreen(true);
         this.app.getStage().centerOnScreen();
     }
 

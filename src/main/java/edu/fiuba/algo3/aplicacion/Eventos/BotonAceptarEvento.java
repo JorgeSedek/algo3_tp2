@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
 import edu.fiuba.algo3.aplicacion.App;
-import edu.fiuba.algo3.aplicacion.Vista.PantallaElegirVehiculoYJugadorView;
+import edu.fiuba.algo3.aplicacion.Vista.PantallaInicioView.PantallaElegirVehiculoYJugadorView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ChoiceBox;

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
 import edu.fiuba.algo3.aplicacion.App;
-import edu.fiuba.algo3.aplicacion.Vista.PantallaElegirCantidadJugadoresView;
+import edu.fiuba.algo3.aplicacion.Vista.PantallaInicioView.PantallaElegirCantidadJugadoresView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

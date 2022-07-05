@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
 import edu.fiuba.algo3.aplicacion.App;
-import edu.fiuba.algo3.aplicacion.Vista.PantallaElegirEscenarioView;
+import edu.fiuba.algo3.aplicacion.Vista.PantallaInicioView.PantallaElegirEscenarioView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

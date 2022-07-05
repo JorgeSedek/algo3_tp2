@@ -1,4 +1,11 @@
-    public Parent mostrarVehiculoView(){
+
+       public void mostrarJuego(){
+           JuegoView juegoView = new JuegoView(this);
+
+       }
+
+
+   public Parent mostrarVehiculoView(){
         Pane root = new Pane();
 
         /* Los path y los seteos tienen que ir en cada una de las clases View

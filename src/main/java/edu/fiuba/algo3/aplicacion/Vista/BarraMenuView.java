@@ -1,35 +1,40 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
 import edu.fiuba.algo3.aplicacion.App;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
+import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-public class BarraMenuView {
+public class BarraMenuView extends MenuBar {
 
     private App app;
 
     public BarraMenuView(App app){
         this.app = app;
+        mostrarBarraMenu();
     }
 
     public void mostrarBarraMenu(){
 
-        Button salir = new Button("Salir");
-        Label movimientos = new Label();
-        Button moverDer = new Button("Derecha");
-        Button moverIzq = new Button("Izquierda");
-        Button moverArr = new Button("Arriba");
-        Button moverAbj = new Button("Abajo");
+        Menu menuArchivo = new Menu("Archivo");
+        Menu menuAyuda = new Menu("Ayuda");
 
-        Button ayuda = new Button("Ayuda");
+        MenuItem opcionSalir = new MenuItem("Salir");
+        //MenuItem opcionAbrir = new MenuItem("Abrir");
+        MenuItem opcionAcercaDe = new MenuItem("Instrucciones");
 
-        VBox contenedorMovimientos = new VBox(movimientos, moverArr, moverDer, moverIzq, moverAbj);
-        contenedorMovimientos.setSpacing(10);
+        BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this.app);
+        opcionSalir.setOnAction(botonSalir);
 
+        BotonInstruccionesEvento opcionAcercaDeHandler = new BotonInstruccionesEvento(this.app);
+        opcionAcercaDe.setOnAction(opcionAcercaDeHandler);
 
+        menuArchivo.getItems().add(opcionSalir);
+        menuAyuda.getItems().add(opcionAcercaDe);
 
+        this.getMenus().addAll(menuArchivo, menuAyuda);
     }
 
 }

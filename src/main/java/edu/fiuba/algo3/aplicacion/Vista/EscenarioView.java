@@ -14,16 +14,18 @@ import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class EscenarioView {
 
     private App app;
     private Stage stage;
-    private double width = 700;// Es muy grande cambiarlo a 900 o 1000
-    private double height = 700;//  Es muy grande cambiarlo a 900 o 1000
+    private double width = 800;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 800;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
     private Jugador jugador;
 
@@ -34,8 +36,9 @@ public class EscenarioView {
         this.stage = stage;
     }
 
-    public void mostrarTablero(){
-        BorderPane layout = new BorderPane();
+    public Pane mostrarTablero(){
+        //BorderPane layout = new BorderPane();
+        Pane layout = new Pane();
         //actualizarJugador();
 
         layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
@@ -44,13 +47,17 @@ public class EscenarioView {
         //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
         //layout.setOnKeyPressed(new ControladorTecladoEvento(this));
 
-        Scene scene = new Scene(layout);
-        scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
-        stage.setScene(scene);
-        stage.getScene().setOnKeyPressed(new ControladorTecladoEvento(this));
-        stage.centerOnScreen();
+        //Scene scene = new Scene(layout);
+        //scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
+        //stage.setScene(scene);
+        //stage.getScene().setOnKeyPressed(new ControladorTecladoEvento(this));
         //stage.centerOnScreen();
-        stage.show();
+        //stage.centerOnScreen();
+        //stage.show();
+
+        //VBox juego = new VBox(layout);
+
+        return layout;
     }
 
     public Stage obtenerStage() {

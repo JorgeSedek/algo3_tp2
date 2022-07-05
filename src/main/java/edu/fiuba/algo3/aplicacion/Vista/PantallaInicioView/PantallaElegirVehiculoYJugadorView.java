@@ -1,10 +1,9 @@
-package edu.fiuba.algo3.aplicacion.Vista;
+package edu.fiuba.algo3.aplicacion.Vista.PantallaInicioView;
 
 import edu.fiuba.algo3.aplicacion.App;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonAutoEvento;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonCamionetaEvento;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonMotoEvento;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
+import edu.fiuba.algo3.aplicacion.Eventos.*;
+import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
+import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Logger;
@@ -16,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 public class PantallaElegirVehiculoYJugadorView {
 
@@ -41,8 +41,19 @@ public class PantallaElegirVehiculoYJugadorView {
             Logger.getInstance().activar();
             Juego.resetInstance(this.app.getJugadores());
             this.escenarioView = new EscenarioView(this.app, this.app.getStage());
+            this.app.asignarEscenario(escenarioView);
+            JuegoView juegoView = new JuegoView(this.app);
+            //Stage ventana = new Stage();
 
-            escenarioView.mostrarTablero();
+            Scene escenaJuego = new Scene(juegoView.mostrarPantallaJuego(), 1000, 1000);
+            escenaJuego.setOnKeyPressed(new ControladorTecladoEvento(escenarioView, juegoView));
+            //ventana.setScene(escenaJuego);
+            //ventana.show();
+            this.app.getStage().setScene(escenaJuego);
+            this.app.getStage().setFullScreen(true);
+            this.app.getStage().show();
+
+            //escenarioView.mostrarTablero();
         }
     }
 
@@ -106,12 +117,13 @@ public class PantallaElegirVehiculoYJugadorView {
         layout.getChildren().addAll(contenedor);
         layout.setPadding(new Insets(10));
 
-        layout.setPrefHeight(100);
-        layout.setPrefWidth(500);
+        layout.setPrefHeight(880);
+        layout.setPrefWidth(920);
 
         Scene scene = new Scene(layout);
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.app.getStage().setScene(scene);
+        this.app.getStage().setFullScreen(true);
         this.app.getStage().centerOnScreen();
     }
 

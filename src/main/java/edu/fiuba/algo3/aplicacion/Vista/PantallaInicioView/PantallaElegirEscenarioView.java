@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.aplicacion.Vista;
+package edu.fiuba.algo3.aplicacion.Vista.PantallaInicioView;
 
 import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonEscenarioChicoEvento;
@@ -52,13 +52,14 @@ public class PantallaElegirEscenarioView {
 
         layout.getChildren().addAll(contenedor, salir);
         layout.setPadding(new Insets(10));
-        layout.setPrefHeight(200);
-        layout.setPrefWidth(400);
+        layout.setPrefHeight(1080);
+        layout.setPrefWidth(1920);
         StackPane.setAlignment(salir, Pos.BOTTOM_LEFT);
 
         Scene scene = new Scene(layout);
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.app.getStage().setScene(scene);
+        this.app.getStage().setFullScreen(true);
         this.app.getStage().centerOnScreen();
     }
 
