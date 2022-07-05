@@ -261,6 +261,72 @@ public class GeneralTest {
     }
 
     @Test
+    public void unaMotoIntentaPasarPorUnCasilleroDelBordeQueTieneUnPiqueteNoDeberiaMoverse(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo moto = new Moto(ubicacion);
+        Jugador jugador = new Jugador(nombre, moto);
+        //int movimientosEsperados = 11;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Piquete piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(1,2);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        Juego.getInstance().moverVehiculo(new DireccionArriba());
+
+        assertTrue(moto.verificarUbicacion(new Ubicacion(2,2)));
+        //assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+/*
+    @Test
+    public void unaCamionetaIntentaPasarPorUnCasilleroDelBordeQueTieneUnPiqueteNoDeberiaMoverse(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador = new Jugador(nombre, camioneta);
+        //int movimientosEsperados = 11;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Piquete piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(1,2);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        Juego.getInstance().moverVehiculo(new DireccionArriba());
+
+        assertTrue(camioneta.verificarUbicacion(new Ubicacion(2,2)));
+        //assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+
+    @Test
+    public void unAutoIntentaPasarPorUnCasilleroDelBordeQueTieneUnPiqueteNoDeberiaMoverse(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo auto = new Auto(ubicacion);
+        Jugador jugador = new Jugador(nombre, auto);
+        //int movimientosEsperados = 11;
+        List<Jugador> jugadores = new ArrayList<>(){
+            {add(jugador);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Piquete piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(1,2);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        Juego.getInstance().moverVehiculo(new DireccionArriba());
+
+        assertTrue(auto.verificarUbicacion(new Ubicacion(2,2)));
+        //assertTrue(jugador.verificarMovimientos(movimientosEsperados));
+    }
+*/
+    @Test
     public void unaMotoPasaPorUnCasilleroQueTieneUnControlPolicial(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo moto = new Moto(ubicacion);
