@@ -23,7 +23,7 @@ public class SinObstaculoView extends ObstaculoView{
         this.ALTO_SIN_OBSTACULO = ancho;
         this.casillero = casillero;
         this.sinObstaculo = (SinObstaculo) casillero.obtenerObstaculo();
-        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/obstaculoImagenes/sinObstaculo.png";
+        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/sorpresa3.png";
         this.imagenSinObstaculo = new ImageView(new Image(imagenPath,ANCHO_SIN_OBSTACULO*0.3 , ALTO_SIN_OBSTACULO*0.3, false, false));
     }
 

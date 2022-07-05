@@ -27,8 +27,8 @@ public class CamionetaView implements VehiculoView{
         ANCHO_CAMIONETA = ancho;
         ALTO_CAMIONETA = alto;
         this.camioneta = camioneta;
-        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/camionetaImagenes/camionetaIcono.png";
-        this.imagenCamioneta = new ImageView(new Image(imagenPath,ANCHO_CAMIONETA*0.6, ALTO_CAMIONETA*0.6, false, false));;
+        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/camioneta.png";
+        this.imagenCamioneta = new ImageView(new Image(imagenPath,ANCHO_CAMIONETA, ALTO_CAMIONETA, false, false));;
         this.root = root;
 
 
@@ -87,8 +87,8 @@ public class CamionetaView implements VehiculoView{
 
     public void posicionarImagen(){
 
-        imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_CAMIONETA + ANCHO_CAMIONETA*1.2);
-        imagenCamioneta.setLayoutX((camioneta.obtenerUbicacion().obtenerColumna() - 2) * ALTO_CAMIONETA + ALTO_CAMIONETA*1.2);
+        imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_CAMIONETA + ANCHO_CAMIONETA);
+        imagenCamioneta.setLayoutX((camioneta.obtenerUbicacion().obtenerColumna() - 2) * ALTO_CAMIONETA + ALTO_CAMIONETA);
 
     }
 

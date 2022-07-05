@@ -20,8 +20,8 @@ public class MotoView implements VehiculoView{
         ANCHO_MOTO = ancho;
         ALTO_MOTO = alto;
         this.moto = moto;
-        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/motoImagenes/motoIcono.png";
-        this.imagenMoto= new ImageView(new Image(imagenPath,ANCHO_MOTO*0.6, ALTO_MOTO*0.6, false, false));
+        this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/moto.png";
+        this.imagenMoto= new ImageView(new Image(imagenPath,ANCHO_MOTO*0.8, ALTO_MOTO*0.8, false, false));
         this.root = root;
     }
 

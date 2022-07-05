@@ -28,7 +28,7 @@ public class MetaView {
             this.imagenMeta= new ImageView(new Image(imagenPath, ANCHO_META * 0.7, ALTO_META * 0.7, false, false));
         }
         else{
-            this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/sinSorpresa.png";
+            this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/nada.png";
             this.imagenMeta= new ImageView(new Image(imagenPath, ANCHO_META * 0.01, ALTO_META * 0.01, false, false));
         }
 

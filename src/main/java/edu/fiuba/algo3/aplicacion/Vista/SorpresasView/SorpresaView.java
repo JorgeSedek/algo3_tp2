@@ -23,7 +23,7 @@ public class SorpresaView {
         this.sorpresa = casillero.obtenerSorpresa();
 
         if (this.sorpresa instanceof SinSorpresa) {
-            this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/sinSorpresa.png";
+            this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/sorpresa3.png";
         }
         else {
             this.imagenPath = "file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/sorpresaImagenes/sorpresa.png";
