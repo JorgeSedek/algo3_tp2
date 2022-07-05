@@ -48,7 +48,7 @@ public class ColocadorRandom implements ColocadorItems{
 
         casilleroFinal.asignarSorpresa(new SinSorpresa());
         casilleroFinal.asignarObstaculo(new SinObstaculo());
-
+        /*
         // TODO, NO QUITAR DE MOMENTO, SIRVE PARA DEBUGGEAR LA INTERFAZ
         Ubicacion ubicacion = casilleroFinal.obtenerUbicacion();
         Obstaculo obstaculoFinal = casilleroFinal.obtenerObstaculo();
@@ -56,7 +56,7 @@ public class ColocadorRandom implements ColocadorItems{
         System.out.println("En el casillero final el obstaculo es: " + obstaculoFinal.getClass() + " y la sorpresa es: " + sorpresaFinal.getClass());
         System.out.println("La meta esta en la fila: " + ubicacion.obtenerFila() + " y columna: " + ubicacion.obtenerColumna());
         //
-
+        */
         agregarMetaEn(casilleroFinal, new MetaFinal());
     }
 

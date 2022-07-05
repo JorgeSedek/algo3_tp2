@@ -36,7 +36,7 @@ public class Jugador {
         this.movimientos++;
         Casillero casillero = this.vehiculo.mover(direccion);
         casillero.atravesar(this);
-        System.out.println("El vehiculo del jugador: " + this.nombre + " es un " + this.vehiculo.getClass() +" y esta en la fila: " + vehiculo.obtenerUbicacion().obtenerFila() + " columna: " + vehiculo.obtenerUbicacion().obtenerColumna());// TODO QUITAR MAS ADELANTE, SIRVE PARA DEBUGGEAR LA INTERFAZ GRAFICA
+        //System.out.println("El vehiculo del jugador: " + this.nombre + " es un " + this.vehiculo.getClass() +" y esta en la fila: " + vehiculo.obtenerUbicacion().obtenerFila() + " columna: " + vehiculo.obtenerUbicacion().obtenerColumna());// TODO QUITAR MAS ADELANTE, SIRVE PARA DEBUGGEAR LA INTERFAZ GRAFICA
     }
 
     public void atravezar(Sorpresa sorpresa) {
