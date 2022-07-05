@@ -19,13 +19,11 @@ import javafx.scene.layout.*;
 public class PantallaElegirVehiculoYJugadorView {
 
     private App app;
-    //private List<Jugador> jugadores;
     private int cantidad;
     private EscenarioView escenarioView;
 
     public PantallaElegirVehiculoYJugadorView(App app, EscenarioView escenarioView){
         this.app = app;
-        //this.jugadores = jugadores;
         this.escenarioView = escenarioView;
     }
 
@@ -36,25 +34,22 @@ public class PantallaElegirVehiculoYJugadorView {
             agregarJugadores();
             this.cantidad --;
         }else{
-            //Juego.resetInstance(this.jugadores);
+
             Logger.getInstance().activar();
             Juego.resetInstance(this.app.getJugadores());
             this.escenarioView = new EscenarioView(this.app, this.app.getStage());
             this.app.asignarEscenario(escenarioView);
             JuegoView juegoView = new JuegoView(this.app, escenarioView);
-            //Stage ventana = new Stage();
 
             Scene escenaJuego = new Scene(juegoView.mostrarPantallaJuego(), 1000, 1000);
             escenaJuego.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
-            escenaJuego.setOnKeyPressed(new ControladorTecladoEvento(escenarioView, juegoView));
-            //ventana.setScene(escenaJuego);
-            //ventana.show();
+            escenaJuego.setOnKeyPressed(new ControladorTecladoEvento(escenarioView, juegoView, this.app));
+
             this.app.getStage().setScene(escenaJuego);
             this.app.getStage().setFullScreen(true);
             this.app.getStage().setFullScreenExitHint("");
             this.app.getStage().show();
 
-            //escenarioView.mostrarTablero();
         }
     }
 
@@ -132,7 +127,6 @@ public class PantallaElegirVehiculoYJugadorView {
     public void guardarJugadores(String nombre, Vehiculo vehiculo){
         Jugador jugador = new Jugador(nombre, vehiculo);
         this.app.getJugadores().add(jugador);
-        //this.probarAlgo(jugador);
         this.ingresarNombresYVehiculo(this.cantidad);
     }
 

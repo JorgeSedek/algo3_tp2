@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
+import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
@@ -9,6 +10,7 @@ import edu.fiuba.algo3.modelo.General.Puntaje;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -23,11 +25,12 @@ import java.util.List;
 public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     private Direccion direccion;
 
-    private VehiculoView vehiculoView;
+    private App app;
     private EscenarioView escenarioView;
     private JuegoView juegoView;
 
-    public ControladorTecladoEvento(EscenarioView escenarioView, JuegoView juegoView){
+    public ControladorTecladoEvento(EscenarioView escenarioView, JuegoView juegoView, App app){
+        this.app = app;
         this.escenarioView = escenarioView;
         this.juegoView = juegoView;
     }
@@ -63,10 +66,16 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
             Label titulo = new Label("TABLA DE PUNTUACIONES: \n\n");
 
+            Button salir = new Button("Volver al Inicio");
+            BotonSalirElegirJugadoresEvent botonSalir = new BotonSalirElegirJugadoresEvent(this.app);
+            salir.setOnAction(botonSalir);
+            salir.defaultButtonProperty().bind(salir.focusedProperty());
+            StackPane.setAlignment(salir, Pos.BOTTOM_CENTER);
+
             VBox vbox = new VBox(titulo);
             vbox.setId("puntuaciones");
             puntajesDeLosJugadores(vbox);
-            puntuaciones.getChildren().add(vbox);
+            puntuaciones.getChildren().addAll(vbox, salir);
             vbox.setAlignment(Pos.TOP_CENTER);
 
             Stage stageEscenarioView = escenarioView.obtenerStage();

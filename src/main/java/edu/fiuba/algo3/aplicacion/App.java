@@ -121,8 +121,5 @@ public class App extends Application {
         this.escenarioView = escenarioView;
     }
 
-    public JuegoView getJuegoView(){
-        return this.juegoView;
-    }
 
 }

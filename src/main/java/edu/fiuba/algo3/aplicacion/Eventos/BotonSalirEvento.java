@@ -42,10 +42,11 @@ public class BotonSalirEvento implements EventHandler<ActionEvent> {
         cancelar.setOnAction(botonCancelarEventHandler);
 
 
-        Scene salir = new Scene(contenedor,250, 150);
+        Scene salir = new Scene(contenedor,500, 450);
 
         ventanaSalida.setTitle("¿Esta Seguro?");
         ventanaSalida.setScene(salir);
+        salir.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         ventanaSalida.show();
         ventanaSalida.setAlwaysOnTop(true);
         aceptar.requestFocus();

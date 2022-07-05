@@ -5,10 +5,8 @@ import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.MotoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
-import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
+import edu.fiuba.algo3.modelo.General.*;
+import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
@@ -28,10 +26,11 @@ public class EscenarioView {
 
     private App app;
     private Stage stage;
-    private double width = 1042;// Es muy grande cambiarlo a 900 o 1000
-    private double height = 1042;//  Es muy grande cambiarlo a 900 o 1000
+    private double width = 1042;
+    private double height = 1042;
     private Group casillerosView = new Group();
     private Jugador jugador;
+    private Casillero meta;
 
     private VehiculoView vehiculoView;
 
@@ -41,26 +40,18 @@ public class EscenarioView {
     }
 
     public Pane mostrarTablero(){
-        //BorderPane layout = new BorderPane();
-        Pane layout = new Pane();
-        //actualizarJugador();
 
-        layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo(), dibujarCirculoRojo());
+        Pane layout = new Pane();
+
+        if(Juego.getInstance().hayJugadoresActivos()){
+            layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo(), dibujarCirculoRojo());
+        }else{
+            layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
+        }
+
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);
         layout.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
-        //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
-        //layout.setOnKeyPressed(new ControladorTecladoEvento(this));
-
-        //Scene scene = new Scene(layout);
-        //scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
-        //stage.setScene(scene);
-        //stage.getScene().setOnKeyPressed(new ControladorTecladoEvento(this));
-        //stage.centerOnScreen();
-        //stage.centerOnScreen();
-        //stage.show();
-
-        //VBox juego = new VBox(layout);
 
         return layout;
     }
@@ -115,12 +106,8 @@ public class EscenarioView {
        double alto = width/(double)filas;
        double ancho = height/(double)columnas;
 
-       //Borre la imagen en la posicion anterior y agrege un boton para siguiente
-       //boton siguiente llama a mostrarTablero();
-
        Pane root = new Pane();
 
-       // Quiza quitar este if
        if (jugador == null) {
            return root;
        }
@@ -139,33 +126,9 @@ public class EscenarioView {
        if (vehiculo instanceof Camioneta){
 
            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
-         //  camionetaView4.posicionarImagen();
            camionetaView4.dibujar();
-        //   camionetaView4.mover();
+
        }
-/*
-        int filas = Escenario.getInstance().obtenerFilas();
-        int columnas = Escenario.getInstance().obtenerColumnas();
-
-        double alto = width/(double)filas;
-        double ancho = height/(double)columnas;
-
-        Vehiculo vehiculo =  jugador.obtenerVehiculo();
-        if (vehiculo instanceof Auto ){
-            AutoView autoView4 = new AutoView((Auto) vehiculo,root, alto, ancho);
-            autoView4.dibujar();
-        }
-
-        if (vehiculo instanceof Moto) {
-            MotoView motoView4 = new MotoView((Moto) vehiculo, root, alto, ancho);
-            motoView4.dibujar();
-        }
-
-        else{
-            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
-            camionetaView4.dibujar();
-        }
-*/
 
        return root;
 
@@ -174,57 +137,55 @@ public class EscenarioView {
 
     public void actualizar(){
         mostrarTablero();
-        //dibujarVehiculo();
     }
 
     public Parent dibujarCirculoRojo(){
         Pane root = new Pane();
         StackPane layout = new StackPane();
 
-        double radio = (width/(double)Escenario.getInstance().obtenerFilas()) * 2;
+        double radioMeta = width/(double)Escenario.getInstance().obtenerFilas();
+        double radioVehiculo = radioMeta *2;
 
-        Circle circle = new Circle(200, 200, radio, Color.RED);
-        circle.setOpacity(0.1);
-        //circle.setFill(this.mostrarTablero());
+        Vehiculo vehiculo = jugador.obtenerVehiculo();
+
+        double filaVehiculo = ((double)vehiculo.obtenerUbicacion().obtenerFila()- 2) * radioMeta+ radioMeta*1.3;
+        double columnaVehiculo = ((double)vehiculo.obtenerUbicacion().obtenerColumna()- 2) * radioMeta+ radioMeta*1.3 ;
+
+        Circle vehiculoCircle = new Circle(columnaVehiculo, filaVehiculo, radioVehiculo, Color.TRANSPARENT);
+
+        this.meta = buscarMeta();
+        double filaMeta = ((double)this.meta.obtenerUbicacion().obtenerFila()- 2) * radioMeta + radioMeta*1.2;
+        double columnaMeta = ((double)this.meta.obtenerUbicacion().obtenerColumna()- 2) * radioMeta + radioMeta*1.2;
+
+        Circle meta = new Circle(columnaMeta, filaMeta, radioMeta, Color.TRANSPARENT);
 
         Rectangle rectanglea = new Rectangle(width, height, Color.BLACK);
-
-        //Rectangle rectangle = new Rectangle(width, height);
-        //rectanglea.subtract(rectanglea, circle);
-        Shape algo = Shape.subtract(rectanglea, circle);
-
-        //Shape shape = new Shape();
-        //shape.intersect(rectangle, circle);
+        Shape algo = Shape.subtract(rectanglea, vehiculoCircle);
+        algo = Shape.subtract(algo, meta);
 
         layout.getChildren().addAll(algo);
         root.getChildren().add(layout);
         return root;
     }
 
-    public Parent dibujarCirculoRojo1(){
-        Pane root = new Pane();
+    public Casillero buscarMeta(){
+
+        Casillero metaFinal = new Casillero(0,0);
+
+        int filas = Escenario.getInstance().obtenerFilas();
+        int columnas = Escenario.getInstance().obtenerColumnas();
+
+        for (int x = 1; x <= columnas; x++) {
+            for (int y = 1; y <= filas; y++) {
+                Ubicacion ubicacion = new Ubicacion(x,y);
+                if(Escenario.getInstance().buscarCasilleroEn(ubicacion).obtenerMeta() instanceof MetaFinal){
+                    metaFinal =  Escenario.getInstance().buscarCasilleroEn(ubicacion);
+                }
+            }
+        }
 
 
-        /*Graphics2D g2d = (Graphics2D) g;
-        Area a = new Area(new Rectangle(50, 50, 100, 100));
-        a.subtract(new Area(new Ellipse2D.Double(75, 75, 50, 50)));
-        g2d.fill(a);*/
-
-        Rectangle rectangle = new Rectangle(width, height, Color.BLACK);
-
-
-
-        root.getChildren().add(rectangle);
-        return root;
+        return metaFinal;
     }
 
 }
-
-/*
-    Del modelo.
-
-    public Casillero buscarCasilleroEn(Ubicacion ubicacion){
-        List<Casillero> casillerosFiltrados = casilleros.stream().filter(casilleroBuscado -> casilleroBuscado.equals(ubicacion)).collect(Collectors.toList());
-        return casillerosFiltrados.get(0);
-    }
-    */

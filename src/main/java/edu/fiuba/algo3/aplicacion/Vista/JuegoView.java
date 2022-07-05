@@ -23,7 +23,6 @@ public class JuegoView extends BorderPane {
     public JuegoView(App app, EscenarioView escenarioView){
         this.app = app;
         this.escenarioView = escenarioView;
-        //this.mostrarPantallaJuego();
     }
 
     public BorderPane mostrarPantallaJuego(){
@@ -34,7 +33,7 @@ public class JuegoView extends BorderPane {
     public void posicionarTodo(){
         this.setBotonera();
         this.setCentro();
-        this.setAbajo();
+        this.setConsola();
         this.setMenu();
     }
 
@@ -43,7 +42,7 @@ public class JuegoView extends BorderPane {
         this.setTop(menuBar);
     }
 
-    private void setAbajo() {
+    private void setConsola() {
         TextArea notificaciones = new TextArea();
         notificaciones.setEditable(false);
         notificaciones.setText(Logger.getInstance().escribir());
@@ -52,11 +51,11 @@ public class JuegoView extends BorderPane {
         notificaciones.setId("notificaciones");
 
         VBox contenedorConsola = new VBox(notificaciones);
-        contenedorConsola.setPrefWidth(300);
+        contenedorConsola.setPrefWidth(450);
         contenedorConsola.setPrefHeight(1500);
         contenedorConsola.setSpacing(10);
         contenedorConsola.setPadding(new Insets(15));
-        contenedorConsola.setStyle("-fx-background-color: black:");
+        contenedorConsola.setStyle("-fx-background-color: black");
 
         this.setRight(contenedorConsola);
     }
@@ -75,22 +74,22 @@ public class JuegoView extends BorderPane {
         Button moverArr = new Button("Arriba");
         Button moverAbj = new Button("Abajo");
 
-        BotonMovDerechaEvento botonMovDerechaEvento = new BotonMovDerechaEvento(escenarioView, this);
+        BotonMovDerechaEvento botonMovDerechaEvento = new BotonMovDerechaEvento(escenarioView, this, app);
         moverDer.setOnAction(botonMovDerechaEvento);
 
-        BotonMovIzquierdaEvento botonMovIzquierdaEvento = new BotonMovIzquierdaEvento(escenarioView, this);
+        BotonMovIzquierdaEvento botonMovIzquierdaEvento = new BotonMovIzquierdaEvento(escenarioView, this, app);
         moverIzq.setOnAction(botonMovIzquierdaEvento);
 
-        BotonMovAbajoEvento botonMovAbajoEvento = new BotonMovAbajoEvento(escenarioView, this);
+        BotonMovAbajoEvento botonMovAbajoEvento = new BotonMovAbajoEvento(escenarioView, this, app);
         moverAbj.setOnAction(botonMovAbajoEvento);
 
-        BotonMovArribaEvento botonMovArribaEvento = new BotonMovArribaEvento(escenarioView, this);
+        BotonMovArribaEvento botonMovArribaEvento = new BotonMovArribaEvento(escenarioView, this, app);
         moverArr.setOnAction(botonMovArribaEvento);
 
         VBox contenedorMovimientos = new VBox(movimientos, moverArr, moverDer, moverIzq, moverAbj);
         contenedorMovimientos.setSpacing(10);
         contenedorMovimientos.setPrefHeight(800);
-        contenedorMovimientos.setPrefWidth(364);
+        contenedorMovimientos.setPrefWidth(214);
 
         this.setLeft(contenedorMovimientos);
     }
