@@ -25,3 +25,7 @@
     -fx-text-fill: #000000;
 }
 
+.text-area .content{
+      -fx-background-color: transparent;
+ }
+

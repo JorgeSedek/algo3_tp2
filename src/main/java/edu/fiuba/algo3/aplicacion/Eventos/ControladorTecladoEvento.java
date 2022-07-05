@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
-import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
 import edu.fiuba.algo3.modelo.Direccion.*;
-import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Puntaje;
 import javafx.event.EventHandler;
@@ -17,7 +15,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
@@ -69,7 +66,9 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
             puntuaciones.getChildren().add(vbox);
 
             Stage stageEscenarioView = escenarioView.obtenerStage();
-            stageEscenarioView.setScene(new Scene(puntuaciones));
+            Scene scene = new Scene(puntuaciones);
+            scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
+            stageEscenarioView.setScene(scene);
             stageEscenarioView.setFullScreen(true);
             stageEscenarioView.show();
         }

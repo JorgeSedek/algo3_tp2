@@ -1,31 +1,29 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
 import edu.fiuba.algo3.aplicacion.App;
-import edu.fiuba.algo3.aplicacion.Eventos.ControladorTecladoEvento;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.MotoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
-import edu.fiuba.algo3.modelo.General.*;
+import edu.fiuba.algo3.modelo.General.Escenario;
+import edu.fiuba.algo3.modelo.General.Juego;
+import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
 import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
 import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class EscenarioView {
 
     private App app;
     private Stage stage;
-    private double width = 800;// Es muy grande cambiarlo a 900 o 1000
-    private double height = 800;//  Es muy grande cambiarlo a 900 o 1000
+    private double width = 1042;// Es muy grande cambiarlo a 900 o 1000
+    private double height = 1042;//  Es muy grande cambiarlo a 900 o 1000
     private Group casillerosView = new Group();
     private Jugador jugador;
 
@@ -44,6 +42,7 @@ public class EscenarioView {
         layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
         layout.setPrefHeight(height);
         layout.setPrefWidth(width);
+        layout.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         //layout.setOnKeyPressed(new ControladorTecladoEvento(jugadorActual, ));
         //layout.setOnKeyPressed(new ControladorTecladoEvento(this));
 
