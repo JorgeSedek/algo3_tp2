@@ -44,11 +44,12 @@ public class JuegoView extends BorderPane {
     }
 
     private void setAbajo() {
-        TextArea etiqueta = new TextArea();
-        etiqueta.setText(Logger.getInstance().escribir());
-        etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
+        TextArea consola = new TextArea();
+        consola.setEditable(false);
+        consola.setText(Logger.getInstance().escribir());
+        consola.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
 
-        VBox contenedorConsola = new VBox(etiqueta);
+        VBox contenedorConsola = new VBox(consola);
         contenedorConsola.setPrefWidth(300);
         contenedorConsola.setPrefHeight(1000);
         contenedorConsola.setSpacing(10);

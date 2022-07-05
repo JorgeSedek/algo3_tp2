@@ -14,7 +14,11 @@ public class DireccionArriba implements Direccion{
             ubicacion.mover(this);
         }
     }
+    /*
+    public boolean ejemplo(Ubicacion ubicacion) {
 
+    }
+    */
     public Direccion direccionOpuesta(){
         return new DireccionAbajo();
     }

@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
-Haceimport java.util.Random;
+import java.util.Random;
 
 /**
  * JavaFX App
