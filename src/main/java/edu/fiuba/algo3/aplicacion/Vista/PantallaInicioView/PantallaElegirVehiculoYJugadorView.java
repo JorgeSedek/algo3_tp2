@@ -42,7 +42,7 @@ public class PantallaElegirVehiculoYJugadorView {
             Juego.resetInstance(this.app.getJugadores());
             this.escenarioView = new EscenarioView(this.app, this.app.getStage());
             this.app.asignarEscenario(escenarioView);
-            JuegoView juegoView = new JuegoView(this.app);
+            JuegoView juegoView = new JuegoView(this.app, escenarioView);
             //Stage ventana = new Stage();
 
             Scene escenaJuego = new Scene(juegoView.mostrarPantallaJuego(), 1000, 1000);

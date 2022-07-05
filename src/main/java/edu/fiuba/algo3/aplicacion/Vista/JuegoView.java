@@ -1,23 +1,26 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
 import edu.fiuba.algo3.aplicacion.App;
-import edu.fiuba.algo3.modelo.General.Logger;
+import edu.fiuba.algo3.aplicacion.Eventos.*;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 public class JuegoView extends BorderPane {
 
     private App app;
     private EscenarioView escenarioView;
 
-    public JuegoView(App app){
+    public JuegoView(App app, EscenarioView escenarioView){
         this.app = app;
+        this.escenarioView = escenarioView;
         //this.mostrarPantallaJuego();
     }
 
@@ -39,9 +42,10 @@ public class JuegoView extends BorderPane {
     }
 
     private void setAbajo() {
-        TextArea etiqueta = new TextArea();
-        etiqueta.setText(Logger.getInstance().escribir());
+        Label etiqueta = new Label();
+        etiqueta.setText("consola...");
         etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
+        etiqueta.setTextFill(Color.WHITE);
 
         VBox contenedorConsola = new VBox(etiqueta);
         contenedorConsola.setPrefWidth(300);
@@ -66,6 +70,18 @@ public class JuegoView extends BorderPane {
         Button moverIzq = new Button("Izquierda");
         Button moverArr = new Button("Arriba");
         Button moverAbj = new Button("Abajo");
+
+        BotonMovDerechaEvento botonMovDerechaEvento = new BotonMovDerechaEvento(escenarioView, this);
+        moverDer.setOnAction(botonMovDerechaEvento);
+
+        BotonMovIzquierdaEvento botonMovIzquierdaEvento = new BotonMovIzquierdaEvento(escenarioView, this);
+        moverIzq.setOnAction(botonMovIzquierdaEvento);
+
+        BotonMovAbajoEvento botonMovAbajoEvento = new BotonMovAbajoEvento(escenarioView, this);
+        moverAbj.setOnAction(botonMovAbajoEvento);
+
+        BotonMovArribaEvento botonMovArribaEvento = new BotonMovArribaEvento(escenarioView, this);
+        moverArr.setOnAction(botonMovArribaEvento);
 
         VBox contenedorMovimientos = new VBox(movimientos, moverArr, moverDer, moverIzq, moverAbj);
         contenedorMovimientos.setSpacing(10);
