@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 public class PantallaElegirVehiculoYJugadorView {
 
@@ -46,6 +45,7 @@ public class PantallaElegirVehiculoYJugadorView {
             //Stage ventana = new Stage();
 
             Scene escenaJuego = new Scene(juegoView.mostrarPantallaJuego(), 1000, 1000);
+            escenaJuego.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
             escenaJuego.setOnKeyPressed(new ControladorTecladoEvento(escenarioView, juegoView));
             //ventana.setScene(escenaJuego);
             //ventana.show();
