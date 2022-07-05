@@ -7,12 +7,15 @@ import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Puntaje;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -56,14 +59,15 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
         // Entra a este if cuando se termina el juego
         if (!Juego.getInstance().hayJugadoresActivos()) {
-
             StackPane puntuaciones = new StackPane();
-            TextArea textArea = new TextArea(
-                    "TABLA DE PUNTUACIONES: \n\n" + puntajesDeLosJugadores()
-            );
-            textArea.setEditable(false);
-            VBox vbox = new VBox(textArea);
+
+            Label titulo = new Label("TABLA DE PUNTUACIONES: \n\n");
+
+            VBox vbox = new VBox(titulo);
+            vbox.setId("puntuaciones");
+            puntajesDeLosJugadores(vbox);
             puntuaciones.getChildren().add(vbox);
+            vbox.setAlignment(Pos.TOP_CENTER);
 
             Stage stageEscenarioView = escenarioView.obtenerStage();
             Scene scene = new Scene(puntuaciones);
@@ -74,15 +78,17 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         }
     }
 
-    private String puntajesDeLosJugadores() {
+    private void puntajesDeLosJugadores(VBox vBox) {
         List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
-        String puntajesString = "";
 
         for (Puntaje puntaje : puntajes) {
-            puntajesString += "Jugador: " + puntaje.obtenerNombreJugador() + " Movimientos: " + puntaje.obtenerPuntuacion() + "\n";
+            Text nombre = new Text(puntaje.obtenerNombreJugador());
+            Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion() ));
+            HBox hBox = new HBox(nombre, puntuacion);
+            hBox.setSpacing(100);
+            hBox.setAlignment(Pos.CENTER);
+            vBox.getChildren().add(hBox);
         }
-
-        return puntajesString;
     }
 
 }

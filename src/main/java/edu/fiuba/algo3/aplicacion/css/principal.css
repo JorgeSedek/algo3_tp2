@@ -41,3 +41,7 @@
 .text-area .scroll-pane .content{
     -fx-background-color: transparent;
 }
+
+#puntuaciones {
+    -fx-font-size: 40pt;
+}
