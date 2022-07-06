@@ -23,4 +23,5 @@ public class DireccionArriba implements Direccion{
     public String asString() {
         return "Arriba";
     }
+
 }

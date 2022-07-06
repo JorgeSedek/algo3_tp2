@@ -62,6 +62,10 @@ public class Ubicacion {
 		return Escenario.getInstance().excedeLimites(fila, columna - 1);
 	}
 
+	public boolean estoyEnElBorde() {
+		return Escenario.getInstance().esBorde(fila, columna);
+	}
+
 	public boolean podesTenerMeta() {
 		return Escenario.getInstance().correspondeMeta(this.columna);
 	}

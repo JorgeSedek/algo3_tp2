@@ -43,6 +43,9 @@ public class ColocadorRandom implements ColocadorItems{
                 }
             }
         }
+
+        limpiarBordesDePiquetes(casilleros);
+
         int indexRandom = (int) (RANDOM.random() * casillerosCalleUltimaColumna.size());
         Casillero casilleroFinal = casillerosCalleUltimaColumna.get(indexRandom);
 
@@ -80,5 +83,14 @@ public class ColocadorRandom implements ColocadorItems{
 
     public void agregarMetaEn(Casillero casillero, Meta meta) {
         casillero.asignarMeta(meta);
+    }
+
+    private void limpiarBordesDePiquetes(ArrayList<Casillero> casilleros) {
+        for (Casillero casillero : casilleros) {
+            Obstaculo obstaculo = casillero.obtenerObstaculo();
+            if (casillero.obtenerUbicacion().estoyEnElBorde() & obstaculo instanceof Piquete) {
+                casillero.asignarObstaculo(new SinObstaculo());
+            }
+        }
     }
 }

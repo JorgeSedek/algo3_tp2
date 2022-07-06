@@ -15,10 +15,10 @@ import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
 import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
-import edu.fiuba.algo3.modelo.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

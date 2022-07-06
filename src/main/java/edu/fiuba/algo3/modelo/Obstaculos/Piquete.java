@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo.Obstaculos;
 
 import edu.fiuba.algo3.modelo.Efecto.*;
 import edu.fiuba.algo3.modelo.General.Logger;
-import edu.fiuba.algo3.modelo.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Moto;
 
 public class Piquete implements Obstaculo {
     public Efecto atravesar(Auto auto) {
@@ -18,11 +18,6 @@ public class Piquete implements Obstaculo {
         Logger.getInstance().imprimir("No podes atravezar el piquete, volves a tu posición anterior");
         Efecto efecto = new EfectoGeneral();
 
-        /*
-        camioneta.obtenerUbicacion().voyAChocarBorde(camioneta.obtenerDireccion());
-        if voy a chocar contra el borde:
-            return efectoGeneral
-        */
         return new EfectoMoverAlReves(efecto, camioneta);
     }
 
@@ -32,4 +27,5 @@ public class Piquete implements Obstaculo {
         Efecto efecto = new EfectoGeneral();
         return new EfectoIncrementarMovimientos(efecto, incremento);
     }
+
 }

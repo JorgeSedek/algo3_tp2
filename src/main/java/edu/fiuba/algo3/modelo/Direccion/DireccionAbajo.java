@@ -21,4 +21,5 @@ public class DireccionAbajo implements Direccion{
     public String asString() {
         return "Abajo";
     }
+
 }

@@ -21,4 +21,5 @@ public class DireccionIzquierda implements Direccion{
     public String asString() {
         return "la Izquierda";
     }
+
 }

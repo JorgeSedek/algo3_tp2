@@ -1,21 +1,9 @@
 package edu.fiuba.algo3.aplicacion.Vista.VehiculosView;
 
-import edu.fiuba.algo3.aplicacion.Eventos.ControladorTecladoEvento;
-import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
-import edu.fiuba.algo3.modelo.Direccion.Direccion;
-import edu.fiuba.algo3.modelo.Direccion.DireccionArriba;
-import edu.fiuba.algo3.modelo.Vehiculo.Auto;
-import javafx.animation.*;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.TilePane;
-import javafx.scene.transform.Rotate;
-import javafx.scene.transform.Translate;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class AutoView implements VehiculoView{
 

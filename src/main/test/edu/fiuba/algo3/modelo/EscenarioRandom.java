@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.General.*;
-import edu.fiuba.algo3.modelo.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

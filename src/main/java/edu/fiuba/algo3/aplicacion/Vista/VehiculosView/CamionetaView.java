@@ -1,13 +1,9 @@
 package edu.fiuba.algo3.aplicacion.Vista.VehiculosView;
 
-import edu.fiuba.algo3.modelo.Direccion.*;
-import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
-import javafx.animation.TranslateTransition;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Camioneta;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.util.Duration;
 
 public class CamionetaView implements VehiculoView{
     protected Camioneta camioneta;

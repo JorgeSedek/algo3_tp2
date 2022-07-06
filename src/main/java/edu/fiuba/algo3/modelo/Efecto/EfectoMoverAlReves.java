@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Efecto;
 
 import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Vehiculo;
 
 public class EfectoMoverAlReves extends EfectoDecorador {
 

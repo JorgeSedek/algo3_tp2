@@ -6,10 +6,9 @@ import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.Efecto.EfectoIncrementarMovimientos;
 import edu.fiuba.algo3.modelo.General.Logger;
 import edu.fiuba.algo3.modelo.Math.IMath;
-import edu.fiuba.algo3.modelo.Math.Random;
-import edu.fiuba.algo3.modelo.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Moto;
 
 public class Policia implements Obstaculo {
     private double probabilidad;

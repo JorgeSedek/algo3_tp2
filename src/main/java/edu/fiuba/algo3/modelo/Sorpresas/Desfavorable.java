@@ -4,9 +4,9 @@ import edu.fiuba.algo3.modelo.Efecto.Efecto;
 import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.Efecto.EfectoIncrementarMovimientosPorcentual;
 import edu.fiuba.algo3.modelo.General.Logger;
-import edu.fiuba.algo3.modelo.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Moto;
 
 public class Desfavorable implements Sorpresa {
     public Efecto atravesar(Auto auto) {

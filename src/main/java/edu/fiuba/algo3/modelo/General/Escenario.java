@@ -59,6 +59,10 @@ public class Escenario {
 		return ((fila < 1 || fila  > FILAS) || (columna < 1 || columna > COLUMNAS));
 	}
 
+	public boolean esBorde(int fila, int columna) {
+		return ((fila == 1 || fila == FILAS) || (columna == 1 || columna == COLUMNAS));
+	}
+
 	public void agregarObstaculoEn(Ubicacion ubicacion, Obstaculo obstaculo) {
 		Casillero casillero = this.buscarCasilleroEn(ubicacion);
 		casillero.asignarObstaculo(obstaculo);
