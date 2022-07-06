@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo.Obstaculos;
 
 import edu.fiuba.algo3.modelo.Efecto.*;
 import edu.fiuba.algo3.modelo.General.Logger;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 public class Piquete implements Obstaculo {
     public Efecto atravesar(Auto auto) {

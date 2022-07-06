@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Colocador.Vehiculo;
+package edu.fiuba.algo3.modelo.Vehiculo;
 
 import edu.fiuba.algo3.modelo.Efecto.Efecto;
 import edu.fiuba.algo3.modelo.General.Ubicacion;

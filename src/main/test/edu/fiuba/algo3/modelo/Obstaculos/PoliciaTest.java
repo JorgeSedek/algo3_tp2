@@ -5,10 +5,10 @@ import edu.fiuba.algo3.modelo.Efecto.EfectoGeneral;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Math.IMath;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Auto;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Camioneta;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Moto;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.Vehiculo.Auto;
+import edu.fiuba.algo3.modelo.Vehiculo.Camioneta;
+import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
-import edu.fiuba.algo3.modelo.Colocador.Vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.Collections;
