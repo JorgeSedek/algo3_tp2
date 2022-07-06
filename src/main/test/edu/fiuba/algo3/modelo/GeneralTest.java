@@ -441,6 +441,31 @@ public class GeneralTest {
     }
 
     @Test
+    public void unaCamionetaSeMueveParaAbajoYSeEncuentraUnPiqueteNoPuedePasar(){
+        Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
+        Vehiculo camioneta = new Camioneta(ubicacion);
+        Jugador jugador0 = new Jugador(nombre, camioneta);
+        int cantMovimientos = 1;
+        Ubicacion ubicacionEsperada = new Ubicacion(2,2);
+        List<Jugador> jugadores = new ArrayList<>() {
+            { add(jugador0);}
+        };
+        Escenario.resetInstance(totalFilas, totalColumnas);
+        Juego.resetInstance(jugadores);
+
+        Obstaculo piquete = new Piquete();
+        Ubicacion ubicacionPiquete = new Ubicacion(3, 2);
+        Escenario.getInstance().agregarObstaculoEn(ubicacionPiquete, piquete);
+
+        // Act
+        Juego.getInstance().moverVehiculo(new DireccionAbajo());
+
+        // Assert
+        assertTrue(jugador0.verificarUbicacion(ubicacionEsperada));
+        assertTrue(jugador0.verificarMovimientos(cantMovimientos));
+    }
+
+    @Test
     public void unaMotoPasaPorUnaMetaSeLlamaAlFinalizarDeJuegoYSeAgregaLaPuntuacionDelJugador(){
         Ubicacion ubicacion = (new Ubicacion(filaInicial, columnaInicial));
         Vehiculo moto = new Moto(ubicacion);

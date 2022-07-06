@@ -11,7 +11,8 @@ public class DireccionVacia implements Direccion{
         return this;
     }
 
+    // Este metodo no se esta utilizando
     public String asString(){
-     return "vacio";
+     return "Vacio";
     }
 }
