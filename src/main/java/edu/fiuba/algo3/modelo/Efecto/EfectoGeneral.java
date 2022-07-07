@@ -7,6 +7,6 @@ public class EfectoGeneral implements Efecto {
     }
 
     public void aplicar(Jugador jugador) {
-        // efecto por defecto aplicado
+        // Efecto por defecto aplicado
     }
 }
