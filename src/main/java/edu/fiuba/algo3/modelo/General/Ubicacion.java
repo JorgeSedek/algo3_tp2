@@ -12,7 +12,7 @@ public class Ubicacion {
 	}
 
 	public boolean equals(Ubicacion ubicacion) {
-		return (ubicacion.fila == this.fila & ubicacion.columna == this.columna);
+		return (ubicacion.obtenerFila() == this.fila & ubicacion.obtenerColumna() == this.columna);
 	}
 
 	// Es una EntreCalle si su fila y su columna es par

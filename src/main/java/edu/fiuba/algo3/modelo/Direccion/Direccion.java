@@ -9,6 +9,4 @@ public interface Direccion {
     Direccion direccionOpuesta();
 
     String asString();
-
-
 }

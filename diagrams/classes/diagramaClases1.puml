@@ -1,0 +1,80 @@
+@startuml
+class Juego{
+-Juego(jugadores)
++moverVehiculo(direccion: Direccion)
++cambiarJugador();
++finalizar();
+-agregarPuntuacion(jugador);
+-mostrarTopPuntuaciones();
+}
+
+interface Direccion{
++mover(Ubicacion)
++direccionOpuesta():Direccion
+}
+class DireccionAbajo{
++mover(Ubicacion)
++direccionOpuesta():Direccion
+}
+class DireccionArriba{
++mover(Ubicacion)
++direccionOpuesta():Direccion
+}
+class DireccionDerecha{
++mover(Ubicacion)
++direccionOpuesta():Direccion
+}
+class DireccionIzquierda{
++mover(Ubicacion)
++direccionOpuesta():Direccion
+}
+
+class Jugador{
+-nombre:String
+-movimientos:int
++Jugador(nombreJugador:String , vehiculoElegido:Vehiculo)
++incrementarMovimientos(incremento:int)
++reducirMovimientos(disminucion:int)
++aplicarPorcentajeMovimientos(porcentaje:double)
++moverVehiculo(direccion:Direccion)
++cambiarVehiculo(vehiculoNuevo:Vehiculo)
++atravezar(obstaculo)
++atravezar(sorpresa)
++atravezar(meta)
++moverVehiculoSentidoOpuesto();
+}
+
+class Puntaje {
+- nombreJugador:String
+- puntuacion:int
++ Puntaje(Jugador)
+}
+abstract class Vehiculo {
++Vehiculo(Ubicacion)
++atravesar(Obstaculo) : Efecto {abstract}
++atravesar(Sorpresa) : Efecto {abstract}
++atravesar(Meta) : Efecto
++mover(Direccion) : Casillero
++moverSentidoOpuesto();
+}
+class Ubicacion {
+-fila:int
+-columna:int
++Ubicacion(fila,columna)
++mover(DireccionAbajo)
++mover(DireccionArriba)
++mover(DireccionDerecha)
++mover(DireccionIzquierda)
+}
+
+Juego *-> "*" Puntaje
+Juego *--> "*" Jugador
+Jugador *-> Vehiculo
+Vehiculo *--> Ubicacion
+Vehiculo *--> Direccion
+
+Direccion <|-- DireccionAbajo
+Direccion <|-- DireccionArriba
+Direccion <|-- DireccionDerecha
+Direccion <|-- DireccionIzquierda
+@enduml

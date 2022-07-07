@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
-import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,7 +62,6 @@ public class Juego {
         }
     }
 
-    // Devuelve true si hay jugadores activos
     public boolean hayJugadoresActivos(){
         return !(this.JUGADORES.size() == 0);
     }
@@ -98,14 +96,6 @@ public class Juego {
 
     public boolean verificarJugadorActivo(Jugador jugador) {
         return this.jugadorActivo == jugador;
-    }
-
-    public boolean verificarUbicacionJugadorActivo(Ubicacion ubicacion){
-        return jugadorActivo.verificarUbicacion(ubicacion);
-    }
-
-    public boolean verificarVehiculoJugadorActivo(Vehiculo vehiculo){
-        return jugadorActivo.mismoVehiculo(vehiculo);
     }
 
     public Jugador obtenerJugadorActivo(){
