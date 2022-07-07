@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.aplicacion.Eventos;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -11,7 +10,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class BotonSalirEvento implements EventHandler<ActionEvent> {
 
@@ -50,8 +48,5 @@ public class BotonSalirEvento implements EventHandler<ActionEvent> {
         ventanaSalida.show();
         ventanaSalida.setAlwaysOnTop(true);
         aceptar.requestFocus();
-
-
-        //Platform.exit();
     }
 }

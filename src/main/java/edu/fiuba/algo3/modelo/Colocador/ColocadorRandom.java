@@ -1,14 +1,15 @@
 package edu.fiuba.algo3.modelo.Colocador;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
-import edu.fiuba.algo3.modelo.General.Ubicacion;
 import edu.fiuba.algo3.modelo.Math.IMath;
 import edu.fiuba.algo3.modelo.Math.Random;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.*;
-import edu.fiuba.algo3.modelo.Obstaculos.Piquete;
-import edu.fiuba.algo3.modelo.Sorpresas.*;
+import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
+import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
+import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
+import edu.fiuba.algo3.modelo.Sorpresas.SinSorpresa;
 
 import java.util.ArrayList;
 
@@ -52,15 +53,7 @@ public class ColocadorRandom implements ColocadorItems{
 
         casilleroFinal.asignarSorpresa(new SinSorpresa());
         casilleroFinal.asignarObstaculo(new SinObstaculo());
-        /*
-        // TODO, NO QUITAR DE MOMENTO, SIRVE PARA DEBUGGEAR LA INTERFAZ
-        Ubicacion ubicacion = casilleroFinal.obtenerUbicacion();
-        Obstaculo obstaculoFinal = casilleroFinal.obtenerObstaculo();
-        Sorpresa sorpresaFinal = casilleroFinal.obtenerSorpresa();
-        System.out.println("En el casillero final el obstaculo es: " + obstaculoFinal.getClass() + " y la sorpresa es: " + sorpresaFinal.getClass());
-        System.out.println("La meta esta en la fila: " + ubicacion.obtenerFila() + " y columna: " + ubicacion.obtenerColumna());
-        //
-        */
+
         agregarMetaEn(casilleroFinal, new MetaFinal());
     }
 

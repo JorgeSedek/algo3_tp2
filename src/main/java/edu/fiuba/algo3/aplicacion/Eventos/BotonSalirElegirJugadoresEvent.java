@@ -13,6 +13,7 @@ public class BotonSalirElegirJugadoresEvent implements EventHandler<ActionEvent>
     }
 
     public void handle(ActionEvent actionEvent){
+        this.app.obtenerReproductorMusica().stop();
         this.app.start(this.app.getStage());
     }
 

@@ -6,7 +6,6 @@ import edu.fiuba.algo3.aplicacion.Eventos.BotonMovArribaEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonMovDerechaEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonMovIzquierdaEvento;
 import edu.fiuba.algo3.modelo.General.Logger;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -53,23 +52,19 @@ public class JuegoView extends BorderPane {
         notificaciones.setStyle("-fx-text-fill: white");
         notificaciones.setPrefHeight(1500);
         notificaciones.setId("notificaciones");
+        notificaciones.setWrapText(true);
 
         VBox contenedorConsola = new VBox(notificaciones);
-        //contenedorConsola.setOnScrollFinished();
         contenedorConsola.setPrefWidth(450);
         contenedorConsola.setPrefHeight(1500);
-        contenedorConsola.setSpacing(10);
-        contenedorConsola.setPadding(new Insets(15));
         contenedorConsola.setStyle("-fx-background-color: black");
 
         this.setRight(contenedorConsola);
     }
 
     private void setCentro() {
-
         escenarioView = this.app.getEscenarioView();
         this.setCenter(escenarioView.mostrarTablero());
-        //this.setCenter();
     }
 
     public void setBotonera(){
@@ -92,7 +87,6 @@ public class JuegoView extends BorderPane {
         moverArr.setOnAction(botonMovArribaEvento);
 
         VBox contenedorMovimientos = new VBox(movimientos, moverArr, moverDer, moverIzq, moverAbj);
-        contenedorMovimientos.setSpacing(10);
         contenedorMovimientos.setPrefHeight(800);
         contenedorMovimientos.setPrefWidth(214);
 

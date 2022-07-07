@@ -49,6 +49,7 @@ public class InstruccionesView {
         textArea.setEditable(false);
         textArea.setPrefHeight(800);
         textArea.setPrefWidth(800);
+        textArea.setWrapText(true);
 
         Button salir = new Button("Atras");
         BotonCancelarSalirEvento botonSalir = new BotonCancelarSalirEvento(ventana);

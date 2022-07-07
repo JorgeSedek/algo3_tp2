@@ -80,7 +80,6 @@ public class EscenarioView {
                 if (ubicacion.hayEdificio()) {
                     EdificioView edificioView = new EdificioView(x, y, height, width, filas, columnas);
                     root.getChildren().add(edificioView);
-
                 }
 
                 casillerosView.getChildren().add(casillero);
@@ -123,16 +122,11 @@ public class EscenarioView {
        }
 
        if (vehiculo instanceof Camioneta){
-
            CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
            camionetaView4.dibujar();
-
        }
-
        return root;
-
     }
-
 
     public void actualizar(){
         mostrarTablero();
@@ -182,7 +176,6 @@ public class EscenarioView {
                 }
             }
         }
-
 
         return metaFinal;
     }
