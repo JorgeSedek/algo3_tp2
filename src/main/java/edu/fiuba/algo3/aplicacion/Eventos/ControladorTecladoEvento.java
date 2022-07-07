@@ -5,6 +5,7 @@ import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Juego;
+import edu.fiuba.algo3.modelo.General.Logger;
 import edu.fiuba.algo3.modelo.General.Puntaje;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -36,7 +37,6 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
     public void handle(KeyEvent keyEvent){
         if (keyEvent.getCode() == KeyCode.A) {
-
             direccion = new DireccionIzquierda();
             Juego.getInstance().moverVehiculo(direccion);
         }
@@ -62,6 +62,9 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         // Entra a este if cuando se termina el juego
         if (!Juego.getInstance().hayJugadoresActivos()) {
             app.obtenerReproductorMusica().stop();
+            juegoView.limpiarConsola();
+            Logger.getInstance().resetear();
+
             StackPane puntuaciones = new StackPane();
 
             Label titulo = new Label("TABLA DE PUNTUACIONES: \n\n");

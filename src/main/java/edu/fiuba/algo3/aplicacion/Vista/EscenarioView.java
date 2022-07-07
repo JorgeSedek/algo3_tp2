@@ -103,6 +103,7 @@ public class EscenarioView {
        }
 
        Vehiculo vehiculo =  jugador.obtenerVehiculo();
+
        if (vehiculo instanceof Auto ){
            AutoView autoView = new AutoView((Auto) vehiculo,root,alto,ancho);
            autoView.dibujar();
@@ -162,7 +163,7 @@ public class EscenarioView {
 
         for (int x = 1; x <= columnas; x++) {
             for (int y = 1; y <= filas; y++) {
-                Ubicacion ubicacion = new Ubicacion(x,y);
+                Ubicacion ubicacion = new Ubicacion(x, y);
                 if(Escenario.getInstance().buscarCasilleroEn(ubicacion).obtenerMeta() instanceof MetaFinal){
                     metaFinal =  Escenario.getInstance().buscarCasilleroEn(ubicacion);
                 }

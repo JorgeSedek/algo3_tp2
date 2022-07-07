@@ -19,9 +19,14 @@ public class JuegoView extends BorderPane {
     private App app;
     private EscenarioView escenarioView;
 
+    private TextArea notificaciones;
+
     public JuegoView(App app, EscenarioView escenarioView){
         this.app = app;
+
         this.escenarioView = escenarioView;
+
+        notificaciones = new TextArea();
     }
 
     public BorderPane mostrarPantallaJuego(){
@@ -42,7 +47,6 @@ public class JuegoView extends BorderPane {
     }
 
     private void setConsola() {
-        TextArea notificaciones = new TextArea();
         notificaciones.setScrollTop(Double.MIN_VALUE);
         notificaciones.setScrollLeft(Double.MAX_VALUE);
 
@@ -92,6 +96,10 @@ public class JuegoView extends BorderPane {
         contenedorMovimientos.setId("contenedorMovimientos");
 
         this.setLeft(contenedorMovimientos);
+    }
+
+    public void limpiarConsola() {
+        this.notificaciones.setText("");
     }
 
     public void actualizar() {

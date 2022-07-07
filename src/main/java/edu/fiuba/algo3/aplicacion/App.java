@@ -4,7 +4,6 @@ import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
-import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.modelo.General.Escenario;
 import edu.fiuba.algo3.modelo.General.Jugador;
 import javafx.application.Application;
@@ -32,9 +31,7 @@ public class App extends Application {
     private Stage stage;
     private MediaPlayer mediaPlayer;
     private List<Jugador> jugadores;
-    private Escenario escenario;
     private EscenarioView escenarioView;
-    private JuegoView juegoView;
 
 
     @Override
@@ -52,7 +49,7 @@ public class App extends Application {
         Button salir = new Button("Salir");
         Button instrucciones = new Button("Instrucciones");
 
-        // Propiedades y setters
+        // Propiedades, setters y musica
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());
         instrucciones.defaultButtonProperty().bind(instrucciones.focusedProperty());
