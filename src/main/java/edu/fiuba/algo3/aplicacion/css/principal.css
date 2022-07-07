@@ -42,6 +42,12 @@
     -fx-background-color: transparent;
 }
 
+#contenedorMovimientos .button {
+    -fx-padding: 5px 5px;
+    -fx-border-insets: 30px;
+    -fx-background-insets: 30px;
+}
+
 #puntuaciones {
     -fx-font-size: 40pt;
 }

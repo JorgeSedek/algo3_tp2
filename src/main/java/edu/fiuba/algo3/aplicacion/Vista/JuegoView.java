@@ -88,7 +88,8 @@ public class JuegoView extends BorderPane {
 
         VBox contenedorMovimientos = new VBox(movimientos, moverArr, moverDer, moverIzq, moverAbj);
         contenedorMovimientos.setPrefHeight(800);
-        contenedorMovimientos.setPrefWidth(214);
+        contenedorMovimientos.setPrefWidth(250);
+        contenedorMovimientos.setId("contenedorMovimientos");
 
         this.setLeft(contenedorMovimientos);
     }

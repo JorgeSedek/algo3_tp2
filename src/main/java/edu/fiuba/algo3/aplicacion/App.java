@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.aplicacion;
 
-import java.io.File;
-
 import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
-import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
@@ -15,15 +12,15 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import javafx.scene.media.Media;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +103,6 @@ public class App extends Application {
     }
 
     public List<Jugador> getJugadores(){
-
         return this.jugadores;
     }
 
