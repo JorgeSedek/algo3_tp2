@@ -18,9 +18,12 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,6 +82,8 @@ public class App extends Application {
         layout.setPrefWidth(1920);
         layout.getChildren().addAll(contenedorPrincipal, titulo, integrantes);
 
+        //reproducirMusica();
+
         // Stage
         Image icon = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/icon.png");
         stage.getIcons().add(icon);
@@ -116,6 +121,14 @@ public class App extends Application {
     public void asignarEscenario(EscenarioView escenarioView) {
         this.escenarioView = escenarioView;
     }
-
+/*
+    private void reproducirMusica() {
+        //String path = "dejavu.mp3";
+        String file = new File("dejavu.mp3").toURI().toString();
+        Media media = new Media("file:../algo3_tp2/src/");
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
+*/
 
 }
