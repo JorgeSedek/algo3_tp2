@@ -82,7 +82,7 @@ public class App extends Application {
         layout.setPrefWidth(1920);
         layout.getChildren().addAll(contenedorPrincipal, titulo, integrantes);
 
-        //reproducirMusica();
+        reproducirMusica();
 
         // Stage
         Image icon = new Image("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/imagenes/icon.png");
@@ -121,14 +121,13 @@ public class App extends Application {
     public void asignarEscenario(EscenarioView escenarioView) {
         this.escenarioView = escenarioView;
     }
-/*
+
     private void reproducirMusica() {
-        //String path = "dejavu.mp3";
-        String file = new File("dejavu.mp3").toURI().toString();
-        Media media = new Media("file:../algo3_tp2/src/");
+        String path = getClass().getResource("dejavu.mp3").getPath();
+        Media media = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
-*/
+
 
 }
