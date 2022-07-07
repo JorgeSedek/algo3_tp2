@@ -13,7 +13,7 @@ public class BotonInstruccionesEvento implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent arg0){
-        InstruccionesView instruccionesView = new InstruccionesView(this.app);
+        InstruccionesView instruccionesView = new InstruccionesView();
         instruccionesView.leerInstrucciones();
     }
 

@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
-import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.AutoView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.CamionetaView;
 import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.MotoView;
-import edu.fiuba.algo3.aplicacion.Vista.VehiculosView.VehiculoView;
 import edu.fiuba.algo3.modelo.General.*;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Vehiculo.Auto;
@@ -23,7 +21,6 @@ import javafx.stage.Stage;
 
 public class EscenarioView {
 
-    private App app;
     private Stage stage;
     private double width = 1042;
     private double height = 1042;
@@ -31,10 +28,7 @@ public class EscenarioView {
     private Jugador jugador;
     private Casillero meta;
 
-    private VehiculoView vehiculoView;
-
-    public EscenarioView(App app, Stage stage){
-        this.app = app;
+    public EscenarioView(Stage stage){
         this.stage = stage;
     }
 
@@ -59,22 +53,24 @@ public class EscenarioView {
         return this.stage;
     }
 
-    public App obtenerApp() {
-        return this.app;
+    public Parent mostrarTableroView(){
+        Pane root = construirEscenario(new Pane());
+        actualizarJugador();
+
+        return root;
     }
 
-    public Parent mostrarTableroView(){
+    public Pane construirEscenario(Pane root) {
         int filas = Escenario.getInstance().obtenerFilas();
         int columnas = Escenario.getInstance().obtenerColumnas();
 
-        Pane root = new Pane();
+        for (int x = 1; x <= columnas; x++) {
+            for (int y = 1; y <= filas; y++) {
+                Ubicacion ubicacion = new Ubicacion(x, y);
+                CasilleroView casilleroView = new CasilleroView(filas, columnas, this.height, this.width);
 
-        for (int x = 1; x <= columnas; x++){
-            for (int y = 1; y <= filas; y++){
-                Ubicacion ubicacion = new Ubicacion(x,y);
-                CasilleroView casillero = new CasilleroView(filas, columnas, this.height, this.width);
                 if (ubicacion.hayCalle()) {
-                    casillero.dibujarCasillero(x, y, Escenario.getInstance().buscarCasilleroEn(ubicacion), root);
+                    casilleroView.dibujarCasillero(Escenario.getInstance().buscarCasilleroEn(ubicacion), root);
                 }
 
                 if (ubicacion.hayEdificio()) {
@@ -82,15 +78,11 @@ public class EscenarioView {
                     root.getChildren().add(edificioView);
                 }
 
-                casillerosView.getChildren().add(casillero);
+                casillerosView.getChildren().add(casilleroView);
             }
         }
 
-
-        actualizarJugador();
-
         return root;
-
     }
 
     public void actualizarJugador(){
@@ -112,19 +104,20 @@ public class EscenarioView {
 
        Vehiculo vehiculo =  jugador.obtenerVehiculo();
        if (vehiculo instanceof Auto ){
-           AutoView autoView4 = new AutoView((Auto) vehiculo,root,alto,ancho);
-           autoView4.dibujar();
+           AutoView autoView = new AutoView((Auto) vehiculo,root,alto,ancho);
+           autoView.dibujar();
        }
 
        if (vehiculo instanceof Moto) {
-           MotoView motoView4 = new MotoView((Moto) vehiculo, root,alto,ancho);
-           motoView4.dibujar();
+           MotoView motoView = new MotoView((Moto) vehiculo, root,alto,ancho);
+           motoView.dibujar();
        }
 
        if (vehiculo instanceof Camioneta){
-           CamionetaView camionetaView4 = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
-           camionetaView4.dibujar();
+           CamionetaView camionetaView = new CamionetaView((Camioneta) vehiculo, root, alto, ancho);
+           camionetaView.dibujar();
        }
+
        return root;
     }
 
@@ -162,7 +155,6 @@ public class EscenarioView {
     }
 
     public Casillero buscarMeta(){
-
         Casillero metaFinal = new Casillero(0,0);
 
         int filas = Escenario.getInstance().obtenerFilas();

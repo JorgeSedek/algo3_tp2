@@ -28,16 +28,16 @@ public class PantallaElegirVehiculoYJugadorView {
     }
 
     public void ingresarNombresYVehiculo(int cant_jugadores){
-
         this.cantidad = cant_jugadores;
-        if(cant_jugadores > 0){
+
+        if (cant_jugadores > 0) {
             agregarJugadores();
             this.cantidad --;
-        }else{
-
+        }
+        else {
             Logger.getInstance().activar();
             Juego.resetInstance(this.app.getJugadores());
-            this.escenarioView = new EscenarioView(this.app, this.app.getStage());
+            this.escenarioView = new EscenarioView(this.app.getStage());
             this.app.asignarEscenario(escenarioView);
             JuegoView juegoView = new JuegoView(this.app, escenarioView);
 
@@ -120,7 +120,6 @@ public class PantallaElegirVehiculoYJugadorView {
         scene.getStylesheets().add("file:../algo3_tp2/src/main/java/edu/fiuba/algo3/aplicacion/css/principal.css");
         this.app.getStage().setScene(scene);
         this.app.getStage().setFullScreen(true);
-        //this.app.reproducirMusica();
         this.app.getStage().setFullScreenExitHint("");
         this.app.getStage().centerOnScreen();
     }
