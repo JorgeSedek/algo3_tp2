@@ -19,6 +19,7 @@ public class ColocadorRandom implements ColocadorItems{
         add(new Favorable());
         add(new Desfavorable());
         add(new CambioVehiculo());
+        //add(new Sorpresata());
     }};
 
     private final ArrayList<Obstaculo> OBSTACULOS = new ArrayList<>() {{

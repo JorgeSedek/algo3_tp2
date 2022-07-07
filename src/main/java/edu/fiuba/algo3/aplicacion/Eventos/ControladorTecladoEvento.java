@@ -62,6 +62,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
         // Entra a este if cuando se termina el juego
         if (!Juego.getInstance().hayJugadoresActivos()) {
+            app.obtenerReproductorMusica().stop();
             StackPane puntuaciones = new StackPane();
 
             Label titulo = new Label("TABLA DE PUNTUACIONES: \n\n");

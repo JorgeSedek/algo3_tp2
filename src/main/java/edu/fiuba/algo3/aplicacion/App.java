@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.aplicacion;
 
+import java.io.File;
+
 import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirElegirJugadoresEvent;
@@ -22,8 +24,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +33,7 @@ import java.util.List;
 public class App extends Application {
 
     private Stage stage;
+    private MediaPlayer mediaPlayer;
     private List<Jugador> jugadores;
     private Escenario escenario;
     private EscenarioView escenarioView;
@@ -122,12 +123,15 @@ public class App extends Application {
         this.escenarioView = escenarioView;
     }
 
-    private void reproducirMusica() {
-        String path = getClass().getResource("dejavu.mp3").getPath();
-        Media media = new Media(new File(path).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+    public void reproducirMusica() {
+        File file = new File("src/dejavu.mp3");
+        Media media = new Media( file.toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setAutoPlay(true);
         mediaPlayer.play();
     }
 
-
+    public MediaPlayer obtenerReproductorMusica() {
+        return this.mediaPlayer;
+    }
 }
