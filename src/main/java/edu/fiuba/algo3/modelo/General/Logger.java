@@ -38,7 +38,9 @@ public class Logger {
     }
 
     public String escribir() {
-        return acumulacion;
+        String x = acumulacion;
+        this.resetear();
+        return x;
     }
 
     public void resetear() {
