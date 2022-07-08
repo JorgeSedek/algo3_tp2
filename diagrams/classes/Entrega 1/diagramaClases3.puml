@@ -1,29 +1,58 @@
 @startuml
 interface Obstaculo{
-+pasarObstaculo(unAuto:Auto, unJugador:Jugador)
-+pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
-+pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
 }
 
 class Pozo{
-+pasarObstaculo(unAuto:Auto, unJugador:Jugador)
-+pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
-+pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
 }
 
 class Policia{
-+pasarObstaculo(unAuto:Auto, unJugador:Jugador)
-+pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
-+pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
 }
 
 class Piquete{
-+pasarObstaculo(unAuto:Auto, unJugador:Jugador)
-+pasarObstaculo(unaCamioneta:CuatroXCuatro, unJugador:Jugador)
-+pasarObstaculo(unaMoto:Moto, unJugador:Jugador)
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
 }
 
 Obstaculo <|.. Pozo
 Obstaculo <|.. Policia
 Obstaculo <|.. Piquete
+
+interface Sorpresa{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class Favorable{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class Desfavorable{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class CambioVehiculo{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+
+Sorpresa <|.. Favorable
+Sorpresa <|.. Desfavorable
+Sorpresa <|.. CambioVehiculo
 @enduml
