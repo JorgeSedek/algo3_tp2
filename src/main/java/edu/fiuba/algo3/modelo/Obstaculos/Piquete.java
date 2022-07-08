@@ -28,4 +28,7 @@ public class Piquete implements Obstaculo {
         return new EfectoIncrementarMovimientos(efecto, incremento);
     }
 
+    public boolean molestoEnElBorde() {
+        return true;
+    }
 }

@@ -31,5 +31,9 @@ public class Pozo implements Obstaculo {
         Logger.getInstance().imprimir("Atravezaste un Pozo, se te suman " + incremento + " movimientos");
         return new EfectoIncrementarMovimientos(efecto, incremento);
     }
+
+    public boolean molestoEnElBorde() {
+        return false;
+    }
 }
 

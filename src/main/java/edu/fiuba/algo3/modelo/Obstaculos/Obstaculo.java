@@ -13,5 +13,5 @@ public interface Obstaculo {
 
     Efecto atravesar(Moto moto);
 
-
+    boolean molestoEnElBorde();
 }

@@ -20,5 +20,7 @@ public class SinObstaculo implements Obstaculo{
         return new EfectoGeneral();
     }
 
-
+    public boolean molestoEnElBorde() {
+        return false;
+    }
 }

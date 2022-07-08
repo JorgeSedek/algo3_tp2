@@ -81,7 +81,7 @@ public class ColocadorRandom implements ColocadorItems{
     private void limpiarBordesDePiquetes(ArrayList<Casillero> casilleros) {
         for (Casillero casillero : casilleros) {
             Obstaculo obstaculo = casillero.obtenerObstaculo();
-            if (casillero.obtenerUbicacion().estoyEnElBorde() & obstaculo instanceof Piquete) {
+            if (casillero.obtenerUbicacion().estoyEnElBorde() & obstaculo.molestoEnElBorde()) {
                 casillero.asignarObstaculo(new SinObstaculo());
             }
         }

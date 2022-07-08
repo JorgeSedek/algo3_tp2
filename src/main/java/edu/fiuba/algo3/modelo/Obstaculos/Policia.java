@@ -48,4 +48,8 @@ public class Policia implements Obstaculo {
         }
         return efecto;
     }
+
+    public boolean molestoEnElBorde() {
+        return false;
+    }
 }
