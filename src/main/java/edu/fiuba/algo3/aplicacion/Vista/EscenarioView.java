@@ -131,7 +131,7 @@ public class EscenarioView {
         StackPane layout = new StackPane();
 
         double radioMeta = width/(double)Escenario.getInstance().obtenerFilas();
-        double radioVehiculo = radioMeta *2;
+        double radioVehiculo = radioMeta * 4;
 
         Vehiculo vehiculo = jugador.obtenerVehiculo();
 
