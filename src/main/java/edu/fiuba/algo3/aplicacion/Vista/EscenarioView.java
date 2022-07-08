@@ -22,8 +22,8 @@ import javafx.stage.Stage;
 public class EscenarioView {
 
     private Stage stage;
-    private double width = 600;
-    private double height = 600;
+    private double width = 1042;
+    private double height = 1042;
     private Group casillerosView = new Group();
     private Jugador jugador;
     private Casillero meta;

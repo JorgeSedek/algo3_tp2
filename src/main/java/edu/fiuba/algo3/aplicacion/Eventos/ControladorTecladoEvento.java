@@ -96,10 +96,11 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         int cantJugadoresEnTop = 0;
 
         for (Puntaje puntaje : puntajes) {
+            cantJugadoresEnTop++;
             if (cantJugadoresEnTop > 6) {
                 return;
             }
-            cantJugadoresEnTop++;
+
             Text nombre = new Text(puntaje.obtenerNombreJugador());
             Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion()));
             HBox hBox = new HBox(nombre, puntuacion);
