@@ -78,7 +78,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
             VBox vbox = new VBox(titulo);
             vbox.setId("puntuaciones");
-            puntajesDeLosJugadores(vbox);
+            puntajesDeLosTop6Jugadores(vbox);
             puntuaciones.getChildren().addAll(vbox, salir);
             vbox.setAlignment(Pos.TOP_CENTER);
 
@@ -91,16 +91,22 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         }
     }
 
-    private void puntajesDeLosJugadores(VBox vBox) {
+    private void puntajesDeLosTop6Jugadores(VBox vBox) {
         List<Puntaje> puntajes = app.obtenerPuntajes();
+        int cantJugadoresEnTop = 0;
 
         for (Puntaje puntaje : puntajes) {
+            if (cantJugadoresEnTop > 6) {
+                return;
+            }
+            cantJugadoresEnTop++;
             Text nombre = new Text(puntaje.obtenerNombreJugador());
             Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion()));
             HBox hBox = new HBox(nombre, puntuacion);
             hBox.setSpacing(100);
             hBox.setAlignment(Pos.CENTER);
             vBox.getChildren().add(hBox);
+
         }
     }
 
