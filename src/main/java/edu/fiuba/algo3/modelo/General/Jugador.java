@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Obstaculos.Obstaculo;
 import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import edu.fiuba.algo3.modelo.Vehiculo.Vehiculo;
 
-
 public class Jugador {
     private Vehiculo vehiculo;
     private final String nombre;
@@ -68,7 +67,6 @@ public class Jugador {
 
     // Se usa para tests
     public boolean mismoVehiculo(Vehiculo vehiculo) {
-        // TODO cambiar la comparación
         return (this.vehiculo.getClass() == vehiculo.getClass() && this.vehiculo.verificarUbicacion(vehiculo.obtenerUbicacion()));
     }
 
@@ -88,6 +86,7 @@ public class Jugador {
         return this.movimientos;
     }
 
+    // Se usa para tests
     public boolean verificarUbicacion(Ubicacion ubicacion){
         return this.vehiculo.verificarUbicacion(ubicacion);
     }

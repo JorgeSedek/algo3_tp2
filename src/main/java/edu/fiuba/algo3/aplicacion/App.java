@@ -4,9 +4,7 @@ import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
-import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.*;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,10 +16,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,10 +32,9 @@ public class App extends Application {
     private Stage stage;
     private MediaPlayer mediaPlayer;
     private List<Jugador> jugadores;
-    private Escenario escenario;
     private EscenarioView escenarioView;
-    private JuegoView juegoView;
 
+    private List<Puntaje> puntajes = new ArrayList<>();
 
     @Override
     public void start(Stage stage) {
@@ -52,7 +51,7 @@ public class App extends Application {
         Button salir = new Button("Salir");
         Button instrucciones = new Button("Instrucciones");
 
-        // Propiedades y setters
+        // Propiedades, setters y musica
         comenzar.defaultButtonProperty().bind(comenzar.focusedProperty());
         salir.defaultButtonProperty().bind(salir.focusedProperty());
         instrucciones.defaultButtonProperty().bind(instrucciones.focusedProperty());
@@ -129,5 +128,17 @@ public class App extends Application {
 
     public MediaPlayer obtenerReproductorMusica() {
         return this.mediaPlayer;
+    }
+
+    public void agregarPuntajesJugadores() {
+        List<Puntaje> puntajesJuego = Juego.getInstance().obtenerPuntajes();
+        for (Puntaje puntaje : puntajesJuego) {
+            this.puntajes.add(puntaje);
+        }
+    }
+
+    public List<Puntaje> obtenerPuntajes() {
+        Collections.sort(this.puntajes, new OrdenarPorMovimientos());
+        return this.puntajes;
     }
 }

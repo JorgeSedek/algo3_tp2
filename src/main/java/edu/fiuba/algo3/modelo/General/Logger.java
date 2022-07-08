@@ -40,4 +40,8 @@ public class Logger {
     public String escribir() {
         return acumulacion;
     }
+
+    public void resetear() {
+        this.acumulacion = "";
+    }
 }

@@ -37,7 +37,6 @@ public class Juego {
             System.out.println("No quedan jugadores activos, no se realiza movimiento");
             return;
         }
-        //System.out.println("Se mueve el vehiculo en la direccion: " + direccion.getClass()); //TODO SACAR, ES PARA DEBUGEAR EL MOVIMIENTO DEL VEHICULO
         this.jugadorActivo.moverVehiculo(direccion);
         this.cambiarJugador();
     }
@@ -85,15 +84,17 @@ public class Juego {
         Logger.getInstance().imprimir("¡Felicidades " + PUNTUACIONES.get(0).obtenerNombreJugador() + ", ganaste!");
     }
 
-    // Metodos para tests
+    // Metodo para tests
     public boolean verificarMovJugadorActivo(int movimientosEsperados){
         return (this.jugadorActivo.verificarMovimientos(movimientosEsperados));
     }
 
+    // Metodo para tests
     public boolean verificarAtributosNoNulos(){
         return (this.JUGADORES != null & this.jugadorActivo != null);
     }
 
+    // Metodo para tests
     public boolean verificarJugadorActivo(Jugador jugador) {
         return this.jugadorActivo == jugador;
     }

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.modelo.Direccion.*;
 import edu.fiuba.algo3.modelo.General.Juego;
+import edu.fiuba.algo3.modelo.General.Logger;
 import edu.fiuba.algo3.modelo.General.Puntaje;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -36,7 +37,6 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
     public void handle(KeyEvent keyEvent){
         if (keyEvent.getCode() == KeyCode.A) {
-
             direccion = new DireccionIzquierda();
             Juego.getInstance().moverVehiculo(direccion);
         }
@@ -62,6 +62,10 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         // Entra a este if cuando se termina el juego
         if (!Juego.getInstance().hayJugadoresActivos()) {
             app.obtenerReproductorMusica().stop();
+            app.agregarPuntajesJugadores();
+            juegoView.limpiarConsola();
+            Logger.getInstance().resetear();
+
             StackPane puntuaciones = new StackPane();
 
             Label titulo = new Label("TABLA DE PUNTUACIONES: \n\n");
@@ -74,7 +78,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
 
             VBox vbox = new VBox(titulo);
             vbox.setId("puntuaciones");
-            puntajesDeLosJugadores(vbox);
+            puntajesDeLosTop6Jugadores(vbox);
             puntuaciones.getChildren().addAll(vbox, salir);
             vbox.setAlignment(Pos.TOP_CENTER);
 
@@ -87,16 +91,23 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         }
     }
 
-    private void puntajesDeLosJugadores(VBox vBox) {
-        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+    private void puntajesDeLosTop6Jugadores(VBox vBox) {
+        List<Puntaje> puntajes = app.obtenerPuntajes();
+        int cantJugadoresEnTop = 0;
 
         for (Puntaje puntaje : puntajes) {
+            cantJugadoresEnTop++;
+            if (cantJugadoresEnTop > 6) {
+                return;
+            }
+
             Text nombre = new Text(puntaje.obtenerNombreJugador());
-            Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion() ));
+            Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion()));
             HBox hBox = new HBox(nombre, puntuacion);
             hBox.setSpacing(100);
             hBox.setAlignment(Pos.CENTER);
             vBox.getChildren().add(hBox);
+
         }
     }
 

@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.aplicacion.Vista;
 
-import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonCancelarSalirEvento;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,10 +10,7 @@ import javafx.stage.Stage;
 
 public class InstruccionesView {
 
-    private App app;
-
-    public InstruccionesView(App app){
-        this.app = app;
+    public InstruccionesView(){
     }
 
     public void leerInstrucciones() {

@@ -20,7 +20,7 @@ public class CreadorObstaculosView {
             return policiaView;
         }
 
-        else /* (obstaculo instanceof SinObstaculo) */{
+        else {
             SinObstaculoView sinObstaculoView = new SinObstaculoView(casillero, alto, ancho);
             return sinObstaculoView;
         }
