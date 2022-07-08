@@ -2,22 +2,18 @@ package edu.fiuba.algo3.modelo.General;
 
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Juego {
     private final List<Jugador> JUGADORES;
     private Jugador jugadorActivo;
     private int numJugador;
-    private final List<Puntaje> PUNTUACIONES;
     private static Juego INSTANCE = null;
 
     private Juego(List<Jugador> jugadores) {
         this.JUGADORES = jugadores;
         this.numJugador = 0;
         this.jugadorActivo = jugadores.get(numJugador);
-        this.PUNTUACIONES = new ArrayList<>();
     }
 
     private synchronized static void createInstance(List<Jugador> jugadores) {
@@ -53,35 +49,16 @@ public class Juego {
 
     public void finalizar() {
         Logger.getInstance().imprimir("¡Felicidades " + this.jugadorActivo.nombre() + ", llegaste a la meta!");
-        this.agregarPuntuacion(jugadorActivo);
+        Ranking.getInstance().agregarPuntaje(this.jugadorActivo.obtenerPuntaje());
         this.JUGADORES.remove(jugadorActivo);
         if(this.JUGADORES.size() == 0) {
             this.jugadorActivo = null;
-            this.mostrarTopPuntuaciones();
+            Ranking.getInstance().mostrarRanking();
         }
     }
 
     public boolean hayJugadoresActivos(){
         return !(this.JUGADORES.size() == 0);
-    }
-
-    private void agregarPuntuacion(Jugador jugador) {
-        Puntaje puntaje = jugador.obtenerPuntaje();
-        PUNTUACIONES.add(puntaje);
-    }
-
-    public List<Puntaje> obtenerPuntajes() {
-        return PUNTUACIONES;
-    }
-
-    private void mostrarTopPuntuaciones() {
-        Logger.getInstance().imprimir("--------------------------------------------------------------------");
-        Logger.getInstance().imprimir("Tabla de puntuaciones");
-        Collections.sort(PUNTUACIONES, new OrdenarPorMovimientos());
-        for(Puntaje puntaje : this.PUNTUACIONES) {
-            Logger.getInstance().imprimir(puntaje.obtenerNombreJugador() + ' ' + puntaje.obtenerPuntuacion());
-        }
-        Logger.getInstance().imprimir("¡Felicidades " + PUNTUACIONES.get(0).obtenerNombreJugador() + ", ganaste!");
     }
 
     // Metodo para tests

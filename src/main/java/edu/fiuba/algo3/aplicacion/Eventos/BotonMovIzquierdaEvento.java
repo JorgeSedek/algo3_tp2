@@ -4,10 +4,10 @@ import edu.fiuba.algo3.aplicacion.App;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
-import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.Direccion.DireccionIzquierda;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Puntaje;
+import edu.fiuba.algo3.modelo.General.Ranking;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -66,7 +66,7 @@ public class BotonMovIzquierdaEvento implements EventHandler<ActionEvent> {
     }
 
     private String puntajesDeLosJugadores() {
-        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+        List<Puntaje> puntajes = Ranking.getInstance().puntajes();
         String puntajesString = "";
 
         for (Puntaje puntaje : puntajes) {

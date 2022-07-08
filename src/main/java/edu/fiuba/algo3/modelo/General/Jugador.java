@@ -71,7 +71,7 @@ public class Jugador {
     }
 
     public Puntaje obtenerPuntaje() {
-        return new Puntaje(this);
+        return new Puntaje(this.nombre, this.movimientos);
     }
 
     public Vehiculo obtenerVehiculo(){

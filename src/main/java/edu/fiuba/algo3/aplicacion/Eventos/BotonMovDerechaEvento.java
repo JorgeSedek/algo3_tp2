@@ -7,13 +7,13 @@ import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Puntaje;
+import edu.fiuba.algo3.modelo.General.Ranking;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -71,7 +71,7 @@ public class BotonMovDerechaEvento implements EventHandler<ActionEvent> {
     }
 
     private void puntajesDeLosJugadores(VBox vBox) {
-        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+        List<Puntaje> puntajes = Ranking.getInstance().puntajes();
 
         for (Puntaje puntaje : puntajes) {
             Text nombre = new Text(puntaje.obtenerNombreJugador());

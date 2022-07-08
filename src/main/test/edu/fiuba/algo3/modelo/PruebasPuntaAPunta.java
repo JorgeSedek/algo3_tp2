@@ -37,6 +37,7 @@ public class PruebasPuntaAPunta {
     @Test
     public void seJuegaUnaPartidaCompletaCon1Jugador() {
         Logger.getInstance().activar();
+        Ranking.resetInstance();
 
         IMath mathMock = mock(IMath.class);
         when(mathMock.random()).thenReturn(0.1);
@@ -138,6 +139,7 @@ public class PruebasPuntaAPunta {
     @Test
     public void seJuegaUnaPartidaCompletaCon2Jugadores() {
         Logger.getInstance().activar();
+        Ranking.resetInstance();
 
         IMath mathMock = mock(IMath.class);
         when(mathMock.random()).thenReturn(0.1);

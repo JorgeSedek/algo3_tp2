@@ -476,6 +476,7 @@ public class GeneralTest {
         };
         Escenario.resetInstance(totalFilas, totalColumnas);
         Juego.resetInstance(jugadores);
+        Ranking.resetInstance();
 
         Meta meta = new MetaFinal();
         Ubicacion ubicacionMeta = new Ubicacion(2,19);
@@ -494,7 +495,7 @@ public class GeneralTest {
         assertTrue(jugador.verificarMovimientos(movimientosEsperados));
 
         // Assert 2
-        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+        List<Puntaje> puntajes = Ranking.getInstance().puntajes();
         Puntaje puntajeJugador = puntajes.get(0);
 
         assertEquals(puntajes.size(), 1);

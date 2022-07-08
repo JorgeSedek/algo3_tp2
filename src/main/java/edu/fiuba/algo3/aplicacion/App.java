@@ -16,7 +16,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -39,6 +38,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         // Inicializacion
+        Ranking.resetInstance();
         this.stage = stage;
         jugadores = new ArrayList<>();
 
@@ -131,7 +131,7 @@ public class App extends Application {
     }
 
     public void agregarPuntajesJugadores() {
-        List<Puntaje> puntajesJuego = Juego.getInstance().obtenerPuntajes();
+        List<Puntaje> puntajesJuego = Ranking.getInstance().puntajes();
         for (Puntaje puntaje : puntajesJuego) {
             this.puntajes.add(puntaje);
         }

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EscenarioRandom {
     private String nombre = "Martin";
@@ -29,6 +28,7 @@ public class EscenarioRandom {
         // Reseteo el escenario y el juego
         Escenario.resetInstance(1, 1); // De esta manera la meta solo puede estar en un unico lugar (2,3)
         Juego.resetInstance(jugadores);
+        Ranking.resetInstance();
 
         // Le agrego una meta al escenario (se agrega de forma random, pero por el tamaño va a estar en (2,3)
         Escenario.getInstance().agregarObjetosRandom();
@@ -37,7 +37,7 @@ public class EscenarioRandom {
         Juego.getInstance().moverVehiculo(new DireccionDerecha());
 
         // Assert
-        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+        List<Puntaje> puntajes = Ranking.getInstance().puntajes();
         Puntaje puntajeJugador = puntajes.get(0);
 
         assertEquals(puntajes.size(), 1);

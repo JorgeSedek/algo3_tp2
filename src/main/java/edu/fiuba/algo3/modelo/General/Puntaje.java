@@ -5,9 +5,9 @@ public class Puntaje {
 
     private final int PUNTUACION;
 
-    public Puntaje(Jugador jugador){
-        this.NOMBREJUGADOR = jugador.nombre();
-        this.PUNTUACION = jugador.movimientos();
+    public Puntaje(String nombre, int movimientos){
+        this.NOMBREJUGADOR = nombre;
+        this.PUNTUACION = movimientos;
     }
 
     public String obtenerNombreJugador() {
