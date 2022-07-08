@@ -62,6 +62,7 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
         // Entra a este if cuando se termina el juego
         if (!Juego.getInstance().hayJugadoresActivos()) {
             app.obtenerReproductorMusica().stop();
+            app.agregarPuntajesJugadores();
             juegoView.limpiarConsola();
             Logger.getInstance().resetear();
 
@@ -91,11 +92,11 @@ public class ControladorTecladoEvento implements EventHandler<KeyEvent> {
     }
 
     private void puntajesDeLosJugadores(VBox vBox) {
-        List<Puntaje> puntajes = Juego.getInstance().obtenerPuntajes();
+        List<Puntaje> puntajes = app.obtenerPuntajes();
 
         for (Puntaje puntaje : puntajes) {
             Text nombre = new Text(puntaje.obtenerNombreJugador());
-            Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion() ));
+            Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion()));
             HBox hBox = new HBox(nombre, puntuacion);
             hBox.setSpacing(100);
             hBox.setAlignment(Pos.CENTER);

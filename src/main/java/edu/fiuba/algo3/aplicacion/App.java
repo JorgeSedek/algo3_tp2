@@ -5,7 +5,9 @@ import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
 import edu.fiuba.algo3.modelo.General.Escenario;
+import edu.fiuba.algo3.modelo.General.Juego;
 import edu.fiuba.algo3.modelo.General.Jugador;
+import edu.fiuba.algo3.modelo.General.Puntaje;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -33,6 +36,7 @@ public class App extends Application {
     private List<Jugador> jugadores;
     private EscenarioView escenarioView;
 
+    private List<Puntaje> puntajes = new ArrayList<>();
 
     @Override
     public void start(Stage stage) {
@@ -127,4 +131,13 @@ public class App extends Application {
     public MediaPlayer obtenerReproductorMusica() {
         return this.mediaPlayer;
     }
+
+    public void agregarPuntajesJugadores() {
+        List<Puntaje> puntajesJuego = Juego.getInstance().obtenerPuntajes();
+        for (Puntaje puntaje : puntajesJuego) {
+            this.puntajes.add(puntaje);
+        }
+    }
+
+    public List<Puntaje> obtenerPuntajes() {return this.puntajes;}
 }
