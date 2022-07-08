@@ -4,10 +4,7 @@ import edu.fiuba.algo3.aplicacion.Eventos.BotonComenzarEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonInstruccionesEvento;
 import edu.fiuba.algo3.aplicacion.Eventos.BotonSalirEvento;
 import edu.fiuba.algo3.aplicacion.Vista.EscenarioView;
-import edu.fiuba.algo3.modelo.General.Escenario;
-import edu.fiuba.algo3.modelo.General.Juego;
-import edu.fiuba.algo3.modelo.General.Jugador;
-import edu.fiuba.algo3.modelo.General.Puntaje;
+import edu.fiuba.algo3.modelo.General.*;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -24,6 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -139,5 +137,8 @@ public class App extends Application {
         }
     }
 
-    public List<Puntaje> obtenerPuntajes() {return this.puntajes;}
+    public List<Puntaje> obtenerPuntajes() {
+        Collections.sort(this.puntajes, new OrdenarPorMovimientos());
+        return this.puntajes;
+    }
 }
