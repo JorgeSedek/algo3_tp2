@@ -37,10 +37,6 @@ public class MotoView implements VehiculoView{
 
     }
 
-
-    public void moverDerecha(){
-
-    }
 }
 
 

@@ -40,8 +40,5 @@ public class AutoView implements VehiculoView{
 
     }
 
-    public void moverDerecha(){
-
-    }
 
 }

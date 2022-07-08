@@ -13,10 +13,6 @@ public class CamionetaView implements VehiculoView{
     public double ANCHO_CAMIONETA;
     public double ALTO_CAMIONETA;
 
-
-
-
-
     protected String imagenPath ;
 
     public CamionetaView(Camioneta camioneta, Pane root, double alto, double ancho){
@@ -30,7 +26,6 @@ public class CamionetaView implements VehiculoView{
 
     }
 
-
     public void dibujar(){
 
         this.posicionarImagen();
@@ -38,57 +33,12 @@ public class CamionetaView implements VehiculoView{
 
     }
 
-/*
-
-    public void mover(){
-
-            Direccion direccion = camioneta.obtenerDireccion();
-            TranslateTransition translateTransition = new TranslateTransition(Duration.millis(1000), imagenCamioneta);
-
-            if (direccion instanceof DireccionArriba) {
-                translateTransition.setByY(-100);
-            }
-
-            if (direccion instanceof DireccionAbajo) {
-                translateTransition.setByY(100);
-            }
-
-            if (direccion instanceof DireccionDerecha) {
-                translateTransition.setByX(100);
-
-            }
-
-            if (direccion instanceof DireccionIzquierda) {
-                translateTransition.setByX(-100);
-
-
-            }
-            else{
-
-            }
-
-
-            translateTransition.setCycleCount(1);
-            translateTransition.play();
-
-        }
-
-
-*/
-
-
-
-
-
-
     public void posicionarImagen(){
 
         imagenCamioneta.setLayoutY((camioneta.obtenerUbicacion().obtenerFila() - 2 ) * ANCHO_CAMIONETA + ANCHO_CAMIONETA);
         imagenCamioneta.setLayoutX((camioneta.obtenerUbicacion().obtenerColumna() - 2) * ALTO_CAMIONETA + ALTO_CAMIONETA);
 
     }
-
-
 
     public void actualizar(){
         this.posicionarImagen();
