@@ -1,11 +1,78 @@
 @startuml
 class Escenario {
-    - filas
-    - columnas
+    - filas : int
+    - columnas : int
+    - INSTANCE {static} : Escenario
     - Escenario(filas, columnas)
+    + getInstance() {static} : Escenario
+    - llenarConCasilleros()
+    + buscarCasilleroEn(Ubicacion) : Casillero
+    + excedeLimites(fila, columna) : boolean
+    + esBorde(fila, columna) : boolean
+    + correspondeMeta(columna) : boolean
+    + agregarObjetosRandom()
 }
 
-class Casillero {}
+interface ColocadorItems {
+    + agregarObjetosAEscenario(casilleros)
+}
+
+class ColocadorRandom {
+    + ColocadorRandom(IMath)
+    + agregarObjetosAEscenario(casilleros)
+    - Sorpresa generarSorpresaAleatoria() : Sorpresa
+    - Obstaculo generarObstaculoAleatorio() : Obstaculo
+    + agregarObstaculoEn(Casillero, Obstaculo)
+    + agregarSorpresaEn(Casillero, Sorpresa)
+    + agregarMetaEn(Casillero, Meta)
+}
+
+interface Imath {
+    + random() : double
+}
+ColocadorRandom ..> Imath
+ColocadorItems <|.. ColocadorRandom
+Escenario ..> ColocadorItems
+class Casillero {
+    + Casillero(fila, columna)
+    + asignarObstaculo(Obstaculo)
+    + asignarSorpresa(Sorpresa)
+    + asignarMeta(Meta)
+    + atravesar(Jugador)
+    + podesTenerMeta() : boolean
+    + hayCalle() : boolean
+}
 
 Escenario *--> "*" Casillero
+
+class Ubicacion {
+    - fila : int
+    - columna : int
+    + Ubicacion(fila, columna)
+    + mover(DireccionAbajo)
+    + mover(DireccionDerecha)
+    + mover(DireccionArriba)
+    + mover(DireccionIzquierda)
+}
+interface Obstaculo{
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
+}
+
+interface Sorpresa{
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
+}
+
+interface Meta {
+    + atravesar(Vehiculo) : Efecto
+}
+
+Casillero *-> Ubicacion
+Casillero *--> Sorpresa
+Casillero *--> Obstaculo
+Casillero *--> Meta
+
 @enduml

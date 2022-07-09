@@ -6,16 +6,13 @@ import edu.fiuba.algo3.modelo.Math.Random;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
 import edu.fiuba.algo3.modelo.Obstaculos.*;
-import edu.fiuba.algo3.modelo.Sorpresas.CambioVehiculo;
-import edu.fiuba.algo3.modelo.Sorpresas.Desfavorable;
-import edu.fiuba.algo3.modelo.Sorpresas.Favorable;
-import edu.fiuba.algo3.modelo.Sorpresas.SinSorpresa;
+import edu.fiuba.algo3.modelo.Sorpresas.*;
 
 import java.util.ArrayList;
 
 public class ColocadorRandom implements ColocadorItems{
     private final IMath RANDOM;
-    private final ArrayList<edu.fiuba.algo3.modelo.Sorpresas.Sorpresa> SORPRESAS = new ArrayList<>() {{
+    private final ArrayList<Sorpresa> SORPRESAS = new ArrayList<>() {{
         add(new SinSorpresa());
         add(new Favorable());
         add(new Desfavorable());
@@ -56,7 +53,7 @@ public class ColocadorRandom implements ColocadorItems{
         agregarMetaEn(casilleroFinal, new MetaFinal());
     }
 
-    private edu.fiuba.algo3.modelo.Sorpresas.Sorpresa generarSorpresaAleatoria() {
+    private Sorpresa generarSorpresaAleatoria() {
         int indexRandom = (int) (RANDOM.random() * SORPRESAS.size());
         return SORPRESAS.get(indexRandom);
     }
@@ -70,7 +67,7 @@ public class ColocadorRandom implements ColocadorItems{
         casillero.asignarObstaculo(obstaculo);
     }
 
-    public void agregarSorpresaEn(Casillero casillero, edu.fiuba.algo3.modelo.Sorpresas.Sorpresa sorpresa) {
+    public void agregarSorpresaEn(Casillero casillero, Sorpresa sorpresa) {
         casillero.asignarSorpresa(sorpresa);
     }
 
