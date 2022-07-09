@@ -36,7 +36,7 @@ public class Ranking {
         }
     }
 
-    public void mostrarRanking() {
+    public void mostrar() {
         Logger.getInstance().imprimir("--------------------------------------------------------------------");
         Logger.getInstance().imprimir("Tabla de puntuaciones");
         for(Puntaje puntaje : this.PUNTUACIONES) {

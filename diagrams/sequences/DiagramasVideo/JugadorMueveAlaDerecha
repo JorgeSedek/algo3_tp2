@@ -17,7 +17,6 @@ activate Juego
 Juego -> "jugadorActivo:Jugador":moverVehiculo(direccion)
 activate "jugadorActivo:Jugador"
 "jugadorActivo:Jugador" -> "auto:Auto":             mover(direccion)
-"jugadorActivo:Jugador" -> "auto:Auto":             mover(direccion)
 activate "auto:Auto"
 
 "auto:Auto" -> "direccion:DireccionDerecha":mover(ubicacionVehiculo)
@@ -49,11 +48,11 @@ activate "nuevoCasillero:Casillero"
 "nuevoCasillero:Casillero" -> "jugadorActivo:Jugador": atravezar(cambioVehiculo)
 deactivate "nuevoCasillero:Casillero"
 "jugadorActivo:Jugador" -> "auto:Auto":atravezar(cambioVehiculo)
-"auto:Auto" -> "Sorpresa":atravezar(auto)
+"auto:Auto" -> "cambioVehiculo:CambioVehiculo":atravezar(auto)
 create "efecto:EfectoGeneral"
-"Sorpresa" -> "efecto:EfectoGeneral":<<new>>
+"cambioVehiculo:CambioVehiculo" -> "efecto:EfectoGeneral":<<new>>
 create "efecto:EfectoMoverAlReves"
-"Sorpresa" -> "efecto:EfectoMoverAlReves":<<new
+"cambioVehiculo:CambioVehiculo" -> "efecto:EfectoMoverAlReves":<<new
 
 
 

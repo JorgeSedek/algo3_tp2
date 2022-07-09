@@ -1,0 +1,58 @@
+@startuml
+interface Obstaculo{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class Pozo{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class Policia{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class Piquete{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+Obstaculo <|.. Pozo
+Obstaculo <|.. Policia
+Obstaculo <|.. Piquete
+
+interface Sorpresa{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class Favorable{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class Desfavorable{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+class CambioVehiculo{
+ +    atravesar(Auto ) : Efecto {abstract}
+   +  atravesar(Camioneta ) : Efecto {abstract}
+    + atravesar(Moto ) : Efecto {abstract}
+}
+
+
+Sorpresa <|.. Favorable
+Sorpresa <|.. Desfavorable
+Sorpresa <|.. CambioVehiculo
+@enduml
