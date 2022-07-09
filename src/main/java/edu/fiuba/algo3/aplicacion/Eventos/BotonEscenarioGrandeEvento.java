@@ -14,8 +14,8 @@ public class BotonEscenarioGrandeEvento implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent actionEvent){
         PantallaElegirCantidadJugadoresView pantallaElegirCantidadJugadoresView = new PantallaElegirCantidadJugadoresView(this.app);
-        int fila = 6;
-        int columna = 6;
+        int fila = 8;
+        int columna = 8;
         this.app.setFilaYColumna(fila, columna);
         pantallaElegirCantidadJugadoresView.elegirCantidadJugadores();
     }
