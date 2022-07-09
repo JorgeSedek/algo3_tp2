@@ -1,0 +1,76 @@
+@startuml
+title los jugadores mueven hasta llegar a la meta final
+
+actor -> Juego: moverVehiculo(direccion)
+activate Juego
+ loop hasta que todos los jugadores cruzen la meta final
+Juego -> " :Jugador":moverVehiculo(direccion)
+activate " :Jugador"
+" :Jugador" -> "auto:Auto":             mover(direccion)
+activate "auto:Auto"
+
+"auto:Auto" -> "direccion:DireccionDerecha":mover(ubicacionVehiculo)
+activate "direccion:DireccionDerecha"
+"direccion:DireccionDerecha" -> "ubicacionVehiculo:Ubicacion":mover(direccion)
+activate "ubicacionVehiculo:Ubicacion"
+deactivate "ubicacionVehiculo:Ubicacion"
+deactivate "direccion:DireccionDerecha"
+
+"auto:Auto" -> Escenario:getInstance()
+activate Escenario
+Escenario --> "auto:Auto":Escenario
+deactivate Escenario
+"auto:Auto" -> Escenario: buscarCasillero(ubicacionVehiculo)
+activate Escenario
+Escenario --> "auto:Auto":nuevoCasillero
+deactivate Escenario
+
+"auto:Auto" -> "direccion:DireccionDerecha":mover(ubicacionVehiculo)
+activate "direccion:DireccionDerecha"
+"direccion:DireccionDerecha" -> "ubicacionVehiculo:Ubicacion":mover(direccion)
+activate "ubicacionVehiculo:Ubicacion"
+deactivate "ubicacionVehiculo:Ubicacion"
+deactivate "direccion:DireccionDerecha"
+"auto:Auto" --> " :Jugador": nuevoCasillero
+deactivate "auto:Auto"
+" :Jugador" -> "nuevoCasillero:Casillero":atravezar(jugadorActivo)
+activate "nuevoCasillero:Casillero"
+"nuevoCasillero:Casillero" -> " :Jugador": atravezar(sorpresa)
+
+" :Jugador" -> "auto:Auto":atravezar(sorpresa)
+activate "auto:Auto"
+"auto:Auto" -> Sorpresa:atravezar(auto)
+activate Sorpresa
+deactivate "auto:Auto"
+deactivate Sorpresa
+
+
+"nuevoCasillero:Casillero" -> " :Jugador": atravezar(obstaculo)
+
+" :Jugador" -> "auto:Auto":atravezar(obstaculo)
+activate "auto:Auto"
+"auto:Auto" -> Obstaculo:atravezar(auto)
+activate Obstaculo
+deactivate "auto:Auto"
+deactivate Obstaculo
+
+
+"nuevoCasillero:Casillero" -> " :Jugador": atravezar(meta)
+
+" :Jugador" -> "auto:Auto":atravezar(meta)
+activate "auto:Auto"
+"auto:Auto" -> Meta:atravezar(auto)
+activate Meta
+deactivate "auto:Auto"
+deactivate Meta
+
+deactivate "nuevoCasillero:Casillero" 
+deactivate " :Jugador" 
+Juego -> Juego:cambiarJugador()
+deactivate Juego
+end
+
+
+
+@enduml
+
