@@ -1,0 +1,43 @@
+@startuml
+title auto atraviesa piquete
+
+"jugadorActivo:Jugador" -> "nuevoCasillero:Casillero":atravezar(jugadorActivo)
+activate "nuevoCasillero:Casillero"
+"nuevoCasillero:Casillero" -> "jugadorActivo:Jugador": atravezar(obstaculo)
+deactivate "nuevoCasillero:Casillero"
+activate "jugadorActivo:Jugador"
+"jugadorActivo:Jugador" -> "auto:Auto":atravezar(obstaculo)
+activate "auto:Auto"
+"auto:Auto" -> "piquete:Piquete":atravezar(auto)
+activate "piquete:Piquete"
+create EfectoGeneral
+"piquete:Piquete" -> EfectoGeneral:<<new>>
+create "efectoAlrevez:EfectoMoverAlReves"
+"piquete:Piquete" -> "efectoAlrevez:EfectoMoverAlReves":<<new EfectoMoverAlReves(efecto, auto)>>
+activate "efectoAlrevez:EfectoMoverAlReves"
+"efectoAlrevez:EfectoMoverAlReves" -> "auto:Auto":cambiarDireccionContraria
+activate "auto:Auto"
+deactivate "auto:Auto"
+deactivate "efectoAlrevez:EfectoMoverAlReves"
+"piquete:Piquete" --> "auto:Auto":efectoAlrevez
+deactivate "piquete:Piquete"
+
+
+"auto:Auto" --> "jugadorActivo:Jugador":efectoAlrevez
+deactivate "auto:Auto"
+"jugadorActivo:Jugador" -> "efectoAlrevez:EfectoMoverAlReves":aplicar
+activate "efectoAlrevez:EfectoMoverAlReves"
+ "efectoAlrevez:EfectoMoverAlReves" -> "jugadorActivo:Jugador":moverVehiculoSentidoOpuesto
+deactivate "efectoAlrevez:EfectoMoverAlReves"
+"jugadorActivo:Jugador" -> "auto:Auto":moverSentidoOpuesto
+activate "auto:Auto"
+"auto:Auto" -> "direccion:Direccion":mover(ubicacion)
+activate "direccion:Direccion"
+deactivate "direccion:Direccion"
+
+"auto:Auto" -> "direccion:Direccion":mover(ubicacion)
+activate "direccion:Direccion"
+deactivate "direccion:Direccion"
+deactivate "auto:Auto"
+deactivate "jugadorActivo:Jugador"
+@enduml
