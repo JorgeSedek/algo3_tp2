@@ -2,7 +2,6 @@ package edu.fiuba.algo3.aplicacion.Vista.ObstaculosView;
 
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.Obstaculos.Policia;
-import edu.fiuba.algo3.modelo.Obstaculos.Pozo;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

@@ -1,58 +1,98 @@
 @startuml
 interface Obstaculo{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
 }
 
 class Pozo{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
 }
 
 class Policia{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + Policia(Imath)
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
 }
 
 class Piquete{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
+}
+
+class SinObstaculo{
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
+}
+
+interface Imath {
+    + random() : double
+}
+class Random {
+    + random() : double
 }
 
 Obstaculo <|.. Pozo
 Obstaculo <|.. Policia
 Obstaculo <|.. Piquete
+Obstaculo <|-- SinObstaculo
+Policia ..> Imath
+Imath <|.. Random
 
 interface Sorpresa{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
 }
 
 class Favorable{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
 }
 
 class Desfavorable{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
 }
 
 class CambioVehiculo{
- +    atravesar(Auto ) : Efecto {abstract}
-   +  atravesar(Camioneta ) : Efecto {abstract}
-    + atravesar(Moto ) : Efecto {abstract}
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
 }
 
+class SinSorpresa {
+    + atravesar(Auto) : Efecto
+    + atravesar(Camioneta) : Efecto
+    + atravesar(Moto) : Efecto
+}
 
 Sorpresa <|.. Favorable
 Sorpresa <|.. Desfavorable
 Sorpresa <|.. CambioVehiculo
+Sorpresa <|.. SinSorpresa
+
+Policia -[hidden]-> Sorpresa
+
+interface Meta {
+    + atravesar(Vehiculo) : Efecto
+}
+class MetaFinal {
+    + atravesar(Vehiculo) : Efecto
+}
+class SinMeta {
+    + atravesar(Vehiculo) : Efecto
+}
+Meta <|.. MetaFinal
+Meta <|.. SinMeta
+
+Desfavorable -[hidden]-> Meta
+
 @enduml

@@ -3,8 +3,6 @@ package edu.fiuba.algo3.aplicacion.Vista.MetaView;
 import edu.fiuba.algo3.modelo.General.Casillero;
 import edu.fiuba.algo3.modelo.Meta.Meta;
 import edu.fiuba.algo3.modelo.Meta.MetaFinal;
-import edu.fiuba.algo3.modelo.Sorpresas.SinSorpresa;
-import edu.fiuba.algo3.modelo.Sorpresas.Sorpresa;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

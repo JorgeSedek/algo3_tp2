@@ -7,7 +7,7 @@ import java.util.List;
 public class Ranking {
     private final List<Puntaje> PUNTUACIONES;
 
-    private final int MAXIMOPUNTAJES = 10;
+    private final int MAXIMOPUNTAJES = 6;
 
     private static Ranking INSTANCE = null;
 
