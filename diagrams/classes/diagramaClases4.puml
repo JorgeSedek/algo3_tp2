@@ -1,0 +1,11 @@
+@startuml
+class Escenario {
+    - filas
+    - columnas
+    - Escenario(filas, columnas)
+}
+
+class Casillero {}
+
+Escenario *--> "*" Casillero
+@enduml
