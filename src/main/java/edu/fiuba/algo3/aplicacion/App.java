@@ -123,6 +123,7 @@ public class App extends Application {
         Media media = new Media( file.toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setVolume(0.2);
         mediaPlayer.play();
     }
 

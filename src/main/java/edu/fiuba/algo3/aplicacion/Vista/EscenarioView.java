@@ -37,7 +37,7 @@ public class EscenarioView {
         Pane layout = new Pane();
 
         if(Juego.getInstance().hayJugadoresActivos()){
-            layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo(), dibujarCirculoRojo());
+            layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo(), dibujarPantallaOscura());
         }else{
             layout.getChildren().addAll(mostrarTableroView(), dibujarVehiculo());
         }
@@ -126,7 +126,7 @@ public class EscenarioView {
         mostrarTablero();
     }
 
-    public Parent dibujarCirculoRojo(){
+    public Parent dibujarPantallaOscura(){
         Pane root = new Pane();
         StackPane layout = new StackPane();
 

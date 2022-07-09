@@ -6,6 +6,7 @@ import edu.fiuba.algo3.aplicacion.Vista.JuegoView;
 import edu.fiuba.algo3.modelo.Direccion.Direccion;
 import edu.fiuba.algo3.modelo.Direccion.DireccionDerecha;
 import edu.fiuba.algo3.modelo.General.Juego;
+import edu.fiuba.algo3.modelo.General.Logger;
 import edu.fiuba.algo3.modelo.General.Puntaje;
 import edu.fiuba.algo3.modelo.General.Ranking;
 import javafx.event.ActionEvent;
@@ -44,6 +45,10 @@ public class BotonMovDerechaEvento implements EventHandler<ActionEvent> {
 
 
         if (!Juego.getInstance().hayJugadoresActivos()) {
+            app.obtenerReproductorMusica().stop();
+            app.agregarPuntajesJugadores();
+            juegoView.limpiarConsola();
+            Logger.getInstance().resetear();
 
             StackPane puntuaciones = new StackPane();
 
@@ -57,7 +62,7 @@ public class BotonMovDerechaEvento implements EventHandler<ActionEvent> {
 
             VBox vbox = new VBox(titulo);
             vbox.setId("puntuaciones");
-            puntajesDeLosJugadores(vbox);
+            puntajesDeLosTop6Jugadores(vbox);
             puntuaciones.getChildren().addAll(vbox, salir);
             vbox.setAlignment(Pos.TOP_CENTER);
 
@@ -70,16 +75,23 @@ public class BotonMovDerechaEvento implements EventHandler<ActionEvent> {
         }
     }
 
-    private void puntajesDeLosJugadores(VBox vBox) {
-        List<Puntaje> puntajes = Ranking.getInstance().puntajes();
+    private void puntajesDeLosTop6Jugadores(VBox vBox) {
+        List<Puntaje> puntajes = app.obtenerPuntajes();
+        int cantJugadoresEnTop = 0;
 
         for (Puntaje puntaje : puntajes) {
+            cantJugadoresEnTop++;
+            if (cantJugadoresEnTop > 6) {
+                return;
+            }
+
             Text nombre = new Text(puntaje.obtenerNombreJugador());
-            Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion() ));
+            Text puntuacion = new Text(String.valueOf(puntaje.obtenerPuntuacion()));
             HBox hBox = new HBox(nombre, puntuacion);
             hBox.setSpacing(100);
             hBox.setAlignment(Pos.CENTER);
             vBox.getChildren().add(hBox);
+
         }
     }
 
