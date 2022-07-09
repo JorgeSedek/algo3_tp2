@@ -1,0 +1,36 @@
+@startuml
+title camioneta atraviesa cambioVehiculo
+
+"jugadorActivo:Jugador" -> "nuevoCasillero:Casillero":atravezar(jugadorActivo)
+activate "nuevoCasillero:Casillero"
+"nuevoCasillero:Casillero" -> "jugadorActivo:Jugador": atravezar(sorpresa)
+deactivate "nuevoCasillero:Casillero"
+activate "jugadorActivo:Jugador"
+"jugadorActivo:Jugador" -> "camioneta:Camioneta":atravezar(sorpresa)
+activate "camioneta:Camioneta"
+"camioneta:Camioneta" -> "cambioVehiculo:CambioVehiculo":atravezar(camioneta)
+activate "cambioVehiculo:CambioVehiculo"
+create EfectoGeneral
+"cambioVehiculo:CambioVehiculo" -> EfectoGeneral:<<new>>
+create "efectoCambioVehiculo:EfectoCambioVehiculo"
+"cambioVehiculo:CambioVehiculo" -> "efectoCambioVehiculo:EfectoCambioVehiculo":<<new EfectoCambioVehiculo(efecto, camioneta)>>
+deactivate "cambioVehiculo:CambioVehiculo"
+activate "efectoCambioVehiculo:EfectoCambioVehiculo"
+"efectoCambioVehiculo:EfectoCambioVehiculo" -> "camioneta:Camioneta":obtenerUbicacion
+"camioneta:Camioneta" --> "efectoCambioVehiculo:EfectoCambioVehiculo":ubicacion
+create "moto:Moto"
+"efectoCambioVehiculo:EfectoCambioVehiculo" -> "moto:Moto":<<Moto(ubicacion)>>
+"efectoCambioVehiculo:EfectoCambioVehiculo" -> "camioneta:Camioneta":obtenerDireccion
+deactivate "efectoCambioVehiculo:EfectoCambioVehiculo"
+"camioneta:Camioneta" --> "moto:Moto":direccion
+deactivate "camioneta:Camioneta"
+"moto:Moto" -> "moto:Moto":asignarDireccion(direccion)
+activate "moto:Moto"
+deactivate "moto:Moto"
+
+"jugadorActivo:Jugador" -> "efectoCambioVehiculo:EfectoCambioVehiculo":aplicar
+activate "efectoCambioVehiculo:EfectoCambioVehiculo"
+"efectoCambioVehiculo:EfectoCambioVehiculo" -> "jugadorActivo:Jugador":cambiarVehiculo(moto)
+deactivate "efectoCambioVehiculo:EfectoCambioVehiculo"
+deactivate "jugadorActivo:Jugador"
+@enduml

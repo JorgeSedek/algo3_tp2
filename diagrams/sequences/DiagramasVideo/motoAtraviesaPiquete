@@ -1,0 +1,25 @@
+@startuml
+title moto atraviesa piquete
+
+"jugadorActivo:Jugador" -> "nuevoCasillero:Casillero":atravezar(jugadorActivo)
+activate "nuevoCasillero:Casillero"
+"nuevoCasillero:Casillero" -> "jugadorActivo:Jugador": atravezar(obstaculo)
+deactivate "nuevoCasillero:Casillero"
+activate "jugadorActivo:Jugador"
+"jugadorActivo:Jugador" -> "moto:Moto":atravezar(obstaculo)
+activate "moto:Moto"
+"moto:Moto" -> "piquete:Piquete":atravezar(moto)
+activate "piquete:Piquete"
+create EfectoGeneral
+"piquete:Piquete" -> EfectoGeneral:<<new>>
+create "efecto:EfectoIncrementarMovimiento"
+"piquete:Piquete" -> "efecto:EfectoIncrementarMovimiento":<<new EfectoIncrementarMovimiento(efecto,incremento)>>
+"piquete:Piquete"  --> "moto:Moto": efecto
+deactivate "piquete:Piquete"
+"moto:Moto" -> "efecto:EfectoIncrementarMovimiento":aplicar
+deactivate "moto:Moto"
+activate "efecto:EfectoIncrementarMovimiento"
+"efecto:EfectoIncrementarMovimiento" -> "jugadorActivo:Jugador" :incrementarMovimiento
+deactivate "efecto:EfectoIncrementarMovimiento"
+deactivate "jugadorActivo:Jugador"
+@enduml
