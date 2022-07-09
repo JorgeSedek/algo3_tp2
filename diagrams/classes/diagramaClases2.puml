@@ -1,4 +1,17 @@
 @startuml
+class Auto{
++atravesar(Obstaculo) : Efecto
++atravesar(Sorpresa) : Efecto
+}
+class Moto{
++atravesar(Obstaculo) : Efecto
++atravesar(Sorpresa) : Efecto
+}
+class Camioneta{
++atravesar(Obstaculo) : Efecto
++atravesar(Sorpresa) : Efecto
+}
+
 abstract class Vehiculo {
 +Vehiculo(Ubicacion)
 +atravesar(Obstaculo) : Efecto {abstract}
@@ -8,21 +21,71 @@ abstract class Vehiculo {
 +moverSentidoOpuesto();
 }
 
-class Auto{
-+atravesar(Obstaculo) : Efecto {abstract}
-+atravesar(Sorpresa) : Efecto {abstract}
+Auto --|> Vehiculo
+Moto --|> Vehiculo
+Camioneta --|> Vehiculo
+
+Vehiculo ..>Efecto
+
+interface Efecto {
+    +aplicar(Jugador)
 }
-class Moto{
-+atravesar(Obstaculo) : Efecto {abstract}
-+atravesar(Sorpresa) : Efecto {abstract}
+
+class EfectoGeneral {
+    + aplicar(Jugador)
 }
-class Camioneta{
-+atravesar(Obstaculo) : Efecto {abstract}
-+atravesar(Sorpresa) : Efecto {abstract}
+
+class EfectoDecorador {
+    # wrappee : Efecto
+    + EfectoDecorador(Efecto)
+    + aplicar(Jugador)
 }
-Vehiculo <|-- Auto
-Vehiculo <|-- Moto
-Vehiculo <|-- Camioneta
+
+class EfectoCambioVehiculo{
+    - VEHICULONUEVO : Vehiculo
+    + EfectoCambioVehiculo(Efecto, Auto)
+    + EfectoCambioVehiculo(Efecto, Camioneta)
+    + EfectoCambioVehiculo(Efecto, Moto)
+    + aplicar(Jugador )
+}
+
+class EfectoFinalizarJuego{
+    + EfectoFinalizarJuego(Efecto)
+    + aplicar(Jugador)
+}
+
+class EfectoIncrementarMovimientos{
+    - INCREMENTO : int
+    + EfectoIncrementarMovimientos(Efecto, incremento)
+    + aplicar(Jugador jugador)
+}
+
+class EfectoIncrementarMovimientosPorcentual{
+    - PORCENTAJEINCREMENTO : double;
+    + EfectoIncrementarMovimientosPorcentual(Efecto , porcentajeIncremento)
+    + aplicar(Jugador)
+}
+
+class EfectoMoverAlReves{
+    + EfectoMoverAlReves(Efecto, Vehiculo)
+    + aplicar(Jugador)
+}
+
+class EfectoReducirMovimientosPorcentual{
+    - PORCENTAJEREDUCCION : double;
+    + EfectoReducirMovimientosPorcentual(Efecto , porcentajeReduccion)
+    + aplicar(Jugador)
+}
+
+Efecto <|. EfectoGeneral
+Efecto <|.. EfectoDecorador
+EfectoDecorador <|-- EfectoCambioVehiculo
+EfectoDecorador <|-- EfectoFinalizarJuego
+EfectoDecorador <|-- EfectoIncrementarMovimientos
+EfectoDecorador <|-left EfectoIncrementarMovimientosPorcentual
+EfectoDecorador <|-- EfectoMoverAlReves
+EfectoDecorador <|- EfectoReducirMovimientosPorcentual
+
 
 
 @enduml

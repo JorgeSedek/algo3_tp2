@@ -1,47 +1,58 @@
 @startuml
 class Juego{
--Juego(jugadores)
-+moverVehiculo(direccion: Direccion)
-+cambiarJugador();
-+finalizar();
--agregarPuntuacion(jugador);
--mostrarTopPuntuaciones();
+    - INSTANCE {static} : Juego
+    -Juego(jugadores)
+    + getInstance() {static} : Juego
+    +moverVehiculo(Direccion)
+    +cambiarJugador();
+    +finalizar();
+    -agregarPuntuacion(jugador);
+    -mostrarTopPuntuaciones();
+}
+
+class Ranking {
+    - INSTANCE {static} : Ranking
+    - Ranking()
+    + getInstance() {static} : Ranking
+    + agregarPuntaje(Puntaje)
+    + mostrar()
+    + List<Puntaje> puntajes()
 }
 
 interface Direccion{
-+mover(Ubicacion)
-+direccionOpuesta():Direccion
+    +mover(Ubicacion)
+    +direccionOpuesta():Direccion
 }
 class DireccionAbajo{
-+mover(Ubicacion)
-+direccionOpuesta():Direccion
+    +mover(Ubicacion)
+    +direccionOpuesta():Direccion
 }
 class DireccionArriba{
-+mover(Ubicacion)
-+direccionOpuesta():Direccion
+    +mover(Ubicacion)
+    +direccionOpuesta():Direccion
 }
 class DireccionDerecha{
-+mover(Ubicacion)
-+direccionOpuesta():Direccion
+    +mover(Ubicacion)
+    +direccionOpuesta():Direccion
 }
 class DireccionIzquierda{
-+mover(Ubicacion)
-+direccionOpuesta():Direccion
+    +mover(Ubicacion)
+    +direccionOpuesta():Direccion
 }
 
 class Jugador{
--nombre:String
--movimientos:int
-+Jugador(nombreJugador:String , vehiculoElegido:Vehiculo)
-+incrementarMovimientos(incremento:int)
-+reducirMovimientos(disminucion:int)
-+aplicarPorcentajeMovimientos(porcentaje:double)
-+moverVehiculo(direccion:Direccion)
-+cambiarVehiculo(vehiculoNuevo:Vehiculo)
-+atravezar(obstaculo)
-+atravezar(sorpresa)
-+atravezar(meta)
-+moverVehiculoSentidoOpuesto();
+    -nombre : String
+    -movimientos : int
+    +Jugador(nombreJugador, Vehiculo)
+    +incrementarMovimientos(incremento)
+    +reducirMovimientos(disminucion)
+    +aplicarPorcentajeMovimientos(porcentaje)
+    +moverVehiculo(Direccion)
+    +cambiarVehiculo(Vehiculo)
+    +atravezar(Obstaculo)
+    +atravezar(Sorpresa)
+    +atravezar(Meta)
+    +moverVehiculoSentidoOpuesto();
 }
 
 class Puntaje {
@@ -67,14 +78,15 @@ class Ubicacion {
 +mover(DireccionIzquierda)
 }
 
-Juego *-> "*" Puntaje
+Ranking ..> Juego
+Ranking *-> "*" Puntaje
 Juego *--> "*" Jugador
 Jugador *-> Vehiculo
 Vehiculo *--> Ubicacion
 Vehiculo *--> Direccion
 
-Direccion <|-- DireccionAbajo
-Direccion <|-- DireccionArriba
-Direccion <|-- DireccionDerecha
-Direccion <|-- DireccionIzquierda
+Direccion <|.. DireccionAbajo
+Direccion <|.. DireccionArriba
+Direccion <|.. DireccionDerecha
+Direccion <|.. DireccionIzquierda
 @enduml

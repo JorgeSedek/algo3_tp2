@@ -53,7 +53,7 @@ public class Juego {
         this.JUGADORES.remove(jugadorActivo);
         if(this.JUGADORES.size() == 0) {
             this.jugadorActivo = null;
-            Ranking.getInstance().mostrarRanking();
+            Ranking.getInstance().mostrar();
         }
     }
 
