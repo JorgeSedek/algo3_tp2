@@ -30,7 +30,6 @@ public class Juego {
 
     public void moverVehiculo(Direccion direccion){
         if (jugadorActivo == null) {
-            System.out.println("No quedan jugadores activos, no se realiza movimiento");
             return;
         }
         this.jugadorActivo.moverVehiculo(direccion);
